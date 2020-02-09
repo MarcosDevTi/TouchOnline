@@ -1,0 +1,17 @@
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.IoC.deps.json
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.IoC.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.AssemblyInfoInputs.cache
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.AssemblyInfo.cs
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.Data.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.csprojAssemblyReference.cache
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.IoC.pdb
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.CqrsHandlers.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.CqrsHandlers.pdb
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.Data.pdb
+C:\projects\TouchOnline\src\TouchOnline.IoC\bin\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.csproj.CopyComplete
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.dll
+C:\projects\TouchOnline\src\TouchOnline.IoC\obj\Debug\netcoreapp3.1\TouchOnline.IoC.pdb

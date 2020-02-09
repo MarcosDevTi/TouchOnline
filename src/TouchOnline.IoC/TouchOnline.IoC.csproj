@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TouchOnline.CqrsClient\TouchOnline.CqrsClient.csproj" />
+    <ProjectReference Include="..\TouchOnline.CqrsHandlers\TouchOnline.CqrsHandlers.csproj" />
+    <ProjectReference Include="..\TouchOnline.Data\TouchOnline.Data.csproj" />
+  </ItemGroup>
+
 </Project>

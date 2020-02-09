@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'http://localhost:59536/api/lessons',
-  apiAuth: 'http://localhost:59536/api/auth/',
+  apiUrl: 'http://localhost:49982/api/lessons',
+  apiAuth: 'http://localhost:49982/api/auth/',
   production: true
 };

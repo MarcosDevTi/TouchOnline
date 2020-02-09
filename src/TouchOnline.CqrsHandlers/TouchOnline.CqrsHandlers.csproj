@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TouchOnline.CqrsClient\TouchOnline.CqrsClient.csproj" />
+    <ProjectReference Include="..\TouchOnline.Data\TouchOnline.Data.csproj" />
+    <ProjectReference Include="..\TouchOnline.Domain\TouchOnline.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
