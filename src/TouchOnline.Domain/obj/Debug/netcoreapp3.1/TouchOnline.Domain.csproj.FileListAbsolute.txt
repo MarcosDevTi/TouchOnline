@@ -1,11 +1,3 @@
-C:/projects/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.deps.json
-C:/projects/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.dll
-C:/projects/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.pdb
-C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.csprojAssemblyReference.cache
-C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.AssemblyInfoInputs.cache
-C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.AssemblyInfo.cs
-C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.dll
-C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.pdb
 /root/project/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.deps.json
 /root/project/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.dll
 /root/project/TouchOnline/src/TouchOnline.Domain/bin/Debug/netcoreapp3.1/TouchOnline.Domain.pdb
@@ -14,3 +6,10 @@ C:/projects/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnli
 /root/project/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.AssemblyInfo.cs
 /root/project/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.dll
 /root/project/TouchOnline/src/TouchOnline.Domain/obj/Debug/netcoreapp3.1/TouchOnline.Domain.pdb
+C:\projects\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.deps.json
+C:\projects\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\projects\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.AssemblyInfoInputs.cache
+C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.AssemblyInfo.cs
+C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.pdb

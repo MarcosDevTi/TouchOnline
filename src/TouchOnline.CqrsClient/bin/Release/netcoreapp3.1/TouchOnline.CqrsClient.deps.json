@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "TouchOnline.CqrsClient/1.0.0": {
+        "dependencies": {
+          "TouchOnline.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TouchOnline.CqrsClient.dll": {}
+        }
+      },
+      "TouchOnline.Domain/1.0.0": {
+        "runtime": {
+          "TouchOnline.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TouchOnline.CqrsClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TouchOnline.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

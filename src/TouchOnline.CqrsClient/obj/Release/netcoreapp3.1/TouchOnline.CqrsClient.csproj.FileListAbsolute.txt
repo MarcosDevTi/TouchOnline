@@ -1,0 +1,11 @@
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\bin\Release\netcoreapp3.1\TouchOnline.CqrsClient.deps.json
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\bin\Release\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\bin\Release\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\bin\Release\netcoreapp3.1\TouchOnline.Domain.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\bin\Release\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.csprojAssemblyReference.cache
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.AssemblyInfoInputs.cache
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.AssemblyInfo.cs
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CopyComplete
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Release\netcoreapp3.1\TouchOnline.CqrsClient.pdb

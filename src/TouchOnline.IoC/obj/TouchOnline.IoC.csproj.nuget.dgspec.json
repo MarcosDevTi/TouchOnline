@@ -1,32 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "/root/project/TouchOnline/src/TouchOnline.IoC/TouchOnline.IoC.csproj": {}
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj": {}
   },
   "projects": {
-    "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj": {
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj",
+        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
         "projectName": "TouchOnline.CqrsClient",
-        "projectPath": "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/project/TouchOnline/src/TouchOnline.CqrsClient/obj/",
+        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj"
               }
             }
           }
@@ -54,39 +60,50 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     },
-    "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/TouchOnline.CqrsHandlers.csproj": {
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/TouchOnline.CqrsHandlers.csproj",
+        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj",
         "projectName": "TouchOnline.CqrsHandlers",
-        "projectPath": "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/TouchOnline.CqrsHandlers.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/obj/",
+        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
               },
-              "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
               },
-              "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj"
               }
             }
           }
@@ -114,33 +131,44 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     },
-    "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj": {
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj",
+        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj",
         "projectName": "TouchOnline.Data",
-        "projectPath": "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/project/TouchOnline/src/TouchOnline.Data/obj/",
+        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj"
               }
             }
           }
@@ -155,6 +183,16 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.1, )"
             }
@@ -174,26 +212,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     },
-    "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj": {
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj",
+        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
         "projectName": "TouchOnline.Domain",
-        "projectPath": "/root/project/TouchOnline/src/TouchOnline.Domain/TouchOnline.Domain.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/project/TouchOnline/src/TouchOnline.Domain/obj/",
+        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -224,39 +273,50 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     },
-    "/root/project/TouchOnline/src/TouchOnline.IoC/TouchOnline.IoC.csproj": {
+    "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/root/project/TouchOnline/src/TouchOnline.IoC/TouchOnline.IoC.csproj",
+        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
         "projectName": "TouchOnline.IoC",
-        "projectPath": "/root/project/TouchOnline/src/TouchOnline.IoC/TouchOnline.IoC.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/root/project/TouchOnline/src/TouchOnline.IoC/obj/",
+        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
+        "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.CqrsClient/TouchOnline.CqrsClient.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
               },
-              "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/TouchOnline.CqrsHandlers.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.CqrsHandlers/TouchOnline.CqrsHandlers.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj"
               },
-              "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj": {
-                "projectPath": "/root/project/TouchOnline/src/TouchOnline.Data/TouchOnline.Data.csproj"
+              "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
+                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
               }
             }
           }
@@ -270,6 +330,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -279,6 +343,10 @@
               "version": "[3.1.1, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.1.1, )"
             }
@@ -298,7 +366,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

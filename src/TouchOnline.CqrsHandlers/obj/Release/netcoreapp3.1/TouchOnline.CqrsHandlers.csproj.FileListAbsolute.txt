@@ -1,0 +1,15 @@
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.deps.json
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.Data.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.Domain.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.Data.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\bin\Release\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.csprojAssemblyReference.cache
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.AssemblyInfoInputs.cache
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.AssemblyInfo.cs
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.csproj.CopyComplete
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.dll
+C:\projects\TouchOnline\src\TouchOnline.CqrsHandlers\obj\Release\netcoreapp3.1\TouchOnline.CqrsHandlers.pdb
