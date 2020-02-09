@@ -5,7 +5,7 @@
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
-    <SpaRoot>ClientApp\</SpaRoot>
+    <SpaRoot>..\touch-online-angular\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
 
     <!-- Set this to true if you enable server-side prerendering -->
@@ -21,6 +21,25 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\touch-online-angular\e2e\**" />
+    <None Remove="..\touch-online-angular\src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\touch-online-angular\.editorconfig" />
+    <None Remove="..\touch-online-angular\angular.json" />
+    <None Remove="..\touch-online-angular\browserslist" />
+    <None Remove="..\touch-online-angular\karma.conf.js" />
+    <None Remove="..\touch-online-angular\package-lock.json" />
+    <None Remove="..\touch-online-angular\package.json" />
+    <None Remove="..\touch-online-angular\README.md" />
+    <None Remove="..\touch-online-angular\tsconfig.app.json" />
+    <None Remove="..\touch-online-angular\tsconfig.json" />
+    <None Remove="..\touch-online-angular\tsconfig.spec.json" />
+    <None Remove="..\touch-online-angular\tslint.json" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
