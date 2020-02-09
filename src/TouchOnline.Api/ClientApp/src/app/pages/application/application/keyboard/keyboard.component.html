@@ -1,0 +1,23 @@
+
+
+  <div class="mao-container leftHand">
+    <img src="../../../../../assets/Maos/mE.png" class="img-mao d-flex justify-content-end">
+    <img *ngFor="let dedo of dedosE" src="../../../../../assets/Maos/{{dedo}}.png " class="img-mao">
+  </div>
+
+<div class="kb">
+<span *ngFor="let tecla of teclado">
+<div id="{{tecla.id}}" class="{{tecla.key1}}">
+  <div class="{{tecla.key2}}">{{ tecla.value }}</div>
+  <div class="{{tecla.key3}}">{{ tecla.value2 }}</div>
+</div>
+</span>
+</div>
+
+<div class="mao-container rightHand">
+<img src="../../../../../assets/Maos/mD.png " class="img-mao">
+<img *ngFor="let dedo of dedosD" src="../../../../../assets/Maos/{{dedo}}.png " class="img-mao">
+</div>
+
+
+

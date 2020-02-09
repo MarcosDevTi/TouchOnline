@@ -1,0 +1,32 @@
+<div class="cont">
+  <div class="menuNiveis">
+      <app-left-menu></app-left-menu>
+    </div>
+
+<div class="lista">
+  <mat-selection-list #shoes>
+  
+    <div *ngFor="let lesson of advanceds">
+      <a [routerLink]="['//app', lesson.idLesson]">
+       <mat-list-item>
+         <div class="titulo"> 
+          Avançado
+             {{lesson.name}}
+         </div> 
+         <h3 *ngIf="lesson.initialized" class="init">{{lesson.lessonTextShort}} </h3>
+         <h3 *ngIf="!lesson.initialized" class="notInit">{{lesson.lessonTextShort}} </h3>
+         <mat-card *ngIf="lesson.initialized" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
+           <app-card-result [lesson]="lesson"></app-card-result>
+         </mat-card>
+       </mat-list-item>
+      </a>
+       <mat-divider></mat-divider>
+     </div>
+    
+</mat-selection-list>
+</div>
+
+<div class="seo">
+  <app-seo-list></app-seo-list>
+</div>
+</div>

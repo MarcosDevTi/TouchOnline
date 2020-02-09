@@ -1,0 +1,62 @@
+
+
+.material-icons {
+    font-size: 2vw;
+}
+
+.primCol, .secCol {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    border-top: 1px solid rgba(219, 219, 219, 0.315);
+    border-bottom: 1px solid rgba(219, 219, 219, 0.404);
+    border-radius: 5px;
+
+}
+
+.precis{
+    width: 55%;
+    
+}
+.tempo{
+    width: 45%;
+    
+}
+
+.npm {
+    width: 45%
+}
+.stars {
+    width:55%;
+    align-items: center;
+}
+
+.tempo, .precis, .npm, .stars {
+    height: 100%;
+}
+
+
+.tempo .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn{
+    background-color: #4e4e4e;
+}
+
+.bad {
+    background-color: #e61212 !important;
+}
+.good {
+    background-color: #026702b8 !important;
+}
+
+.ok-card {
+    background-color: #409043;
+    
+}
+
+.bad-card {
+    background-color: #e03333c4;
+}
+
+.mat-chip {
+    font-size: 0.85vw;
+}

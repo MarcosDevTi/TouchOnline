@@ -1,0 +1,23 @@
+<div class="primCol">
+  <div class="stars">
+      <div class="centerStar">
+        <app-stars-item [numStars]="lesson.stars"></app-stars-item>
+      </div>
+   </div>
+<div class="tempo">
+    <mat-chip class="tempo" selected>Tempo: {{lesson.time | timerFormat}}</mat-chip>
+</div>
+
+</div>
+<div class="secCol">
+  <div class="precis">
+      <mat-chip 
+      [ngClass]="{'bad': lesson.precision < 95, 'good': lesson.precision >= 95}"
+       selected> Precisão: {{lesson.precision | number : '1.2-2'}}%
+      </mat-chip>
+  </div>
+<div class="npm">
+    <mat-chip >Veloc: {{lesson.ppm}} PPM</mat-chip>
+</div>
+
+</div>

@@ -1,0 +1,51 @@
+<div class="containerMat">
+  <div class="controls">
+    <button type="button" [routerLink]="['/lessons/beginner']" class="btn btn-block btn-outline-secondary"><i class="fa fa-list"></i> Voltar à Lista</button>
+      <button type="button" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Próximo</button>
+      <button type="button" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Reiniciar</button>
+  </div>
+
+  <div class="level">
+      <h2 class="d-flex justify-content-center">{{category}} {{name}}</h2>
+      <h4 class="d-flex justify-content-center"><i class="fa fa-bookmark-o mr-2"></i>{{category}}</h4>
+      
+      <mat-form-field class="center keyboard">
+          <mat-label>Seu Teclado</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option *ngFor="let keyboard of keyboards" [value]="keyboard.key">
+              {{keyboard.keyboardLabel}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+    <!-- <div class="center title">Advanced 1</div>
+    <div class="center titleLevel">Beginner</div> -->
+    
+  </div>
+
+  <div class="grafics">
+      <div>
+          <div *ngIf="LineChart" style="height: 130px;">
+              <canvas id="lineChart"width="500" height="200"></canvas>
+          </div>
+       
+       </div>
+  </div>
+
+  <div class="tempo">
+      <div>
+          <div class="d-flex justify-content-center"> <span class="timerLabel">Tempo</span></div>
+          <span class="d-flex justify-content-center timer" >
+          <div style="margin-top: -10px;">{{timeLeft | timerFormat}}</div>  
+          </span>
+      </div>
+  </div>
+
+  <div class="wpm">
+      <div>
+          <div class="d-flex justify-content-center"><span class="ppmLabel">PPM</span></div>
+          <span class="d-flex justify-content-center ppm"><span style="margin-top: -10px;">{{ppm}}</span></span> 
+      </div>
+  </div>
+</div>

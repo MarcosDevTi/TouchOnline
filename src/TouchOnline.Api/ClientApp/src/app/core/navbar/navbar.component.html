@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['']">| DigiteMais.Com |</a>
+ 
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['']" >Home</a>
+      </li>
+      <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
+      <mat-menu #menu="matMenu">
+        <button routerLink="lessons/beginner" mat-menu-item>Iniciante</button>
+        <button routerLink="lessons/basic" mat-menu-item>Básico</button>
+        <button routerLink="lessons/intermediate" mat-menu-item>Intermediário</button>
+        <button routerLink="lessons/advanced" mat-menu-item>Avançado</button>
+      </mat-menu>
+      <li class="nav-item">
+        <a class="nav-link" >Criar Exercícios</a>
+      </li>
+    </ul>
+
+    <div *ngIf="loggedIn()" class="dropdown">
+      <a class="dropdown-toggle text-dark mr-3">
+        Welcome {{nameDisplay}}
+      </a>
+    
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i class="fa fa-user">Editar Perfil</i></a>
+        <a class="dropdown-divider"></a>
+        <a class="dropdown-item" href="#"> <i class="fa fa-sign-out"></i> Logout</a>
+      </div>
+    </div>
+    <button *ngIf="loggedIn()" class="btn btn-primary my-2 my-sm-0" (click)=logout()>Logout</button>
+    <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" [formGroup]="loginForm" (submit)="login()">
+      <input class="form-control mr-sm-2" type="search" placeholder="Email" formControlName="email">
+      <input class="form-control mr-sm-2" type="password" placeholder="Password" formControlName="password">
+      <button class="btn btn-info my-2 my-sm-0 mr-2" type="submit">Login</button>
+    </form>
+    <button *ngIf="!loggedIn()" [routerLink]="['/auth/register']" class="btn btn-primary my-2 my-sm-0">Registrar-se</button>
+</nav>

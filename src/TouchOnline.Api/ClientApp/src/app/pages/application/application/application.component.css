@@ -1,0 +1,84 @@
+.errou {
+    text-decoration: underline;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family:monospace;
+    color:#ff5454;
+  }
+  .proximo {
+    text-decoration: underline;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family:monospace;
+    color:#5457ff;
+  }
+  
+  .acertou {
+    /* background: rgb(216, 255, 158); */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    color: #999;
+    font-family:monospace
+  }
+  
+  .keyDefault {
+    color: #333; 
+    font-family:monospace
+  }
+  
+  .btn-block + .btn-block {
+    margin-top: 0.2rem;
+  }
+  .timer {
+    height: 80px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 10px;
+    border-left: 6px solid rgb(137, 170, 137);
+    border-right: 6px solid rgb(137, 170, 137);
+    font-size: 60px;
+    font-family: monospace;
+  }
+  .ppm {
+      width: 60%;
+    height: 80px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 10px;
+    border-left: 6px solid rgb(137, 170, 137);
+    border-right: 6px solid rgb(137, 170, 137);
+    font-size: 60px;
+    font-family: monospace;
+  }
+  
+  .timerLabel {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 20px;
+      font-family: Georgia;
+      border-left: 2px solid rgb(224, 224, 224);
+      border-right: 2px solid rgb(224, 224, 224);
+      border-top: 2px solid rgb(224, 224, 224);
+  }
+  
+  #lineChart {
+    height: 125px !important;
+  }
+  
+  .ppmLabel {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 20px;
+      font-family: Georgia;
+      border-left: 2px solid rgb(224, 224, 224);
+      border-right: 2px solid rgb(224, 224, 224);
+      border-top: 2px solid rgb(224, 224, 224);
+      margin-right: 42%;
+  }
+  .form-group {
+       margin-bottom: 0rem; 
+  }
+  
+  

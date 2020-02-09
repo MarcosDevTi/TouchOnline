@@ -1,0 +1,44 @@
+.cont {
+    width: 100%;
+    display: flex;
+}
+
+.lista {
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 58%;
+}
+
+.seo {
+    margin-top: 40px;
+    width: 19%;
+}
+
+.lista mat-selection-list mat-list-item{
+    margin-bottom: 5px;
+    height: 70px;;
+    border-left: 6px solid #006786;
+    font-family: monospace;
+    box-shadow: 3px 3px 4px rgba(0,0,0,.95)!important;
+    border-left-width: 9px;
+    border-radius: 9px;
+}
+
+.lista mat-selection-list  a {
+    text-decoration: none;
+   
+}
+
+.lista mat-selection-list h3 {
+    background-color: rgba(221,255,31,.12);
+}
+
+
+
+.menuNiveis {
+    margin-top: 30px;
+    width: 19%;
+    margin-left: 1%;
+}
+
+

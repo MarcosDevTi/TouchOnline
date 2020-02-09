@@ -1,0 +1,102 @@
+.imgTxt1 {
+    margin-top: -42px;
+    font-size: 19em;
+    color: #0d170f;
+    background-color: rgba(211,211,211,.44);
+    border-radius: 28px;
+    width: 401px;
+    height: 287px;
+}
+
+.btnInicie {
+    margin-top: -150px;
+    margin-right: -550px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.imgTxt2 {
+    background-color: rgba(4,88,174,.13);
+    border-radius: 60px;
+    margin-top: -37px;
+    font-size: 20em;
+    width: 350px;
+    color: #555;
+    height: 319px;
+}
+.imgTxt3 {
+    margin-top: -46px;
+    font-size: 26em;
+    background-color: rgba(245,229,218,.38);
+    border-radius: 81px;
+    color: #1aa376;
+    height: 368px;
+    width: 487px;
+}
+
+.imgTxt4 {
+    background-color: rgba(137,255,148,.23);
+    margin-top: -43px;
+    font-size: 25em;
+    color: #0069c4;
+    width: 354px;
+    height: 350px;
+    border-radius: 47px;
+}
+
+/* .text-center .tall {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+p.tall {
+    margin-bottom: 20px;
+} */
+
+.feature-box .feature-box-icon {
+    background: #ababab;
+    border-radius: 35px;
+    color: #fff;
+    display: inline-block;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+    position: relative;
+    text-align: center;
+    top: 5px;
+    width: 35px;
+}
+
+.feature-box .feature-box-info {
+    padding-left: 50px;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none !important;
+}
+section.featured {
+    background: #f0f0ed;
+    border-top: 5px solid #ecece8;
+    margin: 35px 0;
+    padding: 50px 0;
+}
+.alternative-font {
+    color: gray;
+    font-family: monospace;
+    font-size: 1.8em;
+    padding-bottom: 5px;
+}
+
+body a {
+    outline: none!important;
+}
+
+.material-icons {
+    margin-top: 4px;
+}
+
+.container .text-center 
+{
+    
+}
