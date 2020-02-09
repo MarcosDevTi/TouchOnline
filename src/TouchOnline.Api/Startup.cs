@@ -23,7 +23,7 @@ namespace TouchOnline.Api
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "../touch-online-angular/dist";
+                configuration.RootPath = "AngularApp/dist";
             });
         }
 
@@ -59,7 +59,7 @@ namespace TouchOnline.Api
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "../touch-online-angular";
+                spa.Options.SourcePath = "AngularApp";
 
                 if (env.IsDevelopment())
                 {
