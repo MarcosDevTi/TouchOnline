@@ -13,7 +13,7 @@ namespace TouchOnline.Api.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Marcos 1", "Marcos 2", "Marcos 3", "Marcos 4", "Marcos 5", "Marcos6", "Marcos 7", "Marcos 8", "Marcos 9", "Marcos 0"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
