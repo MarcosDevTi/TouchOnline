@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.Api", "src\TouchOnline.Api\TouchOnline.Api.csproj", "{C2B5295A-B437-49A8-A76E-1D4180A5CC2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.CqrsClient", "src\TouchOnline.CqrsClient\TouchOnline.CqrsClient.csproj", "{844EAF2D-553E-4614-8D47-A5140B5843FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.CqrsHandlers", "src\TouchOnline.CqrsHandlers\TouchOnline.CqrsHandlers.csproj", "{BB311592-2607-4BEA-A576-8F0618E03035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.Domain", "src\TouchOnline.Domain\TouchOnline.Domain.csproj", "{0201399C-163D-4382-8DB2-3B9766502BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.Data", "src\TouchOnline.Data\TouchOnline.Data.csproj", "{12675941-77C4-49DE-A9D8-398C0117061F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouchOnline.IoC", "src\TouchOnline.IoC\TouchOnline.IoC.csproj", "{682C9B50-5202-45E0-BDB0-A3B59981A178}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{C2B5295A-B437-49A8-A76E-1D4180A5CC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B5295A-B437-49A8-A76E-1D4180A5CC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B5295A-B437-49A8-A76E-1D4180A5CC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844EAF2D-553E-4614-8D47-A5140B5843FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844EAF2D-553E-4614-8D47-A5140B5843FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844EAF2D-553E-4614-8D47-A5140B5843FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844EAF2D-553E-4614-8D47-A5140B5843FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB311592-2607-4BEA-A576-8F0618E03035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB311592-2607-4BEA-A576-8F0618E03035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB311592-2607-4BEA-A576-8F0618E03035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB311592-2607-4BEA-A576-8F0618E03035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0201399C-163D-4382-8DB2-3B9766502BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0201399C-163D-4382-8DB2-3B9766502BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0201399C-163D-4382-8DB2-3B9766502BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0201399C-163D-4382-8DB2-3B9766502BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12675941-77C4-49DE-A9D8-398C0117061F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12675941-77C4-49DE-A9D8-398C0117061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12675941-77C4-49DE-A9D8-398C0117061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12675941-77C4-49DE-A9D8-398C0117061F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682C9B50-5202-45E0-BDB0-A3B59981A178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682C9B50-5202-45E0-BDB0-A3B59981A178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682C9B50-5202-45E0-BDB0-A3B59981A178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682C9B50-5202-45E0-BDB0-A3B59981A178}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
