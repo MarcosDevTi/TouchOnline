@@ -11,7 +11,7 @@ namespace TouchOnline.IoC
     {
         public static void Register(IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<ToContext>(db => db.UseNpgsql("Host=localhost;Database=To;Username=postgres;Password=323600"));
+            services.AddDbContext<ToContext>(db => db.UseNpgsql(config.GetConnectionString("NpgsqlConnection")));
             services.AddScoped<IProcessor, Processor>();
             services.AddCqrs();
         }
