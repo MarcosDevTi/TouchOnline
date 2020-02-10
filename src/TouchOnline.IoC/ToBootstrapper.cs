@@ -10,7 +10,6 @@ namespace TouchOnline.IoC
     {
         public static void Register(IServiceCollection services, IConfiguration config)
         {
-            //services.AddDbContext<DmContext>(db => db.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ToContext>(db => db.UseSqlite(config.GetConnectionString("DefaultConnection")));
             services.AddScoped<IProcessor, Processor>();
             services.AddCqrs();
