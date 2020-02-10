@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 using System.Net;
 using TouchOnline.Api.Helpers;
 using TouchOnline.IoC;
@@ -57,13 +58,14 @@ namespace TouchOnline.Api
                         var error = context.Features.Get<IExceptionHandlerFeature>();
                         if (error != null)
                         {
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
                             var innerError = ", ";
                             if (error.Error.InnerException != null)
                             {
-                                innerError += error.Error.InnerException.Message;
+                                innerError += error.Error.InnerException.Message + "path: " + path;
                             }
                             context.Response.AddApplicationError(error.Error.Message + innerError);
-                            await context.Response.WriteAsync(error.Error.Message);
+                            await context.Response.WriteAsync(error.Error.Message + "path: " + path);
                         }
                     });
                 });
