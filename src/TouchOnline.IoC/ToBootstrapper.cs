@@ -11,9 +11,7 @@ namespace TouchOnline.IoC
     {
         public static void Register(IServiceCollection services, IConfiguration config)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
-            var conn = @$"Data Source={path}\Dm.db";
-            services.AddDbContext<ToContext>(db => db.UseSqlite(conn));
+            services.AddDbContext<ToContext>(db => db.UseNpgsql("Host=localhost;Database=To;Username=postgres;Password=323600"));
             services.AddScoped<IProcessor, Processor>();
             services.AddCqrs();
         }

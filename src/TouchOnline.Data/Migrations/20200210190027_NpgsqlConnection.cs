@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TouchOnline.Data.Migrations
 {
-    public partial class Init : Migration
+    public partial class NpgsqlConnection : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
