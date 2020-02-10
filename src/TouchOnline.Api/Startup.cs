@@ -57,7 +57,12 @@ namespace TouchOnline.Api
                         var error = context.Features.Get<IExceptionHandlerFeature>();
                         if (error != null)
                         {
-                            context.Response.AddApplicationError(error.Error.Message);
+                            var innerError = ", ";
+                            if (error.Error.InnerException != null)
+                            {
+                                innerError += error.Error.InnerException.Message;
+                            }
+                            context.Response.AddApplicationError(error.Error.Message + innerError);
                             await context.Response.WriteAsync(error.Error.Message);
                         }
                     });
