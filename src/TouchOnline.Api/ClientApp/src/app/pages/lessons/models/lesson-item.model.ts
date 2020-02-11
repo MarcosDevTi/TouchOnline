@@ -1,7 +1,8 @@
 export class LessonItem {
     idLesson: number;
     name: string;
-    lessonTextShort: string;
+    lessonText: string;
+    level:string;
     initialized: boolean;
     precision: number;
     ppm: number;

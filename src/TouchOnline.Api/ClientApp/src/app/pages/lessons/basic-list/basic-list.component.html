@@ -13,9 +13,9 @@
             Básico
             {{lesson.name}}
         </div> 
-        <h3 *ngIf="lesson.initialized" class="init">{{lesson.lessonTextShort}} </h3>
-        <h3 *ngIf="!lesson.initialized" class="notInit">{{lesson.lessonTextShort}} </h3>
-        <mat-card *ngIf="lesson.initialized" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
+        <h3 *ngIf="lesson.initialized" class="init">{{lesson.lessonText.substring(0, 35)}} </h3>
+        <h3 *ngIf="!lesson.initialized" class="notInit">{{lesson.lessonText.substring(0, 35)}} </h3>
+        <mat-card *ngIf="lesson.precision" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
           <app-card-result [lesson]="lesson"></app-card-result>
         </mat-card>
       </mat-list-item>

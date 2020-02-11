@@ -1,14 +1,13 @@
 using DigiteMais.Cqrs.Client.Presentation;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Presentation;
 
 namespace DigiteMais.UI.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Route("api/[controller]/[action]")]
     public class LessonsController : ControllerBase
     {
         private readonly IProcessor _processor;
@@ -23,44 +22,35 @@ namespace DigiteMais.UI.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        public IActionResult GetLessonPresentations([FromQuery]GetLessonsPresentationList getLesson)
-        {
-            var presentationList = _processor.Get(getLesson);
-            var result = _processor.Get(new GetResults(getLesson.UserId));
+        //[HttpGet]
+        //public IActionResult GetLessonResults(Guid userId)
+        //{
+        //    var result = _processor.Get(new GetResults(userId));
+        //    return Ok(result);
+        //}
 
-            var resultList = new List<LessonPresentationItem>();
-            foreach (var pres in presentationList)
-            {
-                var content = result.FirstOrDefault(x => x.IdLesson == pres.IdLesson);
-                if (content != null)
-                {
-                    pres.AddResults(content.Precision, content.Ppm, content.Stars, content.Time);
-                    resultList.Add(pres);
-                }
-                else
-                {
-                    resultList.Add(pres);
-                }
-            }
-            return Ok(resultList);
+        [HttpGet]
+        public IActionResult GetLessonPresentations([FromQuery]GetLessonsPresentationList getLessonsPresentation)
+        {
+            var presentationList = _processor.Get(getLessonsPresentation);
+            return Ok(presentationList);
         }
 
-        [HttpGet("{idLesson}")]
-        public IActionResult GetLessonPresentation(int idLesson)
+        [HttpGet]
+        public IActionResult GetLessonPresentation([FromQuery]int idLesson)
         {
             return Ok(_processor.Get(new GetLessonPresentation { IdLesson = idLesson }));
         }
 
-        [HttpPost("result")]
+        [HttpPost]
         public IActionResult SetResult([FromBody]SetResult result)
         {
             _processor.Send(result);
             return Ok();
         }
 
-        [HttpGet("results")]
-        public IActionResult GetResults(Guid userId)
+        [HttpGet]
+        public IActionResult GetResults([FromQuery]Guid userId)
         {
             var result = _processor.Get(new GetResults(userId));
             return Ok(result);

@@ -4,9 +4,6 @@ namespace TouchOnline.Domain
     {
         public int IdentificadorExercicio { get; set; }
         public string Nome { get; set; }
-
-        public string ResumoTxtFase =>
-            Categoria == 1 || Categoria == 2 ? TextoFase.Substring(0, 30) : TextoFase.Substring(0, 100);
         public string TextoFase { get; set; }
         public string TeclasEstudadas { get; set; }
         public int NivelRigirosidade { get; set; }

@@ -25,7 +25,8 @@ namespace TouchOnline.CqrsHandlers
             {
                 IdLesson = x.IdentificadorExercicio,
                 Name = x.Nome,
-                LessonTextShort = x.ResumoTxtFase
+                LessonText = x.TextoFase,
+                Level = query.Level
             }).ToList();
         }
 
