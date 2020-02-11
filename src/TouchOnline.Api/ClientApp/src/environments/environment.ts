@@ -5,6 +5,7 @@
 export const environment = {
   apiUrl: 'http://localhost:5000/api/lessons',
   apiAuth: 'http://localhost:5000/api/auth/',
+  apiTracking: 'http://localhost:5000/api/tracking/',
   production: false
 };
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonItem } from '../models/lesson-item.model';
 import { LessonService } from '../lesson.service';
+import { TrackingService } from 'src/app/shared/tracking/tracking.service';
 
 @Component({
   selector: 'app-basic-list',
@@ -9,9 +10,10 @@ import { LessonService } from '../lesson.service';
 })
 export class BasicListComponent implements OnInit {
   basics: LessonItem[];
-  constructor(private lessonService: LessonService) { }
+  constructor(private lessonService: LessonService, private trackingService: TrackingService) { }
 
   ngOnInit() {
+    this.trackingService.setvisitedPages('list-basic');
     this.readBasics();
   }
   readBasics(): void {

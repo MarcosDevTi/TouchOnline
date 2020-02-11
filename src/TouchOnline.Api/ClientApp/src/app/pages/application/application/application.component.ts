@@ -11,6 +11,7 @@ import { Resultado } from '../../lessons/models/Resultado';
 import { ResultComponent } from './result/result.component';
 import { LessonApp } from '../../lessons/models/lesson-app';
 import { ApplicationService } from '../application.service';
+import { TrackingService } from 'src/app/shared/tracking/tracking.service';
 
 @Component({
   selector: 'app-application',
@@ -40,12 +41,13 @@ export class ApplicationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private lessonService: LessonService,
-    private appService: ApplicationService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private trackingService: TrackingService
   ) { }
 
   ngOnInit() {
+    this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
     this.lessonService.getLesson(this.idExerc).subscribe((x: LessonApp ) => {
        this.onlyTextCompleteLesson(this.idExerc);

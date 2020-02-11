@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { LessonItem } from './models/lesson-item.model';
-import { map, catchError } from 'rxjs/operators'
+import { map, catchError } from 'rxjs/operators';
 import { throwError, Observable, of } from 'rxjs';
 import { Frase } from './models/frase';
 import { environment } from 'src/environments/environment';
 import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
-import { stringify } from 'querystring';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Injectable()
 export class LessonService {
   baseUrl = environment.apiUrl;
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private dbService: NgxIndexedDBService
-    ) { }
+  ) { }
 
   convertLocalLessons(jsonData): Observable<LessonItem[]> {
     return of(JSON.parse(jsonData)).pipe(
@@ -27,12 +26,12 @@ export class LessonService {
       })
     );
   }
- 
+
   getLessons(level: string): Observable<LessonItem[]> {
-    if(!localStorage.getItem('results-init')){
+    if (!localStorage.getItem('results-init')) {
       this.setResultLocalStorage();
     }
-    
+
     const lessonsPres = localStorage.getItem(level);
     if (lessonsPres) {
       return this.convertLocalLessons(lessonsPres);
@@ -41,22 +40,22 @@ export class LessonService {
     return this.http.get(this.baseUrl + `/GetLessonPresentations?level=${level}`).pipe(
       catchError(this.handleError),
       map(response => {
-          this.setLessonsLocalStorage(level, response)
+        this.setLessonsLocalStorage(level, response);
         return this.jsonDataToLessons(response);
       })
     );
   }
 
   getResults() {
-    const url = this.baseUrl + "/results?userId=" + this.getUserId();
+    const url = this.baseUrl + '/results?userId=' + this.getUserId();
     this.http.get(url).pipe(
       catchError(this.handleError),
       map(_ => console.log(_))
-    ).subscribe(_ => _)
+    ).subscribe(_ => _);
   }
 
   setLessonsLocalStorage(level: string, json) {
-    localStorage.setItem(level, JSON.stringify(json))
+    localStorage.setItem(level, JSON.stringify(json));
   }
 
   getUserId(): string {
@@ -69,32 +68,31 @@ export class LessonService {
 
   private jsonDataToLessons(jsonData: any[]): LessonItem[] {
     const lessons: LessonItem[] = [];
-    var results = JSON.parse(localStorage.getItem('results'))
-    
-    jsonData.forEach((element:LessonItem) => {
-      const containsResult = results.filter((_: LessonItem) => _.idLesson == element.idLesson)[0]
-    if(containsResult){
-      element.precision = containsResult.precision;
-      element.ppm = containsResult.ppm;
-      element.stars = containsResult.stars;
-      element.time = containsResult.time
-    }
-        //
-      
-      lessons.push(element)
+    const results = JSON.parse(localStorage.getItem('results'));
+
+    jsonData.forEach((element: LessonItem) => {
+      const containsResult = results.filter((_: LessonItem) => _.idLesson === element.idLesson)[0];
+      if (containsResult) {
+        element.precision = containsResult.precision;
+        element.ppm = containsResult.ppm;
+        element.stars = containsResult.stars;
+        element.time = containsResult.time;
+      }
+      //
+
+      lessons.push(element);
     });
-    console.log('lessons', lessons)
-  
+
     return lessons;
   }
 
   private setResultLocalStorage() {
-    const url = this.baseUrl + "/GetResults?userId=" + this.getUserId();
+    const url = this.baseUrl + '/GetResults?userId=' + this.getUserId();
     this.http.get(url).pipe(
       catchError(this.handleError),
       map(_ => {
         localStorage.setItem('results', JSON.stringify(_));
-        localStorage.setItem('results-init', "1");
+        localStorage.setItem('results-init', '1');
       })
     ).subscribe(_ => _);
   }

@@ -88,6 +88,9 @@ namespace TouchOnline.Data.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("Ip")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp without time zone");
 
@@ -107,52 +110,6 @@ namespace TouchOnline.Data.Migrations
                     b.HasOne("TouchOnline.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("TouchOnline.Domain.UserTracking.RecordedTracking", b =>
-                {
-                    b.OwnsOne("TouchOnline.Domain.Tracking.UserLocal", "UserLocal", b1 =>
-                        {
-                            b1.Property<Guid>("RecordedTrackingId")
-                                .HasColumnType("uuid");
-
-                            b1.Property<string>("City")
-                                .HasColumnType("character varying(120)")
-                                .HasMaxLength(120);
-
-                            b1.Property<string>("ContinentCode")
-                                .HasColumnType("character varying(10)")
-                                .HasMaxLength(10);
-
-                            b1.Property<string>("ContinentName")
-                                .HasColumnType("character varying(120)")
-                                .HasMaxLength(120);
-
-                            b1.Property<string>("CountryCode")
-                                .HasColumnType("character varying(10)")
-                                .HasMaxLength(10);
-
-                            b1.Property<string>("CountryName")
-                                .HasColumnType("character varying(120)")
-                                .HasMaxLength(120);
-
-                            b1.Property<double>("Latitude")
-                                .HasColumnType("double precision");
-
-                            b1.Property<double>("Longitude")
-                                .HasColumnType("double precision");
-
-                            b1.Property<string>("PostalCode")
-                                .HasColumnType("character varying(50)")
-                                .HasMaxLength(50);
-
-                            b1.HasKey("RecordedTrackingId");
-
-                            b1.ToTable("GetRecordeds");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RecordedTrackingId");
-                        });
                 });
 #pragma warning restore 612, 618
         }

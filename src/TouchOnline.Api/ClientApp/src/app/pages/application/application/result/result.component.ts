@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Resultado } from 'src/app/pages/lessons/models/Resultado';
 import { ResultDto } from 'src/app/pages/lessons/lesson.service';
+import { TrackingService } from 'src/app/shared/tracking/tracking.service';
 
 @Component({
   selector: 'app-result',
@@ -12,6 +13,7 @@ export class ResultComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ResultComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ResultDto,
+    private trackingService: TrackingService
     ) {}
   @Input() resultado: any;
 
@@ -29,6 +31,7 @@ notOk = 'star_border';
   ];
 
     ngOnInit() {
+      this.trackingService.setvisitedPages('result');
       console.log('pagina de resultado', this.data);
       this.stars = this.scores[this.data.stars].values;
     }

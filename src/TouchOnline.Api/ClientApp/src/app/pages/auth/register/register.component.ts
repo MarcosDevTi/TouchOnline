@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { TrackingService } from 'src/app/shared/tracking/tracking.service';
 
 @Component({
   selector: 'app-register',
@@ -12,17 +13,18 @@ import { User } from '../user';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   user: User;
-  
+
   registerForm: FormGroup;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private trackingService: TrackingService
   ) { }
 
   ngOnInit() {
+    this.trackingService.setvisitedPages('register');
     this.createRegisterForm();
-    
   }
 
   createRegisterForm() {
@@ -42,7 +44,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(() => {
-        console.log('Registration Successful')
+        console.log('Registration Successful');
       }, error => {
         console.log(error);
       }, () => {
