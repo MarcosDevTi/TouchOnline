@@ -21,3 +21,4 @@ c:\Users\viema01\Documents\tests\TouchOnline\src\TouchOnline.Domain\obj\Debug\ne
 c:\Users\viema01\Documents\tests\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.AssemblyInfo.cs
 c:\Users\viema01\Documents\tests\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.dll
 c:\Users\viema01\Documents\tests\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
+c:\Users\viema01\Documents\tests\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.csprojAssemblyReference.cache

@@ -1,13 +1,10 @@
 using System;
+using TouchOnline.CqrsClient.Contracts;
 
-namespace TouchOnline.Domain.UserTracking
+namespace TouchOnline.CqrsClient.Tracking
 {
-    public class RecordedTracking: Entity
+    public class SaveTracking: ICommand
     {
-        public RecordedTracking()
-        {
-             SetId(Id);
-        }
         public string VisitedPages { get; set; }
         public DateTime StartDate {get;set;}
         public DateTime EndDate { get; set; }

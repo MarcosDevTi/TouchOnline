@@ -1,10 +1,11 @@
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
+import { TrackingService } from './shared/tracking/tracking.service';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [TrackingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
