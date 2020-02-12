@@ -19,7 +19,7 @@ import { VisitorService } from './shared/visitor.service';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [VisitorService, TrackingService],
+  providers: [TrackingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
