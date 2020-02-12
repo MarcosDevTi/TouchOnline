@@ -8,7 +8,6 @@ namespace TouchOnline.Data
     {
         public ToContext(DbContextOptions<ToContext> options) : base(options)
         {
-            
 
         }
         public DbSet<Result> Results { get; set; }
