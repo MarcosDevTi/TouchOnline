@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [TrackingService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

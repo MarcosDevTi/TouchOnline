@@ -3,7 +3,7 @@ import { LessonItem } from "../models/lesson-item.model";
 import { Injector, OnInit } from "@angular/core";
 import { TrackingService } from "../../tracking/shared/tracking.service";
 
-export abstract class ListService implements OnInit {
+export abstract class ListComponent implements OnInit {
     lessons: LessonItem[];
     protected lessonService: LessonService;
     protected trackingService: TrackingService;
@@ -22,15 +22,17 @@ export abstract class ListService implements OnInit {
     readBasics(): void {
         this.lessonService.getLessons(this.level).subscribe((lessons: LessonItem[]) => {
           this.lessonService.getResults().subscribe(rs => {
-            rs.forEach(r => {
-              var index = lessons.findIndex(l => l.idLesson === r.idLesson);
-              if(index != -1){
-                lessons[index].precision = r.precision;
-                lessons[index].ppm = r.ppm;
-                lessons[index].stars = r.stars;
-                lessons[index].time = r.time;
-              }
-            })
+            if(rs){
+              rs.forEach(r => {
+                var index = lessons.findIndex(l => l.idLesson === r.idLesson);
+                if(index != -1){
+                  lessons[index].precision = r.precision;
+                  lessons[index].ppm = r.ppm;
+                  lessons[index].stars = r.stars;
+                  lessons[index].time = r.time;
+                }
+              })
+            }
           });
           this.lessons = lessons;
         },

@@ -1,12 +1,13 @@
 import { Component, Injector } from '@angular/core';
-import { ListService } from '../shared/list.service';
+import { ListComponent } from '../shared/list.component';
+
 
 @Component({
   selector: 'app-intermediate-list',
   templateUrl: './intermediate-list.component.html',
   styleUrls: ['./intermediate-list.component.css', './../shared/list.component.css']
 })
-export class IntermediateListComponent extends ListService {
+export class IntermediateListComponent extends ListComponent {
 
   constructor(protected injector: Injector) { super(injector, 'intermediates') }
 

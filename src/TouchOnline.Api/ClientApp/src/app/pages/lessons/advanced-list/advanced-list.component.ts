@@ -1,13 +1,13 @@
 import { Component, Injector } from '@angular/core';
 import { VisitorService } from 'src/app/shared/visitor.service';
-import { ListService } from '../shared/list.service';
+import { ListComponent } from '../shared/list.component';
 
 @Component({
   selector: 'app-advanced-list',
   templateUrl: './advanced-list.component.html',
   styleUrls: ['./advanced-list.component.css', './../shared/list.component.css']
 })
-export class AdvancedListComponent extends ListService {
+export class AdvancedListComponent extends ListComponent {
 
   level: string;
 

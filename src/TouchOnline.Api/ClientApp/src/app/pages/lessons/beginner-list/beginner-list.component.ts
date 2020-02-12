@@ -1,12 +1,12 @@
 import { Component, Injector } from '@angular/core';
-import { ListService } from '../shared/list.service';
+import { ListComponent } from '../shared/list.component';
 
 @Component({
   selector: 'app-beginner-list',
   templateUrl: './beginner-list.component.html',
   styleUrls: ['./beginner-list.component.css', './../shared/list.component.css']
 })
-export class BeginnerListComponent extends ListService {
+export class BeginnerListComponent extends ListComponent {
   constructor(protected injector: Injector) { super(injector, 'beginners') }
 
   init(): void {}
