@@ -9,32 +9,19 @@ import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { stringify } from 'querystring';
 
 @Injectable()
 export class LessonService {
   baseUrl = environment.apiUrl;
   constructor(
-    private http: HttpClient,
-    private dbService: NgxIndexedDBService
+    private http: HttpClient
   ) { }
 
-  convertLocalLessons(jsonData): Observable<LessonItem[]> {
-    return of(JSON.parse(jsonData)).pipe(
-      catchError(this.handleError),
-      map((response: any) => {
-        return this.jsonDataToLessons(response);
-      })
-    );
-  }
-
   getLessons(level: string): Observable<LessonItem[]> {
-    if (!localStorage.getItem('results-init')) {
-      this.setResultLocalStorage();
-    }
-
     const lessonsPres = localStorage.getItem(level);
     if (lessonsPres) {
-      return this.convertLocalLessons(lessonsPres);
+      return of(JSON.parse(lessonsPres));
     }
 
     return this.http.get(this.baseUrl + `/GetLessonPresentations?level=${level}`).pipe(
@@ -46,12 +33,23 @@ export class LessonService {
     );
   }
 
-  getResults() {
-    const url = this.baseUrl + '/results?userId=' + this.getUserId();
-    this.http.get(url).pipe(
-      catchError(this.handleError),
-      map(_ => console.log(_))
-    ).subscribe(_ => _);
+  getResults(): Observable<LessonItem[]> {
+    if (this.getUserId()) {
+      //authenticated
+      const url = this.baseUrl + '/GetResults?userId=' + this.getUserId();
+      return this.http.get(url).pipe(
+        catchError(this.handleError),
+      );
+    } else {
+      const results = localStorage.getItem('results');
+      return of(JSON.parse(results));
+    }
+
+  }
+
+  convertLocalLessons(jsonData): Observable<LessonItem[]> {
+    console.log(jsonData)
+    return of(this.jsonDataToLessons(jsonData));
   }
 
   setLessonsLocalStorage(level: string, json) {
@@ -59,43 +57,33 @@ export class LessonService {
   }
 
   getUserId(): string {
-    return localStorage.getItem('id');
+    return localStorage.getItem('userId');
   }
 
   getLesson(idLesson: string) {
     return this.http.get<LessonApp>(this.baseUrl + '/GetLessonPresentation?idLesson=' + idLesson);
   }
 
-  private jsonDataToLessons(jsonData: any[]): LessonItem[] {
-    const lessons: LessonItem[] = [];
-    const results = JSON.parse(localStorage.getItem('results'));
-
-    jsonData.forEach((element: LessonItem) => {
-      const containsResult = results.filter((_: LessonItem) => _.idLesson === element.idLesson)[0];
-      if (containsResult) {
-        element.precision = containsResult.precision;
-        element.ppm = containsResult.ppm;
-        element.stars = containsResult.stars;
-        element.time = containsResult.time;
+  private jsonDataToLessons(jsonData: LessonItem[]): LessonItem[] {
+    if (this.getUserId() !== null) {
+      const resultsLocal = JSON.parse(localStorage.getItem('results'));
+      if (resultsLocal) {
+        console.log('have results')
+        return jsonData;
       }
-      //
+    } else {
+      // this.getResults().subscribe(_ => console.log(_))
 
-      lessons.push(element);
-    });
+      return jsonData;
+      // let lessons: LessonItem[] = [];
+      // jsonData.forEach(_ => lessons.push(_));
+      // return lessons;
+    }
+  };
 
-    return lessons;
-  }
 
-  private setResultLocalStorage() {
-    const url = this.baseUrl + '/GetResults?userId=' + this.getUserId();
-    this.http.get(url).pipe(
-      catchError(this.handleError),
-      map(_ => {
-        localStorage.setItem('results', JSON.stringify(_));
-        localStorage.setItem('results-init', '1');
-      })
-    ).subscribe(_ => _);
-  }
+
+
 
   private handleError(error: any): Observable<any> {
     console.log('Request Error => ', error);
@@ -103,10 +91,35 @@ export class LessonService {
   }
 
   gravarResultado(resultado: any): Observable<ResultDto> {
-    return this.http.post(this.baseUrl + '/SetResult', resultado).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToCategory)
-    );
+    if (resultado.userId != 'undefined') {
+      return this.http.post(this.baseUrl + '/SetResult', resultado).pipe(
+        catchError(this.handleError),
+        map(this.jsonDataToCategory)
+      );
+    } else {
+      const listResult = localStorage.getItem('results');
+      if (listResult === null) {
+
+      }
+      if (listResult === null) return of(null);
+      var listResultDto = Array<ResultDto>(JSON.parse(listResult));
+      var index = listResultDto.findIndex(_ =>
+        _.idLesson === resultado.idLesson)
+      if (index === -1) {
+
+        localStorage.setItem('results-init', '1');
+        listResultDto.push(resultado)
+      } else {
+        listResultDto[index].errors = resultado.errors;
+        listResultDto[index].ppm = resultado.ppm;
+        listResultDto[index].stars = resultado.stars;
+        listResultDto[index].time = resultado.time;
+
+      }
+      localStorage.setItem('results', JSON.stringify(listResultDto));
+      return of(resultado)
+    }
+
   }
 
   private jsonDataToCategory(jsonData: any): ResultDto {

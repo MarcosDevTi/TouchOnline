@@ -25,7 +25,7 @@ login(model: any) {
     if (user) {
       localStorage.setItem('token', user.token);
       localStorage.setItem('user', user.userfromDisplay.name);
-      localStorage.setItem('id', user.userfromDisplay.id);
+      localStorage.setItem('userId', user.userfromDisplay.id);
       this.decodedToken = this.jwtHelper.decodeToken(user.token);
       this.currentUser = user.user;
     }

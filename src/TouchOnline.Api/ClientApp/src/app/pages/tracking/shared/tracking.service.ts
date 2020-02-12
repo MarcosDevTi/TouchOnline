@@ -38,11 +38,12 @@ export class TrackingService {
   }
 
   sendTrackingResult() {
+    const idStorage = localStorage.getItem('userId');
     const recTracking = new RecordedTracking();
     recTracking.visitedPages = JSON.stringify(this.visitedList);
     recTracking.startDate = this.startDate;
     recTracking.endDate = new Date();
-    recTracking.userId = localStorage.getItem('id');
+    recTracking.userId = idStorage === "undefined" ? null: idStorage;
     this.visitorService.getIp().subscribe(_ => {
       recTracking.ip = _.ip;
       this.saveResult(recTracking);

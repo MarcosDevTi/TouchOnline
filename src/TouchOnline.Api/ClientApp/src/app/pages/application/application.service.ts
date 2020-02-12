@@ -26,9 +26,4 @@ private jsonDataToCategory(jsonData:any): ResultDto{
     console.log('Erro na reguisição => ', error);
     return throwError(error)
   }
-
-
-    private newMethod(x: Object): void {
-        return console.log(x);
-    }
 }

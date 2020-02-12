@@ -18,6 +18,19 @@ export class BasicListComponent implements OnInit {
   }
   readBasics(): void {
     this.lessonService.getLessons('basics').subscribe((lessons: LessonItem[]) => {
+      this.lessonService.getResults().subscribe(rs => {
+        rs.forEach(r => {
+          var index = lessons.findIndex(l => l.idLesson === r.idLesson);
+          if(index != -1){
+            lessons[index].precision = r.precision;
+            lessons[index].ppm = r.ppm;
+            lessons[index].stars = r.stars;
+            lessons[index].time = r.time;
+          }
+        })
+       
+      });
+      console.log('full list basics', lessons);
       this.basics = lessons;
     },
     error => console.log(error));

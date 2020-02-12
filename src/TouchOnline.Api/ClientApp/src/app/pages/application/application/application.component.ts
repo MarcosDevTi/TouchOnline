@@ -53,7 +53,6 @@ export class ApplicationComponent implements OnInit {
        this.onlyTextCompleteLesson(this.idExerc);
        this.createLesson(x.lessonText);
        this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
-       this.setNewIdUser(x.idNewUser);
        this.name = x.name;
      }, error => {
       console.log(error);
@@ -75,12 +74,6 @@ export class ApplicationComponent implements OnInit {
       case '4': {
         return 'Avançado';
       }
-    }
-  }
-
-  setNewIdUser(id: string): void {
-    if (!localStorage.getItem('id')) {
-      localStorage.setItem('id', id);
     }
   }
 
@@ -233,7 +226,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   getIdUsuario(): string {
-    return localStorage.getItem('id');
+    return localStorage.getItem('userId');
   }
 
   openDialog(): void {

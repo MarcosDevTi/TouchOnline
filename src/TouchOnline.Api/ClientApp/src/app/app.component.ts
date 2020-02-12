@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
 
   ngOnInit(): void {
-    const source = interval(10000);
+    const source = interval(1000);
     this.subscription = source.subscribe(val => {
       this.send();
     });
