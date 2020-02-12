@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
-import { TrackingService } from './shared/tracking/tracking.service';
+import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
 
 @NgModule({

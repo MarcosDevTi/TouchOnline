@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RecordedTracking } from './recorded-tracking';
-import { VisitorService } from '../visitor.service';
+import { VisitorService } from '../../../shared/visitor.service';
 import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';

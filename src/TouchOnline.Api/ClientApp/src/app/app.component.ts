@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { TrackingService } from './shared/tracking/tracking.service';
+import { TrackingService } from './pages/tracking/shared/tracking.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
 
   ngOnInit(): void {
-    const source = interval(100000);
+    const source = interval(10000);
     this.subscription = source.subscribe(val => {
       this.send();
     });

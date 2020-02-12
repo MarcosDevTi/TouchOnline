@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
-import { TrackingService } from 'src/app/shared/tracking/tracking.service';
+import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({
   selector: 'app-register',

@@ -8,7 +8,7 @@ namespace TouchOnline.CqrsClient.Tracking
         public string VisitedPages { get; set; }
         public DateTime StartDate {get;set;}
         public DateTime EndDate { get; set; }
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
         public string Ip {get;set;}
     }
 }

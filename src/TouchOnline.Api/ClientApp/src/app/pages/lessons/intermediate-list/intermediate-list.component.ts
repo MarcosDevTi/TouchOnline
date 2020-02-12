@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonService } from '../lesson.service';
 import { LessonItem } from '../models/lesson-item.model';
-import { TrackingService } from 'src/app/shared/tracking/tracking.service';
+import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({
   selector: 'app-intermediate-list',

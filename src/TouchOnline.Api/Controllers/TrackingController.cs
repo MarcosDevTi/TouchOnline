@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Tracking;
-using TouchOnline.Domain.UserTracking;
 
 namespace TouchOnline.Api.Controllers
 {
@@ -19,6 +18,13 @@ namespace TouchOnline.Api.Controllers
         {
             _processor.Send(saveTracking);
             return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult GetTrackings()
+        {
+            var result = _processor.Get(new GetTrackings());
+            return Ok(result);
         }
     }
 }

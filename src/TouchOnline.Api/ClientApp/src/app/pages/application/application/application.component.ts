@@ -11,7 +11,7 @@ import { Resultado } from '../../lessons/models/Resultado';
 import { ResultComponent } from './result/result.component';
 import { LessonApp } from '../../lessons/models/lesson-app';
 import { ApplicationService } from '../application.service';
-import { TrackingService } from 'src/app/shared/tracking/tracking.service';
+import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({
   selector: 'app-application',

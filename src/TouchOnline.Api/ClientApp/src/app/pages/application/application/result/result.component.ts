@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Resultado } from 'src/app/pages/lessons/models/Resultado';
 import { ResultDto } from 'src/app/pages/lessons/lesson.service';
-import { TrackingService } from 'src/app/shared/tracking/tracking.service';
+import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({
   selector: 'app-result',
