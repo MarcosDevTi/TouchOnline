@@ -10,8 +10,8 @@ using TouchOnline.Data;
 namespace TouchOnline.Data.Migrations
 {
     [DbContext(typeof(ToContext))]
-    [Migration("20200212003755_nullableUserIdRecordedTracking")]
-    partial class nullableUserIdRecordedTracking
+    [Migration("20200212062919_Init2A")]
+    partial class Init2A
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,10 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TouchOnline.Data.Migrations
 {
-    public partial class NpgsqlConnection : Migration
+    public partial class Init2A : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "GetRecordeds",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    VisitedPages = table.Column<string>(nullable: true),
+                    StartDate = table.Column<DateTime>(nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: true),
+                    Ip = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GetRecordeds", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -55,6 +71,9 @@ namespace TouchOnline.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "GetRecordeds");
+
             migrationBuilder.DropTable(
                 name: "Results");
 
