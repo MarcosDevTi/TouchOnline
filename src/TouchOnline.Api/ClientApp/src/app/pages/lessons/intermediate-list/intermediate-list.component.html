@@ -15,7 +15,7 @@
          </div> 
          <h3 *ngIf="lesson.initialized" class="init">{{lesson.lessonText.substring(0, 102)}} </h3>
          <h3 *ngIf="!lesson.initialized" class="notInit">{{lesson.lessonText.substring(0, 102)}} </h3>
-         <mat-card *ngIf="lesson.precision" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
+         <mat-card *ngIf="lesson.ppm" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
            <app-card-result [lesson]="lesson"></app-card-result>
          </mat-card>
        </mat-list-item>

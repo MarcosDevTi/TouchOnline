@@ -10,6 +10,7 @@ import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { stringify } from 'querystring';
+import { ListComponent } from './shared/list.component';
 
 @Injectable()
 export class LessonService {
@@ -91,35 +92,43 @@ export class LessonService {
   }
 
   gravarResultado(resultado: any): Observable<ResultDto> {
-    if (resultado.userId != 'undefined') {
+    console.log('result for save', resultado);
+    if (resultado.userId != 'undefined' && resultado.userId !== null) {
       return this.http.post(this.baseUrl + '/SetResult', resultado).pipe(
         catchError(this.handleError),
         map(this.jsonDataToCategory)
       );
     } else {
-      const listResult = localStorage.getItem('results');
-      if (listResult === null) {
-
-      }
-      if (listResult === null) return of(null);
-      var listResultDto = Array<ResultDto>(JSON.parse(listResult));
-      var index = listResultDto.findIndex(_ =>
-        _.idLesson === resultado.idLesson)
-      if (index === -1) {
-
-        localStorage.setItem('results-init', '1');
-        listResultDto.push(resultado)
-      } else {
-        listResultDto[index].errors = resultado.errors;
-        listResultDto[index].ppm = resultado.ppm;
-        listResultDto[index].stars = resultado.stars;
-        listResultDto[index].time = resultado.time;
-
-      }
-      localStorage.setItem('results', JSON.stringify(listResultDto));
-      return of(resultado)
+      const result = this.saveResultOnLocalStorage(resultado);
+      return of(result)
     }
+  }
 
+  saveResultOnLocalStorage(result: ResultDto): ResultDto {
+    var resultsLocal = localStorage.getItem('results');
+    let resultList: ResultDto[] = [];
+    if(resultsLocal === null) {
+      resultList.push(result);
+      localStorage.setItem('results', JSON.stringify(resultList))
+      console.log('result local null');
+    } else {
+      let listLocal :ResultDto[] = JSON.parse(resultsLocal);
+      const index = listLocal.findIndex(l => l.idLesson === result.idLesson);
+      console.log('index', index);
+      if(index != -1){
+        listLocal[index].ppm = result.ppm;
+        listLocal[index].errors = result.errors;
+        listLocal[index].stars = result.stars;
+        listLocal[index].time = result.time;
+        
+      } else {
+        listLocal.push(result);
+      }
+      localStorage.setItem('results', JSON.stringify(listLocal))
+      console.log('result local exists', resultsLocal);
+    }
+    
+    return result;
   }
 
   private jsonDataToCategory(jsonData: any): ResultDto {
