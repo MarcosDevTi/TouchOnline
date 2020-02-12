@@ -1,27 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { LessonService } from '../lesson.service';
-import { LessonItem } from '../models/lesson-item.model';
-import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
+import { Component, Injector } from '@angular/core';
+import { ListService } from '../shared/list.service';
 
 @Component({
   selector: 'app-intermediate-list',
   templateUrl: './intermediate-list.component.html',
   styleUrls: ['./intermediate-list.component.css', './../shared/list.component.css']
 })
-export class IntermediateListComponent implements OnInit {
+export class IntermediateListComponent extends ListService {
 
-  intermediates: LessonItem[];
-  constructor(private lessonService: LessonService, private trackingService: TrackingService) { }
+  constructor(protected injector: Injector) { super(injector, 'intermediates') }
 
-  ngOnInit() {
-    this.trackingService.setvisitedPages('list-intermediates');
-    this.readBasics();
-  }
-  readBasics(): void {
-    this.lessonService.getLessons('intermediates').subscribe((lessons: LessonItem[]) => {
-      this.intermediates = lessons;
-    },
-    error => console.log(error));
-  }
-
+  init(): void {}
 }

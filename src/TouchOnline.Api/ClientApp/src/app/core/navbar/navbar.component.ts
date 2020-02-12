@@ -47,15 +47,13 @@ loggedIn() {
   return this.authService.loggedIn();
 }
 
-
 logout() {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
-  localStorage.removeItem('id');
+  localStorage.removeItem('userId');
   this.authService.decodedToken = null;
   this.authService.currentUser = null;
-  console.log('logged out')
+  
   this.router.navigate(['']);
- //this.router.navigate(['/home']);
 }
 }
