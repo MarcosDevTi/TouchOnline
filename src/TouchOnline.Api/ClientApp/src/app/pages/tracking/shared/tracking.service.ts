@@ -24,8 +24,6 @@ export class TrackingService {
     } else {
       this.visitedList[objIndex].count++;
     }
-
-    console.log('list pages', this.visitedList);
   }
 
   containsVisitedPages(): boolean {

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
+import { VisitorService } from './shared/visitor.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AppComponent } from './app.component';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [TrackingService],
+  providers: [VisitorService, TrackingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
