@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TouchOnline.Data;
@@ -9,9 +10,10 @@ using TouchOnline.Data;
 namespace TouchOnline.Data.Migrations
 {
     [DbContext(typeof(ToContext))]
-    partial class ToContextModelSnapshot : ModelSnapshot
+    [Migration("20200212231849_Keyboard")]
+    partial class Keyboard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,17 +30,11 @@ namespace TouchOnline.Data.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("text");
 
-                    b.Property<string>("CodeKeys")
-                        .HasColumnType("text");
-
                     b.Property<string>("Data")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");

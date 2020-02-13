@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using TouchOnline.Cqrs.Client.User;
 using TouchOnline.CqrsClient.Contracts;
+using TouchOnline.CqrsClient.Keyboard;
 using TouchOnline.CqrsClient.User;
 
 namespace DigiteMais.UI.Controllers
@@ -39,6 +40,7 @@ namespace DigiteMais.UI.Controllers
         [HttpPost("Login")]
         public IActionResult Login(Login userLogin)
         {
+          //  _processor.Send(new InsertKeyboards());
             var userfromDisplay = _processor.Get(userLogin);
             if (userfromDisplay == null) return Unauthorized();
 

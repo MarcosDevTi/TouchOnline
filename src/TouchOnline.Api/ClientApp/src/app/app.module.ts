@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
 import { VisitorService } from './shared/visitor.service';
+import { KeyServiceService } from './pages/application/application/keyboard/key.service';
 
 @NgModule({
   declarations: [

@@ -13,5 +13,6 @@ namespace TouchOnline.Data
         public DbSet<Result> Results { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<RecordedTracking> GetRecordeds { get; set; }
+        public DbSet<Keyboard> Keyboards { get; set; }
     }
 }
