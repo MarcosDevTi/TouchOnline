@@ -10,7 +10,6 @@ import { Chart } from 'chart.js';
 import { Resultado } from '../../lessons/models/Resultado';
 import { ResultComponent } from './result/result.component';
 import { LessonApp } from '../../lessons/models/lesson-app';
-import { ApplicationService } from '../application.service';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({
@@ -102,7 +101,6 @@ export class ApplicationComponent implements OnInit {
 
         this.openDialog();
         this.pauseTimer();
-        // this.router.navigate(['resultado']);
       } else {
         this.fraseExibicao = this.textDisplay[this.actualPage].keys;
         this.teclaAtual = this.fraseExibicao[0];

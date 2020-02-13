@@ -12,7 +12,7 @@ export class KeyServiceService {
   apiKeyboard = environment.apiKeyboard;
 
   constructor(private http: HttpClient) {
-    
+
   }
 
   getKeyboard(): Observable<Keyboard> {
