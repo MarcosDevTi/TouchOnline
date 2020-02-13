@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { LessonItem } from './models/lesson-item.model';
 import { map, catchError } from 'rxjs/operators';
 import { throwError, Observable, of } from 'rxjs';
@@ -8,9 +8,6 @@ import { environment } from 'src/environments/environment';
 import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
-import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { stringify } from 'querystring';
-import { ListComponent } from './shared/list.component';
 
 @Injectable()
 export class LessonService {

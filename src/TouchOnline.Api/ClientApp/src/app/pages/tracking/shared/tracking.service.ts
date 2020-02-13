@@ -41,7 +41,7 @@ export class TrackingService {
     recTracking.visitedPages = JSON.stringify(this.visitedList);
     recTracking.startDate = this.startDate;
     recTracking.endDate = new Date();
-    recTracking.userId = idStorage === "undefined" ? null: idStorage;
+    recTracking.userId = idStorage === 'undefined' ? null : idStorage;
     this.visitorService.getIp().subscribe(_ => {
       recTracking.ip = _.ip;
       this.saveResult(recTracking);

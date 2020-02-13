@@ -53,7 +53,7 @@ logout() {
   localStorage.removeItem('userId');
   this.authService.decodedToken = null;
   this.authService.currentUser = null;
-  
+
   this.router.navigate(['']);
 }
 }

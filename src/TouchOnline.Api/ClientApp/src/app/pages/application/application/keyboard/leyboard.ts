@@ -1,4 +1,4 @@
-import { KeyModel } from "./KeyModel";
+import { KeyModel } from './KeyModel';
 
 export class Keyboard {
     code: string;

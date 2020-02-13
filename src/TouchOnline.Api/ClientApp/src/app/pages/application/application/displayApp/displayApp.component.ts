@@ -10,11 +10,11 @@ import { ApplicationService } from '../../application.service';
 export class DisplayAppComponent implements OnInit {
   keyboardsDw;
 
-  @Input() timeLeft
-  @Input() ppm
-  @Input() LineChart
-  @Input() name
-  @Input() category
+  @Input() timeLeft;
+  @Input() ppm;
+  @Input() LineChart;
+  @Input() name;
+  @Input() category;
 
   constructor(
     public dialog: MatDialog,
@@ -27,10 +27,10 @@ export class DisplayAppComponent implements OnInit {
   selectKeyboard(id) {
     this.applicationService.getKeyboard(id).subscribe(_ => {
       if (_) {
-        console.log('keyboard returned', _)
+        console.log('keyboard returned', _);
         localStorage.setItem('kb', JSON.stringify(_));
       }
-    })
+    });
   }
 
 }

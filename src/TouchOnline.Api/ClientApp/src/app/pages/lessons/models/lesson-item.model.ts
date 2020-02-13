@@ -2,7 +2,7 @@ export class LessonItem {
     idLesson: number;
     name: string;
     lessonText: string;
-    level:string;
+    level: string;
     initialized: boolean;
     precision: number;
     ppm: number;
