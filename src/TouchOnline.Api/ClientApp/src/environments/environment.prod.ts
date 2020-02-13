@@ -3,5 +3,6 @@ export const environment = {
   apiAuth: 'http://vps281295.vps.ovh.ca/api/auth/',
   apiTracking: 'http://vps281295.vps.ovh.ca/api/tracking/',
   apiKeyboard: 'http://vps281295.vps.ovh.ca/api/keyboard/',
+  apiMyText: 'http://vps281295.vps.ovh.ca/api/my-text/',
   production: true
 };
