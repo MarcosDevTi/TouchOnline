@@ -20,8 +20,6 @@ export class KeyServiceService {
     return this.http.get<Keyboard>(`${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`);
   }
 
- 
-
   getKeyboardInMemory(): Keyboard {
     return this.keyboard;
   }
