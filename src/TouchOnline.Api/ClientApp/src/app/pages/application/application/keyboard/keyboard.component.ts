@@ -2,8 +2,6 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Finger } from './finger';
 import { KeyModel } from './KeyModel';
 import { KeyServiceService } from './key.service';
-import { Keyboard } from './leyboard';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-keyboard',
@@ -13,8 +11,8 @@ import { Subscription } from 'rxjs';
 export class KeyboardComponent implements OnInit, OnChanges {
   @Input() proximaTecla: string;
   @Input() teclaEmErro: string;
-  
-  cleanKeys: KeyModel[]
+
+  cleanKeys: KeyModel[];
   keys: KeyModel[];
   codeKeys: string;
   codigosStr: string;
@@ -28,10 +26,9 @@ export class KeyboardComponent implements OnInit, OnChanges {
    } else {
     this.keyServiceService.getKeyboard().subscribe(k => {
       if (k.data) {
-        this.keys = k.data
-        this.cleanKeys = k.data
-        this.codeKeys = k.codeKeys
-        //localStorage.setItem('kb', JSON.stringify(k));
+        this.keys = k.data;
+        this.cleanKeys = k.data;
+        this.codeKeys = k.codeKeys;
       }
       const cods = this.obterKbBrCodigos(this.proximaTecla, k.codeKeys);
       this.refreshFingers(cods);
@@ -40,8 +37,6 @@ export class KeyboardComponent implements OnInit, OnChanges {
       this.obterBrasileiro(cods, erros);
     });
    }
-   
-
   }
 
   ngOnChanges() {
@@ -69,9 +64,8 @@ export class KeyboardComponent implements OnInit, OnChanges {
   }
 
   obterBrasileiro(acerto: string[], erros: string[]) {
-  
    const jsonRes = JSON.parse(localStorage.getItem('kb'));
-   if(jsonRes){
+   if (jsonRes) {
     this.keys = jsonRes.data;
    }
     acerto.forEach(ac => {
@@ -87,8 +81,8 @@ export class KeyboardComponent implements OnInit, OnChanges {
         this.keys[indx].key1 += ' teclaVermelha';
       }
     });
-    
-    console.log('temp change', this.keyServiceService.getKeyboardInMemory())
+
+    console.log('temp change', this.keyServiceService.getKeyboardInMemory());
   }
 
   buscarDedos(codDedo: string): string {

@@ -1,7 +1,7 @@
-import { LessonService } from "../lesson.service";
-import { LessonItem } from "../models/lesson-item.model";
-import { Injector, OnInit } from "@angular/core";
-import { TrackingService } from "../../tracking/shared/tracking.service";
+import { LessonService } from '../lesson.service';
+import { LessonItem } from '../models/lesson-item.model';
+import { Injector, OnInit } from '@angular/core';
+import { TrackingService } from '../../tracking/shared/tracking.service';
 
 export abstract class ListComponent implements OnInit {
     lessons: LessonItem[];
@@ -13,7 +13,7 @@ export abstract class ListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.trackingService.setvisitedPages('list-'+ this.level);
+        this.trackingService.setvisitedPages('list-' + this.level);
         this.init();
         this.readBasics();
     }
@@ -22,16 +22,16 @@ export abstract class ListComponent implements OnInit {
     readBasics(): void {
         this.lessonService.getLessons(this.level).subscribe((lessons: LessonItem[]) => {
           this.lessonService.getResults().subscribe(rs => {
-            if(rs){
+            if (rs) {
               rs.forEach(r => {
-                var index = lessons.findIndex(l => l.idLesson === r.idLesson);
-                if(index != -1){
+                const index = lessons.findIndex(l => l.idLesson === r.idLesson);
+                if (index !== -1) {
                   lessons[index].precision = r.precision;
                   lessons[index].ppm = r.ppm;
                   lessons[index].stars = r.stars;
                   lessons[index].time = r.time;
                 }
-              })
+              });
             }
           });
           this.lessons = lessons;

@@ -13,8 +13,8 @@ export class AdvancedListComponent extends ListComponent {
 
   constructor(
     protected injector: Injector,
-    private visitorService: VisitorService) { 
-      super(injector, 'advanceds') 
+    private visitorService: VisitorService) {
+      super(injector, 'advanceds');
     }
 
     init() {

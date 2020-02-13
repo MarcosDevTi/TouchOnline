@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { LessonItem } from './models/lesson-item.model';
 import { map, catchError } from 'rxjs/operators';
 import { throwError, Observable, of } from 'rxjs';
@@ -8,9 +8,6 @@ import { environment } from 'src/environments/environment';
 import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
-import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { stringify } from 'querystring';
-import { ListComponent } from './shared/list.component';
 
 @Injectable()
 export class LessonService {
@@ -36,7 +33,6 @@ export class LessonService {
 
   getResults(): Observable<LessonItem[]> {
     if (this.getUserId()) {
-      //authenticated
       const url = this.baseUrl + '/GetResults?userId=' + this.getUserId();
       return this.http.get(url).pipe(
         catchError(this.handleError),
@@ -49,7 +45,6 @@ export class LessonService {
   }
 
   convertLocalLessons(jsonData): Observable<LessonItem[]> {
-    console.log(jsonData)
     return of(this.jsonDataToLessons(jsonData));
   }
 
@@ -69,7 +64,6 @@ export class LessonService {
     if (this.getUserId() !== null) {
       const resultsLocal = JSON.parse(localStorage.getItem('results'));
       if (resultsLocal) {
-        console.log('have results')
         return jsonData;
       }
     } else {
@@ -80,11 +74,7 @@ export class LessonService {
       // jsonData.forEach(_ => lessons.push(_));
       // return lessons;
     }
-  };
-
-
-
-
+  }
 
   private handleError(error: any): Observable<any> {
     console.log('Request Error => ', error);
@@ -93,41 +83,38 @@ export class LessonService {
 
   gravarResultado(resultado: any): Observable<ResultDto> {
     console.log('result for save', resultado);
-    if (resultado.userId != 'undefined' && resultado.userId !== null) {
+    if (resultado.userId !== 'undefined' && resultado.userId !== null) {
       return this.http.post(this.baseUrl + '/SetResult', resultado).pipe(
         catchError(this.handleError),
         map(this.jsonDataToCategory)
       );
     } else {
       const result = this.saveResultOnLocalStorage(resultado);
-      return of(result)
+      return of(result);
     }
   }
 
   saveResultOnLocalStorage(result: ResultDto): ResultDto {
-    var resultsLocal = localStorage.getItem('results');
-    let resultList: ResultDto[] = [];
-    if(resultsLocal === null) {
+    const resultsLocal = localStorage.getItem('results');
+    const resultList: ResultDto[] = [];
+    if (resultsLocal === null) {
       resultList.push(result);
-      localStorage.setItem('results', JSON.stringify(resultList))
-      console.log('result local null');
+      localStorage.setItem('results', JSON.stringify(resultList));
     } else {
-      let listLocal :ResultDto[] = JSON.parse(resultsLocal);
+      const listLocal: ResultDto[] = JSON.parse(resultsLocal);
       const index = listLocal.findIndex(l => l.idLesson === result.idLesson);
-      console.log('index', index);
-      if(index != -1){
+      if (index !== -1) {
         listLocal[index].ppm = result.ppm;
         listLocal[index].errors = result.errors;
         listLocal[index].stars = result.stars;
         listLocal[index].time = result.time;
-        
+
       } else {
         listLocal.push(result);
       }
-      localStorage.setItem('results', JSON.stringify(listLocal))
-      console.log('result local exists', resultsLocal);
+      localStorage.setItem('results', JSON.stringify(listLocal));
     }
-    
+
     return result;
   }
 
@@ -162,10 +149,6 @@ export class LessonService {
     }
 
     numErros = numErros / Math.round(fatorErro);
-    console.log('numErros', numErros);
-    console.log('tempo', resultado.tempo);
-    console.log('resultado.textLength', resultado.textLength);
-    console.log('estrelas', numEstrelas);
     const result: ResultDto = {
       stars: numEstrelas,
       errors: numRealErrors,

@@ -5,7 +5,6 @@ import { ResultDto } from '../lessons/lesson.service';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Keyboard } from './application/keyboard/leyboard';
-import { Key } from '../lessons/models/key';
 
 
 @Injectable()
@@ -18,24 +17,24 @@ export class ApplicationService {
     return this.http.post(this.baseUrl + '/result', result).pipe(
       catchError(this.handleError),
       map(this.jsonDataToCategory)
-    )
+    );
   }
 
   private jsonDataToCategory(jsonData: any): ResultDto {
-    return jsonData as ResultDto
+    return jsonData as ResultDto;
   }
 
   private handleError(error: any): Observable<any> {
     console.log('Erro na reguisição => ', error);
-    return throwError(error)
+    return throwError(error);
   }
 
   getKeyboardsDw(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiKeyboard}GetKeyboardsDw`)
+    return this.http.get<any[]>(`${this.apiKeyboard}GetKeyboardsDw`);
   }
 
   getKeyboard(keyboardId): Observable<Keyboard> {
-    const url =`${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`;
+    const url = `${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`;
     console.log('url', url);
     return this.http.get<Keyboard>(url);
   }

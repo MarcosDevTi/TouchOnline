@@ -9,7 +9,7 @@ import { ListComponent } from '../shared/list.component';
 })
 export class IntermediateListComponent extends ListComponent {
 
-  constructor(protected injector: Injector) { super(injector, 'intermediates') }
+  constructor(protected injector: Injector) { super(injector, 'intermediates'); }
 
   init(): void {}
 }

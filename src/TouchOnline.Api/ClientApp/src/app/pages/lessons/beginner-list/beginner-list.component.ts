@@ -7,7 +7,7 @@ import { ListComponent } from '../shared/list.component';
   styleUrls: ['./beginner-list.component.css', './../shared/list.component.css']
 })
 export class BeginnerListComponent extends ListComponent {
-  constructor(protected injector: Injector) { super(injector, 'beginners') }
+  constructor(protected injector: Injector) { super(injector, 'beginners'); }
 
   init(): void {}
 }

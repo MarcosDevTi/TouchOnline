@@ -7,7 +7,7 @@ import { LessonItem } from '../../models/lesson-item.model';
   styleUrls: ['./card-result.component.css']
 })
 export class CardResultComponent implements OnInit {
-@Input() lesson: LessonItem
+@Input() lesson: LessonItem;
   constructor() { }
 
   ngOnInit() {

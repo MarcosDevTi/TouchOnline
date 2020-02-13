@@ -9,6 +9,7 @@ import { IntermediateListComponent } from './intermediate-list/intermediate-list
 import { LeftMenuComponent } from './shared/left-menu/left-menu.component';
 import { StarsItemComponent } from './shared/stars-item/stars-item.component';
 import { CardResultComponent } from './shared/card-result/card-result.component';
+import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CardResultComponent } from './shared/card-result/card-result.component'
     LeftMenuComponent,
     StarsItemComponent,
     CardResultComponent,
-    SeoListComponent
+    SeoListComponent,
+    CreateLessonComponent
   ],
   imports: [
     SharedModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 
 @Component({

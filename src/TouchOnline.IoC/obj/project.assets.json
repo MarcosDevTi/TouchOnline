@@ -5485,23 +5485,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marcos\\.nuget\\packages\\": {},
+    "C:\\Users\\viema01\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
+      "projectUniqueName": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
       "projectName": "TouchOnline.IoC",
-      "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
-      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\obj\\",
+      "projectPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
+      "packagesPath": "C:\\Users\\viema01\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.IoC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viema01\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5509,20 +5509,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "\\\\s00bld2\\DotNet\\PackageNPM_Nuget\\packages": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
+            "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
+              "projectPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
             },
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj"
+            "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
+              "projectPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj"
             },
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
+            "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
+              "projectPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
             }
           }
         }

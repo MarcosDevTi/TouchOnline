@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
+import { TextToolService } from 'src/app/shared/text-tool.service';
 
 @Component({
   selector: 'app-register',
@@ -19,10 +20,16 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private trackingService: TrackingService
+    private trackingService: TrackingService,
+    private textToolService: TextToolService,
   ) { }
 
   ngOnInit() {
+    // tslint:disable-next-line:max-line-length
+    const txtIn = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It w as popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
+
+    const txt = this.textToolService.wordWrap(txtIn, 40);
+    console.log(txt);
     this.trackingService.setvisitedPages('register');
     this.createRegisterForm();
   }
