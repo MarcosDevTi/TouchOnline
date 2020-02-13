@@ -12,7 +12,8 @@ namespace TouchOnline.CqrsHandlers
 {
     public class KeyboardHandler :
         ICommandHandler<InsertKeyboards>,
-        IQueryHandler<GetKeyboard, KeyboardViewModel>
+        IQueryHandler<GetKeyboard, KeyboardViewModel>,
+        IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>
     {
         private readonly ToContext _context;
         public KeyboardHandler(ToContext context)
@@ -31,7 +32,14 @@ namespace TouchOnline.CqrsHandlers
 
         public KeyboardViewModel Handle(GetKeyboard query)
         {
-            var keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "-brazilian_abnt-3");
+            Keyboard keyboard;
+            if(query.KeyboardId == null)
+            {
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+            } else
+            {
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Id == query.KeyboardId);
+            }
             var result = new KeyboardViewModel
             {
                 Id = keyboard.Id,
@@ -41,6 +49,15 @@ namespace TouchOnline.CqrsHandlers
                 Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data)
             };
             return result;
+        }
+
+        public IEnumerable<KeyboardDw> Handle(GetKeyboardsDw query)
+        {
+            return _context.Keyboards.Select(_ => new KeyboardDw
+            {
+                Id = _.Id,
+                Name = _.Name
+            });
         }
 
         private IEnumerable<Keyboard> GetKeyboards(int types)

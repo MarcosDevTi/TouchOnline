@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
-import { LessonService, ResultDto } from 'src/app/pages/lessons/lesson.service';
+import { MatDialog } from '@angular/material';
 import { ApplicationService } from '../../application.service';
 
 @Component({
@@ -9,19 +8,29 @@ import { ApplicationService } from '../../application.service';
   styleUrls: ['./displayApp.component.css']
 })
 export class DisplayAppComponent implements OnInit {
-  keyboards = [{keyboardLabel: 'Português Brasil', key: 'pt-BR'}];
-  selected = 'pt-BR';
+  keyboardsDw;
+
   @Input() timeLeft
   @Input() ppm
   @Input() LineChart
   @Input() name
   @Input() category
+
   constructor(
     public dialog: MatDialog,
-    private service: ApplicationService) {}
+    private applicationService: ApplicationService) { }
 
   ngOnInit() {
+    this.applicationService.getKeyboardsDw().subscribe(_ => this.keyboardsDw = _);
   }
 
-  
+  selectKeyboard(id) {
+    this.applicationService.getKeyboard(id).subscribe(_ => {
+      if (_) {
+        console.log('keyboard returned', _)
+        localStorage.setItem('kb', JSON.stringify(_));
+      }
+    })
+  }
+
 }

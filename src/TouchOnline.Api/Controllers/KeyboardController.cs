@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Keyboards;
 
 namespace TouchOnline.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Route("api/[controller]/[action]")]
     public class KeyboardController : ControllerBase
     {
         private readonly IProcessor _processor;
@@ -20,10 +16,17 @@ namespace TouchOnline.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetKeyboard()
+        public IActionResult GetKeyboard(Guid? keyboardId)
         {
-            var keyboard = _processor.Get(new GetKeyboard());
+            var keyboard = _processor.Get(new GetKeyboard(keyboardId));
             return Ok(keyboard);
+        }
+
+        [HttpGet]
+        public IActionResult GetKeyboardsDw()
+        {
+            var keyboards = _processor.Get(new GetKeyboardsDw());
+            return Ok(keyboards);
         }
     }
 }

@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class KeyboardComponent implements OnInit, OnChanges {
   @Input() proximaTecla: string;
   @Input() teclaEmErro: string;
+  
   cleanKeys: KeyModel[]
   keys: KeyModel[];
   codeKeys: string;
@@ -21,13 +22,16 @@ export class KeyboardComponent implements OnInit, OnChanges {
   dedosE: string[];
   dedosD: string[];
   ngOnInit() {
-    console.log('init keyboard')
-   this.keyServiceService.getKeyboard().subscribe(k => {
+   const keyboardLocal = localStorage.get('kb');
+   if (keyboardLocal) {
+    this.ngOnChanges();
+   } else {
+    this.keyServiceService.getKeyboard().subscribe(k => {
       if (k.data) {
         this.keys = k.data
         this.cleanKeys = k.data
         this.codeKeys = k.codeKeys
-        localStorage.setItem('keyboard', JSON.stringify(k.data));
+        //localStorage.setItem('kb', JSON.stringify(k));
       }
       const cods = this.obterKbBrCodigos(this.proximaTecla, k.codeKeys);
       this.refreshFingers(cods);
@@ -35,6 +39,8 @@ export class KeyboardComponent implements OnInit, OnChanges {
       const erros = this.obterKbBrCodigos(this.teclaEmErro.charCodeAt(0).toString(), k.codeKeys);
       this.obterBrasileiro(cods, erros);
     });
+   }
+   
 
   }
 
@@ -64,9 +70,9 @@ export class KeyboardComponent implements OnInit, OnChanges {
 
   obterBrasileiro(acerto: string[], erros: string[]) {
   
-   const jsonRes = JSON.parse(localStorage.getItem('keyboard'));
+   const jsonRes = JSON.parse(localStorage.getItem('kb'));
    if(jsonRes){
-    this.keys = jsonRes;
+    this.keys = jsonRes.data;
    }
     acerto.forEach(ac => {
       const indx = this.keys.findIndex(x => x.id === 'key_' + ac);

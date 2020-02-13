@@ -11,9 +11,9 @@
       
       <mat-form-field class="center keyboard">
           <mat-label>Seu Teclado</mat-label>
-          <mat-select [(value)]="selected">
-            <mat-option *ngFor="let keyboard of keyboards" [value]="keyboard.key">
-              {{keyboard.keyboardLabel}}
+          <mat-select (selectionChange)="selectKeyboard($event.value)">
+            <mat-option *ngFor="let keyboard of keyboardsDw" [value]="keyboard.id">
+              {{keyboard.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
