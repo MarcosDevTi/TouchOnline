@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class KeyServiceService {
-  private keyboard;
   apiKeyboard = environment.apiKeyboard;
 
   constructor(private http: HttpClient) {
@@ -20,11 +19,4 @@ export class KeyServiceService {
     return this.http.get<Keyboard>(`${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`);
   }
 
-  getKeyboardInMemory(): Keyboard {
-    return this.keyboard;
-  }
-
-  setKeyboardInMemory(keyboard: Keyboard) {
-    this.keyboard = keyboard;
-  }
 }

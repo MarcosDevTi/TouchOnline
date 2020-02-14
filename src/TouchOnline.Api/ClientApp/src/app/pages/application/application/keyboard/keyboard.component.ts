@@ -20,7 +20,7 @@ export class KeyboardComponent implements OnInit, OnChanges {
   dedosE: string[];
   dedosD: string[];
   ngOnInit() {
-   const keyboardLocal = localStorage.get('kb');
+   const keyboardLocal = localStorage.getItem('kb');
    if (keyboardLocal) {
     this.ngOnChanges();
    } else {
@@ -82,7 +82,7 @@ export class KeyboardComponent implements OnInit, OnChanges {
       }
     });
 
-    console.log('temp change', this.keyServiceService.getKeyboardInMemory());
+    console.log('temp change', this.keys);
   }
 
   buscarDedos(codDedo: string): string {

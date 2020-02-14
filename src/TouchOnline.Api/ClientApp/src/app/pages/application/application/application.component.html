@@ -11,7 +11,7 @@
     <div class="col-10 mt-1 border rounded-top"  style="background-color: #fffdea;">
   
       <div *ngIf="textoMaior()">
-          <span style="font-size: 3.6vw;" *ngFor="let letra of fraseExibicao">
+          <span style="font-size: 3.9vw;" *ngFor="let letra of fraseExibicao">
               <span *ngIf="letra.proximo === undefined" class="keyDefault">{{letra.letra}}</span>
               <span *ngIf="letra.proximo === false && letra.acertou === false" class="errou">{{letra.letra}}</span>
               <span *ngIf="letra.proximo === false && (letra.acertou === undefined || letra.acertou === true)" class="acertou">{{letra.letra}}</span>

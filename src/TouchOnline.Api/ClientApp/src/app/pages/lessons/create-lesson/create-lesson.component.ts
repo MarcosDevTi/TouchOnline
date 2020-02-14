@@ -38,7 +38,7 @@ export class CreateLessonComponent implements OnInit {
   saveMyText() {
     this.myTextService.save({
         name: this.name.value,
-        text: this.textToolService.wordWrap(this.text.value, 160), 
+        text: this.textToolService.wordWrap(this.text.value, 150), 
         userId: localStorage.getItem('userId')
       }).subscribe(
         s => this.actionForSuccess(),
