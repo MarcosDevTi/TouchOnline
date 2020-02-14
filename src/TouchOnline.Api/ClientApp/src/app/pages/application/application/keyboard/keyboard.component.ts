@@ -12,6 +12,9 @@ export class KeyboardComponent implements OnInit, OnChanges {
   @Input() proximaTecla: string;
   @Input() teclaEmErro: string;
 
+  idNextKeyGreen1;
+  idNextKeyGreen2;
+
   cleanKeys: KeyModel[];
   keys: KeyModel[];
   codeKeys: string;
@@ -42,6 +45,8 @@ export class KeyboardComponent implements OnInit, OnChanges {
   ngOnChanges() {
     const cods = this.obterKbBrCodigos(this.proximaTecla, this.codeKeys);
     this.refreshFingers(cods);
+    console.log('keys in error red', this.obterKbBrCodigos(this.teclaEmErro.charCodeAt(0).toString(), this.codeKeys));
+    console.log('next keys green', this.obterKbBrCodigos(this.proximaTecla, this.codeKeys));
     this.obterBrasileiro(
       this.obterKbBrCodigos(this.proximaTecla, this.codeKeys),
       this.obterKbBrCodigos(this.teclaEmErro.charCodeAt(0).toString(), this.codeKeys)
