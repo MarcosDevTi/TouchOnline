@@ -10,6 +10,7 @@ import { LeftMenuComponent } from './shared/left-menu/left-menu.component';
 import { StarsItemComponent } from './shared/stars-item/stars-item.component';
 import { CardResultComponent } from './shared/card-result/card-result.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
+import { MyTextListComponent } from './my-text-list/my-text-list.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CreateLessonComponent } from './create-lesson/create-lesson.component';
     StarsItemComponent,
     CardResultComponent,
     SeoListComponent,
-    CreateLessonComponent
+    CreateLessonComponent,
+    MyTextListComponent
   ],
   imports: [
     SharedModule,

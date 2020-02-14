@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   user: any = {};
   loginForm: FormGroup;
   nameDisplay: string;
+  userAuthenticated;
   constructor(
     public authService: AuthService,
     private formBuilder: FormBuilder,
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.userAuthenticated = localStorage.get('userId');
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
   }

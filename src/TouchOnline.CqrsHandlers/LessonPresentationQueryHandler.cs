@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
@@ -20,6 +21,16 @@ namespace TouchOnline.CqrsHandlers
         }
         public IReadOnlyList<LessonPresentationItem> Handle(GetLessonsPresentationList query)
         {
+            if (query.Level == "myText")
+            {
+                return _context.MyTexts.Where(_ => _.UserId == query.UserId).Select(_ => new LessonPresentationItem
+                {
+                    IdLesson = _.CodeLesson,
+                    Name = _.Name,
+                    LessonText = _.Text,
+                    Level = query.Level
+                }).ToList();
+            }
             return new LessonsPresentation().GetPresentation(query.Level).Select(x =>
             new LessonPresentationItem
             {
@@ -32,6 +43,17 @@ namespace TouchOnline.CqrsHandlers
 
         public LessonPresentationApp Handle(GetLessonPresentation query)
         {
+            if (query.IdLesson >= 500)
+            {
+                var lessonDb = _context.MyTexts.FirstOrDefault(_ => _.CodeLesson == query.IdLesson);
+                return new LessonPresentationApp
+                {
+                    IdLesson = query.IdLesson,
+                    Name = lessonDb.Name,
+                    LessonText = lessonDb.Text
+                };
+            }
+
             var lesson = new LessonsPresentation().BuscarExercicio(query.IdLesson);
             return new LessonPresentationApp
             {
@@ -56,7 +78,7 @@ namespace TouchOnline.CqrsHandlers
             return results.Select(x => new Results
             {
                 IdLesson = x.IdLesson,
-                Precision = CalcPercent(x.Errors, GetLessonPresentation(x.IdLesson).TextoFase.Length),
+                Precision = CalcPercent(x.Errors, GetLessonPresentation(x.IdLesson, query.IdUser).TextoFase.Length),
                 Ppm = x.Ppm,
                 Stars = x.Stars,
                 Time = x.Time
@@ -64,8 +86,19 @@ namespace TouchOnline.CqrsHandlers
 
         }
 
-        private LessonPresentation GetLessonPresentation(int idLesson) =>
-            new LessonsPresentation().BuscarExercicio(idLesson);
+        private LessonPresentation GetLessonPresentation(int idLesson, Guid userId)
+        {
+            if (idLesson >= 500)
+            {
+                var resultMyText = _context.MyTexts.FirstOrDefault(_ => _.UserId == userId);
+                return new LessonPresentation
+                {
+                    TextoFase = resultMyText.Text
+                };
+            }
+            return new LessonsPresentation().BuscarExercicio(idLesson);
+        }
+            
 
         private decimal CalcPercent(int errors, int lengthFrase) =>
             100 - (decimal)(errors * 100) / (decimal)lengthFrase;

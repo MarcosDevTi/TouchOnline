@@ -8,21 +8,24 @@ import { environment } from 'src/environments/environment';
 import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
+import { MyText } from './models/mytext';
 
 @Injectable()
 export class LessonService {
   baseUrl = environment.apiUrl;
+  apiMyText = environment.apiMyText;
   constructor(
     private http: HttpClient
   ) { }
 
   getLessons(level: string): Observable<LessonItem[]> {
+    const userId = localStorage.getItem('userId');
     const lessonsPres = localStorage.getItem(level);
     if (lessonsPres) {
       return of(JSON.parse(lessonsPres));
     }
 
-    return this.http.get(this.baseUrl + `/GetLessonPresentations?level=${level}`).pipe(
+    return this.http.get(this.baseUrl + `/GetLessonPresentations?level=${level}&userId=${userId}`).pipe(
       catchError(this.handleError),
       map(response => {
         this.setLessonsLocalStorage(level, response);
@@ -41,7 +44,10 @@ export class LessonService {
       const results = localStorage.getItem('results');
       return of(JSON.parse(results));
     }
+  }
 
+  getMyTexts(): Observable<LessonItem[]> {
+    return this.http.get<LessonItem[]>(this.apiMyText + 'GetMyTests?userId=' + this.getUserId())
   }
 
   convertLocalLessons(jsonData): Observable<LessonItem[]> {

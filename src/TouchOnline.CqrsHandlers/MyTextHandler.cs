@@ -1,0 +1,59 @@
+﻿using MoreLinq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TouchOnline.CqrsClient.Contracts;
+using TouchOnline.CqrsClient.MyText;
+using TouchOnline.Data;
+using TouchOnline.Domain;
+
+namespace TouchOnline.CqrsHandlers
+{
+    public class MyTextHandler :
+        ICommandHandler<CreateMyText>,
+        IQueryHandler<GetMyText, MyTextViewModel>,
+        IQueryHandler<GetMyTexts, IEnumerable<MyTextViewModel>>
+    {
+        private readonly ToContext _context;
+        public MyTextHandler(ToContext context) => _context = context;
+
+        public void Handle(CreateMyText command)
+        {
+            var last = _context.MyTexts.Where(_ => _.UserId == command.UserId).MaxBy(_ => _.CodeLesson)?.FirstOrDefault();
+
+            int codeLesson = last?.CodeLesson == null || last?.CodeLesson == 0 ? 500 : last.CodeLesson + 1;
+
+            _context.Add(new MyText
+            {
+                Id = Guid.NewGuid(),
+                Name = command.Name,
+                Text = command.Text,
+                UserId = command.UserId,
+                CodeLesson = codeLesson
+            });
+            _context.SaveChanges();
+        }
+
+        public MyTextViewModel Handle(GetMyText query)
+        {
+            return _context.MyTexts.Where(_ => _.Id == query.Id).Select(_ =>
+                    new MyTextViewModel
+                    {
+                        Id = _.Id,
+                        Name = _.Name,
+                        LessonText = _.Text
+                    }).FirstOrDefault();
+        }
+
+        public IEnumerable<MyTextViewModel> Handle(GetMyTexts query)
+        {
+            return _context.MyTexts.Where(_ => _.UserId == query.UserId).Select(_ =>
+                   new MyTextViewModel
+                   {
+                       Id = _.Id,
+                       Name = _.Name,
+                       LessonText = _.Text
+                   });
+        }
+    }
+}

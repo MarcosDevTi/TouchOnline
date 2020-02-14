@@ -48,6 +48,29 @@ namespace TouchOnline.Data.Migrations
                     b.ToTable("Keyboards");
                 });
 
+            modelBuilder.Entity("TouchOnline.Domain.MyText", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("CodeLesson")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MyTexts");
+                });
+
             modelBuilder.Entity("TouchOnline.Domain.Result", b =>
                 {
                     b.Property<Guid>("Id")

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TextToolService {
 
     wordWrap(str, maxWidth) {
-        const newLineStr = '\n';
+        const newLineStr = '¶';
         let res = '';
         while (str.length > maxWidth) {
             let found = false;

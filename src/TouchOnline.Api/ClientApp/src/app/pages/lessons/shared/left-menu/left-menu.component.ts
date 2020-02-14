@@ -14,7 +14,8 @@ export class LeftMenuComponent implements OnInit {
       {name: 'Iniciante', link: '/lessons/beginner'},
       {name: 'Basico', link: '/lessons/basic'},
       {name: 'Intermediario', link: '/lessons/intermediate'},
-      {name: 'Avançado', link: '/lessons/advanced'}
+      {name: 'Avançado', link: '/lessons/advanced'},
+      {name: 'My Texts', link: '/lessons/my-text'}
     ];
   }
 }

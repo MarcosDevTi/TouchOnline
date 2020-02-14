@@ -5,6 +5,7 @@ import { AdvancedListComponent } from './advanced-list/advanced-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
+import { MyTextListComponent } from './my-text-list/my-text-list.component';
 
 const routes: Routes = [
   {path: 'beginner', component: BeginnerListComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'intermediate', component: IntermediateListComponent},
   {path: 'advanced', component: AdvancedListComponent},
   {path: 'create-lesson', component: CreateLessonComponent},
+  {path: 'my-text', component: MyTextListComponent},
 ];
 
 @NgModule({
