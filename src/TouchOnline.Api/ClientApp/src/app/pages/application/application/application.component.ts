@@ -249,6 +249,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   getRouteRedirect(categ: string): string {
+    console.log('categ', categ)
     const categEnter = categ[0];
     switch (categEnter) {
       case '1':
@@ -259,6 +260,8 @@ export class ApplicationComponent implements OnInit {
         return 'lessons/intermediate';
       case '4':
         return 'lessons/advanced';
+        default:
+          return 'lessons/my-text'
     }
   }
 

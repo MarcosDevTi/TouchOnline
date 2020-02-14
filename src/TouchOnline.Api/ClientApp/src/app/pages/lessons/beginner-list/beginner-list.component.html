@@ -13,8 +13,8 @@
           Iniciante
              {{lesson.name}}
          </div> 
-         <h3 *ngIf="lesson.initialized" class="init">{{lesson.lessonText.substring(0, 35)}} </h3>
-         <h3 *ngIf="!lesson.initialized" class="notInit">{{lesson.lessonText.substring(0, 35)}} </h3>
+         <h3 *ngIf="lesson.ppm" class="init">{{lesson.lessonText.substring(0, 60)}} </h3>
+         <h3 *ngIf="!lesson.ppm" class="notInit">{{lesson.lessonText.substring(0, 35)}} </h3>
          <mat-card *ngIf="lesson.ppm" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
            <app-card-result [lesson]="lesson"></app-card-result>
          </mat-card>

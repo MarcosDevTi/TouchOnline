@@ -52,6 +52,7 @@ export class CreateLessonComponent implements OnInit {
 
   private actionForSuccess() {
     this.router.navigate(['lessons/my-text'])
+    localStorage.removeItem('myText');
     console.log('Succesful');
   }
 }
