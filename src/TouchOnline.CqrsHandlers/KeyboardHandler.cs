@@ -33,10 +33,11 @@ namespace TouchOnline.CqrsHandlers
         public KeyboardViewModel Handle(GetKeyboard query)
         {
             Keyboard keyboard;
-            if(query.KeyboardId == null)
+            if (query.KeyboardId == null)
             {
                 keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
-            } else
+            }
+            else
             {
                 keyboard = _context.Keyboards.FirstOrDefault(_ => _.Id == query.KeyboardId);
             }
@@ -45,7 +46,7 @@ namespace TouchOnline.CqrsHandlers
                 Id = keyboard.Id,
                 Code = keyboard.Code,
                 Name = keyboard.Name,
-                CodeKeys = keyboard.CodeKeys,
+                CodeKeys = JsonSerializer.Deserialize<IEnumerable<KeyCode>>(keyboard.CodeKeys),
                 Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data)
             };
             return result;

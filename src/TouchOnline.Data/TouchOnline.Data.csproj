@@ -18,4 +18,8 @@
     <ProjectReference Include="..\TouchOnline.Domain\TouchOnline.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Maps\" />
+  </ItemGroup>
+
 </Project>

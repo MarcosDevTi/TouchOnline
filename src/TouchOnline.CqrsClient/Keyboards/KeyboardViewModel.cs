@@ -9,6 +9,6 @@ namespace TouchOnline.CqrsClient.Keyboards
         public string Code { get; set; }
         public string Name { get; set; }
         public IEnumerable<KeyModel> Data { get; set; }
-        public string CodeKeys { get; set; }
+        public IEnumerable<KeyCode> CodeKeys { get; set; }
     }
 }

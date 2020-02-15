@@ -14,8 +14,7 @@ export class KeyServiceService {
 
   }
 
-  getKeyboard(): Observable<Keyboard> {
-    const keyboardId = localStorage.getItem('keyboardId');
+  getKeyboard(keyboardId): Observable<Keyboard> {
     return this.http.get<Keyboard>(`${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`);
   }
 

@@ -1,21 +1,27 @@
 <div class="mao-container leftHand">
   <img src="../../../../../assets/Maos/mE.png" class="img-mao d-flex justify-content-end">
-  <img *ngFor="let dedo of dedosE" src="../../../../../assets/Maos/{{dedo}}.png " class="img-mao">
+  <img src="../../../../../assets/Maos/{{dedoE}}.png " class="img-mao">
 </div>
 
-<div *ngIf="keys" class="kb">
-  <span *ngFor="let tecla of keys">
-    <div id="{{tecla.id}}" class="{{tecla.key1}}">
-      <div class="{{tecla.key2}}">{{ tecla.value }}</div>
-      <div class="{{tecla.key3}}">{{ tecla.value2 }}</div>
+<div *ngIf="keys && keyCode" class="kb">
+  <span *ngFor="let key of keys">
+    <div id="{{key.id}}" 
+    [ngClass]="getClassGreen(key.id) ? key.key1 + ' ' + 'teclaVerde' : key.key1"
+    [ngClass]="keyIsRed(key.id) ? key.key1 + ' ' + 'teclaVermelha' : key.key1"
+    >
+      <div class="{{key.key2}}">{{ key.value }}</div>
+      <div class="{{key.key3}}">{{ key.value2 }}</div>
     </div>
   </span>
 </div>
 
 <div class="mao-container rightHand">
   <img src="../../../../../assets/Maos/mD.png " class="img-mao">
-  <img *ngFor="let dedo of dedosD" src="../../../../../assets/Maos/{{dedo}}.png " class="img-mao">
+  <img src="../../../../../assets/Maos/{{dedoD}}.png " class="img-mao">
 </div>
-
+proxima: {{proximaTecla}}
 success: {{successClass | json}}
 error: {{errorsClass | json}}
+keyCode: {{keyCode | json}}
+error: {{teclaEmErro}}
+
