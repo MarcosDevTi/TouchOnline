@@ -12,6 +12,9 @@ export class KeyboardComponent implements OnInit, OnChanges {
   @Input() proximaTecla: string;
   @Input() teclaEmErro: string;
 
+  errorsClass: any[] = [];
+  successClass: any[] = [];
+
   cleanKeys: KeyModel[];
   keys: KeyModel[];
   codeKeys: string;
@@ -65,6 +68,9 @@ export class KeyboardComponent implements OnInit, OnChanges {
 
   obterBrasileiro(acerto: string[], erros: string[]) {
    const jsonRes = JSON.parse(localStorage.getItem('kb'));
+   this.successClass = [];
+   this.errorsClass = [];
+
    if (jsonRes) {
     this.keys = jsonRes.data;
    }
@@ -72,6 +78,7 @@ export class KeyboardComponent implements OnInit, OnChanges {
       const indx = this.keys.findIndex(x => x.id === 'key_' + ac);
       if (this.keys[indx] !== undefined) {
         this.keys[indx].key1 += ' teclaVerde';
+        //this.successClass.push({key: 'key_' + ac, class: 'teclaVerde'})
       }
     });
 
@@ -79,6 +86,7 @@ export class KeyboardComponent implements OnInit, OnChanges {
       const indx = this.keys.findIndex(x => x.id === 'key_' + ac);
       if (this.keys[indx] !== undefined) {
         this.keys[indx].key1 += ' teclaVermelha';
+        //this.errorsClass.push({key: 'key_' + ac, class: 'teclaVermelha'})
       }
     });
 
