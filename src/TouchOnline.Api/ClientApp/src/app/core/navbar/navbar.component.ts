@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
   }
