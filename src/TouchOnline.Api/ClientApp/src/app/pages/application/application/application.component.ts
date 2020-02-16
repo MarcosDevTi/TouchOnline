@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { LessonService, ResultDto } from '../../lessons/lesson.service';
+import { LessonService } from '../../lessons/lesson.service';
 import { ErroChart } from '../../lessons/models/erroChart';
 import { Frase } from '../../lessons/models/frase';
 import { Key } from '../../lessons/models/key';

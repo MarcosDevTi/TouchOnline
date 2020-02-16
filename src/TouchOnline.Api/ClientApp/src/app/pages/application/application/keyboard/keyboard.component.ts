@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, OnChanges, Output } from '@angular/core';
 import { Finger } from './finger';
 import { KeyModel } from './KeyModel';
-import { KeyServiceService } from './key.service';
-import { Subscribable } from 'rxjs';
-import { Keyboard } from './leyboard';
 import { KeyCode } from './key-code';
+import { StatusKey } from './status-key';
 
 @Component({
   selector: 'app-keyboard',
@@ -12,31 +10,18 @@ import { KeyCode } from './key-code';
   styleUrls: ['./keyboard.component.css']
 })
 export class KeyboardComponent implements OnInit, OnChanges {
-
   @Input() proximaTecla: number;
   @Input() teclaEmErro: string;
   @Output() kbCodeSelected = '';
 
-  keyboardLocal
-  idNextKeyGreen1;
-  idNextKeyGreen2;
-
-  errorsClass: any[] = [];
-  successClass: any[] = [];
-  valTrue = true;
-
-  cleanKeys: KeyModel[];
+  keysColorClasses: StatusKey[] = [];
   keys: KeyModel[];
-  codeKeys: KeyCode[];
   keyCode: KeyCode;
-  codigosStr: string;
-  constructor(private keyServiceService: KeyServiceService) { }
-  dedoE: string;
-  dedoD: string;
+  dedoE: string = '';
+  dedoD: string = '';
 
   ngOnChanges(changes): void {
     const kb = this.getObjLocal<KeyModel[]>('kb');
-    console.log('changes', changes)
     this.keys = kb;
     this.getKeyCodes(this.proximaTecla)
   }
@@ -47,104 +32,108 @@ export class KeyboardComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getKeyCodes(this.proximaTecla)
-
-
-    // if (k.data) {
-    //   this.keys = k.data;
-    //   this.cleanKeys = k.data;
-    //   this.codeKeys = k.codeKeys;
-    // }
-    // //const cods = this.obterKbBrCodigos(this.proximaTecla, k.codeKeys);
-    // const cods = ""
-    // this.refreshFingers();
-
-    // const erros = this.getKeyCodes(this.teclaEmErro.charCodeAt(0).toString(), k.codeKeys);
-    // this.obterBrasileiro(erros, erros);
-  }
-
-  changes() {
-    //const cods = this.getKeyCodes(this.proximaTecla);
-    this.refreshFingers();
-    // this.obterBrasileiro(
-    //   this.getKeyCodes(this.proximaTecla),
-    //   this.getKeyCodes(this.teclaEmErro.charCodeAt(0).toString())
-    // );
   }
 
   getKeyCodes(cod: number) {
     if (cod) {
-      this.keyCode = this.getObjLocal<KeyCode[]>('keyCodes')
+      const kc = this.getObjLocal<KeyCode[]>('keyCodes')
         .find(_ => _.key == cod);
+      this.keyCode = kc;
+      this.updateSuccessClass(kc)
+      this.updateErrorClass();
     }
   }
 
-  getClassGreen(key): boolean {
-    return this.keyCode.codes.map(function (_) {
-      return 'key_' + _
-    }).includes(key);
-  }
-
-  keyIsRed(key): boolean {
-    console.log('key error dig', key)
-    return (this.teclaEmErro.charCodeAt(0) == NaN ||
-    this.teclaEmErro == '') && 
-    'key_' + this.teclaEmErro.charCodeAt(0) == key;
-  }
-
-  obterBrasileiro(acerto: string[], erros: string[]) {
-    const jsonRes = JSON.parse(localStorage.getItem('kb'));
-    this.successClass = [];
-    this.errorsClass = [];
-
-    if (jsonRes) {
-      this.keys = jsonRes.data;
+  updateSuccessClass(kc: KeyCode) {
+    if (!this.teclaEmErro) {
+      this.cleanSuccessClass();
+      kc.codes.forEach(_ => {
+        const valueForInsert: StatusKey = { class: 'teclaVerde', key: 'key_' + _ };
+        this.keysColorClasses.push(valueForInsert);
+      })
     }
-    acerto.forEach(ac => {
-      const indx = this.keys.findIndex(x => x.id === 'key_' + ac);
-      if (this.keys[indx] !== undefined) {
-        this.keys[indx].key1 += ' teclaVerde';
-        this.successClass.push({ key: 'key_' + ac, class: 'teclaVerde' })
-      }
-    });
-
-    erros.forEach(ac => {
-      const indx = this.keys.findIndex(x => x.id === 'key_' + ac);
-      if (this.keys[indx] !== undefined) {
-        this.keys[indx].key1 += ' teclaVermelha';
-        this.errorsClass.push({ key: 'key_' + ac, class: 'teclaVermelha' })
-      }
-    });
-
-    console.log('temp change', this.keys);
+    this.buscarDedos();
   }
 
-  buscarDedos(fingerCodes: string[]): Finger[] {
+  updateErrorClass() {
+    this.cleanErrorClass();
+    this.addErrorClass();
+  }
+
+  addErrorClass() {
+    this.getErrorCodesKey().forEach(code =>
+      this.keysColorClasses.push({ class: 'teclaVermelha', key: 'key_' + code }));
+  }
+
+  getErrorCodesKey(): number[] {
+    const ch = this.teclaEmErro.charCodeAt(0);
+    const codesResult = this.getObjLocal<KeyCode[]>('keyCodes').find(_ => _.key == ch);
+    if (codesResult == null) {
+      return [];
+    } else {
+      return codesResult.codes;
+    }
+  }
+
+  cleanErrorClass() {
+    this.keysColorClasses.filter(_ => _.class == 'teclaVermelha').forEach(_ => {
+      const index = this.keysColorClasses.findIndex(r => r.key == _.key);
+      this.keysColorClasses.splice(index, 1)
+    }
+    )
+  }
+
+  cleanSuccessClass() {
+    this.keysColorClasses.filter(_ => _.class == 'teclaVerde').forEach(_ => {
+      const index = this.keysColorClasses.findIndex(r => r.key == _.key);
+      this.keysColorClasses.splice(index, 1)
+    }
+    )
+  }
+
+  getClassKey(key): string {
+    return this.keysColorClasses.find(_ => _.key == key).class;
+  }
+
+  containsClassKey(key): boolean {
+    return this.keysColorClasses.findIndex(_ => _.key == key) != -1;
+  }
+
+  buscarDedos(): Finger[] {
     const fingersList = [
       new Finger([101, 102, 202, 302, 401, 402, 403], 'e5', 'e'),
       new Finger([103, 203, 303, 404], 'e4', 'e'),
       new Finger([104, 204, 304, 405], 'e3', 'e'),
-      new Finger([105, 106, 205, 206, 305, 306, 406, 407], 'e5', 'e'),
+      new Finger([105, 106, 205, 206, 305, 306, 406, 407], 'e2', 'e'),
       new Finger([504, 505], 'e1', 'e'),
       new Finger([107, 108, 207, 208, 307, 308, 408, 409], 'd2', 'd'),
       new Finger([109, 209, 309, 410], 'd3', 'd'),
       new Finger([110, 210, 310, 411], 'd4', 'd'),
     ];
     let result: Finger[] = [];
+    const greens = this.keysColorClasses.filter(_ => _.class == 'teclaVerde');
 
-    fingerCodes.forEach(_ => {
-      const index = fingersList.findIndex(_ => _.Codigos.includes(Number(_)))[0];
-      result.push(fingersList[index])
-    })
-
+    this.dedoE = '';
+    this.dedoD = '';
+    for(const item in greens) {
+      const k = greens[item].key.substring(4, greens[item].key.length)
+      const d = fingersList.find(_ => _.Codigos.includes(Number(k)))
+      console.log('k', k);
+      
+      if (d) {
+        if (d.HandCode == 'e') {
+          this.dedoE = d.NomeDedo
+        } else if (d.HandCode == 'd') {
+          this.dedoD = d.NomeDedo
+        } else {
+          this.dedoD = 'd5';
+        }
+      } else {
+        this.dedoD = 'd5';
+      }
+      
+    }
+    
     return result;
-  }
-
-  refreshFingers() {
-    // const codeKeys: string[] = JSON.parse(localStorage.getItem('kb')).codeKeys;
-    // const cods = this.getKeyCodes(this.proximaTecla, this.codeKeys)
-    // this.dedoE = this.buscarDedos(cods).filter(_ => _.HandCode === 'e')[0].NomeDedo
-    // this.dedoD = this.buscarDedos(cods).filter(_ => _.HandCode === 'd')[0].NomeDedo
-    // console.log('dedoE', this.dedoE);
-    // console.log('dedoD', this.dedoD);
   }
 }
