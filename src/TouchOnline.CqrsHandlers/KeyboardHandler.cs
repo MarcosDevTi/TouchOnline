@@ -66,8 +66,7 @@ namespace TouchOnline.CqrsHandlers
 
         private IEnumerable<Keyboard> GetKeyboards(int types)
         {
-            var textFile = _config.GetSection("Paths:keyboardPath").Value;
-            string textJson = File.ReadAllText(textFile);
+            string textJson = File.ReadAllText("keyboards-type-3.txt");
             var list = JsonSerializer.Deserialize<IEnumerable<Keyboard>>(textJson);
             return list;
         }
