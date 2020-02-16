@@ -1,20 +1,25 @@
-<div class="mao-container leftHand">
-  <img src="../../../../../assets/Maos/mE.png" class="img-mao d-flex justify-content-end">
-  <img *ngIf="dedoE" src="../../../../../assets/Maos/{{dedoE}}.png " class="img-mao">
+<div style="display: flex; justify-content: center;">
+  <div class="mao-container leftHand">
+    <img src="../../../../../assets/Maos/mE.jpg " class="img-mao" [ngStyle]="{'display':dedoE? 'none': 'block'}">
+    <img  *ngIf="dedoE" src="../../../../../assets/Maos/{{dedoE}}.jpg " class="img-mao">
+  </div>
+  <div *ngIf="keys && keyCode" class="kb" >
+    <span *ngFor="let key of keys">
+      <div id="{{key.id}}" [ngClass]="containsClassKey(key.id) ? key.key1 + ' ' + getClassKey(key.id) : key.key1">
+        <div class="{{key.key2}}">{{ key.value }}</div>
+        <div class="{{key.key3}}">{{ key.value2 }}</div>
+      </div>
+    </span>
+  </div>
+  
+  <div class="mao-container rightHand">
+    <img src="../../../../../assets/Maos/mD.jpg " class="img-mao" [ngStyle]="{'display':dedoD? 'none': 'block'}">
+    <img *ngIf="dedoD" src="../../../../../assets/Maos/{{dedoD}}.jpg " class="img-mao">
+  </div>
+  
 </div>
 
-<div *ngIf="keys && keyCode" class="kb">
-  <span *ngFor="let key of keys">
-    <div id="{{key.id}}" [ngClass]="containsClassKey(key.id) ? key.key1 + ' ' + getClassKey(key.id) : key.key1">
-      <div class="{{key.key2}}">{{ key.value }}</div>
-      <div class="{{key.key3}}">{{ key.value2 }}</div>
-    </div>
-  </span>
-</div>
+{{kbId}}
 
-<div class="mao-container rightHand">
-  <img src="../../../../../assets/Maos/mD.png " class="img-mao">
-  <img *ngIf="dedoD" src="../../../../../assets/Maos/{{dedoD}}.png " class="img-mao">
-</div>
 
 

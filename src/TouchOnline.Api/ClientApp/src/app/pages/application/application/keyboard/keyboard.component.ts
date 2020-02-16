@@ -12,6 +12,7 @@ import { StatusKey } from './status-key';
 export class KeyboardComponent implements OnInit, OnChanges {
   @Input() proximaTecla: number;
   @Input() teclaEmErro: string;
+  @Input() kbId: string;
   @Output() kbCodeSelected = '';
 
   keysColorClasses: StatusKey[] = [];
@@ -118,7 +119,6 @@ export class KeyboardComponent implements OnInit, OnChanges {
     for(const item in greens) {
       const k = greens[item].key.substring(4, greens[item].key.length)
       const d = fingersList.find(_ => _.Codigos.includes(Number(k)))
-      console.log('k', k);
       
       if (d) {
         if (d.HandCode == 'e') {

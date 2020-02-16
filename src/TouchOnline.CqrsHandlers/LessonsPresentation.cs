@@ -73,7 +73,7 @@ namespace TouchOnline.CqrsHandlers
         {
             var exerciciosPt = new HashSet<LessonPresentation>
                 {
-            CriarGenercApresent(2, 201, "01", "Básico", 45, "public static void¶public static void"),
+            CriarGenercApresent(2, 201, "01", "Básico", 45, "assa sala assa sala assa sala assa sala assa sala assa sala assa sala assa sala¶assa sala assa sala assa sala assa sala assa sala assa sala assa sala assa sala"),
             CriarGenercApresent(2, 202, "02", "Básico", 45, "dada fada dada fada dada fada dada fada dada fada dada fada dada fada dada fada¶dada fada dada fada dada fada dada fada dada fada dada fada dada fada dada fada"),
             CriarGenercApresent(2, 203, "03", "Básico", 45, "gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja¶gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja"),
             CriarGenercApresent(2, 204, "04", "Básico", 45, "assada sal assada sal assada sal assada sal assada sal assada sal assada sal¶assada sal assada sal assada sal assada sal assada sal assada sal assada sal"),

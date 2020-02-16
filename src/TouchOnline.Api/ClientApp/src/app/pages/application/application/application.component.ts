@@ -36,6 +36,7 @@ export class ApplicationComponent implements OnInit {
   proximaTecla = '';
   name: string;
   category: string;
+  kbId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -74,6 +75,10 @@ export class ApplicationComponent implements OnInit {
         return 'Avançado';
       }
     }
+  }
+
+  changeKeyboard(kbId) {
+    this.kbId = kbId;
   }
 
   modificarTexto(txt) {
