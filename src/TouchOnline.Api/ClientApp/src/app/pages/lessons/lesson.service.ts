@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 import { Key } from './models/key';
 import { Resultado } from './models/Resultado';
 import { LessonApp } from './models/lesson-app';
-import { MyText } from './models/mytext';
 
 @Injectable()
 export class LessonService {
