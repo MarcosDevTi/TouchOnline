@@ -13,7 +13,7 @@
         <button routerLink="lessons/advanced" mat-menu-item>Avançado</button>
         <button routerLink="lessons/create-lesson" mat-menu-item>Create Lesson</button>
       </mat-menu>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loggedIn()">
         <a routerLink="lessons/create-lesson" class="nav-link" >Criar Exercícios</a>
       </li>
     </ul>

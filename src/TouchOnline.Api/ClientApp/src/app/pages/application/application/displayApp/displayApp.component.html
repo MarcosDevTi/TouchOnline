@@ -1,8 +1,8 @@
 <div class="containerMat">
   <div class="controls">
-    <button type="button" [routerLink]="['/lessons/beginner']" class="btn btn-block btn-outline-secondary"><i class="fa fa-list"></i> Voltar à Lista</button>
-      <button type="button" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Próximo</button>
-      <button type="button" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Reiniciar</button>
+    <button type="button" [routerLink]="['/lessons/beginner']" class="btn btn-block btn-outline-secondary"><i class="fa fa-list"></i> Iniciante</button>
+    <button type="button" [routerLink]="['/lessons/basic']" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Básico</button>
+    <button type="button" [routerLink]="['/lessons/intermediate']" class="btn btn-block btn-outline-secondary"><i class="fa fa-user"></i> Intermediário</button>
   </div>
 
   <div class="level">
@@ -10,6 +10,7 @@
       <h4 class="d-flex justify-content-center"><i class="fa fa-bookmark-o mr-2"></i>{{category}}</h4>
       
       <mat-form-field class="center keyboard">
+        <mat-label>Teclado</mat-label>
           <mat-select (selectionChange)="selectKeyboard($event.value)" [(value)]="selected">
             <mat-option *ngFor="let keyboard of keyboardsDw" [value]="keyboard.id">
               {{keyboard.name}}

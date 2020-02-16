@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -16,9 +17,11 @@ namespace TouchOnline.CqrsHandlers
         IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>
     {
         private readonly ToContext _context;
-        public KeyboardHandler(ToContext context)
+        private readonly IConfiguration _config;
+        public KeyboardHandler(ToContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
         public void Handle(InsertKeyboards command)
         {
@@ -63,7 +66,7 @@ namespace TouchOnline.CqrsHandlers
 
         private IEnumerable<Keyboard> GetKeyboards(int types)
         {
-            var textFile = @"C:\Users\Marcos\Pictures\keyboards\keyboards-type-3.txt";
+            var textFile = _config.GetSection("Paths:keyboardPath").Value;
             string textJson = File.ReadAllText(textFile);
             var list = JsonSerializer.Deserialize<IEnumerable<Keyboard>>(textJson);
             return list;

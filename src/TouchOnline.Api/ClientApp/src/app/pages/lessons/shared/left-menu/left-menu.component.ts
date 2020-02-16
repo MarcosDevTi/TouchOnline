@@ -12,10 +12,10 @@ export class LeftMenuComponent implements OnInit {
   ngOnInit() {
     this.menuNiveis = [
       {name: 'Iniciante', link: '/lessons/beginner'},
-      {name: 'Basico', link: '/lessons/basic'},
-      {name: 'Intermediario', link: '/lessons/intermediate'},
+      {name: 'Básico', link: '/lessons/basic'},
+      {name: 'Intermediário', link: '/lessons/intermediate'},
       {name: 'Avançado', link: '/lessons/advanced'},
-      {name: 'My Texts', link: '/lessons/my-text'}
+      {name: 'Meus Textos', link: '/lessons/my-text'}
     ];
   }
 }
