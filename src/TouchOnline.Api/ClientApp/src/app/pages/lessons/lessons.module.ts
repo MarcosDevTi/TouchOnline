@@ -11,6 +11,7 @@ import { StarsItemComponent } from './shared/stars-item/stars-item.component';
 import { CardResultComponent } from './shared/card-result/card-result.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 import { MyTextListComponent } from './my-text-list/my-text-list.component';
+import { MyTextsComponent } from './my-texts/my-texts.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MyTextListComponent } from './my-text-list/my-text-list.component';
     CardResultComponent,
     SeoListComponent,
     CreateLessonComponent,
-    MyTextListComponent
+    MyTextListComponent,
+    MyTextsComponent
   ],
   imports: [
     SharedModule,
