@@ -14,7 +14,9 @@ namespace TouchOnline.CqrsHandlers
     public class KeyboardHandler :
         ICommandHandler<InsertKeyboards>,
         IQueryHandler<GetKeyboard, KeyboardViewModel>,
-        IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>
+        IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>,
+        IQueryHandler<GetKeyboardsManagement, IEnumerable<KeyboardForUpdate>>,
+        IQueryHandler<GetKeyboardForUpdate, KeyboardForUpdate>
     {
         private readonly ToContext _context;
         private readonly IConfiguration _config;
@@ -36,14 +38,23 @@ namespace TouchOnline.CqrsHandlers
         public KeyboardViewModel Handle(GetKeyboard query)
         {
             Keyboard keyboard;
-            if (query.KeyboardId == null)
+            if (query.LanguageCode != null)
             {
-                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == query.LanguageCode);
+                if (keyboard == null)
+                {
+                    keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+                }
             }
-            else
+            else if (query.KeyboardId != null)
             {
                 keyboard = _context.Keyboards.FirstOrDefault(_ => _.Id == query.KeyboardId);
             }
+            else
+            {
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+            }
+
             var result = new KeyboardViewModel
             {
                 Id = keyboard.Id,
@@ -62,6 +73,31 @@ namespace TouchOnline.CqrsHandlers
                 Id = _.Id,
                 Name = _.Name
             });
+        }
+
+        public IEnumerable<KeyboardForUpdate> Handle(GetKeyboardsManagement query)
+        {
+            return _context.Keyboards.Select(keyboard => new KeyboardForUpdate
+            {
+                Id = keyboard.Id,
+                Code = keyboard.Code,
+                Name = keyboard.Name,
+                LanguageCode = keyboard.LanguageCode,
+                Status = keyboard.Status
+            });
+        }
+
+        public KeyboardForUpdate Handle(GetKeyboardForUpdate query)
+        {
+            var keyboard = _context.Keyboards.Find(query.Id);
+            return new KeyboardForUpdate
+            {
+                Id = keyboard.Id,
+                Code = keyboard.Code,
+                Name = keyboard.Name,
+                LanguageCode = keyboard.LanguageCode,
+                Status = keyboard.Status
+            };
         }
 
         private IEnumerable<Keyboard> GetKeyboards(int types)

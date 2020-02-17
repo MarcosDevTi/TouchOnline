@@ -26,7 +26,7 @@ import { MyTextsComponent } from './my-texts/my-texts.component';
     SeoListComponent,
     CreateLessonComponent,
     MyTextListComponent,
-    MyTextsComponent
+    MyTextsComponent,
   ],
   imports: [
     SharedModule,

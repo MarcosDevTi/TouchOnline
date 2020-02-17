@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
+import { ApplicationService } from './pages/application/application.service';
+import { VisitorService } from './shared/visitor.service';
 
 
 @Component({
@@ -10,12 +12,17 @@ import { TrackingService } from './pages/tracking/shared/tracking.service';
 })
 export class AppComponent implements OnInit {
   title = 'DmApp';
-  constructor(private trackingService: TrackingService) {
+  constructor(
+    private trackingService: TrackingService,
+    private applicationService: ApplicationService,
+    private visitorService: VisitorService
+  ) {
 
   }
   subscription: Subscription;
 
   ngOnInit(): void {
+    this.startup();
     const source = interval(1000);
     this.subscription = source.subscribe(val => {
       this.send();
@@ -26,10 +33,45 @@ export class AppComponent implements OnInit {
     });
   }
 
+  startup() {
+    this.getLocation();
+    // this.applicationService.getKeyboardDefault().subscribe(_ => {
+    //   if (_) {
+    //     if (!this.containsLocal('kb')) {
+    //       localStorage.setItem('kb', JSON.stringify(_.data));
+    //     }
+    //     if (!this.containsLocal('bkId')) {
+    //       localStorage.setItem('bkId', _.id)
+    //     }
+    //     if (!this.containsLocal('keyCodes')) {
+    //       localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
+    //     }
+    //   }
+    // });
+  }
+
+  getLocation() {
+    if (!this.containsLocal('kb') || !this.containsLocal('bkId') || !this.containsLocal('keyCodes')) {
+      console.log('entrou');
+      this.visitorService.getIp().subscribe(x => {
+        if (x.ip) {
+          this.visitorService.getLocationWithIp(x.ip).subscribe((_: Location) => {
+            console.log('location app', _);
+            this.applicationService.getKeyboardWithLanguageCode('fr-CA').subscribe(k => console.log('keyboard', k))
+          })
+        }
+      }
+      )
+    }
+  }
 
   send() {
     if (this.trackingService.containsVisitedPages()) {
       this.trackingService.sendTrackingResult();
     }
+  }
+
+  containsLocal(key: string): boolean {
+    return !!localStorage.getItem(key);
   }
 }

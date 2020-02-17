@@ -34,6 +34,9 @@ namespace TouchOnline.Data.Migrations
                     b.Property<string>("Data")
                         .HasColumnType("text");
 
+                    b.Property<string>("LanguageCode")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
 

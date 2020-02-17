@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'lessons', loadChildren: './pages/lessons/lessons.module#LessonsModule'},
   {path: 'auth', loadChildren: './pages/auth/auth.module#AuthModule'},
   {path: 'tracking', loadChildren: './pages/tracking/tracking.module#TrackingModule'},
+  {path: 'keyboard-management', loadChildren: './pages/keyboard-management/keyboard-management.module#KeyboardManagerModule'},
 ];
 
 @NgModule({

@@ -132,6 +132,8 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
+  
+
   acertouLetra() {
     this.fraseExibicao = this.textDisplay[0].keys;
   }

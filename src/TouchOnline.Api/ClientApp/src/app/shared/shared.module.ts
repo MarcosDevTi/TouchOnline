@@ -10,6 +10,7 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material'  
 
 import { TimerFormat } from '../pages/lessons/shared/timer-format.pipe';
 import { RouterModule } from '@angular/router';
@@ -63,6 +64,7 @@ const dbConfig: DBConfig = {
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule
   ],
   declarations: [TimerFormat],
   exports: [
@@ -82,6 +84,7 @@ const dbConfig: DBConfig = {
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule,
 
     TimerFormat,
   ],

@@ -8,5 +8,6 @@
         public int Type { get; set; }
         public string CodeKeys { get; set; }
         public bool Status { get; set; }
+        public string LanguageCode { get; set; }
     }
 }

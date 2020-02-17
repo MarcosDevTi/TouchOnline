@@ -35,7 +35,16 @@ export class ApplicationService {
 
   getKeyboard(keyboardId): Observable<Keyboard> {
     const url = `${this.apiKeyboard}GetKeyboard?keyboardId=${keyboardId}`;
-    console.log('url', url);
+    return this.http.get<Keyboard>(url);
+  }
+
+  getKeyboardWithLanguageCode(languageCode): Observable<Keyboard> {
+    const url = `${this.apiKeyboard}GetKeyboardWithLanguageCode?languageCode=${languageCode}`;
+    return this.http.get<Keyboard>(url);
+  }
+
+  getKeyboardDefault(): Observable<Keyboard> {
+    const url = `${this.apiKeyboard}GetKeyboardDefault`;
     return this.http.get<Keyboard>(url);
   }
 }

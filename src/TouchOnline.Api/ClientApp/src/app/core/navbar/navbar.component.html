@@ -5,6 +5,9 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['']" >Home</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['keyboard-management']" >Keyboard Management</a>
+      </li>
       <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
       <mat-menu #menu="matMenu">
         <button routerLink="lessons/beginner" mat-menu-item>Iniciante</button>

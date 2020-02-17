@@ -19,6 +19,12 @@ getLocation() {
   });
 }
 
+getLocationWithIp(ip): Observable<Location> {
+  return this.http.get<Location>(
+    `http://ip-api.com/json/${ip}?fields=status,message,continent,continentCode,country,countryCode,region,` +
+    'regionName,city,district,zip,lat,lon,timezone,isp,org,as,asname,reverse,mobile,proxy,hosting,query');
+}
+
 getIp(): Observable<any> {
    return this.http.get('http://api.ipify.org/?format=json');
 }
