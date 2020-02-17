@@ -8,12 +8,16 @@ import { LessonService } from '../lessons/lesson.service';
 import { KeyboardComponent } from './application/keyboard/keyboard.component';
 import { ResultComponent } from './application/result/result.component';
 import { ApplicationService } from './application.service';
+import { LeftHandComponent } from './application/keyboard/left-hand/left-hand.component';
+import { RightHandComponent } from './application/keyboard/right-hand/right-hand.component';
 @NgModule({
   declarations: [
     ApplicationComponent,
     DisplayAppComponent,
     KeyboardComponent,
-    ResultComponent
+    ResultComponent,
+    LeftHandComponent,
+    RightHandComponent
   ],
   imports: [
     SharedModule,

@@ -14,7 +14,7 @@ div.kb div.key {
   outline: none;
   float: left;
   width: 6.6%;
-  height: 16%;
+  height: 18%;
 }
 
 div.kb div.key_two {
@@ -148,4 +148,15 @@ div.kb {
 
 .img-mao {
   opacity: 0.6;
+  width: 230px;
+}
+
+
+.leftHand {
+  margin-left: 10px;;
+  height: 260px;
+}
+
+.rightHand {
+  height: 260px;
 }

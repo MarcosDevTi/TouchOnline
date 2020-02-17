@@ -35,8 +35,9 @@ export class DisplayAppComponent implements OnInit {
     this.applicationService.getKeyboardsDw().subscribe(_ => {
       this.keyboardsDw = _;
       if (!localBkId)
+        localStorage.setItem('bkId', _[0].id)
         this.selected = _[0].id;
-      this.selected = localBkId;
+      this.selected = _[0].id;
     });
   }
 
