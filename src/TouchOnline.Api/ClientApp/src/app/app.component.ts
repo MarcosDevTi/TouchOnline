@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.startup();
-    const source = interval(1000);
+    const source = interval(20000);
     this.subscription = source.subscribe(val => {
       this.send();
     });
@@ -52,11 +52,9 @@ export class AppComponent implements OnInit {
 
   getLocation() {
     if (!this.containsLocal('kb') || !this.containsLocal('bkId') || !this.containsLocal('keyCodes')) {
-      console.log('entrou');
       this.visitorService.getIp().subscribe(x => {
         if (x.ip) {
           this.visitorService.getLocationWithIp(x.ip).subscribe((_: Location) => {
-            console.log('location app', _);
             this.applicationService.getKeyboardWithLanguageCode('fr-CA').subscribe(k => console.log('keyboard', k))
           })
         }
