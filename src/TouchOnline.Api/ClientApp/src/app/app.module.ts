@@ -8,6 +8,7 @@ import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
 import { VisitorService } from './shared/visitor.service';
 import { ApplicationService } from './pages/application/application.service';
+import { RegisterLocalListComponent } from './pages/management/register-local-list/register-local-list.component';
 
 @NgModule({
   declarations: [

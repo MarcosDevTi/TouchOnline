@@ -5,8 +5,11 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['']" >Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['keyboard-management']" >Keyboard Management</a>
+      <li *ngIf="isAdmin" class="nav-item">
+        <a class="nav-link" [routerLink]="['management']" >Keyboard Management</a>
+      </li>
+      <li *ngIf="isAdmin" class="nav-item">
+        <a class="nav-link" [routerLink]="['management/tracking']" >Trackings</a>
       </li>
       <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
       <mat-menu #menu="matMenu">

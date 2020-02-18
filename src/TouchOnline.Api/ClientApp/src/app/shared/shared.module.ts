@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import {
   MatDialogModule, MatMenuModule, MatDividerModule, MatCardModule,
-  MatListModule, MatFormFieldModule, MatInputModule
+  MatListModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
@@ -64,7 +64,8 @@ const dbConfig: DBConfig = {
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatSlideToggleModule,
   ],
   declarations: [TimerFormat],
   exports: [
@@ -85,6 +86,7 @@ const dbConfig: DBConfig = {
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
+    MatSlideToggleModule,
 
     TimerFormat,
   ],

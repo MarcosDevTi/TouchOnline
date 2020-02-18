@@ -51,7 +51,7 @@ namespace TouchOnline.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateKeyboard(KeyboardForUpdate keyboardForUpdate)
+        public IActionResult UpdateKeyboard([FromBody]KeyboardForUpdate keyboardForUpdate)
         {
             _processor.Send(keyboardForUpdate);
             return Ok();

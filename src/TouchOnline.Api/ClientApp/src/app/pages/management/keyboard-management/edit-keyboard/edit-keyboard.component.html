@@ -1,7 +1,9 @@
+<h2 class="title">Edit keyboard</h2>
+
 <form [formGroup]="keyboardForm" (submit)="submitKeyboardForm()">
     <mat-form-field>
         <mat-label>Id</mat-label>
-        <input matInput placeholder="Id" formControlName="id">
+        <input disabled matInput placeholder="Id" formControlName="id">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Code Html</mat-label>
@@ -15,11 +17,8 @@
         <mat-label>Language Code</mat-label>
         <input matInput placeholder="Language Code" formControlName="languageCode">
     </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>Status</mat-label>
-        <input matInput placeholder="Status" formControlName="status">
-    </mat-form-field>
-
+    <mat-slide-toggle formControlName="status" [checked]="true" [disabled]="false">
+        Slide me!
+    </mat-slide-toggle>
     <button type="submit">Save</button>
 </form>

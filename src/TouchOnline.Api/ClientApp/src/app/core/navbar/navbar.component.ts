@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   loginForm: FormGroup;
   nameDisplay: string;
   userAuthenticated;
+  isAdmin: boolean;
   constructor(
     public authService: AuthService,
     private formBuilder: FormBuilder,
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.authService.isAdmin().subscribe(_ => this.isAdmin = _);
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
   }

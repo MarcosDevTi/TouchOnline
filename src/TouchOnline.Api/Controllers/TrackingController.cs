@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Tracking;
 

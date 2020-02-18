@@ -13,6 +13,7 @@ namespace TouchOnline.CqrsHandlers
 {
     public class KeyboardHandler :
         ICommandHandler<InsertKeyboards>,
+        ICommandHandler<KeyboardForUpdate>,
         IQueryHandler<GetKeyboard, KeyboardViewModel>,
         IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>,
         IQueryHandler<GetKeyboardsManagement, IEnumerable<KeyboardForUpdate>>,
@@ -77,7 +78,7 @@ namespace TouchOnline.CqrsHandlers
 
         public IEnumerable<KeyboardForUpdate> Handle(GetKeyboardsManagement query)
         {
-            return _context.Keyboards.Select(keyboard => new KeyboardForUpdate
+            return _context.Keyboards.OrderBy(_ => _.Name).Select(keyboard => new KeyboardForUpdate
             {
                 Id = keyboard.Id,
                 Code = keyboard.Code,
@@ -98,6 +99,16 @@ namespace TouchOnline.CqrsHandlers
                 LanguageCode = keyboard.LanguageCode,
                 Status = keyboard.Status
             };
+        }
+
+        public void Handle(KeyboardForUpdate command)
+        {
+            var keyboard = _context.Keyboards.Find(command.Id);
+            keyboard.Name = command.Name;
+            keyboard.LanguageCode = command.LanguageCode;
+            keyboard.Status = command.Status;
+
+            _context.SaveChanges();
         }
 
         private IEnumerable<Keyboard> GetKeyboards(int types)

@@ -16,7 +16,7 @@ export class KeyboardServiceService {
     return this.http.get<KeyboardForUpdate[]>(url);
   }
 
-  updateKeyboard(keyboard: KeyboardForUpdate): Observable<KeyboardForUpdate> {
+updateKeyboard(keyboard: KeyboardForUpdate): Observable<KeyboardForUpdate> {
     const url = this.keyboardUrl + 'UpdateKeyboard';
     return this.http.put<KeyboardForUpdate>(url, keyboard);
   }
