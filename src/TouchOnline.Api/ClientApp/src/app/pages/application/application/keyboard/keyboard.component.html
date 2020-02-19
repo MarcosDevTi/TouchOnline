@@ -1,17 +1,15 @@
 <div style="display: flex; justify-content: center; height: 260px;">
   <div class="mao-container leftHand">
    <div style="width: 230px">
-    <img style="position: absolute;" src="../../../../../assets/Maos/e1.png" [ngStyle]="{'display':dedoE == 'e1'? 'block' : 'none'}" class="img-mao">
-    <img style="position: absolute;" src="../../../../../assets/Maos/e2.png" [ngStyle]="{'display':dedoE == 'e2'? 'block' : 'none'}" class="img-mao">
-    <img style="position: absolute;" src="../../../../../assets/Maos/e3.png" [ngStyle]="{'display':dedoE == 'e3'? 'block' : 'none'}" class="img-mao">
-    <img style="position: absolute;" src="../../../../../assets/Maos/e4.png" [ngStyle]="{'display':dedoE == 'e4'? 'block' : 'none'}" class="img-mao">
-    <img style="position: absolute;" src="../../../../../assets/Maos/e5.png" [ngStyle]="{'display':dedoE == 'e5'? 'block' : 'none'}" class="img-mao">
+    <img style="position: absolute;" src="../../../../../assets/Maos/e1.png" [ngStyle]="{'display':dedoE == 'e1' && keyCode ? 'block' : 'none'}" class="img-mao">
+    <img style="position: absolute;" src="../../../../../assets/Maos/e2.png" [ngStyle]="{'display':dedoE == 'e2' && keyCode ? 'block' : 'none'}" class="img-mao">
+    <img style="position: absolute;" src="../../../../../assets/Maos/e3.png" [ngStyle]="{'display':dedoE == 'e3' && keyCode ? 'block' : 'none'}" class="img-mao">
+    <img style="position: absolute;" src="../../../../../assets/Maos/e4.png" [ngStyle]="{'display':dedoE == 'e4' && keyCode ? 'block' : 'none'}" class="img-mao">
+    <img style="position: absolute;" src="../../../../../assets/Maos/e5.png" [ngStyle]="{'display':dedoE == 'e5' && keyCode ? 'block' : 'none'}" class="img-mao">
     <img style="position: absolute;" src="../../../../../assets/Maos/mE.png" class="img-mao">
    </div>
-    <!-- <img src="../../../../../assets/Maos/mE.png " class="img-mao" [ngStyle]="{'display':dedoE? 'none': 'block'}"> -->
-    <!-- <img  *ngIf="dedoE" src="../../../../../assets/Maos/{{dedoE}}.jpg " class="img-mao"> -->
   </div>
-  <div *ngIf="keys && keyCode" class="kb" >
+  <div class="kb">
     <span *ngFor="let key of keys">
       <div id="{{key.id}}" [ngClass]="containsClassKey(key.id) ? key.key1 + ' ' + getClassKey(key.id) : key.key1">
         <div class="{{key.key2}}">{{ key.value }}</div>
@@ -22,17 +20,13 @@
   
   <div class="mao-container rightHand">
     <div style="position: relative; width: 230px">
-      <img style="position: absolute;" src="../../../../../assets/Maos/d1.png" [ngStyle]="{'display':dedoD == 'd1'? 'block' : 'none'}" class="img-mao">
-      <img style="position: absolute;" src="../../../../../assets/Maos/d2.png" [ngStyle]="{'display':dedoD == 'd2'? 'block' : 'none'}" class="img-mao">
-      <img style="position: absolute;" src="../../../../../assets/Maos/d3.png" [ngStyle]="{'display':dedoD == 'd3'? 'block' : 'none'}" class="img-mao">
-      <img style="position: absolute;" src="../../../../../assets/Maos/d4.png" [ngStyle]="{'display':dedoD == 'd4'? 'block' : 'none'}" class="img-mao">
-      <img style="position: absolute;" src="../../../../../assets/Maos/d5.png" [ngStyle]="{'display':dedoD == 'd5'? 'block' : 'none'}" class="img-mao">
+      <img style="position: absolute;" src="../../../../../assets/Maos/d1.png" [ngStyle]="{'display':dedoD == 'd1' && keyCode ? 'block' : 'none'}" class="img-mao">
+      <img style="position: absolute;" src="../../../../../assets/Maos/d2.png" [ngStyle]="{'display':dedoD == 'd2' && keyCode ? 'block' : 'none'}" class="img-mao">
+      <img style="position: absolute;" src="../../../../../assets/Maos/d3.png" [ngStyle]="{'display':dedoD == 'd3' && keyCode ? 'block' : 'none'}" class="img-mao">
+      <img style="position: absolute;" src="../../../../../assets/Maos/d4.png" [ngStyle]="{'display':dedoD == 'd4' && keyCode ? 'block' : 'none'}" class="img-mao">
+      <img style="position: absolute;" src="../../../../../assets/Maos/d5.png" [ngStyle]="{'display':dedoD == 'd5' && keyCode ? 'block' : 'none'}" class="img-mao">
       <img style="position: absolute;" src="../../../../../assets/Maos/mD.png" class="img-mao">
      </div>
-    <!-- <img src="../../../../../assets/Maos/mD.jpg " class="img-mao" [ngStyle]="{'display':dedoD? 'none': 'block'}">
-    <img *ngIf="dedoD" src="../../../../../assets/Maos/{{dedoD}}.jpg " class="img-mao"> -->
   </div>
 </div>
-
-
 

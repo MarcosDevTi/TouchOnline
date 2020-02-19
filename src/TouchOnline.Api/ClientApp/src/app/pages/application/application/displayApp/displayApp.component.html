@@ -12,7 +12,7 @@
 
   <div class="level">
     <h4 class="d-flex justify-content-center">{{category}} {{name}}</h4>
-    <mat-form-field class="center keyboard">
+    <mat-form-field class="center keyboard" >
       <mat-label>Teclado</mat-label>
       <mat-select (selectionChange)="selectKeyboard($event.value)" [(value)]="selected">
         <mat-option *ngFor="let keyboard of keyboardsDw" [value]="keyboard.id">

@@ -35,9 +35,13 @@ export class DisplayAppComponent implements OnInit {
     this.applicationService.getKeyboardsDw().subscribe(_ => {
       this.keyboardsDw = _;
       if (!localBkId)
-        localStorage.setItem('bkId', _[0].id)
-        this.selected = _[0].id;
+     {
+      localStorage.setItem('bkId', _[0].id)
       this.selected = _[0].id;
+     } else {
+      this.selected = localBkId;
+     }
+      
     });
   }
 
@@ -55,7 +59,7 @@ export class DisplayAppComponent implements OnInit {
   setKeyboard() {
     var kbLocal = localStorage.getItem('kb');
     if (!kbLocal) {
-      const idKeyboardEnUs = '98ae3257-79e0-4efa-836b-6c74ff18020f';
+      const idKeyboardEnUs = localStorage.getItem('bkId');
       this.keyServiceService.getKeyboard(idKeyboardEnUs).subscribe(_ => {
         localStorage.setItem('kb', JSON.stringify(_.data))
         localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys))
