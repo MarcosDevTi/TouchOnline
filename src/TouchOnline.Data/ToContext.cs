@@ -15,5 +15,6 @@ namespace TouchOnline.Data
         public DbSet<RecordedTracking> GetRecordeds { get; set; }
         public DbSet<Keyboard> Keyboards { get; set; }
         public DbSet<MyText> MyTexts { get; set; }
+        public DbSet<MessageSupport> MessageSupports {get;set;}
     }
 }

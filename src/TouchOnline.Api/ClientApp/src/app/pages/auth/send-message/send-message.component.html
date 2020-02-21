@@ -1,0 +1,17 @@
+
+<h2>Enviar mensagem</h2>
+
+<mat-card>  
+  <form [formGroup]="messageForm" (submit)="send()" class="example-container">
+        <mat-form-field>
+            <input matInput formControlName="name" placeholder="Nome">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput formControlName="email" placeholder="Email">
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput formControlName="text" rows="8" placeholder="Texto"></textarea>
+        </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Enviar</button>
+  </form>
+</mat-card>
