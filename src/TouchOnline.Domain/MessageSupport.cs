@@ -2,7 +2,7 @@ using System;
 
 namespace TouchOnline.Domain
 {
-    public class MessageSupport
+    public class MessageSupport : Entity
     {
         public Guid UserId { get; set; }
         public string Name { get; set; }
