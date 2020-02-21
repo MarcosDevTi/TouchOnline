@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Marcos\\.nuget\\packages\\": {},
+    "C:\\Users\\viema01\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
+      "projectUniqueName": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
       "projectName": "TouchOnline.Domain",
-      "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
-      "packagesPath": "C:\\Users\\Marcos\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\obj\\",
+      "projectPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
+      "packagesPath": "C:\\Users\\viema01\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\viema01\\Documents\\tests\\TouchOnline\\src\\TouchOnline.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viema01\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,8 +32,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "D:\\projects\\Arch\\Shared\\Shared\\src\\Shared.Cqrs\\bin\\Debug": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "\\\\s00bld2\\DotNet\\PackageNPM_Nuget\\packages": {},
+        "https://nuget.telerik.com/nuget": {},
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
