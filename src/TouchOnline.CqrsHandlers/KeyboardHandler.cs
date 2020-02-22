@@ -69,7 +69,7 @@ namespace TouchOnline.CqrsHandlers
 
         public IEnumerable<KeyboardDw> Handle(GetKeyboardsDw query)
         {
-            return _context.Keyboards.Where(_ => _.Status).Select(_ => new KeyboardDw
+            return _context.Keyboards.Where(_ => _.Status).OrderBy(_ => _.Name).Select(_ => new KeyboardDw
             {
                 Id = _.Id,
                 Name = _.Name

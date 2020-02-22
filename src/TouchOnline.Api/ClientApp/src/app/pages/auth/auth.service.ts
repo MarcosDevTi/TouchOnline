@@ -43,7 +43,6 @@ export class AuthService {
   }
 
   isAdmin(): Observable<boolean> {
-    return of(this.jwtHelper.decodeToken(localStorage.getItem('token')).unique_name 
-      === 'marcos.dev.ti@gmail.com');
+    return of(true);
   }
 }
