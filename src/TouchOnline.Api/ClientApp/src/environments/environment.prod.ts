@@ -4,5 +4,6 @@ export const environment = {
   apiTracking: 'http://vps281295.vps.ovh.ca/api/tracking/',
   apiKeyboard: 'http://vps281295.vps.ovh.ca/api/keyboard/',
   apiMyText: 'http://vps281295.vps.ovh.ca/api/myText/',
+  apiManagement: 'http://vps281295.vps.ovh.ca/api/management/',
   production: true
 };

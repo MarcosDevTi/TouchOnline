@@ -14,6 +14,7 @@ import { KeyboardManagementComponent } from './pages/management/keyboard-managem
 import { EditKeyboardComponent } from './pages/management/keyboard-management/edit-keyboard/edit-keyboard.component';
 import { RegisterLocalListComponent } from './pages/management/register-local-list/register-local-list.component';
 import { TrackingsComponent } from './pages/management/trackings/trackings.component';
+import { UserListComponent } from './pages/management/user/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,8 @@ const routes: Routes = [
   { path: 'management/:id/edit', component: EditKeyboardComponent },
   { path: 'management/register-management-list', component: RegisterLocalListComponent },
   { path: 'management/tracking', component: TrackingsComponent },
+  { path: 'management/users', component: UserListComponent },
+
   // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];
 

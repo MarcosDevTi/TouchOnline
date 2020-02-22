@@ -9,7 +9,8 @@ import { VisitorService } from 'src/app/shared/visitor.service';
   styleUrls: ['./trackings.component.css']
 })
 export class TrackingsComponent implements OnInit {
-  trackingItems: TrackingItem[];
+  trackingItems: any[] = [];
+  displayedColumns: string[] = ['id', 'name', 'email', 'inscriptionDate'];
 
   constructor(
     private trackingService: TrackingService,
@@ -18,6 +19,7 @@ export class TrackingsComponent implements OnInit {
 
   ngOnInit() {
     this.trackingService.getTrackings().subscribe(trackings => {
+      console.log(trackings);
       trackings.forEach(_ => this.visitorService.getLocationWithIp(_.ip).subscribe(v =>
         console.log(v)))
     } )

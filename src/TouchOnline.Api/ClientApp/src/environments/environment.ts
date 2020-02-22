@@ -8,6 +8,7 @@ export const environment = {
   apiTracking: 'http://localhost:5000/api/tracking/',
   apiKeyboard: 'http://localhost:5000/api/keyboard/',
   apiMyText: 'http://localhost:5000/api/myText/',
+  apiManagement: 'http://localhost:5000/api/management/',
   production: false
 };
 

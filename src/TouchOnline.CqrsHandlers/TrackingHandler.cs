@@ -35,19 +35,20 @@ namespace TouchOnline.CqrsHandlers
             var byIp = (from tr in _context.GetRecordeds.Where(_ => _.Ip != null && _.StartDate >= query.InitialDate && _.StartDate <= query.LimitDate).ToList()
                         group tr by tr.Ip);
 
-            return byIp.Select(_ =>  new SaveTracking {
+            return byIp.Select(_ => new SaveTracking
+            {
                 Ip = _.Key,
                 EndDate = _.Select(d => d.EndDate).Max(),
                 StartDate = _.Select(d => d.StartDate).Min(),
-                UserId = _.FirstOrDefault()?.UserId,
+                UserId = _.FirstOrDefault(_ => _.UserId != null)?.UserId,
                 VisitedPages = GetVisitedPagesCondensed(_.Select(_ => _.VisitedPages).ToArray())
             });
         }
 
-        public string GetVisitedPagesCondensed(string [] list)
+        public string GetVisitedPagesCondensed(string[] list)
         {
             var result = string.Empty;
-            foreach(var item in list)
+            foreach (var item in list)
             {
                 result += "/" + item;
             }

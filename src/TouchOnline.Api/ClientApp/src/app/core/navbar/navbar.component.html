@@ -11,6 +11,9 @@
       <li *ngIf="isAdmin" class="nav-item">
         <a class="nav-link" [routerLink]="['management/tracking']" >Trackings</a>
       </li>
+      <li *ngIf="isAdmin" class="nav-item">
+        <a class="nav-link" [routerLink]="['management/users']" >Users</a>
+      </li>
       <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
       <mat-menu #menu="matMenu">
         <button routerLink="lessons/beginner" mat-menu-item>Iniciante</button>
