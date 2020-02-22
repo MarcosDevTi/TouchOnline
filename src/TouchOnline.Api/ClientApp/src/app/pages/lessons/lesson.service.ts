@@ -62,7 +62,8 @@ export class LessonService {
   }
 
   getLesson(idLesson: string) {
-    return this.http.get<LessonApp>(this.baseUrl + '/GetLessonPresentation?idLesson=' + idLesson);
+    return this.http.get<LessonApp>(this.baseUrl + '/GetLessonPresentation?idLesson=' + idLesson + 
+    "&userId="+ this.getUserId());
   }
 
   private jsonDataToLessons(jsonData: LessonItem[]): LessonItem[] {

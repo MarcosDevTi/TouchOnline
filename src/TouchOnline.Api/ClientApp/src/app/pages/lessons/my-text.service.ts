@@ -12,7 +12,6 @@ export class MyTextService {
   constructor(private http: HttpClient) { }
 
   save(lessonForSave: LessonForSave): Observable<any> {
-    console.log('lessonForSave', lessonForSave)
     return this.http.post(this.apiMyText + 'Save', lessonForSave);
   }
 }

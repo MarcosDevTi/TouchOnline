@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
+import { LessonService } from '../lessons/lesson.service';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
   currentUser: User;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private lessonService: LessonService) { }
 
 
   login(model: any) {

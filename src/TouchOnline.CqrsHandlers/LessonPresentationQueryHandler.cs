@@ -45,12 +45,12 @@ namespace TouchOnline.CqrsHandlers
         {
             if (query.IdLesson >= 500)
             {
-                var lessonDb = _context.MyTexts.FirstOrDefault(_ => _.CodeLesson == query.IdLesson);
+                var lessonDb = _context.MyTexts.FirstOrDefault(_ => _.CodeLesson == query.IdLesson && _.UserId == query.UserId);
                 return new LessonPresentationApp
                 {
                     IdLesson = query.IdLesson,
-                    Name = lessonDb.Name,
-                    LessonText = lessonDb.Text
+                    Name = lessonDb?.Name,
+                    LessonText = lessonDb?.Text
                 };
             }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/pages/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LessonService } from 'src/app/pages/lessons/lesson.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean;
   constructor(
     public authService: AuthService,
+    private lessonService: LessonService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -41,14 +43,22 @@ export class NavbarComponent implements OnInit {
   }
 
   login() {
+    this.lessonService.getLessons('beginners').subscribe(_ => _)
     this.user = Object.assign({}, this.loginForm.value);
+    
+    
     this.authService.login(this.user).subscribe(next => {
       // this.alertify.success('Logged in Successfully');
+     
       console.log('Logged in Successfully');
     }, error => {
       // this.alertify.error(error);
     }, () => {
-      this.router.navigate(['/lessons/beginner']);
+      ['basics', 'intermediates', 'advanceds', 'myText']
+    .forEach(list => this.lessonService.getLessons(list).subscribe(_ => _))
+      this.router.navigate([''], {skipLocationChange: true}).then(
+        () => this.router.navigate(['/lessons/beginner'])
+      );
     }
   );
   this.isAdminRefresh();
@@ -62,6 +72,7 @@ logout() {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
   localStorage.removeItem('userId');
+  localStorage.removeItem('myText');
   this.authService.decodedToken = null;
   this.authService.currentUser = null;
 

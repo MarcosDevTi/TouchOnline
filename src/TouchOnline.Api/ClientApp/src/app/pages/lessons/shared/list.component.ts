@@ -13,16 +13,17 @@ export abstract class ListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      this.readBasics();
         this.trackingService.setvisitedPages('list-' + this.level);
         this.init();
-        this.readBasics();
+        
     }
     abstract init(): void;
 
     readBasics(): void {
         this.lessonService.getLessons(this.level).subscribe((lessons: LessonItem[]) => {
           this.lessonService.getResults().subscribe(rs => {
-            if (rs) {
+            if (rs && lessons) {
               rs.forEach(r => {
                 const index = lessons.findIndex(l => l.idLesson === r.idLesson);
                 if (index !== -1) {

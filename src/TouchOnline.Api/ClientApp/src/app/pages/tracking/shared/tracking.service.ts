@@ -51,7 +51,6 @@ export class TrackingService {
   }
 
   saveResult(recordedTracking: RecordedTracking) {
-
     this.http.post(this.baseUrl + 'SaveTracking', recordedTracking).pipe(
       catchError(this.handleError),
       map(_ => _)

@@ -37,9 +37,9 @@ namespace DigiteMais.UI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetLessonPresentation([FromQuery]int idLesson)
+        public IActionResult GetLessonPresentation([FromQuery]GetLessonPresentation getLessonPresentation)
         {
-            return Ok(_processor.Get(new GetLessonPresentation { IdLesson = idLesson }));
+            return Ok(_processor.Get(getLessonPresentation));
         }
 
         [HttpPost]
