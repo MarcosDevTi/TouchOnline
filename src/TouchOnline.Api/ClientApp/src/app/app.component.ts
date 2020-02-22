@@ -35,19 +35,19 @@ export class AppComponent implements OnInit {
 
   startup() {
     this.getLocation();
-    // this.applicationService.getKeyboardDefault().subscribe(_ => {
-    //   if (_) {
-    //     if (!this.containsLocal('kb')) {
-    //       localStorage.setItem('kb', JSON.stringify(_.data));
-    //     }
-    //     if (!this.containsLocal('bkId')) {
-    //       localStorage.setItem('bkId', _.id)
-    //     }
-    //     if (!this.containsLocal('keyCodes')) {
-    //       localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
-    //     }
-    //   }
-    // });
+    this.applicationService.getKeyboardDefault().subscribe(_ => {
+      if (_) {
+        if (!this.containsLocal('kb')) {
+          localStorage.setItem('kb', JSON.stringify(_.data));
+        }
+        if (!this.containsLocal('bkId')) {
+          localStorage.setItem('bkId', _.id)
+        }
+        if (!this.containsLocal('keyCodes')) {
+          localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
+        }
+      }
+    });
   }
 
   getLocation() {

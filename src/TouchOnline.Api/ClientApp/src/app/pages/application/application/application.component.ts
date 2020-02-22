@@ -159,7 +159,10 @@ export class ApplicationComponent implements OnInit {
   }
 
   textoMaior(): boolean {
-    return this.idExerc[0] === '1' || this.idExerc[0] === '2';
+    const any = this.idExerc != undefined && this.idExerc != null && this.idExerc.length > 0;
+    if(any) {
+      return this.idExerc[0] === '1' || this.idExerc[0] === '2';
+    }
   }
 
   getAllText(): Key[] {
@@ -255,8 +258,7 @@ export class ApplicationComponent implements OnInit {
     });
   }
 
-  getRouteRedirect(categ: string): string {
-    console.log('categ', categ)
+  getRouteRedirect(categ: string): string {    
     const categEnter = categ[0];
     switch (categEnter) {
       case '1':
