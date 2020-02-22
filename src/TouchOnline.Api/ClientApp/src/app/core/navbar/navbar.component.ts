@@ -21,9 +21,16 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.isAdmin().subscribe(_ => this.isAdmin = _);
+   this.isAdminRefresh();
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
+  }
+
+  isAdminRefresh() {
+    this.authService.isAdmin(localStorage.getItem('userId')).subscribe(_ => {
+      this.isAdmin = _;
+      this.authService.isAdminStatic = _;
+    });
   }
 
   createLoginForm() {
@@ -44,6 +51,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/lessons/beginner']);
     }
   );
+  this.isAdminRefresh();
 }
 
 loggedIn() {
@@ -58,5 +66,6 @@ logout() {
   this.authService.currentUser = null;
 
   this.router.navigate(['']);
+  this.isAdminRefresh();
 }
 }

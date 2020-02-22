@@ -5,12 +5,14 @@ import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  isAdminStatic;
   apiAuth = environment.apiAuth;
   jwtHelper = new JwtHelperService();
   decodedToken: any;
@@ -42,7 +44,7 @@ export class AuthService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  isAdmin(): Observable<boolean> {
-    return of(true);
+  isAdmin(userId): Observable<boolean> {
+    return this.http.get<boolean>(this.apiAuth + 'IsAdmin?userId=' + userId );
   }
 }

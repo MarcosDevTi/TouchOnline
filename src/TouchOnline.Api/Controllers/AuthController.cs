@@ -7,7 +7,6 @@ using System.Security.Claims;
 using System.Text;
 using TouchOnline.Cqrs.Client.User;
 using TouchOnline.CqrsClient.Contracts;
-using TouchOnline.CqrsClient.Keyboard;
 using TouchOnline.CqrsClient.User;
 
 namespace DigiteMais.UI.Controllers
@@ -35,6 +34,13 @@ namespace DigiteMais.UI.Controllers
             _processor.Send(registerUser);
             var userToReturn = _processor.Get(new GetUser(registerUser.Email));
             return Ok(userToReturn);
+        }
+
+        [HttpGet("IsAdmin")]
+        public IActionResult IsAdmin(Guid userId)
+        {
+            var teste = _processor.Get(new IsAdmin(userId));
+            return Ok(_processor.Get(new IsAdmin(userId)));
         }
 
         [HttpPost("Login")]

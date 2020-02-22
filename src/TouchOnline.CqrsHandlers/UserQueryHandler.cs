@@ -9,7 +9,8 @@ namespace TouchOnline.CqrsHandlers
     public class UserQueryHandler :
         IQueryHandler<Login, LoginConfirm>,
         IQueryHandler<UserExists, bool>,
-        IQueryHandler<GetUser, UserLogged>
+        IQueryHandler<GetUser, UserLogged>,
+        IQueryHandler<IsAdmin, bool>
     {
         private readonly ToContext _context;
 
@@ -43,6 +44,11 @@ namespace TouchOnline.CqrsHandlers
                 Name = user.Name,
                 Email = user.Email
             };
+        }
+
+        public bool Handle(IsAdmin query)
+        {
+            return _context.Users.FirstOrDefault(_ => _.Id == query.UserId)?.Email == "marcos.dev.ti@gmail.com";
         }
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
