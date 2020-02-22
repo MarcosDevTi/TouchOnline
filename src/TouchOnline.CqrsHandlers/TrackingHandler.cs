@@ -30,7 +30,7 @@ namespace TouchOnline.CqrsHandlers
         public IEnumerable<SaveTracking> Handle(GetTrackings query)
         {
             query.InitialDate = new System.DateTime(2020, 2, 17);
-            query.LimitDate = new System.DateTime(2020, 2, 18);
+            query.LimitDate = new System.DateTime(2020, 10, 18);
 
             var byIp = (from tr in _context.GetRecordeds.Where(_ => _.Ip != null && _.StartDate >= query.InitialDate && _.StartDate <= query.LimitDate).ToList()
                         group tr by tr.Ip);

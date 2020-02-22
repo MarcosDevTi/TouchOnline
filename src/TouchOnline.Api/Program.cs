@@ -20,7 +20,7 @@ namespace TouchOnline.Api
                 try
                 {
                     var context = scope.ServiceProvider.GetService<ToContext>();
-                    // context.Database.EnsureDeleted();
+                    //context.Database.EnsureDeleted();
                     context.Database.Migrate();
                 }
                 catch (Exception ex)

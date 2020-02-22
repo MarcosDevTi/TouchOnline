@@ -26,4 +26,8 @@ updateKeyboard(keyboard: KeyboardForUpdate): Observable<KeyboardForUpdate> {
     return this.http.get<KeyboardForUpdate>(url);
   }
 
+  insertKeyboards() {
+    return this.http.get(this.keyboardUrl + 'InsertKeyboardLayout');
+  }
+
 }

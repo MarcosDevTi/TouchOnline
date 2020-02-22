@@ -17,7 +17,7 @@
         <button routerLink="lessons/basic" mat-menu-item>Básico</button>
         <button routerLink="lessons/intermediate" mat-menu-item>Intermediário</button>
         <button routerLink="lessons/advanced" mat-menu-item>Avançado</button>
-        <button *ngIf="loggedIn()" routerLink="lessons/create-lesson" mat-menu-item>Create Lesson</button>
+        <button *ngIf="loggedIn()" routerLink="lessons/my-text" mat-menu-item>Meus Textos</button>
       </mat-menu>
       <li class="nav-item" *ngIf="loggedIn()">
         <a routerLink="lessons/create-lesson" class="nav-link" >Criar Exercícios</a>

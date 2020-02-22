@@ -46,7 +46,6 @@ namespace DigiteMais.UI.Controllers
         [HttpPost("Login")]
         public IActionResult Login(Login userLogin)
         {
-            //_processor.Send(new InsertKeyboards());
             var userfromDisplay = _processor.Get(userLogin);
             if (userfromDisplay == null) return Unauthorized();
 

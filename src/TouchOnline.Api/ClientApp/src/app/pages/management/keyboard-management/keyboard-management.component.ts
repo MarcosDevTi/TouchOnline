@@ -21,4 +21,12 @@ export class KeyboardManagementComponent implements OnInit {
   editKeyboard(id) {
     alert(id);
   }
+
+
+  insertKeyboards() {
+    this.keyboardServiceService.insertKeyboards().subscribe(_ =>
+      console.log('insert')
+    )
+    
+  }
 }

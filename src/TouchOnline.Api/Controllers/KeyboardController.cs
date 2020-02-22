@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using TouchOnline.CqrsClient.Contracts;
+using TouchOnline.CqrsClient.Keyboard;
 using TouchOnline.CqrsClient.Keyboards;
 
 namespace TouchOnline.Api.Controllers
@@ -13,6 +14,13 @@ namespace TouchOnline.Api.Controllers
         public KeyboardController(IProcessor processor)
         {
             _processor = processor;
+        }
+
+        [HttpGet]
+        public IActionResult InsertKeyboardLayout()
+        {
+            _processor.Send(new InsertKeyboards());
+            return Ok();
         }
 
         [HttpGet]

@@ -4,6 +4,7 @@ import { MyTextService } from '../my-text.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { TextToolService } from 'src/app/shared/text-tool.service';
+import { LessonService } from '../lesson.service';
 
 @Component({
   selector: 'app-create-lesson',
@@ -18,7 +19,8 @@ export class CreateLessonComponent implements OnInit {
     private myTextService: MyTextService,
     private router: Router,
     protected route: ActivatedRoute,
-    private textToolService: TextToolService
+    private textToolService: TextToolService,
+    private lessonService: LessonService
     ) { }
 
   ngOnInit() {
@@ -42,7 +44,8 @@ export class CreateLessonComponent implements OnInit {
         userId: localStorage.getItem('userId')
       }).subscribe(
         s => this.actionForSuccess(),
-        e => this.actionForError(e)
+        e => this.actionForError(e),
+        () => this.router.navigate(['lessons/my-text'])
       )
   }
 
@@ -51,7 +54,9 @@ export class CreateLessonComponent implements OnInit {
   }
 
   private actionForSuccess() {
-    this.router.navigate(['lessons/my-text'])
+    this.lessonService.getLessons('myText').subscribe(_ => 
+      console.log(""));
+
     localStorage.removeItem('myText');
     console.log('Succesful');
   }

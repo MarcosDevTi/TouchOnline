@@ -12,4 +12,6 @@ export class RegisterLocalListComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }
