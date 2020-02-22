@@ -29,6 +29,12 @@ import { ResultComponent } from './pages/application/application/result/result.c
 import { LeftHandComponent } from './pages/application/application/keyboard/left-hand/left-hand.component';
 import { RightHandComponent } from './pages/application/application/keyboard/right-hand/right-hand.component';
 import { TimerFormat } from './pages/lessons/shared/timer-format.pipe';
+import { SendMessageComponent } from './pages/auth/send-message/send-message.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { TrackingsComponent } from './pages/management/trackings/trackings.component';
+import { RegisterLocalListComponent } from './pages/management/register-local-list/register-local-list.component';
+import { KeyboardManagementComponent } from './pages/management/keyboard-management/keyboard-management.component';
+import { EditKeyboardComponent } from './pages/management/keyboard-management/edit-keyboard/edit-keyboard.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,12 @@ import { TimerFormat } from './pages/lessons/shared/timer-format.pipe';
     ResultComponent,
     LeftHandComponent,
     RightHandComponent,
+    RegisterComponent,
+    SendMessageComponent,
+    EditKeyboardComponent,
+     KeyboardManagementComponent,
+     RegisterLocalListComponent,
+     TrackingsComponent,
     TimerFormat
   ],
   imports: [

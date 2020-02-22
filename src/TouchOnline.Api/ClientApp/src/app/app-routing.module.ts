@@ -8,20 +8,32 @@ import { IntermediateListComponent } from './pages/lessons/intermediate-list/int
 import { AdvancedListComponent } from './pages/lessons/advanced-list/advanced-list.component';
 import { MyTextListComponent } from './pages/lessons/my-text-list/my-text-list.component';
 import { ApplicationComponent } from './pages/application/application/application.component';
+import { SendMessageComponent } from './pages/auth/send-message/send-message.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { KeyboardManagementComponent } from './pages/management/keyboard-management/keyboard-management.component';
+import { EditKeyboardComponent } from './pages/management/keyboard-management/edit-keyboard/edit-keyboard.component';
+import { RegisterLocalListComponent } from './pages/management/register-local-list/register-local-list.component';
+import { TrackingsComponent } from './pages/management/trackings/trackings.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   // {path: 'app', loadChildren: './pages/application/application.module#ApplicationModule'},
   // {path: 'lessons', loadChildren: './pages/lessons/lessons.module#LessonsModule'},
-  {path: 'app/:id', component: ApplicationComponent},
-  {path: 'lessons/beginner', component: BeginnerListComponent},
-  {path: 'lessons/basic', component: BasicListComponent},
-  {path: 'lessons/intermediate', component: IntermediateListComponent},
-  {path: 'lessons/advanced', component: AdvancedListComponent},
-  {path: 'lessons/create-lesson', component: CreateLessonComponent},
-  {path: 'lessons/my-text', component: MyTextListComponent},
-  {path: 'auth', loadChildren: './pages/auth/auth.module#AuthModule'},
-  {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
+  { path: 'app/:id', component: ApplicationComponent },
+  { path: 'lessons/beginner', component: BeginnerListComponent },
+  { path: 'lessons/basic', component: BasicListComponent },
+  { path: 'lessons/intermediate', component: IntermediateListComponent },
+  { path: 'lessons/advanced', component: AdvancedListComponent },
+  { path: 'lessons/create-lesson', component: CreateLessonComponent },
+  { path: 'lessons/my-text', component: MyTextListComponent },
+  { path: 'auth/register', component: RegisterComponent },
+  { path: 'auth/send-message', component: SendMessageComponent },
+  // {path: 'auth', loadChildren: './pages/auth/auth.module#AuthModule'},
+  { path: 'management', component: KeyboardManagementComponent },
+  { path: 'management/:id/edit', component: EditKeyboardComponent },
+  { path: 'management/register-management-list', component: RegisterLocalListComponent },
+  { path: 'management/tracking', component: TrackingsComponent },
+  // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];
 
 @NgModule({
