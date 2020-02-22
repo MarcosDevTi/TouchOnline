@@ -3,7 +3,7 @@
  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['']" >Home: {{isAdmin}}</a>
+        <a class="nav-link" [routerLink]="['']" >Home</a>
       </li>
       <li *ngIf="isAdmin" class="nav-item">
         <a class="nav-link" [routerLink]="['management']" >Keyboard Management</a>
@@ -17,7 +17,7 @@
         <button routerLink="lessons/basic" mat-menu-item>Básico</button>
         <button routerLink="lessons/intermediate" mat-menu-item>Intermediário</button>
         <button routerLink="lessons/advanced" mat-menu-item>Avançado</button>
-        <button routerLink="lessons/create-lesson" mat-menu-item>Create Lesson</button>
+        <button *ngIf="loggedIn()" routerLink="lessons/create-lesson" mat-menu-item>Create Lesson</button>
       </mat-menu>
       <li class="nav-item" *ngIf="loggedIn()">
         <a routerLink="lessons/create-lesson" class="nav-link" >Criar Exercícios</a>

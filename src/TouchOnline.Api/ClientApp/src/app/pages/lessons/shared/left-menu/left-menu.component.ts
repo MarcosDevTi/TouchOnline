@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Component({
   selector: 'app-left-menu',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftMenuComponent implements OnInit {
   menuNiveis: { name: string; link: string; }[];
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
     this.menuNiveis = [
@@ -15,7 +16,16 @@ export class LeftMenuComponent implements OnInit {
       {name: 'Básico', link: '/lessons/basic'},
       {name: 'Intermediário', link: '/lessons/intermediate'},
       {name: 'Avançado', link: '/lessons/advanced'},
-      {name: 'Meus Textos', link: '/lessons/my-text'}
     ];
+
+    if(this.authService.loggedIn()) {
+      this.menuNiveis.push(
+        {name: 'Meus Textos', link: '/lessons/my-text'}
+      )
+    }
+  }
+
+  loggedIn() {
+    return this.authService.loggedIn();
   }
 }
