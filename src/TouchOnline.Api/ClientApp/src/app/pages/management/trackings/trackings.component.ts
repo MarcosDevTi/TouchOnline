@@ -32,7 +32,7 @@ export class TrackingsComponent implements OnInit {
   openDialog(trackingItem): void { 
     console.log(trackingItem);
     const dialogRef = this.dialog.open(TrackingDetailsComponent, {
-      data: this.trackingItems
+      data: this.trackingItems.filter(_ => _.ip === trackingItem.ip)[0]
     });
 
 

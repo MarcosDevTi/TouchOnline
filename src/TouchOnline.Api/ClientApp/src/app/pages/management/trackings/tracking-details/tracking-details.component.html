@@ -1,4 +1,4 @@
-<mat-list role="list">
+<mat-list *ngIf="trackingDetails" role="list">
     <mat-list-item role="listitem">country: {{trackingDetails.country}}</mat-list-item>
     <mat-list-item role="listitem">regionName: {{trackingDetails.regionName}}</mat-list-item>
     <mat-list-item role="listitem">city: {{trackingDetails.city}}</mat-list-item>
