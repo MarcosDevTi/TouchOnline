@@ -37,6 +37,7 @@ export class ApplicationComponent implements OnInit {
   name: string;
   category: string;
   kbId: string;
+  f = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class ApplicationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
     this.lessonService.getLesson(this.idExerc).subscribe((x: LessonApp ) => {

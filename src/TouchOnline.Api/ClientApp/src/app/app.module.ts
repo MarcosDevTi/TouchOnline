@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule, MatTableModule, MatSelectModule, MatDialogModule, MatMenuModule, MatDividerModule, MatListModule, MatCardModule, MatChipsModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule } from '@angular/material';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
 import { VisitorService } from './shared/visitor.service';
@@ -37,6 +37,7 @@ import { KeyboardManagementComponent } from './pages/management/keyboard-managem
 import { EditKeyboardComponent } from './pages/management/keyboard-management/edit-keyboard/edit-keyboard.component';
 import { UserListComponent } from './pages/management/user/user-list/user-list.component';
 import { TrackingDetailsComponent } from './pages/management/trackings/tracking-details/tracking-details.component';
+import { AutoFocusDirective } from './shared/auto-focus.directive';
 
 @NgModule({
   declarations: [
@@ -62,12 +63,13 @@ import { TrackingDetailsComponent } from './pages/management/trackings/tracking-
     RegisterComponent,
     SendMessageComponent,
     EditKeyboardComponent,
-     KeyboardManagementComponent,
-     RegisterLocalListComponent,
-     TrackingsComponent,
+    KeyboardManagementComponent,
+    RegisterLocalListComponent,
+    TrackingsComponent,
     TimerFormat,
     UserListComponent,
-    TrackingDetailsComponent
+    TrackingDetailsComponent,
+    AutoFocusDirective
   ],
   imports: [
     CoreModule,
@@ -97,5 +99,5 @@ import { TrackingDetailsComponent } from './pages/management/trackings/tracking-
   ],
 })
 export class AppModule {
-  
- }
+
+}

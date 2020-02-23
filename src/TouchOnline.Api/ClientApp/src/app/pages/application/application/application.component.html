@@ -34,7 +34,7 @@
   <div class="col-8">
     <div class="form-group">
       <textarea autofocus class="form-control" rows="2" #entradaTxt
-        (input)="modificarTexto(entradaTxt.value)">{{entradaTxt.value}}</textarea>
+        (input)="modificarTexto(entradaTxt.value)" [datoAutoFocus]="f">{{entradaTxt.value}}</textarea>
     </div>
   </div>
   <div class="col-2"></div>
