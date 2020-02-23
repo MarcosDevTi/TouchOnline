@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TrackingService } from './shared/tracking.service';
 import { TrackingItem } from './shared/trackingItem';
 import { VisitorService } from 'src/app/shared/visitor.service';
+import { MatDialog } from '@angular/material';
+import { TrackingDetailsComponent } from './tracking-details/tracking-details.component';
 
 @Component({
   selector: 'app-trackings',
@@ -10,19 +12,35 @@ import { VisitorService } from 'src/app/shared/visitor.service';
 })
 export class TrackingsComponent implements OnInit {
   trackingItems: any[] = [];
-  displayedColumns: string[] = ['id', 'name', 'email', 'inscriptionDate'];
+  displayedColumns: string[] = ['ip', 'userId', 'endDate', 'startDate', 'actions'];
 
   constructor(
     private trackingService: TrackingService,
-    private visitorService: VisitorService
+    private visitorService: VisitorService,
+    public dialog: MatDialog,
     ) { }
 
   ngOnInit() {
     this.trackingService.getTrackings().subscribe(trackings => {
-      console.log(trackings);
-      trackings.forEach(_ => this.visitorService.getLocationWithIp(_.ip).subscribe(v =>
-        console.log(v)))
+      this.trackingItems = trackings
+      // trackings.forEach(_ => 
+      //   this.visitorService.getLocationWithIp(_.ip).subscribe(v => console.log(v))
+      //   )
     } )
   }
 
+  openDialog(trackingItem): void { 
+    console.log(trackingItem);
+    const dialogRef = this.dialog.open(TrackingDetailsComponent, {
+      data: this.trackingItems
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+     
+    });
+  }
+
 }
+
+

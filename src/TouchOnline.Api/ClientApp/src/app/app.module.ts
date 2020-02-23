@@ -36,6 +36,7 @@ import { RegisterLocalListComponent } from './pages/management/register-local-li
 import { KeyboardManagementComponent } from './pages/management/keyboard-management/keyboard-management.component';
 import { EditKeyboardComponent } from './pages/management/keyboard-management/edit-keyboard/edit-keyboard.component';
 import { UserListComponent } from './pages/management/user/user-list/user-list.component';
+import { TrackingDetailsComponent } from './pages/management/trackings/tracking-details/tracking-details.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { UserListComponent } from './pages/management/user/user-list/user-list.c
      RegisterLocalListComponent,
      TrackingsComponent,
     TimerFormat,
-    UserListComponent
+    UserListComponent,
+    TrackingDetailsComponent
   ],
   imports: [
     CoreModule,
@@ -90,7 +92,8 @@ import { UserListComponent } from './pages/management/user/user-list/user-list.c
   providers: [TrackingService, ApplicationService, VisitorService, LessonService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ResultComponent
+    ResultComponent,
+    TrackingDetailsComponent
   ],
 })
 export class AppModule {

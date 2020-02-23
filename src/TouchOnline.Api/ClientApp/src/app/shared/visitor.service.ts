@@ -12,6 +12,7 @@ constructor(private http: HttpClient) { }
 
 getLocation() {
   this.http.get('http://api.ipify.org/?format=json').subscribe((res: any) => {
+    console.log(res);
     this.http.get(
       `http://ip-api.com/json/${res.ip}?fields=status,message,continent,continentCode,country,countryCode,region,` +
       'regionName,city,district,zip,lat,lon,timezone,isp,org,as,asname,reverse,mobile,proxy,hosting,query').subscribe((ress: any) => {
