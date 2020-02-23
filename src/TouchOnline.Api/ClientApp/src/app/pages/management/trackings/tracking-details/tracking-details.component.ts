@@ -17,6 +17,7 @@ export class TrackingDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('data', this.data);
     this.visitorService.getLocationWithIp(this.data[0].ip).subscribe((_: any) => {
       this.trackingDetails = new TrackingDetails();
       this.trackingDetails.country = _.country
@@ -29,7 +30,6 @@ export class TrackingDetailsComponent implements OnInit {
       this.trackingDetails.org = _.org
       this.trackingDetails.as = _.as
       this.trackingDetails.mobile = _.mobile
-
     })
   }
 
