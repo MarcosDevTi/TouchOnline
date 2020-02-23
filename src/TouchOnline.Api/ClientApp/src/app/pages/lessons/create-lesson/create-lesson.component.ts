@@ -43,7 +43,7 @@ export class CreateLessonComponent implements OnInit {
         text: this.textToolService.wordWrap(this.text.value, 150), 
         userId: localStorage.getItem('userId')
       }).subscribe(
-        s => this.actionForSuccess(),
+        s => this.actionForSuccess(JSON.stringify(s)),
         e => this.actionForError(e),
         () => this.router.navigate(['lessons/my-text'])
       )
@@ -53,11 +53,12 @@ export class CreateLessonComponent implements OnInit {
     console.log(err);
   }
 
-  private actionForSuccess() {
-    this.lessonService.getLessons('myText').subscribe(_ => 
-      console.log(""));
+  getObjLocal<T>(key: string): T {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
-    localStorage.removeItem('myText');
+  private actionForSuccess(s) {
+    localStorage.setItem('myText', s);
     console.log('Succesful');
   }
 }

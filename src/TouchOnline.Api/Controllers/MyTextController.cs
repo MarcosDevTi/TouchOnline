@@ -18,8 +18,7 @@ namespace TouchOnline.Api.Controllers
         [HttpPost]
         public IActionResult Save([FromBody]CreateMyText createMyText)
         {
-            _processor.Send(createMyText);
-            return Ok();
+            return Ok(_processor.Get(createMyText));
         }
 
         [HttpGet]

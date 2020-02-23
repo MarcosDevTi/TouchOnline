@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TouchOnline.CqrsClient.Contracts;
+using TouchOnline.CqrsClient.Presentation;
 
 namespace TouchOnline.CqrsClient.MyText
 {
-    public class CreateMyText: ICommand
+    public class CreateMyText : IQuery<IEnumerable<LessonPresentationItem>>
     {
         public string Name { get; set; }
         public string Text { get; set; }

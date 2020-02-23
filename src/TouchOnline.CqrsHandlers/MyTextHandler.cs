@@ -4,20 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.MyText;
+using TouchOnline.CqrsClient.Presentation;
 using TouchOnline.Data;
 using TouchOnline.Domain;
 
 namespace TouchOnline.CqrsHandlers
 {
     public class MyTextHandler :
-        ICommandHandler<CreateMyText>,
+        //ICommandHandler<CreateMyText>,
+        IQueryHandler<CreateMyText, IEnumerable<LessonPresentationItem>>,
         IQueryHandler<GetMyText, MyTextViewModel>,
         IQueryHandler<GetMyTexts, IEnumerable<MyTextViewModel>>
     {
         private readonly ToContext _context;
         public MyTextHandler(ToContext context) => _context = context;
 
-        public void Handle(CreateMyText command)
+
+        public IEnumerable<LessonPresentationItem> Handle(CreateMyText command)
         {
             var last = _context.MyTexts.Where(_ => _.UserId == command.UserId).MaxBy(_ => _.CodeLesson)?.FirstOrDefault();
 
@@ -32,6 +35,14 @@ namespace TouchOnline.CqrsHandlers
                 CodeLesson = codeLesson
             });
             _context.SaveChanges();
+
+            return _context.MyTexts.Where(_ => _.UserId == command.UserId).Select(_ => new LessonPresentationItem
+            {
+                IdLesson = _.CodeLesson,
+                Name = _.Name,
+                LessonText = _.Text,
+                Level = "myText"
+            }).ToList();
         }
 
         public MyTextViewModel Handle(GetMyText query)
@@ -55,5 +66,10 @@ namespace TouchOnline.CqrsHandlers
                        LessonText = _.Text
                    });
         }
+
+        //public LessonPresentationApp Handle(CreateMyText query)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
