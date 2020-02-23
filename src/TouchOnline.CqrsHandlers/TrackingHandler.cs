@@ -42,7 +42,7 @@ namespace TouchOnline.CqrsHandlers
                 StartDate = _.Select(d => d.StartDate).Min(),
                 UserId = _.FirstOrDefault(_ => _.UserId != null)?.UserId,
                 VisitedPages = GetVisitedPagesCondensed(_.Select(_ => _.VisitedPages).ToArray())
-            });
+            }).OrderBy(_ => _.StartDate);
         }
 
         public string GetVisitedPagesCondensed(string[] list)
