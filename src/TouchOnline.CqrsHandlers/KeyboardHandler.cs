@@ -44,7 +44,7 @@ namespace TouchOnline.CqrsHandlers
                 keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == query.LanguageCode);
                 if (keyboard == null)
                 {
-                    keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+                    keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "-brazilian_abnt-3");
                 }
             }
             else if (query.KeyboardId != null)
@@ -53,7 +53,7 @@ namespace TouchOnline.CqrsHandlers
             }
             else
             {
-                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "");
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "-brazilian_abnt-3");
             }
 
             var result = new KeyboardViewModel
