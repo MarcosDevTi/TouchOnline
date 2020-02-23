@@ -9,4 +9,6 @@ export class TrackingDetails {
     org: string;
     as: string;
     mobile: boolean;
+
+    pages: string;
 }

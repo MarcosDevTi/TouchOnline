@@ -30,6 +30,8 @@ export class TrackingDetailsComponent implements OnInit {
       this.trackingDetails.org = _.org
       this.trackingDetails.as = _.as
       this.trackingDetails.mobile = _.mobile
+
+      this.trackingDetails.pages = this.data.visitedPages
     })
   }
 
