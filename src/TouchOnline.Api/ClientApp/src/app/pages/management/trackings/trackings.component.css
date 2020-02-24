@@ -1,3 +1,10 @@
 table {
     width: 100%;
   }
+
+  .buttons {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }

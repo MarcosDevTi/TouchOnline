@@ -29,6 +29,20 @@ export class TrackingsComponent implements OnInit {
     } )
   }
 
+  onlyWithResults() {
+    this.trackingItems = this.trackingItems.filter(_ => _.countResult !== 0)
+  }
+
+  allList() {
+    this.trackingService.getTrackings().subscribe(trackings => {
+      this.trackingItems = trackings
+    } )
+  }
+
+  clear() {
+    this.trackingItems = [];
+  }
+
   containsResult(txt: string) {
     const txtArr = txt.split('"');
     return txtArr.filter(_ => _ === 'result').length;
