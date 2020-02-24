@@ -12,7 +12,7 @@ import { TrackingDetailsComponent } from './tracking-details/tracking-details.co
 })
 export class TrackingsComponent implements OnInit {
   trackingItems: any[] = [];
-  displayedColumns: string[] = ['ip', 'userId', 'countResult', 'endDate', 'startDate', 'actions'];
+  displayedColumns: string[] = ['ip', 'userId', 'countResult', 'listPages', 'appPages', 'endDate', 'startDate', 'actions'];
 
   constructor(
     private trackingService: TrackingService,
@@ -32,6 +32,16 @@ export class TrackingsComponent implements OnInit {
   containsResult(txt: string) {
     const txtArr = txt.split('"');
     return txtArr.filter(_ => _ === 'result').length;
+  }
+
+  containsListPages(txt: string) {
+    const txtArr = txt.split('"');
+    return txtArr.filter(_ => _.includes('list')).length;
+  }
+
+  containsApp(txt: string) {
+    const txtArr = txt.split('"');
+    return txtArr.filter(_ => _ === 'app').length;
   }
 
   openDialog(trackingItem): void { 

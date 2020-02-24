@@ -6,14 +6,14 @@ namespace TouchOnline.Api.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
     [Route("api/[controller]/[action]")]
-    public class SupportController: ControllerBase
+    public class SupportController : ControllerBase
     {
-         private readonly IProcessor _processor;
+        private readonly IProcessor _processor;
         public SupportController(IProcessor processor)
         {
             _processor = processor;
         }
-        public IActionResult SendMessage(SendMessage sendMessage)
+        public IActionResult SendMessage([FromBody]SendMessage sendMessage)
         {
             _processor.Send(sendMessage);
             return Ok();

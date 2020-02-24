@@ -1,20 +1,24 @@
-
 <h2>Registrar Usuário</h2>
 
-<mat-card>  
+<mat-card>
   <form [formGroup]="registerForm" (submit)="register()" class="example-container">
-        <mat-form-field>
-            <input matInput formControlName="name" placeholder="Name" required>
-          </mat-form-field>
-          <mat-form-field>
-              <input matInput formControlName="email" placeholder="Email" required>
-          </mat-form-field>
-          <mat-form-field>
-              <input matInput formControlName="password" type="password" placeholder="Password" required>
-          </mat-form-field>
-          <mat-form-field>
-              <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm Password" required>
-          </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="password" type="password" placeholder="Password" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm Password" required>
+    </mat-form-field>
     <button type="submit" mat-raised-button color="primary">Registrar</button>
   </form>
+
+  <br>
+  <button class="send-message" mat-raised-button [routerLink]="['/auth/send-message']">
+    <i class="material-icons">message</i> Mensagem ao Desenvolvedor
+  </button>
 </mat-card>

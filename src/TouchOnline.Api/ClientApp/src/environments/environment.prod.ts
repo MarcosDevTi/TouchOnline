@@ -1,4 +1,5 @@
 export const environment = {
+  apiBase: 'http://vps281295.vps.ovh.ca/api/',
   apiUrl: 'http://vps281295.vps.ovh.ca/api/lessons',
   apiAuth: 'http://vps281295.vps.ovh.ca/api/auth/',
   apiTracking: 'http://vps281295.vps.ovh.ca/api/tracking/',

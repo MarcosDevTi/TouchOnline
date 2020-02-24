@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  apiBase: 'http://localhost:5000/api/',
   apiUrl: 'http://localhost:5000/api/lessons',
   apiAuth: 'http://localhost:5000/api/auth/',
   apiTracking: 'http://localhost:5000/api/tracking/',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SendMessageService } from './shared/send-message.service';
+import { MessageForSend } from './shared/message-for-send';
 
 @Component({
   selector: 'app-send-message',
@@ -8,19 +10,24 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SendMessageComponent implements OnInit {
   messageForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private sendMessageService: SendMessageService) { }
 
   ngOnInit() {
-    this.send();
+    this.buildForm();
   }
 
-  send() {
+  buildForm() {
     this.messageForm = this.fb.group({
-      //userId: null,
+      userId: [localStorage.getItem('userId')],
       name: [null, Validators.required],
-      email: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
       text: [null, Validators.required],
     });
+  }
+
+  sendMessage() {
+    this.sendMessageService.sendMessage(MessageForSend.fromJson(this.messageForm.value))
+      .subscribe(_ => console.log('message sended', _));
   }
 
 }
