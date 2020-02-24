@@ -31,7 +31,7 @@ export class TrackingsComponent implements OnInit {
 
   onlyWithResults() {
     this.trackingService.getTrackings().subscribe(trackings => {
-      this.trackingItems = trackings.filter(_ => _.countResult !== 0)
+      this.trackingItems = trackings.filter(_ => this.containsResult(_.visitedPages) !== 0)
     } )
   }
 
