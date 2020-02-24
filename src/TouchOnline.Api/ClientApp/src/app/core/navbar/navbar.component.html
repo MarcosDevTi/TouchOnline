@@ -5,7 +5,14 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['']" >Home</a>
       </li>
-      <li *ngIf="isAdmin" class="nav-item">
+      <button mat-button [matMenuTriggerFor]="management" *ngIf="isAdmin">Managements</button>
+      <mat-menu #management="matMenu" >
+        <button routerLink="management" mat-menu-item>Keyboard Management</button>
+        <button routerLink="management/tracking" mat-menu-item>Trackings</button>
+        <button routerLink="lessons/advanced" mat-menu-item>Trackings Only with Results</button>
+        <button routerLink="management/users" mat-menu-item>Users</button>
+      </mat-menu>
+      <!-- <li *ngIf="isAdmin" class="nav-item">
         <a class="nav-link" [routerLink]="['management']" >Keyboard Management</a>
       </li>
       <li *ngIf="isAdmin" class="nav-item">
@@ -13,7 +20,7 @@
       </li>
       <li *ngIf="isAdmin" class="nav-item">
         <a class="nav-link" [routerLink]="['management/users']" >Users</a>
-      </li>
+      </li> -->
       <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
       <mat-menu #menu="matMenu">
         <button routerLink="lessons/beginner" mat-menu-item>Iniciante</button>
