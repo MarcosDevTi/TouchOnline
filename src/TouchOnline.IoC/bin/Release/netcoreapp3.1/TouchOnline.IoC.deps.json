@@ -12,7 +12,7 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.1",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
-          "Pomelo.EntityFrameworkCore.MySql": "3.1.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.1",
           "TouchOnline.CqrsClient": "1.0.0",
           "TouchOnline.CqrsHandlers": "1.0.0",
           "TouchOnline.Data": "1.0.0"
@@ -316,44 +316,44 @@
           "System.Security.Principal.Windows": "4.5.0"
         }
       },
-      "MySqlConnector/0.61.0": {
+      "morelinq/3.3.2": {
         "runtime": {
-          "lib/netcoreapp3.0/MySqlConnector.dll": {
-            "assemblyVersion": "0.61.0.0",
-            "fileVersion": "0.61.0.0"
+          "lib/netstandard2.0/MoreLinq.dll": {
+            "assemblyVersion": "3.3.2.0",
+            "fileVersion": "3.3.2.0"
           }
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/3.1.1": {
+      "Npgsql/4.1.3": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
-          "MySqlConnector": "0.61.0",
-          "Pomelo.JsonObject": "2.2.1"
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
         },
         "runtime": {
-          "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+          "lib/netcoreapp3.0/Npgsql.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.1.3.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
+          "Npgsql": "4.1.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
             "assemblyVersion": "3.1.1.0",
             "fileVersion": "3.1.1.0"
-          }
-        }
-      },
-      "Pomelo.JsonObject/2.2.1": {
-        "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
-          "Newtonsoft.Json": "11.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Pomelo.JsonObject.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
           }
         }
       },
@@ -812,7 +812,7 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.5.0": {},
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -930,7 +930,7 @@
       "System.Text.Encoding.CodePages/4.5.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
         }
       },
       "System.Text.Encoding.Extensions/4.3.0": {
@@ -1047,9 +1047,11 @@
       },
       "TouchOnline.CqrsHandlers/1.0.0": {
         "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
           "TouchOnline.CqrsClient": "1.0.0",
           "TouchOnline.Data": "1.0.0",
-          "TouchOnline.Domain": "1.0.0"
+          "TouchOnline.Domain": "1.0.0",
+          "morelinq": "3.3.2"
         },
         "runtime": {
           "TouchOnline.CqrsHandlers.dll": {}
@@ -1059,6 +1061,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.1",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.1",
           "TouchOnline.Domain": "1.0.0"
         },
         "runtime": {
@@ -1281,33 +1284,33 @@
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
     },
-    "MySqlConnector/0.61.0": {
+    "morelinq/3.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-E01yibVzCkVOmhNsUb+B4amjQKfKFlGiR1huNd6Q8aTCqBrACo0I3JMKvJBMpZfYhAsR8bqB9496PwcGpr+LuQ==",
-      "path": "mysqlconnector/0.61.0",
-      "hashPath": "mysqlconnector.0.61.0.nupkg.sha512"
+      "sha512": "sha512-MQc8GppZJLmjvcpEdf3EkC6ovsp7gRWt2e5mC7dcIOrgwSc+yjFd3JQ0iRqr3XrUT6rb/phv0IkEmBtbfVA7AQ==",
+      "path": "morelinq/3.3.2",
+      "hashPath": "morelinq.3.3.2.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "Pomelo.EntityFrameworkCore.MySql/3.1.1": {
+    "Npgsql/4.1.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DYMsaJe/lKoaPGjB0ACnP+h5FeaJC+07f83FewBulkqfkUvc7m97PECX0OUHSTT+qEF0EOmJ7HQR0dltSCDyPQ==",
-      "path": "pomelo.entityframeworkcore.mysql/3.1.1",
-      "hashPath": "pomelo.entityframeworkcore.mysql.3.1.1.nupkg.sha512"
+      "sha512": "sha512-sWTXCb6WPPO7WEw4+1XoRqE49EdWmuyMA15LVbzV6jZgRxYWK8TbdniWMjguzmAgOZVYTmrCf+jsqPYoSqACvA==",
+      "path": "npgsql/4.1.3",
+      "hashPath": "npgsql.4.1.3.nupkg.sha512"
     },
-    "Pomelo.JsonObject/2.2.1": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VHPk3Yf7nDt+tZMC1M4oAoc3bgTYsOrap3VTjn//vd91b/nfquAbAeq1k0Lf7mPt8J7imLd9Pbzm50uB5euuZA==",
-      "path": "pomelo.jsonobject/2.2.1",
-      "hashPath": "pomelo.jsonobject.2.2.1.nupkg.sha512"
+      "sha512": "sha512-ep5+ULi9I2NNYRhMp0UOIeIQ3jZHkl0AvN7CCt3ole19fMaS+C39uroWXWTeYMZm1KC3QnsOenFI0gMwZ9Kymw==",
+      "path": "npgsql.entityframeworkcore.postgresql/3.1.1",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.3.1.1.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
@@ -1610,12 +1613,12 @@
       "path": "system.runtime.caching/4.5.0",
       "hashPath": "system.runtime.caching.4.5.0.nupkg.sha512"
     },
-    "System.Runtime.CompilerServices.Unsafe/4.5.0": {
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YrzNWduCDHhUaSRBxHxL11UkM2fD6y8hITHis4/LbQZ6vj3vdRjoH3IoPWWC9uDXK2wHIqn+b5gv1Np/VKyM1g==",
-      "path": "system.runtime.compilerservices.unsafe/4.5.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512"
+      "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
     },
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
