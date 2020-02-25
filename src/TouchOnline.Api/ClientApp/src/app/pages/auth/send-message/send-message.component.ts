@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SendMessageService } from './shared/send-message.service';
 import { MessageForSend } from './shared/message-for-send';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-send-message',
@@ -10,7 +11,11 @@ import { MessageForSend } from './shared/message-for-send';
 })
 export class SendMessageComponent implements OnInit {
   messageForm: FormGroup;
-  constructor(private fb: FormBuilder, private sendMessageService: SendMessageService) { }
+  constructor(
+    private fb: FormBuilder,
+    private sendMessageService: SendMessageService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.buildForm();
@@ -27,7 +32,11 @@ export class SendMessageComponent implements OnInit {
 
   sendMessage() {
     this.sendMessageService.sendMessage(MessageForSend.fromJson(this.messageForm.value))
-      .subscribe(_ => console.log('message sended', _));
+      .subscribe(_ =>
+        console.log('message sended', _),
+        error => console.log(error),
+        () => this.router.navigate(['/auth/send-message-success'])
+      );
   }
 
 }

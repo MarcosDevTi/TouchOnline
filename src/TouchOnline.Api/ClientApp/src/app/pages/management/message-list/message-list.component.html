@@ -1,0 +1,12 @@
+<mat-list>
+    <mat-list-item *ngFor="let message of messages">
+        <p matLine> <strong>{{message.name}}</strong> <span> -- {{message.email}} </span><br> </p>
+        <p matLine>
+            
+            
+            <span>{{message.text}} </span>
+          </p>
+          <mat-divider></mat-divider>
+    </mat-list-item>
+ 
+   </mat-list>

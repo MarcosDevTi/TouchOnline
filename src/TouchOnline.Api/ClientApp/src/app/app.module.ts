@@ -38,6 +38,8 @@ import { EditKeyboardComponent } from './pages/management/keyboard-management/ed
 import { UserListComponent } from './pages/management/user/user-list/user-list.component';
 import { TrackingDetailsComponent } from './pages/management/trackings/tracking-details/tracking-details.component';
 import { AutoFocusDirective } from './shared/auto-focus.directive';
+import { MessageListComponent } from './pages/management/message-list/message-list.component';
+import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { AutoFocusDirective } from './shared/auto-focus.directive';
     TimerFormat,
     UserListComponent,
     TrackingDetailsComponent,
-    AutoFocusDirective
+    AutoFocusDirective,
+    MessageListComponent,
+    SendMessageSuccessComponent
   ],
   imports: [
     CoreModule,

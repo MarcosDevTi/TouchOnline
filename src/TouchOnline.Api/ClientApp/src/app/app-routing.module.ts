@@ -15,6 +15,8 @@ import { EditKeyboardComponent } from './pages/management/keyboard-management/ed
 import { RegisterLocalListComponent } from './pages/management/register-local-list/register-local-list.component';
 import { TrackingsComponent } from './pages/management/trackings/trackings.component';
 import { UserListComponent } from './pages/management/user/user-list/user-list.component';
+import { MessageListComponent } from './pages/management/message-list/message-list.component';
+import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,12 +31,15 @@ const routes: Routes = [
   { path: 'lessons/my-text', component: MyTextListComponent },
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/send-message', component: SendMessageComponent },
+  { path: 'auth/send-message-success', component: SendMessageSuccessComponent },
+
   // {path: 'auth', loadChildren: './pages/auth/auth.module#AuthModule'},
   { path: 'management', component: KeyboardManagementComponent },
   { path: 'management/:id/edit', component: EditKeyboardComponent },
   { path: 'management/register-management-list', component: RegisterLocalListComponent },
   { path: 'management/tracking', component: TrackingsComponent },
   { path: 'management/users', component: UserListComponent },
+  { path: 'management/message-list', component: MessageListComponent },
 
   // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];

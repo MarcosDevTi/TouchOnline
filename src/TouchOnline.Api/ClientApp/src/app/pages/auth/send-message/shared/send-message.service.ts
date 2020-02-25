@@ -16,4 +16,8 @@ export class SendMessageService {
     return this.http.post(this.urlBase + 'SendMessage', message);
   }
 
+  getMessages() : Observable<MessageForSend[]> {
+    return this.http.get<MessageForSend[]>(this.urlBase + 'GetMessages')
+  }
+
 }

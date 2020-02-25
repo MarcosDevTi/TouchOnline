@@ -18,5 +18,10 @@ namespace TouchOnline.Api.Controllers
             _processor.Send(sendMessage);
             return Ok();
         }
+
+        public IActionResult GetMessages()
+        {
+            return Ok(_processor.Get(new GetMessages()));
+        }
     }
 }
