@@ -1,8 +1,10 @@
+
 <div class="cont">
     <div class="menuNiveis">
         <app-left-menu></app-left-menu>
       </div>
   <div class="lista">
+    <button mat-raised-button [routerLink]="['/lessons/my-text-management']">Editar Meus textos</button>
     <mat-selection-list #shoes>
   
       <div *ngFor="let lesson of lessons">

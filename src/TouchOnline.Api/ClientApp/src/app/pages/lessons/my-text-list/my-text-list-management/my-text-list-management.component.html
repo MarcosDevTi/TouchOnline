@@ -1,0 +1,36 @@
+<div class="cont">
+    <div class="menuNiveis">
+        <app-left-menu></app-left-menu>
+      </div>
+  <div class="lista">
+    <mat-selection-list #shoes>
+  
+      <div *ngFor="let lesson of lessons">
+        <div style="display: flex;">
+          <a [routerLink]="['//app', lesson.idLesson]" style="width: 95%;">
+            <mat-list-item>
+              <div class="titulo"> 
+               My Text
+                  {{lesson.name}}
+              </div> 
+              <h3 *ngIf="lesson.ppm" class="init">{{lesson.lessonText.substring(0, 102)}} </h3>
+              <h3 *ngIf="!lesson.ppm" class="notInit">{{lesson.lessonText.substring(0, 102)}} </h3>
+              <mat-card *ngIf="lesson.ppm" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
+                <app-card-result [lesson]="lesson"></app-card-result>
+              </mat-card>
+            </mat-list-item>
+           </a>
+           <button mat-raised-button style="width: 5%;" [routerLink]="[lesson.idLesson, 'edit']" routerLinkActive="router-link-active" ><i class="material-icons">
+            settings
+            </i></button>
+        </div>
+         <mat-divider></mat-divider>
+       </div>
+      
+  </mat-selection-list>
+  </div>
+  
+  <div class="seo">
+    <app-seo-list></app-seo-list>
+  </div>
+  </div>

@@ -17,6 +17,8 @@ import { TrackingsComponent } from './pages/management/trackings/trackings.compo
 import { UserListComponent } from './pages/management/user/user-list/user-list.component';
 import { MessageListComponent } from './pages/management/message-list/message-list.component';
 import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
+import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
+import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'lessons/advanced', component: AdvancedListComponent },
   { path: 'lessons/create-lesson', component: CreateLessonComponent },
   { path: 'lessons/my-text', component: MyTextListComponent },
+  { path: 'lessons/my-text-management', component: MyTextListManagementComponent },
+  { path: 'lessons/my-text-management/:id/edit', component: EditLessonComponent },
   { path: 'auth/register', component: RegisterComponent },
   { path: 'auth/send-message', component: SendMessageComponent },
   { path: 'auth/send-message-success', component: SendMessageSuccessComponent },

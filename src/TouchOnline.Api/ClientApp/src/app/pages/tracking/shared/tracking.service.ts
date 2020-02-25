@@ -13,7 +13,15 @@ import { PageVisited } from './pageVisited';
 export class TrackingService {
   baseUrl = environment.apiTracking;
   visitedList: PageVisited[] = [];
-  startDate = new Date();
+  
+  startDate = this.getUtc();
+
+  getUtc(){
+    const now = new Date;
+  const utc_timestamp = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
+    now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+    return new Date(utc_timestamp);
+  }
 
   constructor(private http: HttpClient, private visitorService: VisitorService) { }
 
@@ -40,7 +48,7 @@ export class TrackingService {
     const recTracking = new RecordedTracking();
     recTracking.visitedPages = JSON.stringify(this.visitedList);
     recTracking.startDate = this.startDate;
-    recTracking.endDate = new Date();
+    recTracking.endDate = this.getUtc();
     recTracking.userId = idStorage === 'undefined' ? null : idStorage;
     this.visitorService.getIp().subscribe(_ => {
       recTracking.ip = _.ip;

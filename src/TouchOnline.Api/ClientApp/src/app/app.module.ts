@@ -40,6 +40,8 @@ import { TrackingDetailsComponent } from './pages/management/trackings/tracking-
 import { AutoFocusDirective } from './shared/auto-focus.directive';
 import { MessageListComponent } from './pages/management/message-list/message-list.component';
 import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
+import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
+import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { SendMessageSuccessComponent } from './pages/auth/send-message/send-mess
     TrackingDetailsComponent,
     AutoFocusDirective,
     MessageListComponent,
-    SendMessageSuccessComponent
+    SendMessageSuccessComponent,
+    MyTextListManagementComponent,
+    EditLessonComponent
   ],
   imports: [
     CoreModule,

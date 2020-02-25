@@ -1,0 +1,52 @@
+
+.init {
+    font-size: 1.0vw;
+}
+
+.notInit {
+    font-size: 1.47vw;
+}
+
+.titulo {
+    font-size: 1.0vw;
+}
+
+mat-card {
+    margin-right: 0px;
+    padding: 4px;
+}
+
+.lista a mat-list-item{
+    width: 99%;
+}
+
+.titulo {
+    width: 15%;
+}
+
+mat-list-item .init {
+    width: 55%;
+}
+mat-list-item .notInit {
+    width: 80%;
+    
+}
+
+mat-list-item mat-card {
+    width: 30%;
+    height: 60px;
+}
+
+.material-icons {
+    font-size: 2vw;
+}
+
+.ok-card {
+    background-color: #409043;
+    
+}
+
+.bad-card {
+    background-color: #e03333c4;
+}
+

@@ -1,0 +1,23 @@
+<mat-card>
+    <form [formGroup]="createTextForm" (submit)="saveMyText()">
+      <mat-form-field style="width: 500px;"> 
+        <mat-label>Title</mat-label>
+        <input matInput #message maxlength="30" placeholder="Lesson name" formControlName="name">
+        <mat-hint align="end">{{message.value.length}} / 30</mat-hint>
+      </mat-form-field>
+    
+      <mat-form-field style="width: 100%;">
+        <textarea style="border: 1px solid; font-size: 25px;" 
+                  formControlName="text"
+                  rows="15" cols="40" 
+                  matInput
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+    
+      <button align="end" type="submit" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+  
+  
+  
