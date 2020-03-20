@@ -7,7 +7,8 @@ using TouchOnline.Data;
 namespace TouchOnline.CqrsHandlers
 {
     public class ManagementHandler :
-        IQueryHandler<GetUsers, IEnumerable<UserViewModelManagement>>
+        IQueryHandler<GetUsers, IEnumerable<UserViewModelManagement>>,
+        IQueryHandler<GetCounts, Counts>
     {
         private readonly ToContext _context;
         public ManagementHandler(ToContext context) => _context = context;
@@ -18,8 +19,21 @@ namespace TouchOnline.CqrsHandlers
                 Id = _.Id,
                 Name = _.Name,
                 Email = _.Email,
-                InscriptionDate = _.InscriptionDate
+                InscriptionDate = _.InscriptionDate,
+                MyTextsCount = _context.MyTexts.Count(_ => _.UserId == _.Id),
+                ResultsCount = _context.Results.Count(_ => _.User.Id == _.Id)
             });
+        }
+
+        public Counts Handle(GetCounts query)
+        {
+            return new Counts
+            {
+                UsersCount = _context.Users.Count(),
+                MyTextsCount = _context.MyTexts.Count(),
+                ResultsCount = _context.Results.Count(),
+                SendsCount = _context.GetRecordeds.Count()
+            };
         }
     }
 }

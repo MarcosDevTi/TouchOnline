@@ -8,5 +8,7 @@ namespace TouchOnline.CqrsClient.Management
         public string Name { get; set; }
         public string Email { get; set; }
         public DateTime InscriptionDate { get; set; }
+        public int ResultsCount { get; set; }
+        public int MyTextsCount { get; set; }
     }
 }

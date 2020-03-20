@@ -19,6 +19,7 @@ import { MessageListComponent } from './pages/management/message-list/message-li
 import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
 import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
 import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
+import { CountsComponent } from './pages/management/counts/counts.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'management/tracking', component: TrackingsComponent },
   { path: 'management/users', component: UserListComponent },
   { path: 'management/message-list', component: MessageListComponent },
+  { path: 'management/counts', component: CountsComponent },
 
   // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];

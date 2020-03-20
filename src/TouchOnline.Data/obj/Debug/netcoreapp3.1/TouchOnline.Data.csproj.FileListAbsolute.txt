@@ -35,3 +35,5 @@ C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline
 C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline.Data.csproj.CopyComplete
 C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline.Data.dll
 C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline.Data.pdb
+C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline.Data.csproj.CoreCompileInputs.cache
+C:\projects\TouchOnline\src\TouchOnline.Data\obj\Debug\netcoreapp3.1\TouchOnline.Data.genruntimeconfig.cache

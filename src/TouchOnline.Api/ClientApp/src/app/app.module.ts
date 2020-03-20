@@ -42,6 +42,7 @@ import { MessageListComponent } from './pages/management/message-list/message-li
 import { SendMessageSuccessComponent } from './pages/auth/send-message/send-message-success/send-message-success.component';
 import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
 import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
+import { CountsComponent } from './pages/management/counts/counts.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-m
     MessageListComponent,
     SendMessageSuccessComponent,
     MyTextListManagementComponent,
-    EditLessonComponent
+    EditLessonComponent,
+    CountsComponent
   ],
   imports: [
     CoreModule,

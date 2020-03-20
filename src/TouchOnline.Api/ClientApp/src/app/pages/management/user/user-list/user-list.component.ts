@@ -9,7 +9,7 @@ import { UserManagement } from '../../shared/users-management';
 })
 export class UserListComponent implements OnInit {
   users: UserManagement[] = [];
-  displayedColumns: string[] = ['id', 'name', 'email', 'inscriptionDate'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'inscriptionDate', 'resultsCount', 'myTextsCount'];
 
   constructor(private managementService: ManagementService) { }
 

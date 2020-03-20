@@ -14,10 +14,14 @@ namespace TouchOnline.Api.Controllers
             _processor = processor;
         }
 
-        [HttpGet]
         public IActionResult GetUsers()
         {
             return Ok(_processor.Get(new GetUsers()));
+        }
+
+        public IActionResult GetCounts()
+        {
+            return Ok(_processor.Get(new GetCounts()));
         }
     }
 }

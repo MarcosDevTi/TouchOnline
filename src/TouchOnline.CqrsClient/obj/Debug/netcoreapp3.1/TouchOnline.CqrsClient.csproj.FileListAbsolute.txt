@@ -31,3 +31,4 @@ C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\Touch
 C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CopyComplete
 C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.dll
 C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\projects\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CoreCompileInputs.cache

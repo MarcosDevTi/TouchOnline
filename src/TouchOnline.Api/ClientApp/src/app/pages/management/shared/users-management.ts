@@ -3,4 +3,6 @@ export class UserManagement {
     name: string;
     email: string;
     inscriptionDate: string;
+    resultsCount: number;
+    myTextsCount: number
 }
