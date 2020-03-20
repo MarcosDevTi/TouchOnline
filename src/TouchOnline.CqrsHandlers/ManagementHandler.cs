@@ -14,14 +14,14 @@ namespace TouchOnline.CqrsHandlers
         public ManagementHandler(ToContext context) => _context = context;
         public IEnumerable<UserViewModelManagement> Handle(GetUsers query)
         {
-            return _context.Users.Select(_ => new UserViewModelManagement
+            return _context.Users.ToList().Select(_ => new UserViewModelManagement
             {
                 Id = _.Id,
                 Name = _.Name,
                 Email = _.Email,
                 InscriptionDate = _.InscriptionDate,
-                MyTextsCount = _context.MyTexts.Count(_ => _.UserId == _.Id),
-                ResultsCount = _context.Results.Count(_ => _.User.Id == _.Id)
+                MyTextsCount = _context.MyTexts.Count(t => t.UserId == _.Id),
+                ResultsCount = _context.Results.Count(r => r.User.Id == _.Id)
             });
         }
 
