@@ -3,6 +3,7 @@ import { interval, Subscription } from 'rxjs';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { ApplicationService } from './pages/application/application.service';
 import { VisitorService } from './shared/visitor.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -15,9 +16,15 @@ export class AppComponent implements OnInit {
   constructor(
     private trackingService: TrackingService,
     private applicationService: ApplicationService,
-    private visitorService: VisitorService
+    private visitorService: VisitorService,
+    public translate: TranslateService
   ) {
+    translate.addLangs(['en', 'fr']);
 
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
   subscription: Subscription;
 

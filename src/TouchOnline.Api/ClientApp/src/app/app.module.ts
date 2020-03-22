@@ -43,6 +43,13 @@ import { SendMessageSuccessComponent } from './pages/auth/send-message/send-mess
 import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
 import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
 import { CountsComponent } from './pages/management/counts/counts.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -100,6 +107,14 @@ import { CountsComponent } from './pages/management/counts/counts.component';
     MatFormFieldModule,
     MatTableModule,
     MatSlideToggleModule,
+    TranslateModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [TrackingService, ApplicationService, VisitorService, LessonService],
   bootstrap: [AppComponent],

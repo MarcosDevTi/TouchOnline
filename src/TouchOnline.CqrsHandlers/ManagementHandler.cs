@@ -14,7 +14,7 @@ namespace TouchOnline.CqrsHandlers
         public ManagementHandler(ToContext context) => _context = context;
         public IEnumerable<UserViewModelManagement> Handle(GetUsers query)
         {
-            return _context.Users.ToList().Select(_ => new UserViewModelManagement
+            return _context.Users.Select(_ => new UserViewModelManagement
             {
                 Id = _.Id,
                 Name = _.Name,
