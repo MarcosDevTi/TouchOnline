@@ -1,22 +1,22 @@
 <div class="container">
     <div class="">
-      <h3 class="">Exercício {{data.idLesson}} </h3>
+      <h3 class="">{{ 'Result.Lesson' | translate }} {{data.idLesson}} </h3>
       <br>
       <div *ngIf="data.stars > 4" class="alert alert-success">
-        <p>Velocidade de Digitação: <strong>Excelente</strong></p>
-        <p>Sua digitação está excelente, se estiver muito fácil, tente um nível acima</p>
+        <p>{{ 'Result.TypingSpeed' | translate }} <strong>{{ 'Result.Great' | translate }}</strong></p>
+        <p>{{ 'Result.YourTypingIsExcellent' | translate }}</p>
       </div>
       <div *ngIf="data.stars == 4" class="alert alert-success">
-        <p>Velocidade de Digitação: <strong>Regular</strong></p>
-        <p>Sua digitação está regular, faça novamente o exercício. Repita quantas vezes julgar necessário.</p>
+        <p>{{ 'Result.TypingSpeed' | translate }} <strong>{{ 'Result.Regular' | translate }}</strong></p>
+        <p>{{ 'Result.YourTypingIsRegular' | translate }}</p>
       </div>
       <div *ngIf="data.stars == 3" class="alert alert-warning">
-        <p>Velocidade de Digitação: <strong>Razoável</strong></p>
-        <p>Sua digitação está razoável, porém ainda tem muito o que melhorar</p>
+        <p>{{ 'Result.TypingSpeed' | translate }} <strong>{{ 'Result.Reasonable' | translate }}</strong></p>
+        <p>{{ 'Result.YourTypingIsOk' | translate }}</p>
       </div>
       <div *ngIf="data.stars < 3" class="alert alert-danger">
-        <p>Velocidade de Digitação: <strong>Ruim</strong></p>
-        <p>Sua digitação está muito ruim, repita o exercício quantas vezes achar necessário.</p>
+        <p>{{ 'Result.TypingSpeed' | translate }} <strong>{{ 'Result.Bad' | translate }}</strong></p>
+        <p>{{ 'Result.YourTypingIsReallyBad' | translate }}</p>
       </div>
     
       <div class="row">
@@ -24,27 +24,27 @@
          <ul>
           <li>
             <i class="fa fa-bolt placarIcons"></i>
-            Velocidade: {{data.ppm | number}}
+            {{ 'Result.Speed' | translate }} {{data.ppm | number}}
           </li>
           <li>
             <i class="fa fa-clock-o placarIcons"></i>
-            Tempo: {{data.time | timerFormat}}
+            {{ 'Result.Tempo' | translate }} {{data.time | timerFormat}}
           </li>
           <li><i class="fa fa-times placarIcons"></i>
-            Total de Erros: {{data.errors}}
+            {{ 'Result.TotalErrors' | translate }} {{data.errors}}
           </li>
          </ul>
           <hr>
-         <p>Categoria Reforço</p>
-        <p>A categoria<strong> Reforço</strong>tem por objetivo reforçar as teclas com maiores incidências de erros deixando cada vez mais estável e precisa sua digitação.</p>
+         <p>{{ 'Result.IntensificationCategory' | translate }}</p>
+        <p>{{ 'Result.TheCategory' | translate }}<strong> {{ 'Result.Intensification' | translate }}</strong>{{ 'Result.ItAimsToReinforceTheKeysWithGreaterIncidences' | translate }}</p>
         
         </div>
         <div class="col-6">
-         <p>O DigiteMais.Com</p>
-         <p>A Classificação é o resumo geral de desempenho baseado na velocidade de digitação e precisão. Cada exercício tem critérios próprios de avaliação sendo medidos de acordo com o seu nível de complexidade.</p>
-         <p>Registre-se para ter seus exercícios salvos.</p>
+         <p>{{ 'Result.TheTouchOnlineCom' | translate }}</p>
+         <p>{{ 'Result.ClassificationIsTheOverallSummary' | translate }}</p>
+         <p>{{ 'Result.RegisterToShareOnlyExercises' | translate }}</p>
          <br>
-         <p>Classificação</p>
+         <p>{{ 'Result.Classification' | translate }}</p>
           <div>
               <!-- <i class="material-icons fa-star-o">star_border</i>
               <i class="material-icons fa-star-o">star_border</i>
@@ -60,7 +60,7 @@
      
       <div class="d-flex justify-content-end bd-highlight mb-3">
         <div class="p-2 bd-highlight">
-            <button mat-raised-button color="primary" (click)="onNoClick()">Continuar</button>
+            <button mat-raised-button color="primary" (click)="onNoClick()">{{ 'Result.Continue' | translate }}</button>
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 <mat-card  color="primary">
   <mat-card-header color="primary">
-    <mat-card-title>Lições</mat-card-title>
+    <mat-card-title>{{ 'Seo.Title' | translate }}</mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
     <p style="margin-top: 20px;">
-      O Teste de digitação online gratuito fornece ao estudande "digitador", a possibilidade de aprender a digitar com mais velocidade, com os 10 dedos de maneira uniforme
+      {{ 'Seo.Text' | translate }}
     </p>
   </mat-card-content>
   <mat-card-actions>
@@ -14,5 +14,5 @@
 </mat-card>
 <br>
 <button mat-raised-button [routerLink]="['/auth/send-message']" >
-   <i class="material-icons">message</i> Mensagem ao Desenvolvedor
+   <i class="material-icons">message</i> {{ 'Seo.DeveloperMessage' | translate }}
 </button>

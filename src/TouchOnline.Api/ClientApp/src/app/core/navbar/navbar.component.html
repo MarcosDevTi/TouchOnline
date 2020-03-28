@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a  class="navbar-brand" [routerLink]="['']">| touch-online.com |</a>
  
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['']" >Home</a>
-      </li>
-      <button mat-button [matMenuTriggerFor]="management" *ngIf="isAdmin">Managements</button>
+    <div class="navbar-nav mr-auto">
+      <button mat-button [routerLink]="['']">{{ 'Nav.Home' | translate }}</button>
+      <button mat-button [matMenuTriggerFor]="management" *ngIf="isAdmin">{{ 'Nav.Managements' | translate }}</button>
       <mat-menu #management="matMenu" >
         <button routerLink="management" mat-menu-item>Keyboard Management</button>
         <button routerLink="management/tracking" mat-menu-item>Trackings</button>
@@ -14,31 +12,31 @@
         <button routerLink="management/message-list" mat-menu-item>Messages</button>
         <button routerLink="management/counts" mat-menu-item>Counts</button>
       </mat-menu>
-      <!-- <li *ngIf="isAdmin" class="nav-item">
-        <a class="nav-link" [routerLink]="['management']" >Keyboard Management</a>
-      </li>
-      <li *ngIf="isAdmin" class="nav-item">
-        <a class="nav-link" [routerLink]="['management/tracking']" >Trackings</a>
-      </li>
-      <li *ngIf="isAdmin" class="nav-item">
-        <a class="nav-link" [routerLink]="['management/users']" >Users</a>
-      </li> -->
-      <button mat-button [matMenuTriggerFor]="menu">Exercícios</button>
+     
+      <button mat-button [matMenuTriggerFor]="menu">{{ 'Nav.Exercises' | translate }}</button>
       <mat-menu #menu="matMenu">
-        <button routerLink="lessons/beginner" mat-menu-item>Iniciante</button>
-        <button routerLink="lessons/basic" mat-menu-item>Básico</button>
-        <button routerLink="lessons/intermediate" mat-menu-item>Intermediário</button>
-        <button routerLink="lessons/advanced" mat-menu-item>Avançado</button>
-        <button *ngIf="loggedIn()" routerLink="lessons/my-text" mat-menu-item>Meus Textos</button>
+        <button routerLink="lessons/beginner" mat-menu-item>{{ 'Exercises.Beginner' | translate }}</button>
+        <button routerLink="lessons/basic" mat-menu-item>{{ 'Exercises.Basic' | translate }}</button>
+        <button routerLink="lessons/intermediate" mat-menu-item>{{ 'Exercises.Intermediate' | translate }}</button>
+        <button routerLink="lessons/advanced" mat-menu-item>{{ 'Exercises.Advanced' | translate }}</button>
+        <button *ngIf="loggedIn()" routerLink="lessons/my-text" mat-menu-item>{{ 'Exercises.MyTexts' | translate }}</button>
       </mat-menu>
-      <li class="nav-item" *ngIf="loggedIn()">
-        <a routerLink="lessons/create-lesson" class="nav-link" >Criar Exercícios</a>
-      </li>
-    </ul>
+      <button mat-button *ngIf="loggedIn()" routerLink="lessons/create-lesson">{{ 'Nav.CreateExercises' | translate }}</button>
+      <mat-form-field>
+        <mat-select (selectionChange)="selectChange($event)" [(value)]="selected">
+          <mat-option 
+            *ngFor="let lang of translate.getLangs()" [value]="lang">
+            {{ 'LANGUAGES.' + lang | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    
 
     <div *ngIf="loggedIn()" class="dropdown">
       <a class="dropdown-toggle text-dark mr-3">
-        Welcome {{nameDisplay}}
+        {{ 'Nav.Welcome' | translate }} {{nameDisplay}}
       </a>
     
       <div class="dropdown-menu">
@@ -47,11 +45,11 @@
         <a class="dropdown-item" href="#"> <i class="fa fa-sign-out"></i> Logout</a>
       </div>
     </div>
-    <button class="btn btn-primary my-2 my-sm-0" (click)="logout()" *ngIf="loggedIn()">Logout</button>
+    <button class="btn btn-primary my-2 my-sm-0" (click)="logout()" *ngIf="loggedIn()">{{ 'Nav.Logout' | translate }}</button>
     <form class="form-inline my-2 my-lg-0" [formGroup]="loginForm" (submit)="login()" *ngIf="!loggedIn()">
       <input class="form-control mr-sm-2" type="search" placeholder="Email" formControlName="email">
       <input class="form-control mr-sm-2" type="password" placeholder="Password" formControlName="password">
-      <button class="btn btn-info my-2 my-sm-0 mr-2" type="submit">Login</button>
+      <button class="btn btn-info my-2 my-sm-0 mr-2" type="submit">{{ 'Nav.Login' | translate }}</button>
     </form>
-    <button *ngIf="!loggedIn()" [routerLink]="['/auth/register']" class="btn btn-primary my-2 my-sm-0">Registrar-se</button>
+    <button *ngIf="!loggedIn()" [routerLink]="['/auth/register']" class="btn btn-primary my-2 my-sm-0">{{ 'Nav.Register' | translate }}</button>
 </nav>

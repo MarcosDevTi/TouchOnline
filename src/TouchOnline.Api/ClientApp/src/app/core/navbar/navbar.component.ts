@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/pages/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LessonService } from 'src/app/pages/lessons/lesson.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +20,20 @@ export class NavbarComponent implements OnInit {
     public authService: AuthService,
     private lessonService: LessonService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
   ) { }
-
+  selected;
   ngOnInit() {
    this.isAdminRefresh();
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
+    this.selected = this.translate.currentLang;
+  }
+
+  selectChange(e){
+    console.log(e)
+     this.translate.use(e.value)
   }
 
   isAdminRefresh() {

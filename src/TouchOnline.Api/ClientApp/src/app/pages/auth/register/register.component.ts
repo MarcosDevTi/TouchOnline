@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../user';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 import { TextToolService } from 'src/app/shared/text-tool.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private trackingService: TrackingService,
     private textToolService: TextToolService,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {

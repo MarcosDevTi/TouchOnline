@@ -1,4 +1,3 @@
-import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -45,7 +44,10 @@ import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-m
 import { CountsComponent } from './pages/management/counts/counts.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './core/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -54,6 +56,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     HomeComponent,
     AdvancedListComponent,
     BasicListComponent,
@@ -89,7 +92,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     CountsComponent
   ],
   imports: [
-    CoreModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
@@ -107,7 +109,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatFormFieldModule,
     MatTableModule,
     MatSlideToggleModule,
-    TranslateModule.forRoot(),
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

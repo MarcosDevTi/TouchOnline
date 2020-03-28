@@ -5,7 +5,7 @@
       </div>
    </div>
 <div class="tempo">
-    <mat-chip class="tempo" selected>Tempo: {{lesson.time | timerFormat}}</mat-chip>
+    <mat-chip class="tempo" selected>{{ 'CardResult.Tempo' | translate }}: {{lesson.time | timerFormat}}</mat-chip>
 </div>
 
 </div>
@@ -13,11 +13,11 @@
   <div class="precis">
       <mat-chip 
       [ngClass]="{'bad': lesson.precision < 95, 'good': lesson.precision >= 95}"
-       selected> Precisão: {{lesson.precision | number : '1.2-2'}}%
+       selected> {{ 'CardResult.Precision' | translate }}: {{lesson.precision | number : '1.2-2'}}%
       </mat-chip>
   </div>
 <div class="npm">
-    <mat-chip >Veloc: {{lesson.ppm}} PPM</mat-chip>
+    <mat-chip >{{ 'CardResult.Speed' | translate }}: {{lesson.ppm}} PPM</mat-chip>
 </div>
 
 </div>

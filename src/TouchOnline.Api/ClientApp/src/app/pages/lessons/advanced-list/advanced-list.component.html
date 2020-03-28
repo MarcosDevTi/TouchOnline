@@ -10,7 +10,7 @@
       <a [routerLink]="['//app', lesson.idLesson]">
        <mat-list-item>
          <div class="titulo"> 
-          Avançado
+          {{ 'Exercises.Advanced' | translate }}
              {{lesson.name}}
          </div> 
          <h3 *ngIf="lesson.ppm" class="init">{{lesson.lessonText.substring(0, 100)}} </h3>

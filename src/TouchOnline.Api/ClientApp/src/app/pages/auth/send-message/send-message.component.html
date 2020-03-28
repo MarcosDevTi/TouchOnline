@@ -1,21 +1,21 @@
 
-<h2>Enviar mensagem ao desenvolvedor</h2>
-<p>Sugestões, reclamações, dúvidas ...</p>
+<h2>{{ 'SendMessage.SendMessageToDeveloper' | translate }}</h2>
+<p>{{ 'SendMessage.SuggestionsComplaintsDoubts' | translate }}</p>
 
 <mat-card>  
   <form [formGroup]="messageForm" (submit)="sendMessage()" class="example-container">
         <mat-form-field>
-            <input matInput formControlName="name" placeholder="Nome">
-            <mat-error>Campo obrigatório</mat-error>
+            <input matInput formControlName="name" placeholder="{{ 'SendMessage.Name' | translate }}">
+            <mat-error>{{ 'SendMessage.NameIsRequired' | translate }}</mat-error>
           </mat-form-field>
           <mat-form-field>
-              <input matInput formControlName="email" placeholder="Email">
-              <mat-error>Email Inválido</mat-error>
+              <input matInput formControlName="email" placeholder="{{ 'SendMessage.Email' | translate }}">
+              <mat-error>{{ 'SendMessage.InvalidEmail' | translate }}</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <textarea matInput formControlName="text" rows="8" placeholder="Texto"></textarea>
-            <mat-error>Campo obrigatório</mat-error>
+            <textarea matInput formControlName="text" rows="8" placeholder="{{ 'SendMessage.Text' | translate }}"></textarea>
+            <mat-error>{{ 'SendMessage.TextIsRequired' | translate }}</mat-error>
         </mat-form-field>
-    <button [disabled]="messageForm.invalid" type="submit" mat-raised-button color="primary">Enviar</button>
+    <button [disabled]="messageForm.invalid" type="submit" mat-raised-button color="primary">{{ 'SendMessage.Send' | translate }}</button>
   </form>
 </mat-card>

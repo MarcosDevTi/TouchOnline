@@ -1,19 +1,19 @@
 <div class="containerMat">
   <div class="controls">
     <button type="button" [routerLink]="['/lessons/beginner']" class="btn btn-block btn-outline-secondary"><i
-        class="fa fa-list"></i>Iniciante</button>
+        class="fa fa-list"></i>{{ 'Exercises.Beginner' | translate }}</button>
     <button type="button" [routerLink]="['/lessons/basic']" class="btn btn-block btn-outline-secondary"><i
-        class="fa fa-user"></i>Básico</button>
+        class="fa fa-user"></i>{{ 'Exercises.Basic' | translate }}</button>
     <button type="button" [routerLink]="['/lessons/intermediate']" class="btn btn-block btn-outline-secondary"><i
-        class="fa fa-user"></i>Intermediário</button>
+        class="fa fa-user"></i>{{ 'Exercises.Intermediate' | translate }}</button>
     <button type="button" [routerLink]="['/lessons/advanced']" class="btn btn-block btn-outline-secondary"><i
-        class="fa fa-user"></i>Avançado</button>
+        class="fa fa-user"></i>{{ 'Exercises.Advanced' | translate }}</button>
   </div>
 
   <div class="level">
     <h4 class="d-flex justify-content-center">{{category}} {{name}}</h4>
     <mat-form-field class="center keyboard" >
-      <mat-label>Teclado</mat-label>
+      <mat-label>{{ 'App.Keyboard' | translate }}</mat-label>
       <mat-select (selectionChange)="selectKeyboard($event.value)" [(value)]="selected">
         <mat-option *ngFor="let keyboard of keyboardsDw" [value]="keyboard.id">
           {{keyboard.name}}
@@ -32,7 +32,7 @@
 
   <div class="tempo">
     <div style="max-width: 100%;">
-      <div class="d-flex justify-content-center"> <span class="timerLabel">Tempo</span></div>
+      <div class="d-flex justify-content-center"> <span class="timerLabel">{{ 'App.Tempo' | translate }}</span></div>
       <span class="d-flex justify-content-center timer">
         <div style="margin-top: -10px;">{{timeLeft | timerFormat}}</div>
       </span>
@@ -41,7 +41,7 @@
 
   <div class="wpm">
     <div>
-      <div class="d-flex justify-content-center"><span class="ppmLabel">PPM</span></div>
+      <div class="d-flex justify-content-center"><span class="ppmLabel">{{ 'App.Wpm' | translate }}</span></div>
       <span class="d-flex justify-content-center ppm"><span style="margin-top: -10px;">{{ppm}}</span></span>
     </div>
   </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SendMessageService } from './shared/send-message.service';
 import { MessageForSend } from './shared/message-for-send';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-send-message',
@@ -14,7 +15,8 @@ export class SendMessageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private sendMessageService: SendMessageService,
-    private router: Router
+    private router: Router,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {

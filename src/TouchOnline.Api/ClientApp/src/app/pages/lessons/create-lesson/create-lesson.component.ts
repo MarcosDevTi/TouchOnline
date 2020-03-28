@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { TextToolService } from 'src/app/shared/text-tool.service';
 import { LessonService } from '../lesson.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-lesson',
@@ -20,7 +21,7 @@ export class CreateLessonComponent implements OnInit {
     private router: Router,
     protected route: ActivatedRoute,
     private textToolService: TextToolService,
-    private lessonService: LessonService
+    public translate: TranslateService
     ) { }
 
   ngOnInit() {

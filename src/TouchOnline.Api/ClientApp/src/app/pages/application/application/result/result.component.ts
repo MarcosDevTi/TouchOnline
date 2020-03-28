@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ResultDto } from 'src/app/pages/lessons/lesson.service';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-result',
@@ -12,7 +13,8 @@ export class ResultComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ResultComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ResultDto,
-    private trackingService: TrackingService
+    private trackingService: TrackingService,
+    public translate: TranslateService
     ) {}
   @Input() resultado: any;
 

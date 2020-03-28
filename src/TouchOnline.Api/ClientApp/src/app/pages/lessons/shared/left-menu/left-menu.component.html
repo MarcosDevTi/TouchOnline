@@ -1,6 +1,8 @@
 <mat-selection-list #shoes>
   <button 
-  mat-stroked-button color="basic" 
-  *ngFor="let nivel of menuNiveis" 
-  [routerLink]="nivel.link">{{nivel.name}}</button>
+    mat-stroked-button color="basic" 
+    *ngFor="let nivel of menuNiveis" 
+    [routerLink]="nivel.link">
+    {{ 'Exercises.' + nivel.name | translate }}
+  </button>
 </mat-selection-list>

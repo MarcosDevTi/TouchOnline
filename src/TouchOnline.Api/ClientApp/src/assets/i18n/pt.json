@@ -1,0 +1,121 @@
+{
+    "Nav":{
+        "Home":"Iniciar",
+        "Managements": "Gestão",
+        "Exercises": "Exercícios",
+        "Login": "Login",
+        "Register": "Registrar-se",
+        "CreateExercises": "Criar Exercícios",
+        "Welcome": "Bem-vindo",
+        "Logout": "Sair"
+    },
+    "LANGUAGES":{
+        "pt": "Português",
+        "en": "Inglês",
+        "fr": "Francês"
+    },
+    "Exercises":{
+        "Beginner": "Iniciante",
+        "Basic": "Básico",
+        "Intermediate": "Intermediário",
+        "Advanced": "Avançado",
+        "MyTexts": "Meus textos"
+    },
+    "Seo": {
+        "Title": "Lições",
+        "Text": "O Teste de digitação online gratuito fornece ao estudande \"digitador\", a possibilidade de aprender a digitar com mais velocidade, com os 10 dedos de maneira uniforme",
+        "DeveloperMessage": "Enviar mensagem ao Desenvolvedor"
+    },
+    "CreateLesson": {
+        "Title": "Título",
+        "LessonName": "Nome da lição",
+        "Save": "Salvar"
+    },
+    "SendMessage": {
+        "SendMessageToDeveloper": "Enviar mensagem ao desenvolvedor",
+        "SuggestionsComplaintsDoubts": "Sugestões, reclamações, dúvidas ...",
+        "Name": "Nome",
+        "Email": "Email",
+        "Text": "Texto",
+        "Send": "Enviar",
+        "NameIsRequired": "O campo Nome é obrigatório",
+        "InvalidEmail": "Email Inválido",
+        "TextIsRequired": "O campo Texto é obrigatório"
+    },
+    "Register":{
+        "RegisterUser": "Registrar Usuário",
+        "Name": "Nome",
+        "Email": "Email",
+        "Password": "Senha",
+        "ConfirmPassword": "Confirmar senha",
+        "Register": "Registrar",
+        "SendMessageToDeveloper": "Enviar mensagem ao desenvolvedor"
+    },
+    "App": {
+        "Keyboard":"Teclado",
+        "Tempo": "Tempo",
+        "Wpm": "Ppm"
+    },
+    "Result":{
+        "Lesson": "Exercício",
+        "TypingSpeed":"Velocidade de Digitação:",
+        "Great":"Excelente",
+        "YourTypingIsExcellent": "Sua digitação está excelente, se estiver muito fácil, tente um nível acima",
+        "Regular":"Regular",
+        "YourTypingIsRegular": "Sua digitação está regular, faça novamente o exercício. Repita quantas vezes julgar necessário.",
+        "Reasonable":"Razoável",
+        "YourTypingIsOk":"Sua digitação está razoável, porém ainda tem muito o que melhorar",
+        "Bad":"Ruim",
+        "YourTypingIsReallyBad":"Sua digitação está muito ruim, repita o exercício quantas vezes achar necessário.",
+        "Speed": "Velocidade:",
+        "Tempo": "Tempo:",
+        "TotalErrors": "Total de Erros:",
+        "IntensificationCategory": "Categoria Reforço",
+        "TheCategory": "A categoria",
+        "Intensification":"Reforço",
+        "ItAimsToReinforceTheKeysWithGreaterIncidences":"tem por objetivo reforçar as teclas com maiores incidências de erros deixando cada vez mais estável e precisa sua digitação.",
+        "TheTouchOnlineCom": "O TouchOnLine.Com",
+        "ClassificationIsTheOverallSummary":"A Classificação é o resumo geral de desempenho baseado na velocidade de digitação e precisão. Cada exercício tem critérios próprios de avaliação sendo medidos de acordo com o seu nível de complexidade.",
+        "RegisterToShareOnlyExercises": "Registre-se para ter seus exercícios salvos",
+        "Classification":"Classificação",
+        "Continue":"Continuar"
+    },
+    "CardResult": {
+        "Precision":"Precisão",
+        "Speed": "Veloc",
+        "Tempo": "Tempo"
+    },
+    "Home":{
+        "IniciarAgoraMesmo":"Iniciar agora mesmo",
+        "CursoDeDigitacaoOnLineGratis": "Curso de digitação on-line grátis",
+        "BeginnerTextIntro": "Iniciante",
+        "BasicTextIntro": "Básico",
+        "IntermediateTextIntro": "Intermediário",
+        "AdvancedTextIntro": "Avançado",
+        "Intensification": "Reforço",
+        "MyTextsTextIntro": "Meus Textos",
+        "TypingWithTechniqueUsingThe10Fingers": "",
+        "InitialSupportForAnyoneWhoIsNot": "Suporte inicial para quem não tem nenhuma familiaridade com a digitação. É importantíssimo que o digitador iniciante use corretamente os dedos como sugere o programa, isso evitará vícios futuros.",
+        "TheLessonsInThisCategoryHaveLooseWords":"As lições dessa categoria conta com palávras soltas constituidas de letras de fácil acesso ao usuário com menos intimidade com o teclado e a disposição das teclas.",
+        "TheLessonsInThisCategoryRelyOnSmall": "As lições dessa categoria contam com frases pequenas que contribuem para a independência ao digitar, aqui sua digitação se torna mais natural e as frases começam a se formar com maior agilidade e facilidade o digitar.",
+        "ThisCategoryConsistsOfLongerAndMoreComplexTexts":"Essa categoria é constituída de textos mais longos e complexos. Aqui o digitador conseguirá digitar textos com rapidez e precisão. Apto a se submeter a qualquer desafio.",
+        "TheLessonsInThisCategoryAreDynamically":"As lições dessa categoria são criados dinamicamente para trabalhar as fraquesas detectadas nas lições das categorias anteriores.",
+        "TheTypistCanEnterHisOwnTexts":"O digitador pode inserir textos próprios para treinar com total liberdade, essas lições são avaliados com os mesmo critérios das categorias anteriores.",
+        "Typing": "Digitação",
+        "WithTechniqueUsingThe10Fingers":"com técnica usando os 10 dedos",
+        "TheFreeOnlineTypingCourseHasAnEvolutionaryMethodThatGives":"O Curso de digitação gratuito online dispõe de um método evolutivo que fornece ao usuário um experiência inédita quando se quer digitar da maneira correta.",
+        "AsMuchAsTheUserAlreadyHasAQuickTyping":"Por mais que o usuário já tenha uma digitação rápida, é importante verificar se os dedos estão corretamente posicionados e a postura ao digitar lhe é confortável.",
+        "StudyWithYour":"Digite com seus",
+        "OwnTexts":"Próprios Textos",
+        "CreateLessonsUsingYourOwnTexts":"Crie lições utilizando seus próprios textos, mais facilidade com frases elaboradas pelo próprio usuário. Obtenha mais resultados com um assunto que seja do seu interesse!",
+        "VeryPracticalWhenYouNeedToStudySomeTextToInform": "Muito prático quando se precisa estudar algum texto para se informar, decorar ou estudar. Quando não se tem muito tempo a perder, essa técnica é muito interessante.",
+        "RealTimeMeters":"Contadores de dígitos em tempo real",
+        "InstantMetersBringResultsToTheMomentTheyAreEntered":"Os medidores instantâneos trazem resultados ao momento que é digitado, trazendo ao usuário uma experiência única de desafio.",
+        "TheResultsAreBasedOnSeveralCriteriaThatVerifies":"Os resultados são baseados em vários critérios que verifica a velocidade e precisão, para melhor performace é imprescindível que se utilize os dedos corretos para cada tecla.",
+        "Typewithlessons":"Digite com lições",
+        "InEnglish":"Em Inglês",
+        "WhenChangingTheLanguageOfTheSystem":"Ao trocar a lingua do sistema toda a estrutura de exercícios é modificada automáticamente com textos elaborados na língua selecionada.",
+        "TheKeyboardInitiallySelectedCanBeModified":"O teclado selecionado inicialmente pode ser modificado pelo digitador se estiver usando um modelo diferente de teclado, mesmo que a língua esconlhida não seja a mesma."
+    }
+  }
+  

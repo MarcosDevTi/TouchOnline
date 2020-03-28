@@ -12,10 +12,10 @@
                  class="btn btn-lg btn-primary btn-min-width btnInicie" (click)="registerToggle()">
                       Iniciar agora mesmo!
               </button> -->
-              <button mat-raised-button color="primary" class="btnInicie" [routerLink]="['/lessons/beginner']" >Iniciar agora mesmo!</button>
+              <button mat-raised-button color="primary" class="btnInicie" [routerLink]="['/lessons/beginner']" >{{ 'Home.IniciarAgoraMesmo' | translate }}</button>
           </span>
           <hr class="tall" />
-          <h1>Curso de digitação on-line grátis</h1>
+          <h1>{{ 'Home.CursoDeDigitacaoOnLineGratis' | translate }}</h1>
       </div>
           <hr class="tall" />
         
@@ -26,34 +26,34 @@
                         <div class="row" data-appear-animation="fadeInRight">
                             <div class="col-md-4">
                                     <div class="feature-box secundary">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkInicianteLista" class="feature-box-icon">
+                                        <a href="" class="feature-box-icon">
                                             
                                             <i class="material-icons">flag</i>
                                         </a>
                                         <div class="feature-box-info">
-                                            <a href="@DigiteMais.Comum.Lingua.Texto.LkInicianteLista" class="alternative-font">Iniciante</a>
-                                            <p class="tall">Suporte inicial para quem não tem nenhuma familiaridade com a digitação. É importantíssimo que o digitador iniciante use corretamente os dedos como sugere o programa, isso evitará vícios futuros.</p>
+                                            <a href="" class="alternative-font">{{ 'Home.BeginnerTextIntro' | translate }}</a>
+                                            <p class="tall">{{ 'Home.InitialSupportForAnyoneWhoIsNot' | translate }}</p>
                                         </div>
                                     </div>
                                
                                 <div class="feature-box secundary">
-                                    <a href="@DigiteMais.Comum.Lingua.Texto.LkBasicoLista" class="feature-box-icon">
+                                    <a href="" class="feature-box-icon">
                                         <i class="material-icons">move_to_inbox</i>
                                     </a>
                                     <div class="feature-box-info">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkBasicoLista" class="alternative-font">Básico</a>
-                                        <p class="tall">As lições dessa categoria conta com palávras soltas constituidas de letras de fácil acesso ao usuário com menos intimidade com o teclado e a disposição das teclas.</p>
+                                        <a href="" class="alternative-font">{{ 'Home.BasicTextIntro' | translate }}</a>
+                                        <p class="tall">{{ 'Home.TheLessonsInThisCategoryHaveLooseWords' | translate }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="feature-box secundary">
-                                    <a href="@DigiteMais.Comum.Lingua.Texto.LkIntermediarioLista" class="feature-box-icon">
+                                    <a href="" class="feature-box-icon">
                                         <i class="material-icons">hourglass_full</i>
                                     </a>
                                     <div class="feature-box-info">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkIntermediarioLista" class="alternative-font">Intermediário</a>
-                                        <p class="tall">As lições dessa categoria contam com frases pequenas que contribuem para a independência ao digitar, aqui sua digitação se torna mais natural e as frases começam a se formar com maior agilidade e facilidade o digitar.</p>
+                                        <a href="" class="alternative-font">{{ 'Home.IntermediateTextIntro' | translate }}</a>
+                                        <p class="tall">{{ 'Home.TheLessonsInThisCategoryRelyOnSmall' | translate }}</p>
                                     </div>
                                 </div>
                                 <div class="feature-box secundary">
@@ -61,8 +61,8 @@
                                         <i class="material-icons">insert_chart</i>
                                     </a>
                                     <div class="feature-box-info">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkAvancadoLista" class="alternative-font">Avançado</a>
-                                        <p class="tall">Essa categoria é constituída de textos mais longos e complexos. Aqui o digitador conseguirá digitar textos com rapidez e precisão. Apto a se submeter a qualquer desafio.s</p>
+                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkAvancadoLista" class="alternative-font">{{ 'Home.AdvancedTextIntro' | translate }}</a>
+                                        <p class="tall">{{ 'Home.ThisCategoryConsistsOfLongerAndMoreComplexTexts' | translate }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -72,17 +72,17 @@
                                         <i class="material-icons">cached</i>
                                     </a>
                                     <div class="feature-box-info">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.LkReforcoLista" class="alternative-font">Reforço</a>
-                                        <p class="tall">As lições dessa categoria são criados dinamicamente para trabalhar as fraquesas detectadas nas lições das categorias anteriores.</p>
+                                        <a href="#" class="alternative-font">{{ 'Home.Intensification' | translate }}</a>
+                                        <p class="tall">{{ 'Home.TheLessonsInThisCategoryAreDynamically' | translate }}</p>
                                     </div>
                                 </div>
                                 <div class="feature-box secundary">
-                                    <a href="@DigiteMais.Comum.Lingua.Texto.lkCriarLicaoMeuProprioTexto" class="feature-box-icon">
+                                    <a href="#" class="feature-box-icon">
                                         <i class="material-icons">text_format</i>
                                     </a>
                                     <div class="feature-box-info">
-                                        <a href="@DigiteMais.Comum.Lingua.Texto.lkCriarLicaoMeuProprioTexto" class="alternative-font">Meus Textos</a>
-                                        <p class="tall">O digitador pode inserir textos próprios para treinar com total liberdade, essas lições são avaliados com os mesmo critérios das categorias anteriores.</p>
+                                        <a href="@DigiteMais.Comum.Lingua.Texto.lkCriarLicaoMeuProprioTexto" class="alternative-font">{{ 'Home.MyTextsTextIntro' | translate }}</a>
+                                        <p class="tall">{{ 'Home.TheTypistCanEnterHisOwnTexts' | translate }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,12 +100,12 @@
               </a>
               <div class="col-md-7 col-md-offset-1" data-appear-animation="fadeInRight">
                   <div id="textoHome1">
-                      <h2 class="push-top"><strong>Digitação</strong> com técnica usando os 10 dedos</h2>
+                      <h2 class="push-top"><strong>{{ 'Home.Typing' | translate }}</strong> {{ 'Home.WithTechniqueUsingThe10Fingers' | translate }}</h2>
                       <p class="lead">
-                        O Curso de digitação gratuito online dispõe de um método evolutivo que fornece ao usuário um experiência inédita quando se quer digitar da maneira correta.
+                        {{ 'Home.TheFreeOnlineTypingCourseHasAnEvolutionaryMethodThatGives' | translate }}
                       </p>
                       <p>
-                        Por mais que o usuário já tenha uma digitação rápida, é importante verificar se os dedos estão corretamente posicionados e a postura ao digitar lhe é confortável.
+                        {{ 'Home.AsMuchAsTheUserAlreadyHasAQuickTyping' | translate }}
                       </p>
                   </div>
               </div>
@@ -114,16 +114,16 @@
           <div class="row">
               <div class="col-md-7" data-appear-animation="fadeInLeft">
                   <div id="textoHome2">
-                      <h2 class="push-top">Digite com seus <strong>Próprios Textos!</strong></h2>
+                      <h2 class="push-top">{{ 'Home.StudyWithYour' | translate }} <strong>{{ 'Home.OwnTexts' | translate }}!</strong></h2>
                       <p class="lead">
-                        Crie lições utilizando seus próprios textos, mais facilidade com frases elaboradas pelo próprio usuário. Obtenha mais resultados com um assunto que seja do seu interesse!
+                        {{ 'Home.CreateLessonsUsingYourOwnTexts' | translate }}!
                       </p>
                       <p>
-                        Muito prático quando se precisa estudar algum texto para se informar, decorar ou estudar. Quando não se tem muito tempo a perder, essa técnica é muito interessante.
+                        {{ 'Home.VeryPracticalWhenYouNeedToStudySomeTextToInform' | translate }}
                       </p>
                   </div>
               </div>
-              <a href="@DigiteMais.Comum.Lingua.Texto.lkCriarLicaoMeuProprioTexto" class="col-md-5 col-md-offset-1 push-top" data-appear-animation="fadeInRight">
+              <a href="#" class="col-md-5 col-md-offset-1 push-top" data-appear-animation="fadeInRight">
                   <i class="material-icons imgTxt2">wrap_text</i>
               </a>
           </div>
@@ -135,12 +135,12 @@
               </div>
               <div class="col-md-6" data-appear-animation="fadeInRight">
                   <div id="textoHome3">
-                      <h2 class="push-top"><strong>Contadores de dígitos em tempo real</strong></h2>
+                      <h2 class="push-top"><strong>{{ 'Home.RealTimeMeters' | translate }}</strong></h2>
                       <p class="lead">
-                        Os medidores instantâneos trazem resultados ao momento que é digitado, trazendo ao usuário uma experiência única de desafio.
+                        {{ 'Home.InstantMetersBringResultsToTheMomentTheyAreEntered' | translate }}
                       </p>
                       <p>
-                        Os resultados são baseados em vários critérios que verifica a velocidade e precisão, para melhor performace é imprescindível que se utilize os dedos corretos para cada tecla.
+                        {{ 'Home.TheResultsAreBasedOnSeveralCriteriaThatVerifies' | translate }}
                       </p>
                   </div>
               </div>
@@ -149,12 +149,12 @@
           <div class="row">
               <div class="col-md-7" data-appear-animation="fadeInLeft">
                   <div id="textoHome4">
-                      <h2 class="push-top">Digite com lições <strong>Em Inglês</strong></h2>
+                      <h2 class="push-top">{{ 'Home.Typewithlessons' | translate }} <strong>{{ 'Home.InEnglish' | translate }}</strong></h2>
                       <p class="lead">
-                        Ao trocar a lingua do sistema toda a estrutura de exercícios é modificada automáticamente com textos elaborados na língua selecionada.
+                        {{ 'Home.WhenChangingTheLanguageOfTheSystem' | translate }}
                       </p>
                       <p>
-                        O teclado selecionado inicialmente pode ser modificado pelo digitador se estiver usando um modelo diferente de teclado, mesmo que a língua esconlhida não seja a mesma.
+                        {{ 'Home.TheKeyboardInitiallySelectedCanBeModified' | translate }}
                       </p>
                   </div>
               </div>
@@ -165,7 +165,7 @@
           <hr class="tall" />
           <span class="button-container text-left">
               <a [routerLink]="['/lessons/beginner']"  data-appear-animation="fadeInLeft" data-track-link="true" data-track-cta="View" data-track-type="how_it_works" data-track-id="21333" class="btn btn-lg btn-primary btn-min-width btnInicie2">
-                Iniciar agora mesmo!
+                {{ 'Home.IniciarAgoraMesmo' | translate }}
               </a>
 
               
@@ -175,7 +175,7 @@
       </div>
       <hr class="tall" />
       <button class="send-message" mat-raised-button [routerLink]="['/auth/send-message']">
-        <i class="material-icons">message</i> Mensagem ao Desenvolvedor
+        <i class="material-icons">message</i> {{ 'SendMessage.SendMessageToDeveloper' | translate }}
       </button>
       <hr class="tall" />
       </div>

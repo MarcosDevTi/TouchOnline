@@ -1,7 +1,121 @@
 {
-    "HOME": {
-      "TITLE": "Bonjour Angular avec ngx-translate !",
-      "SELECT": "Changer la langue"
+    "Nav":{
+        "Home":"Accueil",
+        "Managements": "Gestions",
+        "Exercises": "Exercices",
+        "Login": "Login",
+        "Register": "Registrer",
+        "CreateExercises": "Créer des exercices",
+        "Welcome": "Bienvenu",
+        "Logout": "Se déconnecter"
+    },
+    "LANGUAGES":{
+        "pt": "Portugais",
+        "en": "Anglais",
+        "fr": "Français"
+    },
+    "Exercises":{
+        "Beginner": "Débutante",
+        "Basic": "De base",
+        "Intermediate": "Intermédiaire",
+        "Advanced": "Avancé",
+        "MyTexts": "Mes textes"
+    },
+    "Seo": {
+        "Title": "Leçons",
+        "Text": "Le test de dactylographie en ligne gratuit offre à l'étudiant \"numériseur\" la possibilité d'apprendre à taper plus rapidement, avec 10 doigts uniformément",
+        "DeveloperMessage": "Envoyer un message au développeur"
+    },
+    "CreateLesson": {
+        "Title": "Titre",
+        "LessonName": "Nom de la leçon",
+        "Save": "Sauvegarder"
+    },
+    "SendMessage": {
+        "SendMessageToDeveloper": "Envoyer un message au développeur",
+        "SuggestionsComplaintsDoubts": "Suggestions, plaintes, doutes ...",
+        "Name": "Nom",
+        "Email": "Email",
+        "Text": "Texte",
+        "Send": "Envoyer",
+        "NameIsRequired": "Le champ Nom est obligatoire",
+        "InvalidEmail": "E-mail invalide",
+        "TextIsRequired": "Le champ Texte est obligatoire"
+    },
+    "Register":{
+        "RegisterUser": "Enregistrer l'utilisateur",
+        "Name": "Nom",
+        "Email": "Email",
+        "Password": "Mot de passe",
+        "ConfirmPassword": "Confirmer le mot de passe",
+        "Register": "S'inscrire",
+        "SendMessageToDeveloper": "Envoyer un message au développeur"
+    },
+    "App": {
+        "Keyboard":"Clavier",
+        "Tempo": "Tempo",
+        "Wpm": "Mpm"
+    },
+    "Result":{
+        "Lesson": "Leçon",
+        "TypingSpeed":"Vitesse de frappe:",
+        "Great":"Excellent",
+        "YourTypingIsExcellent": "Votre frappe est excellente, si c'est trop facile, essayez un niveau supérieur",
+        "Regular":"Régulier",
+        "YourTypingIsRegular": "Votre saisie est régulière, recommencez l'exercice. Répétez autant de fois que nécessaire.",
+        "Reasonable":"Raisonnable",
+        "YourTypingIsOk":"Votre saisie est correcte, mais il reste encore beaucoup à améliorer",
+        "Bad":"Mauvais",
+        "YourTypingIsReallyBad":"Votre frappe est très mauvaise, répétez l'exercice autant de fois que nécessaire.",
+        "Speed": "Vitesse:",
+        "Tempo": "Tempo:",
+        "TotalErrors": "Total erreurs:",
+        "IntensificationCategory": "Catégorie d'intensification",
+        "TheCategory": "La catégorie",
+        "Intensification":"Intensification",
+        "ItAimsToReinforceTheKeysWithGreaterIncidences":"il vise à renforcer les touches avec une plus grande incidence d'erreurs laissant de plus en plus stable et précis votre frappe.",
+        "TheTouchOnlineCom": "Le TouchOnLine.Com",
+        "ClassificationIsTheOverallSummary":"La classification est le résumé global des performances basé sur la vitesse de frappe et la précision. Chaque exercice a ses propres critères d'évaluation et est mesuré en fonction de son niveau de complexité.",
+        "RegisterToShareOnlyExercises": "Inscrivez-vous pour enregistrer vos séances d'entraînement.",
+        "Classification":"Classification",
+        "Continue":"Continuez"
+    },
+    "CardResult": {
+        "Precision":"Précision",
+        "Speed": "Vites",
+        "Tempo": "Tempo"
+    },
+    "Home":{
+        "IniciarAgoraMesmo":"Commencer dès maintenant ",
+        "CursoDeDigitacaoOnLineGratis": "Cours de dactylographie en ligne gratuit",
+        "BeginnerTextIntro": "Débutant",
+        "BasicTextIntro": "De base",
+        "IntermediateTextIntro": "Intermédiaire",
+        "AdvancedTextIntro": "Avancé",
+        "Intensification": "Intensification",
+        "MyTextsTextIntro": "Mes textes",
+        "TypingWithTechniqueUsingThe10Fingers": "",
+        "InitialSupportForAnyoneWhoIsNot": "Le support initial pour ceux qui n'ont pas connaissance de la frappe. Il est important que le dactylo débutant utiliser correctement vos doigts comme suggéré par le programme, cela empêchera les dépendances futures.",
+        "TheLessonsInThisCategoryHaveLooseWords":"Les leçons de cette catégorie a des mots simples constitués d'un accès facile aux lettres de l'utilisateur avec moins d'intimité avec le clavier et la disposition des touches.",
+        "TheLessonsInThisCategoryRelyOnSmall": "Les leçons de cette catégorie ont des phrases courtes qui contribuent à l'indépendance lors de la saisie, votre frappe ici devient plus naturel et les phrases commencent à se former avec une plus grande souplesse et la facilité de la frappe."    ,
+        "ThisCategoryConsistsOfLongerAndMoreComplexTexts":"Cette catégorie se compose de plus et des textes plus complexes. Ici, le dactylo vous pouvez taper rapidement et avec précision des textes. Capable de se soumettre à tous les défis.",
+        "TheLessonsInThisCategoryAreDynamically":"Les leçons de cette catégorie sont créées dynamiquement pour travailler les faiblesses détectées dans les cours des catégories précédentes.",
+        "TheTypistCanEnterHisOwnTexts":"Le dactylo peut entrer propres textes pour former en toute liberté, ces cours sont évalués selon les mêmes critères des catégories précédentes.",
+        "Typing": "Dactylographie",
+        "WithTechniqueUsingThe10Fingers":"avec la technique en utilisant 10 doigts",
+        "TheFreeOnlineTypingCourseHasAnEvolutionaryMethodThatGives":"Le cours de dactylo gratuit en ligne propose une méthode évolutive qui permet à l'utilisateur une nouvelle expérience lorsque vous voulez taper la manière correcte.",
+        "AsMuchAsTheUserAlreadyHasAQuickTyping":"Autant que vous avez déjà un frappe rapide, il est important de vérifier que vos doigts sont correctement positionnés et la posture lors de la frappe est confortable.",
+        "StudyWithYour":"Tapez avec vos",
+        "OwnTexts":"Propres Textes",
+        "CreateLessonsUsingYourOwnTexts":"Créer des leçons en utilisant vos propres textes, plus facilement avec des phrases élaborées par l'utilisateur. Faites-en plus avec un sujet qui est d'intérêt pour vous!",
+        "VeryPracticalWhenYouNeedToStudySomeTextToInform": "Très pratique lorsque vous avez besoin d'étudier un texte à apprendre, mémoriser ou étude. Quand il n'a pas beaucoup de temps à perdre, cette technique est très intéressante.",
+        "RealTimeMeters":"Mètres en temps réel",
+        "InstantMetersBringResultsToTheMomentTheyAreEntered":"Instantanés mètres apporter des résultats au moment où il est entré, ce qui porte à l'utilisateur une expérience unique de défi.",
+        "TheResultsAreBasedOnSeveralCriteriaThatVerifies":"Les résultats sont basés sur plusieurs critères qui contrôle la vitesse et la précision de mieux performace il est essentiel d'utiliser les doigts corrects pour chaque touche.",
+        "Typewithlessons":"Tapez avec le leçon",
+        "InEnglish":"En Anglais",
+        "WhenChangingTheLanguageOfTheSystem":"Lors du changement de la langue du système, la structure est modifiée automatiquement des exercices avec des textes écrits dans la langue sélectionnée.",
+        "TheKeyboardInitiallySelectedCanBeModified":"Le clavier sélectionné peut être modifié d'abord par le numériseur si vous utilisez un autre modèle de clavier, même si la langue esconlhida n'est pas la même chose."
     }
   }
   

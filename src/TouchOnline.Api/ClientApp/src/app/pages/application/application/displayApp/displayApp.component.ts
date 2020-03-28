@@ -4,6 +4,7 @@ import { ApplicationService } from '../../application.service';
 import { KeyServiceService } from '../keyboard/key.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-displayApp',
@@ -26,7 +27,7 @@ export class DisplayAppComponent implements OnInit {
     public dialog: MatDialog,
     private applicationService: ApplicationService,
     private keyServiceService: KeyServiceService,
-    private fb: FormBuilder) { }
+    public translate: TranslateService) { }
 
   ngOnInit() {
     this.setKeyboard();

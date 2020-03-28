@@ -1,7 +1,121 @@
 {
-    "HOME": {
-      "TITLE": "Hello Angular with ngx-translate!",
-      "SELECT": "Change language"
+    "Nav":{
+        "Home":"Home",
+        "Managements": "Managements",
+        "Exercises": "Exercises",
+        "Login": "Login",
+        "Register": "Register",
+        "CreateExercises": "Create Exercises",
+        "Welcome": "Welcome",
+        "Logout": "Logout"
+    },
+    "LANGUAGES":{
+        "pt": "Portuguese",
+        "en": "English",
+        "fr": "French"
+    },
+    "Exercises":{
+        "Beginner": "Beginner",
+        "Basic": "Basic",
+        "Intermediate": "Intermediate",
+        "Advanced": "Advanced",
+        "MyTexts": "My Texts"
+    },
+    "Seo": {
+        "Title": "Lessons",
+        "Text": "The free online typing test gives the student \"digitizer\" the possibility to learn to type faster, with 10 fingers evenly",
+        "DeveloperMessage": "Send message to Developer"
+    },
+    "CreateLesson": {
+        "Title": "Title",
+        "LessonName": "Lesson name",
+        "Save": "Save"
+    },
+    "SendMessage": {
+        "SendMessageToDeveloper": "Send message to developer",
+        "SuggestionsComplaintsDoubts": "Suggestions, complaints, doubts  ...",
+        "Name": "Name",
+        "Email": "Email",
+        "Text": "Text",
+        "Send": "Send",
+        "NameIsRequired": "The Name field is required",
+        "InvalidEmail": "Invalid email",
+        "TextIsRequired": "The Text is required"
+    },
+    "Register":{
+        "RegisterUser": "Register User",
+        "Name": "Name",
+        "Email": "Email",
+        "Password": "Password",
+        "ConfirmPassword": "Confirm Password",
+        "Register": "Register",
+        "SendMessageToDeveloper": "Send message to developer"
+    },
+    "App": {
+        "Keyboard":"Keyboard",
+        "Tempo": "Tempo",
+        "Wpm": "Wpm"
+    },
+    "Result":{
+        "Lesson": "Lesson",
+        "TypingSpeed":"Typing Speed:",
+        "Great":"Great",
+        "YourTypingIsExcellent": "Your typing is excellent, if it is too easy, try a higher level",
+        "Regular":"Regular",
+        "YourTypingIsRegular": "Your typing is regular, do the exercise again. Repeat as many times as necessary.",
+        "Reasonable":"Reasonable",
+        "YourTypingIsOk":"Your typing is ok, but there is still a lot to improve",
+        "Bad":"Bad",
+        "YourTypingIsReallyBad":"Your typing is very bad, repeat the exercise as many times as necessary.",
+        "Speed": "Speed:",
+        "Tempo": "Tempo:",
+        "TotalErrors": "Total Errors:",
+        "IntensificationCategory": "Intensification Category",
+        "TheCategory": "The category",
+        "Intensification":"Intensification",
+        "ItAimsToReinforceTheKeysWithGreaterIncidences":"it aims to reinforce the keys with greater incidences of errors leaving more and more stable and precise your typing.",
+        "TheTouchOnlineCom": "The TouchOnLine.Com",
+        "ClassificationIsTheOverallSummary":"Classification is the overall summary of performance based on typing speed and accuracy. Each exercise has its own evaluation criteria and is measured according to its level of complexity.",
+        "RegisterToShareOnlyExercises": "Register-to share only exercises.",
+        "Classification":"Classification",
+        "Continue":"Continue"
+    },
+    "CardResult": {
+        "Precision":"Precision",
+        "Speed": "Speed",
+        "Tempo": "Tempo"
+    },
+    "Home":{
+        "IniciarAgoraMesmo":"Start now",
+        "CursoDeDigitacaoOnLineGratis": "Free online typing course",
+        "BeginnerTextIntro": "Beginner",
+        "BasicTextIntro": "Basic",
+        "IntermediateTextIntro": "Intermediate",
+        "AdvancedTextIntro": "Advanced",
+        "Intensification": "Intensification",
+        "MyTextsTextIntro": "My Texts",
+        "TypingWithTechniqueUsingThe10Fingers": "",
+        "InitialSupportForAnyoneWhoIsNot": "Initial support for anyone who is not familiar with typing. It is very important that the beginner typist correctly use the fingers as the program suggests, this will avoid future defects.",
+        "TheLessonsInThisCategoryHaveLooseWords":"The lessons in this category have loose words consisting of letters that are easily accessible to the user with less intimacy with the keyboard and key layout.",
+        "TheLessonsInThisCategoryRelyOnSmall": "The lessons in this category rely on small phrases that contribute to independence as you type, here your typing becomes more natural and phrases begin to form with greater agility and ease typing.",
+        "ThisCategoryConsistsOfLongerAndMoreComplexTexts":"This category consists of longer and more complex texts. Here the typist will be able to type texts quickly and accurately. Apt to submit to any challenge.",
+        "TheLessonsInThisCategoryAreDynamically":"The lessons in this category are dynamically created to work on the weaknesses detected in the lessons of the previous categories.",
+        "TheTypistCanEnterHisOwnTexts":"The typist can enter his own texts to train with complete freedom, these lessons are evaluated with the same criteria of the previous categories.",
+        "Typing": "Typing",
+        "WithTechniqueUsingThe10Fingers":"with technique using the 10 fingers",
+        "TheFreeOnlineTypingCourseHasAnEvolutionaryMethodThatGives":"The free online typing course has an evolutionary method that gives the user an unprecedented experience when one wants to type in the correct way.",
+        "AsMuchAsTheUserAlreadyHasAQuickTyping":"As much as the user already has a quick typing, it is important to check that the fingers are correctly positioned and the posture as you type is comfortable.",
+        "StudyWithYour":"Study with your",
+        "OwnTexts":"Own Texts",
+        "CreateLessonsUsingYourOwnTexts":"Create lessons using your own texts, more easily with phrases made by the user. Get more results with a subject that interests you!",
+        "VeryPracticalWhenYouNeedToStudySomeTextToInform": "Very practical when you need to study some text to inform, decorate or study. When you do not have much time to lose, this technique is very interesting.",
+        "RealTimeMeters":"Real-time meters",
+        "InstantMetersBringResultsToTheMomentTheyAreEntered":"Instant meters bring results to the moment they are entered, bringing the user a unique challenge experience.",
+        "TheResultsAreBasedOnSeveralCriteriaThatVerifies":"The results are based on several criteria that verifies the speed and precision, for better performance it is imperative that one uses the correct fingers for each key.",
+        "Typewithlessons":"Type with lessons",
+        "InEnglish":"In French",
+        "WhenChangingTheLanguageOfTheSystem":"When changing the language of the system the entire structure of exercises is automatically modified with texts elaborated in the selected language.",
+        "TheKeyboardInitiallySelectedCanBeModified":"The keyboard initially selected can be modified by the typist if you are using a different keyboard model, even if the hidden language is not the same."
     }
   }
   
