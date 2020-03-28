@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MyTextService } from '../my-text.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { TextToolService } from 'src/app/shared/text-tool.service';
-import { LessonService } from '../lesson.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
