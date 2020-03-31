@@ -32,7 +32,8 @@ namespace TouchOnline.CqrsHandlers
                 UsersCount = _context.Users.Count(),
                 MyTextsCount = _context.MyTexts.Count(),
                 ResultsCount = _context.Results.Count(),
-                SendsCount = _context.GetRecordeds.Count()
+                SendsCount = _context.GetRecordeds.Count(),
+                ResultsCountTotalSendeds = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("result"))
             };
         }
     }

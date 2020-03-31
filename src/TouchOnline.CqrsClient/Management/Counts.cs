@@ -4,6 +4,7 @@
     {
         public int UsersCount { get; set; }
         public int ResultsCount { get; set; }
+        public int ResultsCountTotalSendeds { get; set; }
         public int SendsCount { get; set; }
         public int MyTextsCount { get; set; }
     }

@@ -3,4 +3,5 @@ export class Counts {
     resultsCount: number;
     sendsCount: number;
     myTextsCount: number;
+    resultsCountTotalSendeds: number;
 }
