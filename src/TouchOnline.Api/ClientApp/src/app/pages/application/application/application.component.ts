@@ -66,7 +66,23 @@ export class ApplicationComponent implements OnInit {
   }
 
   obtenirLessonLocal(idLesson){
-    const lessonsLocal = localStorage.getItem('beginners');
+    let lessonsLocal;
+    if(this.idExerc[0] == '1') {
+      lessonsLocal = localStorage.getItem('beginners');
+    }
+    if(this.idExerc[0] == '2') {
+      lessonsLocal = localStorage.getItem('basics');
+    }
+    if(this.idExerc[0] == '3') {
+      lessonsLocal = localStorage.getItem('intermediates');
+    }
+    if(this.idExerc[0] == '4') {
+      lessonsLocal = localStorage.getItem('advanceds');
+    }
+    if(this.idExerc[0] == '5') {
+      lessonsLocal = localStorage.getItem('myText');
+    }
+    
     if (lessonsLocal == undefined || lessonsLocal === null) {
       return null;
     } else {
