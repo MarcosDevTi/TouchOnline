@@ -62,7 +62,8 @@ namespace TouchOnline.CqrsHandlers
                 Code = keyboard.Code,
                 Name = keyboard.Name,
                 CodeKeys = JsonSerializer.Deserialize<IEnumerable<KeyCode>>(keyboard.CodeKeys),
-                Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data)
+                Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data),
+                KeycodesBeginners = keyboard.KeycodesBeginners
             };
             return result;
         }
@@ -97,7 +98,8 @@ namespace TouchOnline.CqrsHandlers
                 Code = keyboard.Code,
                 Name = keyboard.Name,
                 LanguageCode = keyboard.LanguageCode,
-                Status = keyboard.Status
+                Status = keyboard.Status,
+                KeycodesBeginners = keyboard.KeycodesBeginners
             };
         }
 
@@ -107,6 +109,7 @@ namespace TouchOnline.CqrsHandlers
             keyboard.Name = command.Name;
             keyboard.LanguageCode = command.LanguageCode;
             keyboard.Status = command.Status;
+            keyboard.KeycodesBeginners = command.KeycodesBeginners;
 
             _context.SaveChanges();
         }

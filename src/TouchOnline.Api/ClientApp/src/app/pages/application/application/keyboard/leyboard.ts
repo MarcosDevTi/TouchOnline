@@ -9,4 +9,5 @@ export class Keyboard {
     type: number;
     codeKeys: KeyCode[];
     status: boolean;
+    keycodesBeginners: string;
 }

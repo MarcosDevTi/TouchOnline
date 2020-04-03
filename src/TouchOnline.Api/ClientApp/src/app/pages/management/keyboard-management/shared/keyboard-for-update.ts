@@ -4,7 +4,8 @@ export class KeyboardForUpdate {
     code?: string,
     name?: string,
     languageCode?: string,
-    status?: string) {}
+    status?: string,
+    keycodesBeginners?: string) {}
 
     static fromJson(jsonData: any): KeyboardForUpdate {
         return Object.assign(new KeyboardForUpdate(), jsonData);

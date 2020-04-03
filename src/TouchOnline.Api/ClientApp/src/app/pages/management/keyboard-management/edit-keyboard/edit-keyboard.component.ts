@@ -38,6 +38,7 @@ export class EditKeyboardComponent implements OnInit {
       name: [null],
       languageCode: [null],
       status: [null],
+      keycodesBeginners: [null]
     })
   }
 

@@ -10,5 +10,6 @@ namespace TouchOnline.CqrsClient.Keyboards
         public string Name { get; set; }
         public string LanguageCode { get; set; }
         public bool Status { get; set; }
+        public string KeycodesBeginners { get; set; }
     }
 }

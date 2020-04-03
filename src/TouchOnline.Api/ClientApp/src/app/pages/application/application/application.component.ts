@@ -11,6 +11,8 @@ import { Resultado } from '../../lessons/models/Resultado';
 import { ResultComponent } from './result/result.component';
 import { LessonApp } from '../../lessons/models/lesson-app';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
+import { BeginnerLessonsService } from '../../lessons/beginner-list/shared/beginner-lessons.service';
+import { ApplicationService } from '../application.service';
 
 @Component({
   selector: 'app-application',
@@ -44,22 +46,40 @@ export class ApplicationComponent implements OnInit {
     private lessonService: LessonService,
     private router: Router,
     public dialog: MatDialog,
-    private trackingService: TrackingService
+    private trackingService: TrackingService,
+    private beginnerLessonsService: BeginnerLessonsService,
+    private applicationService: ApplicationService,
   ) { }
 
   ngOnInit() {
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
-    this.lessonService.getLesson(this.idExerc).subscribe((x: LessonApp ) => {
-       this.onlyTextCompleteLesson(this.idExerc);
-       this.createLesson(x.lessonText);
+    // this.lessonService.getLesson(this.idExerc).subscribe((x: LessonApp ) => {
+    //    this.onlyTextCompleteLesson(this.idExerc);
+    //    this.createLesson(x.lessonText);
+    //    this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
+    //    this.name = x.name;
+    //    console.log(x)
+    //  }, error => {
+    //   console.log(error);
+    //  });
+    const less = this.obtenirLessonLocal(this.idExerc)
+     this.onlyTextCompleteLesson(this.idExerc);
+       this.createLesson(less.lessonText);
        this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
-       this.name = x.name;
-     }, error => {
-      console.log(error);
-     });
+       this.name = less.name;
+
     this.category = this.getCategory();
+  }
+
+  obtenirLessonLocal(idLesson){
+    const lessonsLocal = localStorage.getItem('beginners');
+    if (lessonsLocal == undefined || lessonsLocal === null) {
+      return null;
+    } else {
+      return JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0];
+    }
   }
 
   getCategory(): string {
@@ -80,7 +100,28 @@ export class ApplicationComponent implements OnInit {
   }
 
   changeKeyboard(kbId) {
-    this.kbId = kbId;
+    console.log(kbId);
+    this.applicationService.getKeyboard(kbId).subscribe(_ => {
+      if (_) {
+        localStorage.setItem('bkId', _.id);
+        localStorage.setItem('kb', JSON.stringify(_.data));
+        localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
+        localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners))
+        this.beginnerLessonsService.buildLessonsBeginners();
+      }
+
+      
+      this.kbId = kbId;
+      const less = this.obtenirLessonLocal(this.idExerc)
+      this.textDisplay = [];
+       this.createLesson(less.lessonText);
+      
+      this.fraseExibicao = this.textDisplay[0].keys;
+
+      this.ngOnInit()
+    });
+
+    
   }
 
   modificarTexto(txt) {

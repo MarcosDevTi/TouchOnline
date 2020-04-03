@@ -9,5 +9,6 @@
         public string CodeKeys { get; set; }
         public bool Status { get; set; }
         public string LanguageCode { get; set; }
+        public string KeycodesBeginners { get; set; }
     }
 }

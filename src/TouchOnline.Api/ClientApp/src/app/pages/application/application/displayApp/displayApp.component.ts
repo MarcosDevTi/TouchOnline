@@ -5,6 +5,7 @@ import { KeyServiceService } from '../keyboard/key.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BeginnerLessonsService } from 'src/app/pages/lessons/beginner-list/shared/beginner-lessons.service';
 
 @Component({
   selector: 'app-displayApp',
@@ -27,7 +28,8 @@ export class DisplayAppComponent implements OnInit {
     public dialog: MatDialog,
     private applicationService: ApplicationService,
     private keyServiceService: KeyServiceService,
-    public translate: TranslateService) { }
+    public translate: TranslateService,
+    private beginnerLessonsService: BeginnerLessonsService) { }
 
   ngOnInit() {
     this.setKeyboard();
@@ -47,13 +49,7 @@ export class DisplayAppComponent implements OnInit {
   }
 
   selectKeyboard(id) {
-    this.applicationService.getKeyboard(id).subscribe(_ => {
-      if (_) {
-        localStorage.setItem('bkId', _.id);
-        localStorage.setItem('kb', JSON.stringify(_.data));
-        localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
-      }
-    });
+   
     this.keyboardChange.emit(id);
   }
 
@@ -62,8 +58,9 @@ export class DisplayAppComponent implements OnInit {
     if (!kbLocal) {
       const idKeyboardEnUs = localStorage.getItem('bkId');
       this.keyServiceService.getKeyboard(idKeyboardEnUs).subscribe(_ => {
-        localStorage.setItem('kb', JSON.stringify(_.data))
-        localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys))
+        localStorage.setItem('kb', JSON.stringify(_.data));
+        localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
+        localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners))
       });
     }
   }

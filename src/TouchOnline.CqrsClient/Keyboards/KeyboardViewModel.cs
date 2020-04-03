@@ -11,5 +11,6 @@ namespace TouchOnline.CqrsClient.Keyboards
         public string LanguageCode { get; set; }
         public IEnumerable<KeyModel> Data { get; set; }
         public IEnumerable<KeyCode> CodeKeys { get; set; }
+        public string KeycodesBeginners { get; set; }
     }
 }
