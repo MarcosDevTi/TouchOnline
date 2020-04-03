@@ -55,15 +55,7 @@ export class ApplicationComponent implements OnInit {
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
-    // this.lessonService.getLesson(this.idExerc).subscribe((x: LessonApp ) => {
-    //    this.onlyTextCompleteLesson(this.idExerc);
-    //    this.createLesson(x.lessonText);
-    //    this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
-    //    this.name = x.name;
-    //    console.log(x)
-    //  }, error => {
-    //   console.log(error);
-    //  });
+    
     const less = this.obtenirLessonLocal(this.idExerc)
      this.onlyTextCompleteLesson(this.idExerc);
        this.createLesson(less.lessonText);
