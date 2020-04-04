@@ -31,7 +31,7 @@ namespace TouchOnline.CqrsHandlers
                     Level = query.Level
                 }).ToList();
             }
-            return new LessonsPresentation().GetPresentation(query.Level).Select(x =>
+            return new LessonsPresentation().GetPresentation(query.Level, query.Language).Select(x =>
             new LessonPresentationItem
             {
                 IdLesson = x.IdentificadorExercicio,
@@ -98,7 +98,7 @@ namespace TouchOnline.CqrsHandlers
             }
             return new LessonsPresentation().BuscarExercicio(idLesson);
         }
-            
+
 
         private decimal CalcPercent(int errors, int lengthFrase) =>
             100 - (decimal)(errors * 100) / (decimal)lengthFrase;

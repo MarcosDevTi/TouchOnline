@@ -20,6 +20,8 @@ import { SendMessageSuccessComponent } from './pages/auth/send-message/send-mess
 import { MyTextListManagementComponent } from './pages/lessons/my-text-list/my-text-list-management/my-text-list-management.component';
 import { EditLessonComponent } from './pages/lessons/my-text-list/my-text-list-management/edit-lesson/edit-lesson.component';
 import { CountsComponent } from './pages/management/counts/counts.component';
+import { LessonListComponent } from './pages/management/lesson-text/lesson-list/lesson-list.component';
+import { CreateLessonTextComponent } from './pages/management/lesson-text/create-lesson-text/create-lesson-text.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,6 +48,8 @@ const routes: Routes = [
   { path: 'management/users', component: UserListComponent },
   { path: 'management/message-list', component: MessageListComponent },
   { path: 'management/counts', component: CountsComponent },
+  { path: 'management/lessons', component: LessonListComponent },
+  { path: 'management/lessons/create', component: CreateLessonTextComponent },
 
   // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];

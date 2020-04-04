@@ -8,5 +8,6 @@ namespace TouchOnline.CqrsClient.Presentation
     {
         public Guid UserId { get; set; }
         public string Level { get; set; }
+        public string Language { get; set; }
     }
 }

@@ -1,0 +1,45 @@
+<mat-card>
+    <form [formGroup]="createTextForm" (submit)="save()">
+      <mat-form-field style="width: 300px;"> 
+        <mat-label>Name </mat-label>
+        <input matInput #message maxlength="10" formControlName="name">
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <textarea style="border: 1px solid; font-size: 25px;" 
+                  formControlName="text"
+                  rows="5" cols="40" 
+                  matInput
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+     
+      <mat-form-field>
+        <mat-label>Level</mat-label>
+        <mat-select formControlName="level">
+          <mat-option value="0">Beginner</mat-option>
+          <mat-option value="1">Basic</mat-option>
+          <mat-option value="2">Intermediate</mat-option>
+          <mat-option value="3">Advanced</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ml-4 mr-4">
+        <mat-label>Language</mat-label>
+        <mat-select formControlName="language">
+          <mat-option value="0">Portuguese</mat-option>
+          <mat-option value="1">English</mat-option>
+          <mat-option value="2">Espanish</mat-option>
+          <mat-option value="3">French</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field> 
+        <mat-label>Order </mat-label>
+        <input matInput type="number" formControlName="order">
+      </mat-form-field>
+    <br>
+      <button align="end" type="submit" mat-raised-button color="primary">{{ 'CreateLesson.Save' | translate }}</button>
+    </form>
+  </mat-card>
+
+  

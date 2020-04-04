@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LessonTextService } from '../shared/lesson-text.service';
+import { LessonText } from '../shared/lesson-text';
+
+@Component({
+  selector: 'app-create-lesson-text',
+  templateUrl: './create-lesson-text.component.html',
+  styleUrls: ['./create-lesson-text.component.css']
+})
+export class CreateLessonTextComponent implements OnInit {
+
+  createTextForm: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    protected route: ActivatedRoute,
+    private lessonTextService: LessonTextService
+    ) { }
+
+  ngOnInit() {
+    this.buildCreateTextForm();
+  }
+
+  buildCreateTextForm() {
+    this.createTextForm = this.fb.group({
+      name: [null, Validators.required],
+      text: [null, Validators.required],
+      level: [null],
+      language: [null],
+      order: [null]
+    });
+  }
+
+  get name() {return this.createTextForm.get('name')}
+  get text() {return this.createTextForm.get('text')}
+  get level() {return this.createTextForm.get('level')}
+  get language() {return this.createTextForm.get('language')}
+  get order() {return this.createTextForm.get('order')}
+
+
+  save() {
+    console.log('create lesson', LessonText.fromJson(this.createTextForm.value))
+    this.lessonTextService.createLesson(LessonText.fromJson(this.createTextForm.value)).subscribe(
+        s => this.actionForSuccess(JSON.stringify(s)),
+        e => this.actionForError(e),
+        () => this.router.navigate(['/management/lessons'])
+      )
+  }
+
+  private actionForError(err) {
+    console.log(err);
+  }
+
+  getObjLocal<T>(key: string): T {
+    return JSON.parse(localStorage.getItem(key));
+  }
+
+  private actionForSuccess(s) {
+    localStorage.setItem('myText', s);
+    console.log('Succesful');
+  }
+}

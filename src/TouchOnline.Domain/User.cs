@@ -4,7 +4,7 @@ namespace TouchOnline.Domain
 {
     public class User : Entity
     {
-        protected User(){}
+        protected User() { }
         public User(string name, string email, Guid? id = null)
         {
             SetId(id);
@@ -18,6 +18,9 @@ namespace TouchOnline.Domain
         public byte[] PasswordHash { get; private set; }
         public DateTime InscriptionDate { get; private set; }
 
+        public string LanguageKeyboard { get; set; }
+        public string LanguageSystem { get; set; }
+        public string LanguageLessons { get; set; }
         public void RegisterPasseword(byte[] passwordSalt, byte[] passwordHash)
         {
             PasswordHash = passwordHash;

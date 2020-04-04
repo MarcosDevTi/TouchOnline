@@ -6,8 +6,10 @@
       <button mat-button [matMenuTriggerFor]="management" *ngIf="isAdmin">{{ 'Nav.Managements' | translate }}</button>
       <mat-menu #management="matMenu" >
         <button routerLink="management" mat-menu-item>Keyboard Management</button>
+        <button routerLink="management/lessons" mat-menu-item>Lessons</button>
+        <button routerLink="management/lessons/create" mat-menu-item>Create Lesson</button>
         <button routerLink="management/tracking" mat-menu-item>Trackings</button>
-        <button routerLink="lessons/advanced" mat-menu-item>Trackings Only with Results</button>
+        
         <button routerLink="management/users" mat-menu-item>Users</button>
         <button routerLink="management/message-list" mat-menu-item>Messages</button>
         <button routerLink="management/counts" mat-menu-item>Counts</button>

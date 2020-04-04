@@ -48,6 +48,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { LessonListComponent } from './pages/management/lesson-text/lesson-list/lesson-list.component';
+import { CreateLessonTextComponent } from './pages/management/lesson-text/create-lesson-text/create-lesson-text.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -89,7 +91,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     SendMessageSuccessComponent,
     MyTextListManagementComponent,
     EditLessonComponent,
-    CountsComponent
+    CountsComponent,
+    LessonListComponent,
+    CreateLessonTextComponent
   ],
   imports: [
     AppRoutingModule,

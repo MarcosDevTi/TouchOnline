@@ -8,7 +8,7 @@ namespace TouchOnline.CqrsHandlers
 {
     public class LessonsPresentation
     {
-        public HashSet<LessonPresentation> GetPresentation(string category)
+        public HashSet<LessonPresentation> GetPresentation(string category, string language)
         {
 
             switch (category)
@@ -117,7 +117,73 @@ namespace TouchOnline.CqrsHandlers
         };
             return SetarPremiumPt(exerciciosPt, 207, premium);
         }
-
+        public HashSet<LessonPresentation> BasicoApresentacaoEn()
+        {
+            var exercicios = new HashSet<LessonPresentation>()
+            {
+                 #region Lista Básico
+            CriarGenercApresent(2, 201, "01", "ci", 60, "cia acid flic alcid click disc facial fiscal alicia classic flaccid cadillac¶cia acid flic alcid click disc facial fiscal alicia classic flaccid cadillac"),
+            CriarGenercApresent(2, 202, "02", "em", 55, "ema med adams leam seam same gamed male flames jeames smells message small¶ema med adams leam seam same gamed male flames jeames smells message small"),
+            CriarGenercApresent(2, 203, "03", "pv", 55, "elapse please eva dave eaves level valse vedas laved leaved savage favela save¶elapse please eva dave eaves level valse vedas laved leaved savage favela save"),
+            CriarGenercApresent(2, 204, "04", "wn", 55, "now own down know snown wagons ashdown low show flown woods fallow donk noda¶now own down know snown wagons ashdown low show flown woods fallow donk noda"),
+            CriarGenercApresent(2, 205, "05", "xr", 55, "flux oxford ara kur ajar darl ajax hard kurd rhos sara roll floor russo shark¶flux oxford ara kur ajar darl ajax hard kurd rhos sara roll floor russo shark"),
+            CriarGenercApresent(2, 206, "06", "tb", 45, "tab bath beat best boast abeat booth ballet beetle debate stable tabless fat¶tab bath beat best boast abeat booth ballet beetle debate stable tabless fat"),
+            CriarGenercApresent(2, 207, "07", "yz", 50, "gazy eazily laydeez day addy gaya yesh asyla filly khaya flaily kailey lyases¶gazy eazily laydeez day addy gaya yesh asyla filly khaya flaily kailey lyases"),
+            CriarGenercApresent(2, 208, "08", "saldf", 45, "salada faladas salada faladas salada faladas salada faladas salada salada¶salada faladas salada faladas salada faladas salada faladas salada salada"),
+            CriarGenercApresent(2, 209, "09", "kad", 45, "kada daka kada daka kada daka kada daka kada daka kada daka kada daka kada daka¶kada daka kada daka kada daka kada daka kada daka kada daka kada daka kada daka"),
+            CriarGenercApresent(2, 210, "10", "q", 60, "quad equal aquila kaique sequel liquid quailed squills odalique filioques dad¶quad equal aquila kaique sequel liquid quailed squills odalique filioques dad"),
+            CriarGenercApresent(2, 211, "11", "eu", 45, "eua duke due use eula fuse lude slue used uses flued juked ludes jesus duffle¶eua duke due use eula fuse lude slue used uses flued juked ludes jesus duffle"),
+            CriarGenercApresent(2, 212, "12", "troep", 55, "aio iso asio fifo kilo loid sofi loli adios oasis sofia solid skillo sialoid¶aio iso asio fifo kilo loid sofi loli adios oasis sofia solid skillo sialoid"),
+            CriarGenercApresent(2, 213, "13", "gh", 55, "ghua hagg hug hugo daugh ghosh haugh hugged sleigh laughe hudges haig hog¶ghua hagg hug hugo daugh ghosh haugh hugged sleigh laughe hudges haig hog¶"),
+            CriarGenercApresent(2, 214, "14", "p", 55, "dapo deop flop ipod keep kepi kipa nipa nope pale pana peed salp voip dipse¶dapo deop flop ipod keep kepi kipa nipa nope pale pana peed salp voip dipse"),
+            CriarGenercApresent(2, 215, "15", "c", 60, "cia acai aicc caid huck luca luci acould ascid calli calud facia lucas adcock cid¶cia acai aicc caid huck luca luci acould ascid calli calud facia lucas adcock cid"),
+            #endregion
+            };
+            return exercicios;
+        }
+        public HashSet<LessonPresentation> BasicoApresentacaoFr()
+        {
+            var exerciciosFr = new HashSet<LessonPresentation>()
+                {
+            CriarGenercApresent(2, 201, "01", "en", 60, "ane dene elan esen fena lena nell sene nefs alane dande danse elane kenaf kenna¶ane dene elan esen fena lena nell sene nefs alane dande danse elane kenaf kenna"),
+            CriarGenercApresent(2, 202, "02", "pv", 55, "vespa opava pelve pavel svp depava aspa jeep kelp pepe soap java leva love aval¶vespa opava pelve pavel svp depava aspa jeep kelp pepe soap java leva love aval"),
+            CriarGenercApresent(2, 203, "03", "oc", 55, "cao codo coco coda cola calo asco jaco floc socs odac loco cacao local flock¶cao codo coco coda cola calo asco jaco floc socs odac loco cacao local flock"),
+            CriarGenercApresent(2, 204, "04", "z", 55, "jazz zoo laze ailez aluze azole deluz zouka louze azaila dallez zuides soldez¶jazz zoo laze ailez aluze azole deluz zouka louze azaila dallez zuides soldez"),
+            CriarGenercApresent(2, 205, "05", "x", 55, "fax xie eux daix daux deux dixe faxe jeux loix axial exils faulx fluxe saxes¶fax xie eux daix daux deux dixe faxe jeux loix axial exils faulx fluxe saxes"),
+            CriarGenercApresent(2, 206, "06", "v", 45, "ave dive elva fuve levi love sava veul vies ivo vue avais laval livie voila¶ave dive elva fuve levi love sava veul vies ivo vue avais laval livie voila"),
+            CriarGenercApresent(2, 207, "07", "b", 50, "bad bau usb lab able bede juba obei subi abada basse aba blues gobie lobai abella¶bad bau aba usb lab able bede juba obei subi abada basse blues gobie abella"),
+            CriarGenercApresent(2, 208, "08", "y", 45, "oye alya lyfa yole doyke aloya folly feluy fully aloysa gay adyle dailly loi¶oye alya lyfa yole doyke aloya folly feluy fully aloysa gay adyle dailly loi"),
+            CriarGenercApresent(2, 209, "09", "w", 45, "daw wow wad kew awa fow wail wake wiki wasl show slow hawai lewis wases whisk¶daw wow wad kew awa fow wail wake wiki wasl show slow hawai lewis whisk wases"),
+            CriarGenercApresent(2, 210, "10", "t", 60, "ate kit toe tue ato ejet faut lift loto sata sait teuf delta gesta jetai lates¶ate kit toe tue ato ejet faut lift loto sata sait teuf delta gesta jetai lates"),
+            CriarGenercApresent(2, 211, "11", "q", 45, "quad equal aquila kaique sequel liquid squills odalique filioques alqaeda¶quad equal aquila kaique sequel liquid squills odalique filioques alqaeda"),
+            CriarGenercApresent(2, 212, "12", "r", 55, "air aero dre rai doure earl rue four frik greg igor lira sera user agrea¶air aero dre rai doure earl rue four frik greg igor lira sera user agrea"),
+            CriarGenercApresent(2, 213, "13", "m", 55, "ama moi aime dame made mois sumo agame doume filme image maida demode flames¶ama moi aime dame made mois sumo agame doume filme image maida demode flames"),
+            CriarGenercApresent(2, 214, "14", "n", 55, "fan ken une agno dune goon hank king nasa neuf fasin fenai jaine logan none¶fan ken une agno dune goon hank king nasa neuf fasin fenai jaine logan none"),
+            CriarGenercApresent(2, 215, "15", "gh", 60, "gui hagi hugo helga shogi lahage shogis sleigh gao gia sig leg gael hao dah hua¶gui hagi hugo helga shogi lahage shogis sleigh gao gia sig leg gael hao dah hua"),
+        };
+            return exerciciosFr;
+        }
+        public HashSet<LessonPresentation> BasicoApresentacaoEs()
+        {
+            return new HashSet<LessonPresentation>()
+            {
+            CriarGenercApresent(2, 201, "01", "asl", 60, "assa sala assa sala assa sala assa sala assa sala assa sala assa sala assa sala¶assa sala assa sala assa sala assa sala assa sala assa sala assa sala assa sala"),
+            CriarGenercApresent(2, 202, "02", "daf", 55, "dada fada dada fada dada fada dada fada dada fada dada fada dada fada dada fada¶dada fada dada fada dada fada dada fada dada fada dada fada dada fada dada fada"),
+            CriarGenercApresent(2, 203, "03", "gahj", 55, "gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja¶gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja gaga haja"),
+            CriarGenercApresent(2, 204, "04", "asdl", 55, "assada sal assada sal assada sal assada sal assada sal assada sal assada sal¶assada sal assada sal assada sal assada sal assada sal assada sal assada sal"),
+            CriarGenercApresent(2, 205, "05", "salf", 55, "salsa fala salsa fala salsa fala salsa fala salsa fala salsa fala salsa fala¶salsa fala salsa fala salsa fala salsa fala salsa fala salsa fala salsa fala"),
+            CriarGenercApresent(2, 206, "06", "falsg", 45, "falsa galga falsa galga falsa galga falsa galga falsa galga falsa galga falsa galga¶falsa galga falsa galga falsa galga falsa galga falsa galga falsa galga falsa galga"),
+            CriarGenercApresent(2, 207, "07", "saldhd", 50, "saldada halda saldada halda saldada halda saldada halda saldada halda sal¶saldada halda saldada halda saldada halda saldada halda saldada halda sal"),
+            CriarGenercApresent(2, 208, "08", "saldf", 45, "salada faladas salada faladas salada faladas salada faladas salada salada¶salada faladas salada faladas salada faladas salada faladas salada salada"),
+            CriarGenercApresent(2, 209, "09", "kad", 45, "kada daka kada daka kada daka kada daka kada daka kada daka kada daka kada daka¶kada daka kada daka kada daka kada daka kada daka kada daka kada daka kada daka"),
+            CriarGenercApresent(2, 210, "10", "querit", 60, "querer quito querer quito querer quito querer quito querer quito querer quito¶querer quito querer quito querer quito querer quito querer quito querer quito"),
+            CriarGenercApresent(2, 211, "11", "quoetr", 45, "quoque reto quoque reto quoque reto teto quoque reto quoque reto quoque reto teto¶quoque reto quoque reto quoque reto teto quoque reto quoque reto quoque reto teto"),
+            CriarGenercApresent(2, 212, "12", "troep", 55, "trote topo trote topo trote topo trote topo trote topo trote topo trote topo¶trote topo trote topo trote topo trote topo trote topo trote topo trote topo"),
+            CriarGenercApresent(2, 213, "13", "poteri", 55, "pote reitero pote reitero pote reitero pote reitero pote reitero pote reitero¶pote reitero pote reitero pote reitero pote reitero pote reitero pote reitero"),
+            CriarGenercApresent(2, 214, "14", "requio", 55, "requeiro ter requeiro ter requeiro ter requeiro ter requeiro ter requeiro ter¶requeiro ter requeiro ter requeiro ter requeiro ter requeiro ter requeiro ter"),
+            CriarGenercApresent(2, 215, "15", "ar", 60, "ara arara ara arara ara arara ara arara ara arara ara arara ara arara ara arara¶ara arara ara arara ara arara ara arara ara arara ara arara ara arara ara arara"),
+            };
+        }
         public HashSet<LessonPresentation> IntermediarioApresentacaoPt(bool premium)
         {
             var exerciciosPt = new HashSet<LessonPresentation>()
@@ -146,7 +212,40 @@ namespace TouchOnline.CqrsHandlers
 
             return SetarPremiumPt(exerciciosPt, 305, premium);
         }
-
+        public HashSet<LessonPresentation> IntermediarioApresentacaoFr()
+        {
+            return new HashSet<LessonPresentation>()
+            {
+            #region Lista Intermediário
+            CriarGenercApresent(3, 301, "01", "Général", 50, "Les nouvelles technologies irriguent l'économie du pays. Les nouvelles technologies irriguent l'économie du pays. Les nouvelles technologies irriguent¶l'économie du pays. Les nouvelles technologies irriguent l'économie du pays. Les nouvelles technologies irriguent l'économie du pays."),
+            CriarGenercApresent(3, 302, "02", "Général", 50, "Ses membres ne sont toujours pas mis d'accord. Ses membres ne sont toujours pas mis d'accord. Ses membres ne sont toujours pas mis d'accord. Ses membres ne¶sont toujours pas mis d'accord. Ses membres ne sont toujours pas mis d'accord. Ses membres ne sont toujours pas mis d'accord. Ses membres ne sont toujours pas mis¶d'accord."),
+            CriarGenercApresent(3, 303, "03", "Général", 50, "Les deux chanteurs ont été sacrés meilleurs artistes de l'année. Les deux chanteurs ont été sacrés meilleurs artistes de l'année. Les deux chanteurs ont été¶sacrés meilleurs artistes de l'année. Les deux chanteurs ont été sacrés meilleurs artistes de l'année. Les deux chanteurs ont été sacrés meilleurs artistes de¶l'année."),
+            CriarGenercApresent(3, 304, "04", "Général", 50, "Une exposition réunit des toiles de la collection. Une exposition réunit des toiles de la collection. Une exposition réunit des toiles de la collection. Une¶exposition réunit des toiles de la collection. Une exposition réunit des toiles de la collection. Une exposition réunit des toiles de la collection."),
+            CriarGenercApresent(3, 305, "05", "Général", 50, "Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du¶mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février. Jusqu'à la fin du mois de février."),
+            CriarGenercApresent(3, 306, "06", "Général", 50, "Les jardins deviennent des lieux de représentation. Les jardins deviennent des lieux de représentation. Les jardins deviennent des lieux de représentation. Les¶jardins deviennent des lieux de représentation. Les jardins deviennent des lieux de représentation. Les jardins deviennent des lieux de représentation."),
+            CriarGenercApresent(3, 307, "07", "Général", 50, "Le premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le¶premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le premier est une miniature. Le premier¶est une miniature."),
+            CriarGenercApresent(3, 308, "08", "Général", 50, "Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les¶tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits. Les tests de dactylo gratuits."),
+            CriarGenercApresent(3, 309, "09", "Général", 50, "Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir.¶Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir. Soyez le premier à réagir."),
+            CriarGenercApresent(3, 310, "10", "Général", 50, "La situation est la plus préoccupante. La situation est la plus préoccupante. La situation est la plus préoccupante. La situation est la plus préoccupante.¶La situation est la plus préoccupante. La situation est la plus préoccupante. La situation est la plus préoccupante. La situation est la plus préoccupante."),
+            CriarGenercApresent(3, 311, "11", "Général", 50, "Ce réacteur a été mis hors service jeudi. Ce réacteur a été mis hors service jeudi. Ce réacteur a été mis hors service jeudi. Ce réacteur a été mis hors service¶jeudi. Ce réacteur a été mis hors service jeudi. Ce réacteur a été mis hors service jeudi. Ce réacteur a été mis hors service jeudi."),
+            CriarGenercApresent(3, 312, "12", "Général", 50, "Ce dispositif devrait permettre de préserver les écosystèmes. Ce dispositif devrait permettre de préserver les écosystèmes. Ce dispositif devrait¶permettre de préserver les écosystèmes. Ce dispositif devrait permettre de préserver les écosystèmes. Ce dispositif devrait permettre de préserver les¶écosystèmes."),
+            CriarGenercApresent(3, 313, "13", "Général", 50, "Dans le centre et le sud du département. Dans le centre et le sud du département. Dans le centre et le sud du département. Dans le centre et le sud du département.¶Dans le centre et le sud du département. Dans le centre et le sud du département. Dans le centre et le sud du département. Dans le centre et le sud du département."),
+            CriarGenercApresent(3, 314, "14", "Général", 50, "En fonction de l'évolution de la situation. En fonction de l'évolution de la situation. En fonction de l'évolution de la situation. En fonction de l'évolution¶de la situation. En fonction de l'évolution de la situation. En fonction de l'évolution de la situation. En fonction de l'évolution de la situation."),
+            CriarGenercApresent(3, 315, "15", "Général", 50, "C'est le troisième échouement de cette ampleur. C'est le troisième échouement de cette ampleur. C'est le troisième échouement de cette ampleur. C'est le¶troisième échouement de cette ampleur. C'est le troisième échouement de cette ampleur. C'est le troisième échouement de cette ampleur."),
+            CriarGenercApresent(3, 316, "16", "Général", 50, "Les meilleurs freerideurs de la planète se sont retrouvés. Les meilleurs freerideurs de la planète se sont retrouvés. Les meilleurs freerideurs de la planète¶se sont retrouvés. Les meilleurs freerideurs de la planète se sont retrouvés. Les meilleurs freerideurs de la planète se sont retrouvés."),
+            CriarGenercApresent(3, 317, "17", "Général", 50, "Apprenez à utiliser correctement le clavier. Apprenez à utiliser correctement le clavier. Apprenez à utiliser correctement le clavier. Apprenez à utiliser¶correctement le clavier. Apprenez à utiliser correctement le clavier. Apprenez à utiliser correctement le clavier."),
+            CriarGenercApresent(3, 318, "18", "Général", 50, "Une explosion a frappé une usine chimique. Une explosion a frappé une usine chimique. Une explosion a frappé une usine chimique. Une explosion a frappé une¶usine chimique. Une explosion a frappé une usine chimique. Une explosion a frappé une usine chimique. Une explosion a frappé une usine chimique."),
+            CriarGenercApresent(3, 319, "19", "Général", 40, "Un départ de feu, circonscrit, est survenu dans la salle. Un départ de feu, circonscrit, est survenu dans la salle. Un départ de feu, circonscrit, est survenu¶dans la salle. Un départ de feu, circonscrit, est survenu dans la salle. Un départ de feu, circonscrit, est survenu dans la salle."),
+            CriarGenercApresent(3, 320, "20", "Général", 30, "La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée.¶La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée. La Franccaise s'est imposée."),
+            CriarGenercApresent(3, 321, "21", "Général", 35, "Vous saurez écrire très vite avec vos 10 doigts. Vous saurez écrire très vite avec vos 10 doigts. Vous saurez écrire très vite avec vos 10 doigts. Vous saurez écrire¶très vite avec vos 10 doigts. Vous saurez écrire très vite avec vos 10 doigts. Vous saurez écrire très vite avec vos 10 doigts."),
+            CriarGenercApresent(3, 322, "22", "Général", 35, "Dominés tout au long de la rencontre. Dominés tout au long de la rencontre. Dominés tout au long de la rencontre. Dominés tout au long de la rencontre.¶Dominés tout au long de la rencontre. Dominés tout au long de la rencontre. Dominés tout au long de la rencontre. Dominés tout au long de la rencontre."),
+            CriarGenercApresent(3, 323, "23", "Général", 60, "Les premiers du classement se sont imposés largement. Les premiers du classement se sont imposés largement. Les premiers du classement se sont imposés largement.¶Les premiers du classement se sont imposés largement. Les premiers du classement se sont imposés largement. Les premiers du classement se sont imposés largement."),
+            CriarGenercApresent(3, 324, "24", "Général", 30, "Notre application peut vous aider à apprendre. Notre application peut vous aider à apprendre. Notre application peut vous aider à apprendre. Notre¶application peut vous aider à apprendre. Notre application peut vous aider à apprendre. Notre application peut vous aider à apprendre."),
+            CriarGenercApresent(3, 325, "25", "Général", 30, "Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris?¶Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris? Qu'avons-nous appris?"),
+            CriarGenercApresent(3, 326, "26", "Général", 30,  "Des jeux familiaux pour se raconter des histoires. Des jeux familiaux pour se raconter des histoires. Des jeux familiaux pour se raconter des histoires. Des jeux¶familiaux pour se raconter des histoires. Des jeux familiaux pour se raconter des histoires. Des jeux familiaux pour se raconter des histoires."),
+                        };
+            #endregion
+        }
         public HashSet<LessonPresentation> AvancadoApresentacaoPt(bool premium)
         {
             var exerciciosPt = new HashSet<LessonPresentation>()
@@ -178,7 +277,6 @@ namespace TouchOnline.CqrsHandlers
 
             return SetarPremiumPt(exerciciosPt, 402, premium); ;
         }
-
         public HashSet<LessonPresentation> MeusTextosApresentacao(bool premium)
         {
             var meusTextos = new HashSet<LessonPresentation>();
@@ -216,7 +314,6 @@ namespace TouchOnline.CqrsHandlers
             return new Resultado
             {
                 IdentificadorExercicio = exerc.IdentificadorExercicio,
-                Categoria = exerc.Categoria,
                 Nome = exerc.Nome,
                 Texto = exerc.TextoFase,
                 LetraErro = "",

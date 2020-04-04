@@ -54,6 +54,32 @@ namespace TouchOnline.Data.Migrations
                     b.ToTable("Keyboards");
                 });
 
+            modelBuilder.Entity("TouchOnline.Domain.LessonText", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LessonTexts");
+                });
+
             modelBuilder.Entity("TouchOnline.Domain.MessageSupport", b =>
                 {
                     b.Property<Guid>("Id")
@@ -145,6 +171,15 @@ namespace TouchOnline.Data.Migrations
 
                     b.Property<DateTime>("InscriptionDate")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("LanguageKeyboard")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LanguageLessons")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LanguageSystem")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
