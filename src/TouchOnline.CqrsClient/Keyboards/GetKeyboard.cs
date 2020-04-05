@@ -3,24 +3,13 @@ using TouchOnline.CqrsClient.Contracts;
 
 namespace TouchOnline.CqrsClient.Keyboards
 {
-    public class GetKeyboard : IQuery<KeyboardViewModel>
+    public class GetKeyboardById : IQuery<KeyboardViewModel>
     {
-        public GetKeyboard()
-        {
-            Default = true;
-        }
-        public GetKeyboard(Guid? keyboardId = null)
-        {
-            KeyboardId = keyboardId;
-        }
+        public Guid? Id { get; set; }
+    }
 
-        public GetKeyboard(string languageCode = null)
-        {
-            LanguageCode = languageCode;
-        }
-
-        public Guid? KeyboardId { get; set; }
+    public class GetKeyboardByLangCode : IQuery<KeyboardViewModel>
+    {
         public string LanguageCode { get; set; }
-        public Boolean Default { get; set; }
     }
 }

@@ -8,29 +8,35 @@ import { IfStmt } from '@angular/compiler';
 })
 export class BeginnerLessonsService {
 
-  buildLessonsBeginners() {
+  buildLessonsBeginners(codesLocal = null) {
     let code: any[] = [];
-    const codesLocal = localStorage.getItem('beginnersCodes');
-    if (codesLocal) {
-      console.log(codesLocal);
+    if (codesLocal == null) {
+      codesLocal = localStorage.getItem('beginnersCodes');
     }
+    
     let index = 100;
     code = ListBeginners.getLessons().map(_ => {
-      const res = {
-        idLesson: index,
-        name: _.name,
-        lessonText: this.getText(_.value, codesLocal),
-      }
-      index++;
-      return res;
-    });
-    localStorage.setItem('beginners', JSON.stringify(code));
+    const res = {
+      idLesson: index,
+      name: _.name,
+      lessonText: this.getText(_.value, codesLocal),
+    }
+    index++;
+    return res;
+  });
+    
+  localStorage.setItem('beginners', JSON.stringify(code));
+    
   }
 
   getText(indexes: number[], localCode: string): string {
     let result = '';
     indexes.forEach(_ => result += localCode[_ + 1])
     return result;
+  }
+
+  GetLessons() {
+    const codesLocal = localStorage.getItem('beginnersCodes');
   }
 
   getLessonBeginners(id): any {

@@ -1,0 +1,17 @@
+.text{
+    background-color: #fffdea;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-field{
+    width: 100%;
+}
+
+.text-area-input {
+    font-size: 3.75vw;font-family: monospace;
+}
+
+.text-area-input2 {
+    font-size: 2.7vw;font-family: monospace;
+}

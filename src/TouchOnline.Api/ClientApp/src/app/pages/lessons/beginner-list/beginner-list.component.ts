@@ -9,10 +9,9 @@ import { BeginnerLessonsService } from './shared/beginner-lessons.service';
 })
 export class BeginnerListComponent extends ListComponent {
   constructor(
-    protected injector: Injector) { super(injector, 'beginners'); }
+    protected injector: Injector, private beginnerLessonsService: BeginnerLessonsService) { super(injector, 'beginners'); }
 
   init(): void {
-    
-
+    this.beginnerLessonsService.buildLessonsBeginners();
   }
 }

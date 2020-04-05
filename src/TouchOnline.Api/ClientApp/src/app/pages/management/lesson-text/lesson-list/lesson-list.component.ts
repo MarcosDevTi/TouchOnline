@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LessonListComponent implements OnInit {
   lessonTexts: LessonText[] = [];
-  displayedColumns: string[] = ['id', 'name', 'text', 'level', 'language', 'order', 'actions'];
+  displayedColumns: string[] = ['name', 'text', 'level', 'language', 'order', 'actions'];
   createTextForm: FormGroup;
   
   constructor(private lessonTextService: LessonTextService, private fb: FormBuilder, private router: Router) { }
 
   buildCreateTextForm() {
     this.createTextForm = this.fb.group({
-      level: ['0'],
+      level: ['1'],
       language: ['0'],
     });
     this.lessonTextService.getLessons(0, 0).subscribe(_ => this.lessonTexts = _);
@@ -32,7 +32,7 @@ export class LessonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildCreateTextForm();
-    
+    this.lessonTextService.getLessons(1, 0).subscribe(_ => this.lessonTexts = _);
   }
   edit(){
 

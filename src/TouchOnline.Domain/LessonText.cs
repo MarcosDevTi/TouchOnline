@@ -9,5 +9,6 @@ namespace TouchOnline.Domain
         public Level Level { get; set; }
         public Language Language { get; set; }
         public int Order { get; set; }
+        public User User { get; set; }
     }
 }

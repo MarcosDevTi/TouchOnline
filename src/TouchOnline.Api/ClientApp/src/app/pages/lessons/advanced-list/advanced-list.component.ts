@@ -18,8 +18,7 @@ export class AdvancedListComponent extends ListComponent {
     }
 
     init() {
-      this.visitorService.getLocation();
-      this.visitorService.getIp();
+     
     }
 }
 

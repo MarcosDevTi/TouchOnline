@@ -24,24 +24,16 @@ namespace TouchOnline.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetKeyboard(Guid? keyboardId)
+        public IActionResult GetKeyboard(Guid keyboardId)
         {
-            var keyboard = _processor.Get(new GetKeyboard(keyboardId));
+            var keyboard = _processor.Get(new GetKeyboardById { Id = keyboardId });
             return Ok(keyboard);
         }
 
         [HttpGet]
         public IActionResult GetKeyboardWithLanguageCode(string languageCode)
         {
-            var keyboard = _processor.Get(new GetKeyboard(languageCode));
-            return Ok(keyboard);
-        }
-
-        [HttpGet]
-        public IActionResult GetKeyboardDefault()
-        {
-
-            var keyboard = _processor.Get(new GetKeyboard());
+            var keyboard = _processor.Get(new GetKeyboardByLangCode { LanguageCode = languageCode });
             return Ok(keyboard);
         }
 

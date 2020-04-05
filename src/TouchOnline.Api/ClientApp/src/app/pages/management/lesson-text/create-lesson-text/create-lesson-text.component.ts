@@ -10,7 +10,8 @@ import { LessonText } from '../shared/lesson-text';
   styleUrls: ['./create-lesson-text.component.css']
 })
 export class CreateLessonTextComponent implements OnInit {
-
+  classTextInput = 'text-area-input';
+  basicSize = true;
   createTextForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -21,14 +22,27 @@ export class CreateLessonTextComponent implements OnInit {
 
   ngOnInit() {
     this.buildCreateTextForm();
+    this.level.valueChanges.subscribe(_ => {
+      if(_ === '1'){
+        this.basicSize = true;
+      } else {
+        this.basicSize = false;
+      }
+    })
   }
 
   buildCreateTextForm() {
     this.createTextForm = this.fb.group({
       name: [null, Validators.required],
       text: [null, Validators.required],
-      level: [null],
-      language: [null],
+      textLine2: [null],
+      textLine3: [null],
+      textLine4: [null],
+      textLine5: [null],
+      textLine6: [null],
+      textLine7: [null],
+      level: ['1'],
+      language: ['0'],
       order: [null]
     });
   }

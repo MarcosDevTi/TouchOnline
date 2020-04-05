@@ -4,19 +4,114 @@
         <mat-label>Name </mat-label>
         <input matInput #message maxlength="10" formControlName="name">
       </mat-form-field>
-      <mat-form-field style="width: 100%;">
-        <textarea style="border: 1px solid; font-size: 25px;" 
-                  formControlName="text"
-                  rows="5" cols="40" 
-                  matInput
-                  cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="5"></textarea>
-      </mat-form-field>
+     <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']" 
+                    formControlName="text"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+     <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine2"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+
+     <div class="row" *ngIf="!basicSize">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine3"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+
+     <div class="row" *ngIf="!basicSize">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine4"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+
+     <div class="row" *ngIf="!basicSize">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine5"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+
+     <div class="row" *ngIf="!basicSize">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine6"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
+
+     <div class="row" *ngIf="!basicSize">
+      <div class="col-1"></div>
+      <div class="col-10 mt-1 border rounded-top text">
+        <mat-form-field class="text-field">
+          <textarea [ngClass]="[basicSize ? 'text-area-input': 'text-area-input2']"
+                    formControlName="textLine7"
+                    [rows]="basicSize ? 2: 3" cols="40" 
+                    matInput
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-1"></div>
+     </div>
      
       <mat-form-field>
         <mat-label>Level</mat-label>
         <mat-select formControlName="level">
-          <mat-option value="0">Beginner</mat-option>
+          <!-- <mat-option value="0">Beginner</mat-option> -->
           <mat-option value="1">Basic</mat-option>
           <mat-option value="2">Intermediate</mat-option>
           <mat-option value="3">Advanced</mat-option>

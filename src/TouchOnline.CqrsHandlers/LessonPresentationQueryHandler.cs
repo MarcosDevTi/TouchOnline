@@ -6,6 +6,7 @@ using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Presentation;
 using TouchOnline.Data;
 using TouchOnline.Domain;
+using TouchOnline.Domain.Enums;
 
 namespace TouchOnline.CqrsHandlers
 {
@@ -31,14 +32,28 @@ namespace TouchOnline.CqrsHandlers
                     Level = query.Level
                 }).ToList();
             }
-            return new LessonsPresentation().GetPresentation(query.Level, query.Language).Select(x =>
-            new LessonPresentationItem
+
+            return _context.LessonTexts.Where(_ => _.Level == GetLevel(query.Level) && _.Language == Language.Pt).Select(_ => new LessonPresentationItem
             {
-                IdLesson = x.IdentificadorExercicio,
-                Name = x.Nome,
-                LessonText = x.TextoFase,
-                Level = query.Level
+                IdLesson = int.Parse(_.Name) + 100,
+                Name = _.Name,
+                LessonText = _.Text
             }).ToList();
+        }
+
+        private Level GetLevel(string level)
+        {
+            switch (level)
+            {
+                case "basics":
+                    return Level.Basic;
+                case "intermediates":
+                    return Level.Intermediate;
+                case "advanceds":
+                    return Level.Advanced;
+                default:
+                    return Level.Basic;
+            }
         }
 
         public LessonPresentationApp Handle(GetLessonPresentation query)

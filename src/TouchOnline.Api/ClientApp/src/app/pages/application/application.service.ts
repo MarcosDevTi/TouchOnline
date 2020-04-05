@@ -42,9 +42,4 @@ export class ApplicationService {
     const url = `${this.apiKeyboard}GetKeyboardWithLanguageCode?languageCode=${languageCode}`;
     return this.http.get<Keyboard>(url);
   }
-
-  getKeyboardDefault(): Observable<Keyboard> {
-    const url = `${this.apiKeyboard}GetKeyboardDefault`;
-    return this.http.get<Keyboard>(url);
-  }
 }

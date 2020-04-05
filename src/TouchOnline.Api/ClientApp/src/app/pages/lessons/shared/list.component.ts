@@ -13,9 +13,10 @@ export abstract class ListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      this.init();
       this.readBasics();
         this.trackingService.setvisitedPages('list-' + this.level);
-        this.init();
+        
         
     }
     abstract init(): void;

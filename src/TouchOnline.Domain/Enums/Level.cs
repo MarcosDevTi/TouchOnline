@@ -5,6 +5,7 @@
         Beginner,
         Basic,
         Intermediate,
-        Advanced
+        Advanced,
+        MyText
     }
 }

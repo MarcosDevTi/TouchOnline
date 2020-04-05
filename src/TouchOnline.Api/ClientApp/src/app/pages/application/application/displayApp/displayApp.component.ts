@@ -28,8 +28,7 @@ export class DisplayAppComponent implements OnInit {
     public dialog: MatDialog,
     private applicationService: ApplicationService,
     private keyServiceService: KeyServiceService,
-    public translate: TranslateService,
-    private beginnerLessonsService: BeginnerLessonsService) { }
+    public translate: TranslateService) { }
 
   ngOnInit() {
     this.setKeyboard();

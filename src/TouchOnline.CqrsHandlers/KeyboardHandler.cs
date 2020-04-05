@@ -14,7 +14,8 @@ namespace TouchOnline.CqrsHandlers
     public class KeyboardHandler :
         ICommandHandler<InsertKeyboards>,
         ICommandHandler<KeyboardForUpdate>,
-        IQueryHandler<GetKeyboard, KeyboardViewModel>,
+        IQueryHandler<GetKeyboardById, KeyboardViewModel>,
+        IQueryHandler<GetKeyboardByLangCode, KeyboardViewModel>,
         IQueryHandler<GetKeyboardsDw, IEnumerable<KeyboardDw>>,
         IQueryHandler<GetKeyboardsManagement, IEnumerable<KeyboardForUpdate>>,
         IQueryHandler<GetKeyboardForUpdate, KeyboardForUpdate>
@@ -34,38 +35,6 @@ namespace TouchOnline.CqrsHandlers
                 _context.Add(keyboard);
             }
             _context.SaveChanges();
-        }
-
-        public KeyboardViewModel Handle(GetKeyboard query)
-        {
-            Keyboard keyboard;
-            if (query.LanguageCode != null)
-            {
-                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == query.LanguageCode);
-                if (keyboard == null)
-                {
-                    keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "-brazilian_abnt-3");
-                }
-            }
-            else if (query.KeyboardId != null)
-            {
-                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Id == query.KeyboardId);
-            }
-            else
-            {
-                keyboard = _context.Keyboards.FirstOrDefault(_ => _.Code == "-brazilian_abnt-3");
-            }
-
-            var result = new KeyboardViewModel
-            {
-                Id = keyboard.Id,
-                Code = keyboard.Code,
-                Name = keyboard.Name,
-                CodeKeys = JsonSerializer.Deserialize<IEnumerable<KeyCode>>(keyboard.CodeKeys),
-                Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data),
-                KeycodesBeginners = keyboard.KeycodesBeginners
-            };
-            return result;
         }
 
         public IEnumerable<KeyboardDw> Handle(GetKeyboardsDw query)
@@ -114,6 +83,18 @@ namespace TouchOnline.CqrsHandlers
             _context.SaveChanges();
         }
 
+        public KeyboardViewModel Handle(GetKeyboardByLangCode query)
+        {
+            var keyboard = _context.Keyboards.FirstOrDefault(_ => _.LanguageCode == query.LanguageCode);
+            return keyboard == null ? null : KeyboardToViewModel(keyboard);
+        }
+
+        public KeyboardViewModel Handle(GetKeyboardById query)
+        {
+            var keyboard = _context.Keyboards.FirstOrDefault(_ => _.Id == query.Id);
+            return keyboard == null ? null : KeyboardToViewModel(keyboard);
+        }
+
         private IEnumerable<Keyboard> GetKeyboards(int types)
         {
             string textJson = File.ReadAllText("keyboards-type-3.txt");
@@ -121,6 +102,14 @@ namespace TouchOnline.CqrsHandlers
             return list;
         }
 
-
+        public KeyboardViewModel KeyboardToViewModel(Keyboard keyboard)
+        {
+            return new KeyboardViewModel
+            {
+                CodeKeys = JsonSerializer.Deserialize<IEnumerable<KeyCode>>(keyboard.CodeKeys),
+                Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data),
+                KeycodesBeginners = keyboard.KeycodesBeginners
+            };
+        }
     }
 }

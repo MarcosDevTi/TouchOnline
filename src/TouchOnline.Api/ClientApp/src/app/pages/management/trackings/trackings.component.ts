@@ -16,16 +16,12 @@ export class TrackingsComponent implements OnInit {
 
   constructor(
     private trackingService: TrackingService,
-    private visitorService: VisitorService,
     public dialog: MatDialog,
     ) { }
 
   ngOnInit() {
     this.trackingService.getTrackings().subscribe(trackings => {
       this.trackingItems = trackings
-      // trackings.forEach(_ => 
-      //   this.visitorService.getLocationWithIp(_.ip).subscribe(v => console.log(v))
-      //   )
     } )
   }
 
