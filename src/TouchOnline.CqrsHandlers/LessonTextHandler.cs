@@ -5,6 +5,7 @@ using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.LessonText;
 using TouchOnline.Data;
 using TouchOnline.Domain;
+using TouchOnline.Domain.Enums;
 
 namespace TouchOnline.CqrsHandlers
 {
@@ -26,9 +27,33 @@ namespace TouchOnline.CqrsHandlers
                 Text = command.Text,
                 Language = command.Language,
                 Level = command.Level,
-                Order = command.Order
+                Order = command.Order,
+                IdLesson = GetLastIdLesson(command.Level)
             });
             _context.SaveChanges();
+        }
+
+        private int GetLastIdLesson(Level level)
+        {
+            if (_context.LessonTexts.Any(_ => _.Level == level))
+            {
+                return _context.LessonTexts.Where(_ => _.Level == level).Max(_ => _.IdLesson) + 1;
+            }
+            else
+            {
+                switch (level)
+                {
+                    case Level.Basic:
+                        return 201;
+                    case Level.Intermediate:
+                        return 301;
+                    case Level.Advanced:
+                        return 401;
+                    default:
+                        return 601;
+                }
+            }
+
         }
 
         public LessonText Handle(GetLessonTextById query)

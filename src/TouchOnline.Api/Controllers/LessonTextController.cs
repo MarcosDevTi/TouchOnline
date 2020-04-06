@@ -24,7 +24,8 @@ namespace TouchOnline.Api.Controllers
 
         public IActionResult GetLessonTexts(GetLessonTexts getLessonTexts)
         {
-            return Ok(_processor.Get(getLessonTexts));
+            var result = _processor.Get(getLessonTexts);
+            return Ok(result);
         }
 
 

@@ -5,6 +5,7 @@ export class LessonText {
     level: number;
     language: number;
     order: number;
+    idLesson: number;
     
     static fromJson(jsonData: any): LessonText {
         let text = jsonData.text;

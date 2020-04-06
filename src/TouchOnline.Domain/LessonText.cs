@@ -4,6 +4,7 @@ namespace TouchOnline.Domain
 {
     public class LessonText : Entity
     {
+        public int IdLesson { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
         public Level Level { get; set; }

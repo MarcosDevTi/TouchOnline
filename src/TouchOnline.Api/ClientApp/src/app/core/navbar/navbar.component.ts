@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
   }
 
   login() {
-    this.lessonService.getLessons('beginners').subscribe(_ => _)
+    this.lessonService.getLessons(0, 0).subscribe(_ => _)
     this.user = Object.assign({}, this.loginForm.value);
     
     
@@ -63,7 +63,7 @@ export class NavbarComponent implements OnInit {
       // this.alertify.error(error);
     }, () => {
       ['basics', 'intermediates', 'advanceds', 'myText']
-    .forEach(list => this.lessonService.getLessons(list).subscribe(_ => _))
+    .forEach(list => this.lessonService.getLessons(0, 0).subscribe(_ => _))
       this.router.navigate([''], {skipLocationChange: true}).then(
         () => this.router.navigate(['/lessons/beginner'])
       );

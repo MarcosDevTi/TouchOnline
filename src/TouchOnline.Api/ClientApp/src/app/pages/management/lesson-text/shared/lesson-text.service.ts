@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { LessonText } from './lesson-text';
+import { LessonItem } from 'src/app/pages/lessons/models/lesson-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class LessonTextService {
   lessonApi = environment.apiBase + 'LessonText/';
   constructor(private http: HttpClient) { }
 
-  getLessons(level: number, language: number): Observable<LessonText[]> {
+  getLessons(level: number, language: number): Observable<LessonItem[]> {
     const url = this.lessonApi + `GetLessonTexts?level=${level}&Language=${language}`;
-    return this.http.get<LessonText[]>(url);
+    return this.http.get<LessonItem[]>(url);
   }
 
   createLesson(lessonText: LessonText): Observable<any>{

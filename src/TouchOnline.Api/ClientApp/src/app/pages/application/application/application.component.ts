@@ -9,10 +9,10 @@ import { environment } from 'src/environments/environment';
 import { Chart } from 'chart.js';
 import { Resultado } from '../../lessons/models/Resultado';
 import { ResultComponent } from './result/result.component';
-import { LessonApp } from '../../lessons/models/lesson-app';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 import { BeginnerLessonsService } from '../../lessons/beginner-list/shared/beginner-lessons.service';
 import { ApplicationService } from '../application.service';
+import { CacheService } from 'src/app/shared/cache.service';
 
 @Component({
   selector: 'app-application',
@@ -49,6 +49,7 @@ export class ApplicationComponent implements OnInit {
     private trackingService: TrackingService,
     private beginnerLessonsService: BeginnerLessonsService,
     private applicationService: ApplicationService,
+    private cacheService: CacheService
   ) { }
 
   ngOnInit() {
@@ -57,36 +58,42 @@ export class ApplicationComponent implements OnInit {
     this.idExerc = this.route.snapshot.paramMap.get('id');
     
     const less = this.obtenirLessonLocal(this.idExerc)
+
      this.onlyTextCompleteLesson(this.idExerc);
-       this.createLesson(less.lessonText);
+       this.createLesson(less.text);
        this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
        this.name = less.name;
 
     this.category = this.getCategory();
+
+    
   }
 
   obtenirLessonLocal(idLesson){
     let lessonsLocal;
     if(this.idExerc[0] == '1') {
-      lessonsLocal = localStorage.getItem('beginners');
+      lessonsLocal = this.cacheService.beginers;
     }
     if(this.idExerc[0] == '2') {
-      lessonsLocal = localStorage.getItem('basics');
+      lessonsLocal = localStorage.getItem('level_1_language_0');
     }
     if(this.idExerc[0] == '3') {
-      lessonsLocal = localStorage.getItem('intermediates');
+      lessonsLocal = localStorage.getItem('level_2_language_0');
     }
     if(this.idExerc[0] == '4') {
-      lessonsLocal = localStorage.getItem('advanceds');
+      lessonsLocal = localStorage.getItem('level_3_language_0');
     }
     if(this.idExerc[0] == '5') {
-      lessonsLocal = localStorage.getItem('myText');
+      lessonsLocal = localStorage.getItem('level_4_language_0');
     }
     
     if (lessonsLocal == undefined || lessonsLocal === null) {
       return null;
     } else {
-      return JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0];
+      if(this.idExerc[0] != '1'){
+        lessonsLocal = JSON.parse(lessonsLocal);
+      }
+      return lessonsLocal.filter(_ => _.idLesson == idLesson)[0];
     }
   }
 
@@ -111,18 +118,17 @@ export class ApplicationComponent implements OnInit {
     console.log(kbId);
     this.applicationService.getKeyboard(kbId).subscribe(_ => {
       if (_) {
-        localStorage.setItem('bkId', _.id);
+        localStorage.setItem('bkId', kbId);
         localStorage.setItem('kb', JSON.stringify(_.data));
         localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
         localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners))
-        this.beginnerLessonsService.buildLessonsBeginners();
       }
-
+      this.beginnerLessonsService.buildLessonsBeginners(_.keycodesBeginners);
       
       this.kbId = kbId;
       const less = this.obtenirLessonLocal(this.idExerc)
       this.textDisplay = [];
-       this.createLesson(less.lessonText);
+       this.createLesson(less.text);
       
       this.fraseExibicao = this.textDisplay[0].keys;
 

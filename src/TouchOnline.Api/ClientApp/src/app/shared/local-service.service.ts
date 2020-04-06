@@ -3,6 +3,7 @@ import { VisitorService } from './visitor.service';
 import { UserInformations } from './user-informations';
 import { ApplicationService } from '../pages/application/application.service';
 import { BeginnerLessonsService } from '../pages/lessons/beginner-list/shared/beginner-lessons.service';
+import { CacheService } from './cache.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,10 @@ export class LocalServiceService {
   constructor(
     private visitorService: VisitorService,
     private applicationService: ApplicationService,
-    private beginnerLessonsService: BeginnerLessonsService) { }
+    private beginnerLessonsService: BeginnerLessonsService,
+    private cacheService: CacheService) { }
 
-  startApp() {
-    const langDefault = 
-    
+  startApp() {   
     this.setLocalDefaults();
   }
 
@@ -29,11 +29,11 @@ export class LocalServiceService {
           localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
           localStorage.setItem('beginnersCodes', _.keycodesBeginners);
           localStorage.setItem('userInfo', JSON.stringify(userInfo));
-          this.beginnerLessonsService.buildLessonsBeginners(_.keycodesBeginners);
+          this.beginnerLessonsService.buildLessonsBeginners(JSON.parse(_.keycodesBeginners));
       }
+      
     });
   }
-
 
   setLocalDefaults() {
     if(localStorage.getItem('version') != 'v2'){
@@ -60,6 +60,8 @@ export class LocalServiceService {
           })
         }
       })
+    } else {
+      this.beginnerLessonsService.buildLessonsBeginners(localStorage.getItem('beginnersCodes'));
     }
   }
 

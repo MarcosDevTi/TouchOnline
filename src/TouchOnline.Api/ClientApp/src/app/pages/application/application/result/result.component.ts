@@ -33,7 +33,6 @@ notOk = 'star_border';
 
     ngOnInit() {
       this.trackingService.setvisitedPages('result');
-      console.log('pagina de resultado', this.data);
       this.stars = this.scores[this.data.stars].values;
     }
 

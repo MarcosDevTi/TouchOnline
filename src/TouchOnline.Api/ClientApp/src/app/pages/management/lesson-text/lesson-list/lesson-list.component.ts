@@ -3,6 +3,7 @@ import { LessonTextService } from '../shared/lesson-text.service';
 import { LessonText } from '../shared/lesson-text';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LessonItem } from 'src/app/pages/lessons/models/lesson-item.model';
 
 @Component({
   selector: 'app-lesson-list',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./lesson-list.component.css']
 })
 export class LessonListComponent implements OnInit {
-  lessonTexts: LessonText[] = [];
-  displayedColumns: string[] = ['name', 'text', 'level', 'language', 'order', 'actions'];
+  lessonTexts: LessonItem[] = [];
+  displayedColumns: string[] = ['name', 'text', 'level', 'language', 'order', 'idLesson', 'actions'];
   createTextForm: FormGroup;
   
   constructor(private lessonTextService: LessonTextService, private fb: FormBuilder, private router: Router) { }

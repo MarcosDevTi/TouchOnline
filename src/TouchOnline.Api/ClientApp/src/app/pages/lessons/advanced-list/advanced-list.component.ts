@@ -8,13 +8,9 @@ import { ListComponent } from '../shared/list.component';
   styleUrls: ['./advanced-list.component.css', './../shared/list.component.css']
 })
 export class AdvancedListComponent extends ListComponent {
-
-  level: string;
-
   constructor(
-    protected injector: Injector,
-    private visitorService: VisitorService) {
-      super(injector, 'advanceds');
+    protected injector: Injector) {
+      super(injector, 3);
     }
 
     init() {

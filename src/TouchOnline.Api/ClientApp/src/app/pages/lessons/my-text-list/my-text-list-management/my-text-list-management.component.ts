@@ -8,7 +8,7 @@ import { ListComponent } from '../../shared/list.component';
 })
 export class MyTextListManagementComponent extends ListComponent{
 
-  constructor(protected injector: Injector) { super(injector, 'myText'); }
+  constructor(protected injector: Injector) { super(injector, 4); }
 
   init(): void {
     console.log("lessons", this.lessons)

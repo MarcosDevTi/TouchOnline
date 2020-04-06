@@ -6,15 +6,15 @@
 <div class="lista">
   <mat-selection-list #shoes>
 
-    <div *ngFor="let lesson of lessons">
+    <div *ngFor="let lesson of (lessons.lenght > 0 ? lessons : this.cacheService.beginers)">
       <a [routerLink]="['//app', lesson.idLesson]">
        <mat-list-item>
          <div class="titulo"> 
           {{ 'Exercises.Beginner' | translate }}
              {{lesson.name}}
          </div> 
-         <h3 *ngIf="lesson.ppm" class="init">{{lesson.lessonText.substring(0, 60)}} </h3>
-         <h3 *ngIf="!lesson.ppm" class="notInit">{{lesson.lessonText.substring(0, 35)}} </h3>
+         <h3 *ngIf="lesson.ppm" class="init">{{lesson.text.substring(0, 60)}} </h3>
+         <h3 *ngIf="!lesson.ppm" class="notInit">{{lesson.text.substring(0, 35)}} </h3>
          <mat-card *ngIf="lesson.ppm" [ngClass]="{'ok-card': lesson.stars > 3, 'bad-card': lesson.stars <= 3}">
            <app-card-result [lesson]="lesson"></app-card-result>
          </mat-card>

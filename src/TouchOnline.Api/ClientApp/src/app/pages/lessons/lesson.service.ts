@@ -12,22 +12,25 @@ import { LessonApp } from './models/lesson-app';
 @Injectable()
 export class LessonService {
   baseUrl = environment.apiUrl;
+  lessonApi = environment.apiBase + 'LessonText/';
   apiMyText = environment.apiMyText;
   constructor(
     private http: HttpClient
   ) { }
 
-  getLessons(level: string): Observable<LessonItem[]> {
+  getLessons(level: number, language: number): Observable<LessonItem[]> {
+    const keyStorage = 'level_' + level + '_language_' + language;
+    const url = this.lessonApi + `GetLessonTexts?level=${level}&Language=${language}`;
     const userId = localStorage.getItem('userId');
-    const lessonsPres = localStorage.getItem(level);
+    const lessonsPres = localStorage.getItem(keyStorage);
     if (lessonsPres) {
       return of(JSON.parse(lessonsPres));
     }
 
-    return this.http.get(this.baseUrl + `/GetLessonPresentations?level=${level}&userId=${userId}`).pipe(
+    return this.http.get(url).pipe(
       catchError(this.handleError),
       map(response => {
-        this.setLessonsLocalStorage(level, response);
+        this.setLessonsLocalStorage(keyStorage, response);
         return this.jsonDataToLessons(response);
       })
     );
@@ -211,7 +214,6 @@ export class LessonService {
   }
 
 }
-
 
 export class ResultDto {
   idLesson: number;

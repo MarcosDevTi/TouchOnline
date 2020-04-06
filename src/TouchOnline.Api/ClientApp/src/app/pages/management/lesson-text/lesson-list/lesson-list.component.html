@@ -53,6 +53,10 @@
       <th mat-header-cell *matHeaderCellDef> Order </th>
       <td mat-cell *matCellDef="let element"> {{element.order}} </td>
     </ng-container>
+    <ng-container matColumnDef="idLesson">
+      <th mat-header-cell *matHeaderCellDef> Id Lesson </th>
+      <td mat-cell *matCellDef="let element"> {{element.idLesson}} </td>
+    </ng-container>
 
     <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>

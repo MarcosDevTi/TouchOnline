@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { KeyServiceService } from './pages/application/application/keyboard/key.service';
 import { BeginnerLessonsService } from './pages/lessons/beginner-list/shared/beginner-lessons.service';
 import { LocalServiceService } from './shared/local-service.service';
+import { CacheService } from './shared/cache.service';
 
 
 @Component({
@@ -60,22 +61,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // startup() {
-  //   this.getLocation();
-  //   this.applicationService.getKeyboardDefault().subscribe(_ => {
-  //     if (_) {
-  //       if (!this.containsLocal('kb')) {
-  //         localStorage.setItem('kb', JSON.stringify(_.data));
-  //       }
-  //       if (!this.containsLocal('bkId')) {
-  //         localStorage.setItem('bkId', _.id)
-  //       }
-  //       if (!this.containsLocal('keyCodes')) {
-  //         localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
-  //       }
-  //     }
-  //   });
-  // }
 
   getLocation() {
     if (!this.containsLocal('kb') || !this.containsLocal('bkId') || !this.containsLocal('keyCodes')) {
