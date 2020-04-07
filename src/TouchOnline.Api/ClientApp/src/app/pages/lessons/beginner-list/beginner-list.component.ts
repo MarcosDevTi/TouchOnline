@@ -12,23 +12,47 @@ import { LessonItem } from '../models/lesson-item.model';
 })
 export class BeginnerListComponent implements OnInit {
   lessons: LessonItem[] = [];
-  constructor(public cacheService: CacheService, private beginnerLessonsService: BeginnerLessonsService){
+  constructor(
+    public cacheService: CacheService, 
+    protected lessonService: LessonService){
     
   }
   ngOnInit(){
+    console.log('cache', this.cacheService.beginers);
+    if(!localStorage.getItem('userId')){
+      this.read();
+    } else {
+      this.readLogged();
+    }
     
-    this.read()
   }
 
-  read(): void {
+  readLogged(){
+    
+    this.lessons = this.cacheService.beginers;
+    this.lessonService.getResults().subscribe((rs: LessonItem[]) => {
+     if(rs){
+      rs.forEach(r => {
+        const lessonIndex = this.lessons.findIndex(_ => _.idLesson == r.idLesson);
+        this.lessons[lessonIndex].precision = r.precision;
+        this.lessons[lessonIndex].ppm = r.ppm;
+        this.lessons[lessonIndex].stars = r.stars;
+        this.lessons[lessonIndex].time = r.time;
+       })
+     }
+    });
+  }
+
+  read(): void { 
+    
     const localResult = localStorage.getItem('results');
     console.log('localResult', localResult)
     if(localResult){
       this.lessons = [];
       const results = JSON.parse(localResult) as LessonItem[];
+      
       this.cacheService.beginers.forEach(cache => {
         const sameResult = results.filter(_ => _.idLesson === cache.idLesson);
-        console.log('res_' + cache.idLesson, sameResult);
         if(sameResult.length > 0){
           cache.precision = sameResult[0].precision;
           cache.ppm = sameResult[0].ppm;
@@ -37,7 +61,9 @@ export class BeginnerListComponent implements OnInit {
         }
         this.lessons.push(cache);
       }) 
-    } 
+    } else {
+      this.cacheService.beginers
+    }
     
     }
 }

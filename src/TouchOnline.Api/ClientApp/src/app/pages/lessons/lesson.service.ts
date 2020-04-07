@@ -19,9 +19,13 @@ export class LessonService {
   ) { }
 
   getLessons(level: number, language: number): Observable<LessonItem[]> {
+    if (level == 4){
+      language = 0;
+    }
     const keyStorage = 'level_' + level + '_language_' + language;
-    const url = this.lessonApi + `GetLessonTexts?level=${level}&Language=${language}`;
-    const userId = localStorage.getItem('userId');
+    
+    const url = this.lessonApi + `GetLessonTexts?level=${level}&Language=${language}&UserId=${localStorage.getItem('userId')}`;
+    
     const lessonsPres = localStorage.getItem(keyStorage);
     if (lessonsPres) {
       return of(JSON.parse(lessonsPres));

@@ -40,7 +40,7 @@ namespace TouchOnline.CqrsHandlers
             {
                 IdLesson = _.CodeLesson,
                 Name = _.Name,
-                LessonText = _.Text,
+                Text = _.Text,
                 Level = "myText"
             }).ToList();
         }

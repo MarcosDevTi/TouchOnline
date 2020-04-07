@@ -77,14 +77,13 @@ loggedIn() {
 }
 
 logout() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
-  localStorage.removeItem('userId');
-  localStorage.removeItem('myText');
+  localStorage.clear();
+  
   this.authService.decodedToken = null;
   this.authService.currentUser = null;
 
   this.router.navigate(['']);
+  location.reload();
   this.isAdminRefresh();
 }
 }

@@ -36,8 +36,9 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
 
   ngOnInit(): void {
+    
     this.localServiceService.startApp();
-    this.setKeyboard();
+    
     const source = interval(20000);
     this.subscription = source.subscribe(val => {
       this.send();
@@ -47,20 +48,6 @@ export class AppComponent implements OnInit {
       this.send();
     });
   }
-
-  setKeyboard() {
-    var kbLocal = localStorage.getItem('kb');
-    if (!kbLocal) {
-      const idKeyboardEnUs = localStorage.getItem('bkId');
-      this.keyServiceService.getKeyboard(idKeyboardEnUs).subscribe(_ => {
-        localStorage.setItem('kb', JSON.stringify(_.data));
-        localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
-        localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners));
-        this.beginnerLessonsService.buildLessonsBeginners(JSON.stringify(_.keycodesBeginners));
-      });
-    }
-  }
-
 
   getLocation() {
     if (!this.containsLocal('kb') || !this.containsLocal('bkId') || !this.containsLocal('keyCodes')) {

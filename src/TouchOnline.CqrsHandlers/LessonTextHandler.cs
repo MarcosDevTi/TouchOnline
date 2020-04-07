@@ -63,6 +63,15 @@ namespace TouchOnline.CqrsHandlers
 
         public IEnumerable<LessonText> Handle(GetLessonTexts query)
         {
+            if (query.Level == Level.MyText)
+            {
+                return _context.MyTexts.Where(_ => _.UserId == query.UserId).Select(_ => new LessonText
+                {
+                    IdLesson = _.CodeLesson,
+                    Name = _.Name,
+                    Text = _.Text,
+                });
+            }
             return _context.LessonTexts.Where(_ =>
             _.Level == query.Level && _.Language == query.Language).OrderBy(_ => _.Order);
         }

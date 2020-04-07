@@ -106,6 +106,7 @@ namespace TouchOnline.CqrsHandlers
         {
             return new KeyboardViewModel
             {
+                Id = keyboard.Id,
                 CodeKeys = JsonSerializer.Deserialize<IEnumerable<KeyCode>>(keyboard.CodeKeys),
                 Data = JsonSerializer.Deserialize<IEnumerable<KeyModel>>(keyboard.Data),
                 KeycodesBeginners = keyboard.KeycodesBeginners

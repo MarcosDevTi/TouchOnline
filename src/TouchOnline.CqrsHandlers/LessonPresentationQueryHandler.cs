@@ -28,7 +28,7 @@ namespace TouchOnline.CqrsHandlers
                 {
                     IdLesson = _.CodeLesson,
                     Name = _.Name,
-                    LessonText = _.Text,
+                    Text = _.Text,
                     Level = query.Level
                 }).ToList();
             }
@@ -37,7 +37,7 @@ namespace TouchOnline.CqrsHandlers
             {
                 IdLesson = int.Parse(_.Name) + 100,
                 Name = _.Name,
-                LessonText = _.Text
+                Text = _.Text
             }).ToList();
         }
 

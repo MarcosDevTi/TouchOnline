@@ -21,22 +21,27 @@ export class LocalServiceService {
   }
 
   initStorage(lang:string, userInfo: UserInformations){
+    
     this.applicationService.getKeyboardWithLanguageCode(navigator.language).subscribe(_ =>{
       if(_){
+        console.log('_', _)
           localStorage.clear();
+          localStorage.setItem('bkId', _.id);
           localStorage.setItem('version', 'v2');
           localStorage.setItem('kb', JSON.stringify(_.data));
           localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
-          localStorage.setItem('beginnersCodes', _.keycodesBeginners);
+          localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners));
           localStorage.setItem('userInfo', JSON.stringify(userInfo));
-          this.beginnerLessonsService.buildLessonsBeginners(JSON.parse(_.keycodesBeginners));
+          this.beginnerLessonsService.buildLessonsBeginners(_.keycodesBeginners);
       }
       
     });
   }
 
   setLocalDefaults() {
+    
     if(localStorage.getItem('version') != 'v2'){
+      
       this.visitorService.getIp().subscribe(x => {
         if (x.ip) {
           this.visitorService.getLocationWithIp(x.ip).subscribe((_: any) => {
@@ -61,7 +66,8 @@ export class LocalServiceService {
         }
       })
     } else {
-      this.beginnerLessonsService.buildLessonsBeginners(localStorage.getItem('beginnersCodes'));
+      console.log('beginnersCodes', localStorage.getItem('beginnersCodes'))
+      this.beginnerLessonsService.buildLessonsBeginners(JSON.parse(localStorage.getItem('beginnersCodes')));
     }
   }
 
