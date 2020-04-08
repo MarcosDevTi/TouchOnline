@@ -98,7 +98,7 @@ namespace TouchOnline.CqrsHandlers
             return results.Select(x => new Results
             {
                 IdLesson = x.IdLesson,
-                Precision = CalcPercent(x.Errors, GetLessonPresentation(x.IdLesson, query.IdUser).TextoFase.Length),
+                Precision = CalcPercent(x.Errors, GetLessonPresentationLength(x.IdLesson, query.IdUser)),
                 Ppm = x.Ppm,
                 Stars = x.Stars,
                 Time = x.Time
@@ -106,17 +106,15 @@ namespace TouchOnline.CqrsHandlers
 
         }
 
-        private LessonPresentation GetLessonPresentation(int idLesson, Guid userId)
+
+        private int GetLessonPresentationLength(int idLesson, Guid userId)
         {
             if (idLesson >= 500)
             {
                 var resultMyText = _context.MyTexts.FirstOrDefault(_ => _.UserId == userId);
-                return new LessonPresentation
-                {
-                    TextoFase = resultMyText.Text
-                };
+                return resultMyText?.Text?.Length ?? 1;
             }
-            return new LessonsPresentation().BuscarExercicio(idLesson);
+            return _context.LessonTexts.FirstOrDefault(_ => _.IdLesson == idLesson)?.Text?.Length ?? 1;
         }
 
 
