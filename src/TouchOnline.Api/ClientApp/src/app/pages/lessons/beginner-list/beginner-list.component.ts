@@ -4,6 +4,7 @@ import { BeginnerLessonsService } from './shared/beginner-lessons.service';
 import { CacheService } from 'src/app/shared/cache.service';
 import { LessonService } from '../lesson.service';
 import { LessonItem } from '../models/lesson-item.model';
+import { TrackingService } from '../../tracking/shared/tracking.service';
 
 @Component({
   selector: 'app-beginner-list',
@@ -14,10 +15,12 @@ export class BeginnerListComponent implements OnInit {
   lessons: LessonItem[] = [];
   constructor(
     public cacheService: CacheService, 
-    protected lessonService: LessonService){
+    protected lessonService: LessonService,
+    private trackingService: TrackingService){
     
   }
   ngOnInit(){
+    this.trackingService.setvisitedPages('list-0');
     console.log('cache', this.cacheService.beginers);
     if(!localStorage.getItem('userId')){
       this.read();
