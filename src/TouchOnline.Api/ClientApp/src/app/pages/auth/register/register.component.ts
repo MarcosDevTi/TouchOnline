@@ -6,6 +6,7 @@ import { User } from '../user';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 import { TextToolService } from 'src/app/shared/text-tool.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LessonService } from '../../lessons/lesson.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private trackingService: TrackingService,
     private textToolService: TextToolService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private lessonService: LessonService
   ) { }
 
   ngOnInit() {
@@ -58,6 +60,7 @@ export class RegisterComponent implements OnInit {
         console.log(error);
       }, () => {
         this.authService.login(this.user).subscribe(() => {
+          this.lessonService.setResults(this.user.email).subscribe(_ => console.log('result send results'))
            this.router.navigate(['/lessons/beginner']);
         });
       });

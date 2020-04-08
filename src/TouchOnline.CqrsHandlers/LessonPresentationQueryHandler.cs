@@ -87,7 +87,7 @@ namespace TouchOnline.CqrsHandlers
                .Include(c => c.User).ToList().Where(x => x.User.Id == query.IdUser)
                            group res by res.IdLesson into Grupo
                            select Grupo)
-              .Select(c => c.OrderByDescending(d => d.Stars))
+              .Select(c => c.OrderByDescending(d => d.Date))
               .Select(x => x.First()).ToList();
 
             return results.Select(x => new Results

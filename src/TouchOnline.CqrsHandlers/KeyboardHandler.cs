@@ -86,6 +86,10 @@ namespace TouchOnline.CqrsHandlers
         public KeyboardViewModel Handle(GetKeyboardByLangCode query)
         {
             var keyboard = _context.Keyboards.FirstOrDefault(_ => _.LanguageCode == query.LanguageCode);
+            if (keyboard == null)
+            {
+                keyboard = _context.Keyboards.FirstOrDefault(_ => _.LanguageCode == "en-US");
+            }
             return keyboard == null ? null : KeyboardToViewModel(keyboard);
         }
 

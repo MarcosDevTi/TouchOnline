@@ -22,8 +22,6 @@ export class AppComponent implements OnInit {
     private applicationService: ApplicationService,
     private visitorService: VisitorService,
     public translate: TranslateService,
-    private keyServiceService: KeyServiceService,
-    private beginnerLessonsService: BeginnerLessonsService,
     private localServiceService: LocalServiceService
   ) {
     translate.addLangs(['en', 'fr', 'pt']);

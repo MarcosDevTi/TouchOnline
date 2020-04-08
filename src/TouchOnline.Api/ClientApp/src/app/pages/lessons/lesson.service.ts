@@ -107,6 +107,15 @@ export class LessonService {
     }
   }
 
+  setResults(email): Observable<any> {
+    const resultsLocal = localStorage.getItem('results');
+    const send = {email, results: JSON.parse(resultsLocal)}
+    return this.http.post(this.baseUrl + '/SetResults', send).pipe(
+      catchError(this.handleError),
+      map(this.jsonDataToCategory)
+    );
+  }
+
   saveResultOnLocalStorage(result: ResultDto): ResultDto {
     const resultsLocal = localStorage.getItem('results');
     const resultList: ResultDto[] = [];

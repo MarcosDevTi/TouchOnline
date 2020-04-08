@@ -1,6 +1,7 @@
 using DigiteMais.Cqrs.Client.Presentation;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Presentation;
 
@@ -46,6 +47,13 @@ namespace DigiteMais.UI.Controllers
         public IActionResult SetResult([FromBody]SetResult result)
         {
             _processor.Send(result);
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult SetResults([FromBody]SetResults results)
+        {
+            _processor.Send(results);
             return Ok();
         }
 

@@ -18,9 +18,10 @@ export class BeginnerLessonsService {
     code = ListBeginners.getLessons().map(_ => {
       let lesson = new LessonItem();
       lesson.idLesson = index;
-      lesson.name = _.name,
-        lesson.text = this.getText(_.value, JSON.stringify(codesLocal)),
-        index++;
+      lesson.name = _.name;
+      const text = this.getText(_.value, JSON.stringify(codesLocal));
+      lesson.text = text + '¶' + text;
+      index++;
 
       return lesson;
     });
