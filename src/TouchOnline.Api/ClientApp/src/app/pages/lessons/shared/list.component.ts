@@ -43,7 +43,7 @@ export abstract class ListComponent implements OnInit {
           rs.forEach(r => {
             const index = lessons.findIndex(l => l.idLesson === r.idLesson);
             if (index !== -1) {
-              lessons[index].precision = r.precision;
+              lessons[index].precision = this.calcPercent(r.errors, lessons[index].text);
               lessons[index].ppm = r.ppm;
               lessons[index].stars = r.stars;
               lessons[index].time = r.time;
@@ -54,5 +54,9 @@ export abstract class ListComponent implements OnInit {
       this.lessons = lessons;
     },
       error => console.log(error));
+  }
+
+  calcPercent(errors: number, text: string): number{
+    return 100 - (errors * 100) / text.length;
   }
 }

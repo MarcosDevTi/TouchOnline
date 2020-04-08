@@ -38,7 +38,7 @@ export class BeginnerListComponent implements OnInit {
       rs.forEach(r => {
         const lessonIndex = this.lessons.findIndex(_ => _.idLesson == r.idLesson);
         if (this.lessons[lessonIndex]){
-          this.lessons[lessonIndex].precision = r.precision;
+          this.lessons[lessonIndex].precision = this.calcPercent(r.errors, this.lessons[lessonIndex].text);
           this.lessons[lessonIndex].ppm = r.ppm;
           this.lessons[lessonIndex].stars = r.stars;
           this.lessons[lessonIndex].time = r.time;
@@ -47,6 +47,10 @@ export class BeginnerListComponent implements OnInit {
        })
      }
     });
+  }
+
+  calcPercent(errors: number, text: string): number{
+    return 100 - (errors * 100) / text.length;
   }
 
   read(): void { 

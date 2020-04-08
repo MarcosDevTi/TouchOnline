@@ -6,6 +6,7 @@ export class LessonItem {
     level: string;
     initialized: boolean;
     precision: number;
+    errors: number;
     ppm: number;
     stars = 0;
     time = 0;

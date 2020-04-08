@@ -98,7 +98,8 @@ namespace TouchOnline.CqrsHandlers
             return results.Select(x => new Results
             {
                 IdLesson = x.IdLesson,
-                Precision = CalcPercent(x.Errors, GetLessonPresentationLength(x.IdLesson, query.IdUser)),
+                //Precision = CalcPercent(x.Errors, GetLessonPresentationLength(x.IdLesson, query.IdUser)),
+                Errors = x.Errors,
                 Ppm = x.Ppm,
                 Stars = x.Stars,
                 Time = x.Time
