@@ -8,7 +8,7 @@ import { ResultManagement } from './shared/result-management';
   styleUrls: ['./result-list.component.css']
 })
 export class ResultListComponent implements OnInit {
-  displayedColumns: string[] = ['idLesson', 'errors', 'ppm', 'stars', 'time', 'date', 'userId', 'id'];
+  displayedColumns: string[] = ['idLesson', 'errors', 'ppm', 'stars', 'time', 'date', 'userId', 'id', 'actions'];
   constructor(private resultManagementService: ResultManagementService) { }
   results: ResultManagement[] = [];
   ngOnInit(): void {

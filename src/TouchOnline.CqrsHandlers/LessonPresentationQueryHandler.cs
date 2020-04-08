@@ -85,7 +85,7 @@ namespace TouchOnline.CqrsHandlers
 
         public IReadOnlyList<Results> Handle(GetResults query)
         {
-            if (!_context.Results.Any())
+            if (!_context.Results.Where(_ => _.UserId == query.IdUser).Any())
                 return new List<Results>();
 
             var results = (from res in _context.Results
@@ -123,6 +123,6 @@ namespace TouchOnline.CqrsHandlers
         private decimal CalcPercent(int errors, int lengthFrase) =>
             100 - (decimal)(errors * 100) / (decimal)lengthFrase;
 
-        
+
     }
 }
