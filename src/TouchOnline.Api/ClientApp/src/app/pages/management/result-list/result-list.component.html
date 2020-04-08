@@ -1,0 +1,45 @@
+
+<table mat-table [dataSource]="results">
+
+    <ng-container matColumnDef="idLesson">
+        <th mat-header-cell *matHeaderCellDef> idLesson </th>
+        <td mat-cell *matCellDef="let element"> {{element.idLesson}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="errors">
+        <th mat-header-cell *matHeaderCellDef> errors </th>
+        <td mat-cell *matCellDef="let element"> {{element.errors}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ppm">
+        <th mat-header-cell *matHeaderCellDef> ppm </th>
+        <td mat-cell *matCellDef="let element"> {{element.ppm}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="stars">
+        <th mat-header-cell *matHeaderCellDef> stars </th>
+        <td mat-cell *matCellDef="let element"> {{element.stars}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> time </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef> userId </th>
+        <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

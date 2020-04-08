@@ -13,7 +13,8 @@ namespace TouchOnline.CqrsHandlers
     public class LessonPresentationQueryHandler :
         IQueryHandler<GetLessonsPresentationList, IReadOnlyList<LessonPresentationItem>>,
         IQueryHandler<GetLessonPresentation, LessonPresentationApp>,
-        IQueryHandler<GetResults, IReadOnlyList<Results>>
+        IQueryHandler<GetResults, IReadOnlyList<Results>>,
+        IQueryHandler<GetAllResults, IReadOnlyList<Result>>
     {
         private readonly ToContext _context;
         public LessonPresentationQueryHandler(ToContext context)
@@ -77,6 +78,10 @@ namespace TouchOnline.CqrsHandlers
                 LessonText = lesson.TextoFase
             };
         }
+        public IReadOnlyList<Result> Handle(GetAllResults query)
+        {
+            return _context.Results.ToList();
+        }
 
         public IReadOnlyList<Results> Handle(GetResults query)
         {
@@ -117,5 +122,7 @@ namespace TouchOnline.CqrsHandlers
 
         private decimal CalcPercent(int errors, int lengthFrase) =>
             100 - (decimal)(errors * 100) / (decimal)lengthFrase;
+
+        
     }
 }

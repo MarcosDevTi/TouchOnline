@@ -50,6 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { LessonListComponent } from './pages/management/lesson-text/lesson-list/lesson-list.component';
 import { CreateLessonTextComponent } from './pages/management/lesson-text/create-lesson-text/create-lesson-text.component';
+import { ResultListComponent } from './pages/management/result-list/result-list.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -93,7 +94,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     EditLessonComponent,
     CountsComponent,
     LessonListComponent,
-    CreateLessonTextComponent
+    CreateLessonTextComponent,
+    ResultListComponent
   ],
   imports: [
     AppRoutingModule,

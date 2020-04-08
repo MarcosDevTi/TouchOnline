@@ -63,5 +63,12 @@ namespace DigiteMais.UI.Controllers
             var result = _processor.Get(new GetResults(userId));
             return Ok(result);
         }
+
+        [HttpGet]
+        public IActionResult GetAllResults()
+        {
+            var result = _processor.Get(new GetAllResults());
+            return Ok(result);
+        }
     }
 }
