@@ -97,7 +97,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LessonListComponent,
     CreateLessonTextComponent,
     ResultListComponent,
-    EditResultComponent,
     EditResultManagementComponent
   ],
   imports: [
