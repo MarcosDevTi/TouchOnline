@@ -38,6 +38,7 @@ export abstract class ListComponent implements OnInit {
   readBasics(): void {
     this.lessonService.getLessons(this.level, 0).subscribe((lessons: LessonItem[]) => {
       this.lessonService.getResults().subscribe(rs => {
+        console.log('rs', rs)
         if (rs && lessons) {
           rs.forEach(r => {
             const index = lessons.findIndex(l => l.idLesson === r.idLesson);

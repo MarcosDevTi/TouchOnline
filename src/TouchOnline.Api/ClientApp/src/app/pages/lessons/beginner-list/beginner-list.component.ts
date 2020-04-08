@@ -37,10 +37,13 @@ export class BeginnerListComponent implements OnInit {
      if(rs){
       rs.forEach(r => {
         const lessonIndex = this.lessons.findIndex(_ => _.idLesson == r.idLesson);
-        this.lessons[lessonIndex].precision = r.precision;
-        this.lessons[lessonIndex].ppm = r.ppm;
-        this.lessons[lessonIndex].stars = r.stars;
-        this.lessons[lessonIndex].time = r.time;
+        if (this.lessons[lessonIndex]){
+          this.lessons[lessonIndex].precision = r.precision;
+          this.lessons[lessonIndex].ppm = r.ppm;
+          this.lessons[lessonIndex].stars = r.stars;
+          this.lessons[lessonIndex].time = r.time;
+        }
+        
        })
      }
     });
@@ -57,7 +60,7 @@ export class BeginnerListComponent implements OnInit {
       this.cacheService.beginers.forEach(cache => {
         const sameResult = results.filter(_ => _.idLesson === cache.idLesson);
         if(sameResult.length > 0){
-          cache.precision = sameResult[0].precision;
+           cache.precision = sameResult[0].precision;
           cache.ppm = sameResult[0].ppm;
           cache.stars = sameResult[0].stars;
           cache.time = sameResult[0].time;
