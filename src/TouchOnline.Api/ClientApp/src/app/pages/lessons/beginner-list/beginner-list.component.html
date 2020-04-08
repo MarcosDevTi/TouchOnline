@@ -6,7 +6,7 @@
 <div class="lista">
   <mat-selection-list #shoes>
 
-    <div *ngFor="let lesson of (lessons.lenght > 0 ? lessons : this.cacheService.beginers)">
+    <div *ngFor="let lesson of (lessons.length > 0 ? lessons : this.cacheService.beginers)">
       <a [routerLink]="['//app', lesson.idLesson]">
        <mat-list-item>
          <div class="titulo"> 
