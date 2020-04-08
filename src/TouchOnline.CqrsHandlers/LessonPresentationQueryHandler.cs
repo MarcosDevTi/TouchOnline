@@ -93,7 +93,7 @@ namespace TouchOnline.CqrsHandlers
                            group res by res.IdLesson into Grupo
                            select Grupo)
               .Select(c => c.OrderByDescending(d => d.Date))
-              .Select(x => x.First()).ToList();
+              .Select(x => x.FirstOrDefault()).ToList();
 
             return results.Select(x => new Results
             {
