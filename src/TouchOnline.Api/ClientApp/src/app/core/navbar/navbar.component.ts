@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
       // this.alertify.error(error);
     }, () => {
       ['basics', 'intermediates', 'advanceds', 'myText']
-    .forEach(list => this.lessonService.getLessons(0, 0).subscribe(_ => _))
+    .forEach(list => this.lessonService.getLessons(0, 'en').subscribe(_ => _))
       this.router.navigate([''], {skipLocationChange: true}).then(
         () => this.router.navigate([this.lang + '/lessons/beginner'])
       );
