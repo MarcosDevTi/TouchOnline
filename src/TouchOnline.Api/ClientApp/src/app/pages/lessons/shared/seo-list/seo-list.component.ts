@@ -7,10 +7,11 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./seo-list.component.css']
 })
 export class SeoListComponent implements OnInit {
-
+lang: string;
   constructor(public translate: TranslateService) { }
 
   ngOnInit() {
+    this.lang = this.translate.currentLang;
   }
 
 }

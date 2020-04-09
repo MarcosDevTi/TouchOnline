@@ -6,13 +6,7 @@
     <div class="">
       <div class="container text-center">
           <span class="button-container text-left">
-              <!-- <button data-appear-animation="fadeInLeft" 
-                  data-track-link="true" 
-                 data-track-cta="View" data-track-type="how_it_works" data-track-id="21333" 
-                 class="btn btn-lg btn-primary btn-min-width btnInicie" (click)="registerToggle()">
-                      Iniciar agora mesmo!
-              </button> -->
-              <button mat-raised-button color="primary" class="btnInicie" [routerLink]="['/lessons/beginner']" >{{ 'Home.IniciarAgoraMesmo' | translate }}</button>
+              <button mat-raised-button color="primary" class="btnInicie" routerLink="/{{lang}}/lessons/beginner" >{{ 'Home.IniciarAgoraMesmo' | translate }}</button>
           </span>
           <hr class="tall" />
           <h1>{{ 'Home.CursoDeDigitacaoOnLineGratis' | translate }}</h1>
@@ -95,7 +89,7 @@
       <div class="container text-center">
           <hr class="tall" />
           <div class="row push-top">
-              <a href="@DigiteMais.Comum.Lingua.Texto.LkInicianteLista" class="col-md-5 push-top" data-appear-animation="fadeInLeft">
+              <a href="#" class="col-md-5 push-top" data-appear-animation="fadeInLeft">
                   <i class="material-icons  imgTxt1">keyboard</i>
               </a>
               <div class="col-md-7 col-md-offset-1" data-appear-animation="fadeInRight">
@@ -164,17 +158,13 @@
           </div>
           <hr class="tall" />
           <span class="button-container text-left">
-              <a [routerLink]="['/lessons/beginner']"  data-appear-animation="fadeInLeft" data-track-link="true" data-track-cta="View" data-track-type="how_it_works" data-track-id="21333" class="btn btn-lg btn-primary btn-min-width btnInicie2">
+              <a routerLink="/{{lang}}/lessons/beginner"  data-appear-animation="fadeInLeft" data-track-link="true" data-track-cta="View" data-track-type="how_it_works" data-track-id="21333" class="btn btn-lg btn-primary btn-min-width btnInicie2">
                 {{ 'Home.IniciarAgoraMesmo' | translate }}
               </a>
-
-              
           </span>
-
-          
       </div>
       <hr class="tall" />
-      <button class="send-message" mat-raised-button [routerLink]="['/auth/send-message']">
+      <button class="send-message" mat-raised-button routerLink="/{{lang}}/auth/send-message">
         <i class="material-icons">message</i> {{ 'SendMessage.SendMessageToDeveloper' | translate }}
       </button>
       <hr class="tall" />

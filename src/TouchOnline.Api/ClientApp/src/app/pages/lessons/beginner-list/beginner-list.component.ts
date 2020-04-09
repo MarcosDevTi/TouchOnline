@@ -5,6 +5,8 @@ import { CacheService } from 'src/app/shared/cache.service';
 import { LessonService } from '../lesson.service';
 import { LessonItem } from '../models/lesson-item.model';
 import { TrackingService } from '../../tracking/shared/tracking.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-beginner-list',
@@ -13,13 +15,19 @@ import { TrackingService } from '../../tracking/shared/tracking.service';
 })
 export class BeginnerListComponent implements OnInit {
   lessons: LessonItem[] = [];
+  linkApp: string;
   constructor(
     public cacheService: CacheService, 
     protected lessonService: LessonService,
-    private trackingService: TrackingService){
+    private trackingService: TrackingService,
+    private route: ActivatedRoute,
+    public translate: TranslateService,
+    private router: Router){
     
   }
   ngOnInit(){
+    this.initLanguage();
+
     this.trackingService.setvisitedPages('list-0');
     console.log('cache', this.cacheService.beginers);
     if(!localStorage.getItem('userId')){
@@ -28,6 +36,22 @@ export class BeginnerListComponent implements OnInit {
       this.readLogged();
     }
     
+  }
+
+  initLanguage() {
+        this.route.params.subscribe(value => {
+          let lang = navigator.language.substring(0, 2);
+            if (value['lang'] === undefined) {
+                if (!this.translate.getLangs().includes(lang)) {
+                  lang = 'en';
+                }
+                this.router.navigate(['/' + lang + '/lessons/beginner']);
+            } else {
+              lang = value['lang'];
+            }
+            this.translate.use(lang)
+            this.linkApp = '/' + lang + `/app`;
+        });
   }
 
   readLogged(){

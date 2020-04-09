@@ -40,7 +40,8 @@
         "Send": "Envoyer",
         "NameIsRequired": "Le champ Nom est obligatoire",
         "InvalidEmail": "E-mail invalide",
-        "TextIsRequired": "Le champ Texte est obligatoire"
+        "TextIsRequired": "Le champ Texte est obligatoire",
+        "MessageSended": "Message envoyé avec succès! Nous vous répondrons bientôt!"
     },
     "Register":{
         "RegisterUser": "Enregistrer l'utilisateur",

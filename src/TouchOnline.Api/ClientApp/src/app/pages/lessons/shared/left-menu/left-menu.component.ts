@@ -8,22 +8,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./left-menu.component.css']
 })
 export class LeftMenuComponent implements OnInit {
+  lang: string;
   menuNiveis: { name: string; link: string; }[];
   constructor(
     public authService: AuthService,
     public translate: TranslateService) { }
 
   ngOnInit() {
+    const lang = this.translate.currentLang;
     this.menuNiveis = [
-      {name: 'Beginner', link: '/lessons/beginner'},
-      {name: 'Basic', link: '/lessons/basic'},
-      {name: 'Intermediate', link: '/lessons/intermediate'},
-      {name: 'Advanced', link: '/lessons/advanced'},
+      {name: 'Beginner', link: `/${lang}/lessons/beginner`},
+      {name: 'Basic', link: `/${lang}/lessons/basic`},
+      {name: 'Intermediate', link: `/${lang}/lessons/intermediate`},
+      {name: 'Advanced', link: `/${lang}/lessons/advanced`},
     ];
 
     if(this.authService.loggedIn()) {
       this.menuNiveis.push(
-        {name: 'MyTexts', link: '/lessons/my-text'}
+        {name: 'MyTexts', link: `/${lang}/lessons/my-text`}
       )
     }
   }

@@ -60,7 +60,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    
     HomeComponent,
     AdvancedListComponent,
     BasicListComponent,
@@ -97,7 +97,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LessonListComponent,
     CreateLessonTextComponent,
     ResultListComponent,
-    EditResultManagementComponent
+    EditResultManagementComponent,
+    NavbarComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -4,11 +4,11 @@
         <app-left-menu></app-left-menu>
       </div>
   <div class="lista">
-    <button mat-raised-button [routerLink]="['/lessons/my-text-management']">Editar Meus textos</button>
+    <button mat-raised-button routerLink="/{{lang}}/lessons/my-text-management">Editar Meus textos</button>
     <mat-selection-list #shoes>
   
       <div *ngFor="let lesson of lessons">
-        <a [routerLink]="['//app', lesson.idLesson]">
+        <a [routerLink]="[linkApp, lesson.idLesson]">
          <mat-list-item>
            <div class="titulo"> 
             {{ 'Exercises.MyTexts' | translate }}

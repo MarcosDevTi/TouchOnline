@@ -7,7 +7,7 @@
   <mat-selection-list #shoes>
 
     <div *ngFor="let lesson of lessons">
-      <a [routerLink]="['//app', lesson.idLesson]">
+      <a [routerLink]="[linkApp, lesson.idLesson]">
        <mat-list-item>
          <div class="titulo"> 
           {{ 'Exercises.Intermediate' | translate }}

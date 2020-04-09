@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./send-message.component.css']
 })
 export class SendMessageComponent implements OnInit {
+  lang: string;
   messageForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -20,6 +21,7 @@ export class SendMessageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.lang = this.translate.currentLang;
     this.buildForm();
   }
 
@@ -37,7 +39,7 @@ export class SendMessageComponent implements OnInit {
       .subscribe(_ =>
         console.log('message sended', _),
         error => console.log(error),
-        () => this.router.navigate(['/auth/send-message-success'])
+        () => this.router.navigate([`/${this.lang}/auth/send-message-success`])
       );
   }
 

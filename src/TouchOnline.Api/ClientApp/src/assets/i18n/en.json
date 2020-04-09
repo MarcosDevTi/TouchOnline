@@ -40,7 +40,8 @@
         "Send": "Send",
         "NameIsRequired": "The Name field is required",
         "InvalidEmail": "Invalid email",
-        "TextIsRequired": "The Text is required"
+        "TextIsRequired": "The Text is required",
+        "MessageSended": "Message sent successfully! We will reply soon!"
     },
     "Register":{
         "RegisterUser": "Register User",

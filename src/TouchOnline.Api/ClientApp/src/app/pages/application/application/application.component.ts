@@ -13,6 +13,7 @@ import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service'
 import { BeginnerLessonsService } from '../../lessons/beginner-list/shared/beginner-lessons.service';
 import { ApplicationService } from '../application.service';
 import { CacheService } from 'src/app/shared/cache.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-application',
@@ -40,6 +41,7 @@ export class ApplicationComponent implements OnInit {
   category: string;
   kbId: string;
   f = false;
+  lang: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,10 +51,16 @@ export class ApplicationComponent implements OnInit {
     private trackingService: TrackingService,
     private beginnerLessonsService: BeginnerLessonsService,
     private applicationService: ApplicationService,
-    private cacheService: CacheService
+    private cacheService: CacheService,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {
+    this.initLanguage();
+    // this.route.params.subscribe(value => {
+    //   this.translate.use(value['lang'])
+    //   this.lang = value['lang'];
+    // });
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
@@ -67,6 +75,19 @@ export class ApplicationComponent implements OnInit {
     this.category = this.getCategory();
 
     
+  }
+
+  initLanguage() {
+    
+    this.lang = this.translate.currentLang;
+        this.route.params.subscribe(value => {
+          console.log('lang', value['lang'])
+            if (value['lang'] === undefined) {
+                const langBrowser = navigator.language.substring(0, 2);
+                this.router.navigate([langBrowser + '/app/' + value['id']]);
+            }
+            this.translate.use(value['lang'])
+        });
   }
 
   obtenirLessonLocal(idLesson){

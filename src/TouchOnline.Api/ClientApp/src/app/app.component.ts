@@ -8,6 +8,7 @@ import { KeyServiceService } from './pages/application/application/keyboard/key.
 import { BeginnerLessonsService } from './pages/lessons/beginner-list/shared/beginner-lessons.service';
 import { LocalServiceService } from './shared/local-service.service';
 import { CacheService } from './shared/cache.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -22,19 +23,18 @@ export class AppComponent implements OnInit {
     private applicationService: ApplicationService,
     private visitorService: VisitorService,
     public translate: TranslateService,
-    private localServiceService: LocalServiceService
+    private localServiceService: LocalServiceService,
+    private route: ActivatedRoute
   ) {
     translate.addLangs(['en', 'fr', 'pt']);
-
-    translate.setDefaultLang('en');
-    translate.use('pt');
+    
+    
     // const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|fr|pt/) ? browserLang : 'en');
   }
   subscription: Subscription;
 
   ngOnInit(): void {
-    
     this.localServiceService.startApp();
     
     const source = interval(20000);

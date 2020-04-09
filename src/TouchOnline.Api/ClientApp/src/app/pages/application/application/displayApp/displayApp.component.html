@@ -1,12 +1,12 @@
 <div class="containerMat">
   <div class="controls">
-    <button type="button" [routerLink]="['/lessons/beginner']" class="btn btn-block btn-outline-secondary"><i
+    <button type="button" routerLink="/{{lang}}/lessons/beginner" class="btn btn-block btn-outline-secondary"><i
         class="fa fa-list"></i>{{ 'Exercises.Beginner' | translate }}</button>
-    <button type="button" [routerLink]="['/lessons/basic']" class="btn btn-block btn-outline-secondary"><i
+    <button type="button" routerLink="/{{lang}}/lessons/basic" class="btn btn-block btn-outline-secondary"><i
         class="fa fa-user"></i>{{ 'Exercises.Basic' | translate }}</button>
-    <button type="button" [routerLink]="['/lessons/intermediate']" class="btn btn-block btn-outline-secondary"><i
+    <button type="button" routerLink="/{{lang}}/lessons/intermediate" class="btn btn-block btn-outline-secondary"><i
         class="fa fa-user"></i>{{ 'Exercises.Intermediate' | translate }}</button>
-    <button type="button" [routerLink]="['/lessons/advanced']" class="btn btn-block btn-outline-secondary"><i
+    <button type="button" routerLink="/{{lang}}/lessons/advanced" class="btn btn-block btn-outline-secondary"><i
         class="fa fa-user"></i>{{ 'Exercises.Advanced' | translate }}</button>
   </div>
 

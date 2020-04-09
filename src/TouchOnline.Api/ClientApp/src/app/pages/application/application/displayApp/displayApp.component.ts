@@ -15,6 +15,7 @@ import { BeginnerLessonsService } from 'src/app/pages/lessons/beginner-list/shar
 export class DisplayAppComponent implements OnInit {
   keyboardsDw: any[];
   selected;
+  lang: string;
 
   @Input() timeLeft;
   @Input() ppm;
@@ -31,6 +32,7 @@ export class DisplayAppComponent implements OnInit {
     public translate: TranslateService) { }
 
   ngOnInit() {
+    this.lang = this.translate.currentLang;
     this.setKeyboard();
     const localBkId = localStorage.getItem('bkId')
 

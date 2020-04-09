@@ -26,10 +26,9 @@ import { ResultListComponent } from './pages/management/result-list/result-list.
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  // {path: 'app', loadChildren: './pages/application/application.module#ApplicationModule'},
-  // {path: 'lessons', loadChildren: './pages/lessons/lessons.module#LessonsModule'},
   { path: 'app/:id', component: ApplicationComponent },
   { path: 'lessons/beginner', component: BeginnerListComponent },
+  { path: ':lang/lessons/beginner', component: BeginnerListComponent },
   { path: 'lessons/basic', component: BasicListComponent },
   { path: 'lessons/intermediate', component: IntermediateListComponent },
   { path: 'lessons/advanced', component: AdvancedListComponent },
@@ -41,7 +40,21 @@ const routes: Routes = [
   { path: 'auth/send-message', component: SendMessageComponent },
   { path: 'auth/send-message-success', component: SendMessageSuccessComponent },
 
-  // {path: 'auth', loadChildren: './pages/auth/auth.module#AuthModule'},
+  { path: ':lang', component: HomeComponent },
+  { path: ':lang/app/:id', component: ApplicationComponent },
+  { path: ':lang/lessons/beginner', component: BeginnerListComponent },
+  { path: ':lang/:lang/lessons/beginner', component: BeginnerListComponent },
+  { path: ':lang/lessons/basic', component: BasicListComponent },
+  { path: ':lang/lessons/intermediate', component: IntermediateListComponent },
+  { path: ':lang/lessons/advanced', component: AdvancedListComponent },
+  { path: ':lang/lessons/create-lesson', component: CreateLessonComponent },
+  { path: ':lang/lessons/my-text', component: MyTextListComponent },
+  { path: ':lang/lessons/my-text-management', component: MyTextListManagementComponent },
+  { path: ':lang/lessons/my-text-management/:id/edit', component: EditLessonComponent },
+  { path: ':lang/auth/register', component: RegisterComponent },
+  { path: ':lang/auth/send-message', component: SendMessageComponent },
+  { path: ':lang/auth/send-message-success', component: SendMessageSuccessComponent },
+
   { path: 'management', component: KeyboardManagementComponent },
   { path: 'management/:id/edit', component: EditKeyboardComponent },
   { path: 'management/register-management-list', component: RegisterLocalListComponent },
@@ -53,7 +66,6 @@ const routes: Routes = [
   { path: 'management/lessons/create', component: CreateLessonTextComponent },
   { path: 'management/result-management', component: ResultListComponent },
 
-  // {path: 'management', loadChildren: './pages/management/management.module#ManagementModule'},
 ];
 
 @NgModule({

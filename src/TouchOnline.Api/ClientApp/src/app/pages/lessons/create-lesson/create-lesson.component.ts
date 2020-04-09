@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./create-lesson.component.css']
 })
 export class CreateLessonComponent implements OnInit {
-
+  lang: string;
   createTextForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -20,9 +20,10 @@ export class CreateLessonComponent implements OnInit {
     protected route: ActivatedRoute,
     private textToolService: TextToolService,
     public translate: TranslateService
-    ) { }
+  ) { }
 
   ngOnInit() {
+    this.lang = this.translate.currentLang;
     this.buildCreateTextForm();
   }
 
@@ -33,19 +34,19 @@ export class CreateLessonComponent implements OnInit {
     });
   }
 
-  get name() {return this.createTextForm.get('name')}
-  get text() {return this.createTextForm.get('text')}
+  get name() { return this.createTextForm.get('name') }
+  get text() { return this.createTextForm.get('text') }
 
   saveMyText() {
     this.myTextService.save({
-        name: this.name.value,
-        text: this.textToolService.wordWrap(this.text.value, 150), 
-        userId: localStorage.getItem('userId')
-      }).subscribe(
-        s => this.actionForSuccess(JSON.stringify(s)),
-        e => this.actionForError(e),
-        () => this.router.navigate(['lessons/my-text'])
-      )
+      name: this.name.value,
+      text: this.textToolService.wordWrap(this.text.value, 150),
+      userId: localStorage.getItem('userId')
+    }).subscribe(
+      s => this.actionForSuccess(JSON.stringify(s)),
+      e => this.actionForError(e),
+      () => this.router.navigate([ this.lang + '/lessons/my-text'])
+    )
   }
 
   private actionForError(err) {

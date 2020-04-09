@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { PageVisited } from './pageVisited';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,10 @@ export class TrackingService {
     return new Date(utc_timestamp);
   }
 
-  constructor(private http: HttpClient, private visitorService: VisitorService) { }
+  constructor(private http: HttpClient, private visitorService: VisitorService,
+    public translate: TranslateService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   setvisitedPages(page: string) {
     const objIndex = this.visitedList.findIndex((obj => obj.name === page));

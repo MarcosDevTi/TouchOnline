@@ -4,23 +4,38 @@ import { Injector, OnInit } from '@angular/core';
 import { TrackingService } from '../../tracking/shared/tracking.service';
 import { LessonTextService } from '../../management/lesson-text/shared/lesson-text.service';
 import { interval, Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 export abstract class ListComponent implements OnInit {
+  lang: string;
+  linkApp: string;
   lessons: LessonItem[];
   subscription: Subscription;
 
   protected lessonService: LessonService;
   protected lessonTextService: LessonTextService;
   protected trackingService: TrackingService;
+  protected route: ActivatedRoute;
+  public translate: TranslateService;
+  protected router: Router
+
   constructor(protected injector: Injector, protected level: number) {
     this.lessonService = injector.get(LessonService);
     this.trackingService = injector.get(TrackingService);
     this.lessonTextService = injector.get(LessonTextService);
+    this.route = injector.get(ActivatedRoute);
+    this.translate = injector.get(TranslateService);
+    this.router = injector.get(Router);
   }
 
   ngOnInit(): void {
     this.init();
-
+    this.initLanguage();
+    // this.route.params.subscribe(value => {
+    //   this.translate.use(value['lang'])
+    //   this.linkApp = '/' + value['lang'] + `/app`;
+    // });
     this.trackingService.setvisitedPages('list-' + this.level);
 
     const source = interval(100);
@@ -31,6 +46,50 @@ export abstract class ListComponent implements OnInit {
         this.subscription.unsubscribe()
       }
     });
+  }
+
+  initLanguage() {
+    this.lang = this.translate.currentLang;
+        this.route.params.subscribe(value => {
+            if (value['lang'] === undefined) {
+                const langBrowser = navigator.language.substring(0, 2);
+                this.router.navigate(['/' + langBrowser + '/lessons/' + this.getlevel()]);
+            }
+            this.translate.use(value['lang'])
+        });
+
+
+        this.route.params.subscribe(value => {
+          let lang = navigator.language.substring(0, 2);
+            if (value['lang'] === undefined) {
+                if (!this.translate.getLangs().includes(lang)) {
+                  lang = 'en';
+                }
+                this.router.navigate(['/' + lang + '/lessons/' + this.getlevel()]);
+            } else {
+              lang = value['lang'];
+            }
+            this.translate.use(lang)
+            this.linkApp = '/' + lang + `/app`;
+            this.lang = lang;
+        });
+  }
+
+  getlevel(){
+    switch(this.level) {
+      case 0:
+        return "beginner";
+      case 1:
+        return 'basic';
+      case 2:
+        return 'intermediate';
+      case 3:
+        return 'advanced';
+      case 4:
+        return 'my-text'
+      default:
+        return 0;
+    }
   }
 
   abstract init(): void;

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a  class="navbar-brand" [routerLink]="['']">| touch-online.com |</a>
+  <a  class="navbar-brand" [routerLink]="[lang]">| touch-online.com |</a>
  
     <div class="navbar-nav mr-auto">
-      <button mat-button [routerLink]="['']">{{ 'Nav.Home' | translate }}</button>
+      <button mat-button [routerLink]="[lang]">{{ 'Nav.Home' | translate }}</button>
       <button mat-button [matMenuTriggerFor]="management" *ngIf="isAdmin">{{ 'Nav.Managements' | translate }}</button>
       <mat-menu #management="matMenu" >
         <button routerLink="management" mat-menu-item>Keyboard Management</button>
@@ -18,13 +18,13 @@
      
       <button mat-button [matMenuTriggerFor]="menu">{{ 'Nav.Exercises' | translate }}</button>
       <mat-menu #menu="matMenu">
-        <button routerLink="lessons/beginner" mat-menu-item>{{ 'Exercises.Beginner' | translate }}</button>
-        <button routerLink="lessons/basic" mat-menu-item>{{ 'Exercises.Basic' | translate }}</button>
-        <button routerLink="lessons/intermediate" mat-menu-item>{{ 'Exercises.Intermediate' | translate }}</button>
-        <button routerLink="lessons/advanced" mat-menu-item>{{ 'Exercises.Advanced' | translate }}</button>
-        <button *ngIf="loggedIn()" routerLink="lessons/my-text" mat-menu-item>{{ 'Exercises.MyTexts' | translate }}</button>
+        <button routerLink= "{{lang}}/lessons/beginner" mat-menu-item>{{ 'Exercises.Beginner' | translate }}</button>
+        <button routerLink="{{lang}}/lessons/basic" mat-menu-item>{{ 'Exercises.Basic' | translate }}</button>
+        <button routerLink="{{lang}}/lessons/intermediate" mat-menu-item>{{ 'Exercises.Intermediate' | translate }}</button>
+        <button routerLink="{{lang}}/lessons/advanced" mat-menu-item>{{ 'Exercises.Advanced' | translate }}</button>
+        <button *ngIf="loggedIn()" routerLink="{{lang}}/lessons/my-text" mat-menu-item>{{ 'Exercises.MyTexts' | translate }}</button>
       </mat-menu>
-      <button mat-button *ngIf="loggedIn()" routerLink="lessons/create-lesson">{{ 'Nav.CreateExercises' | translate }}</button>
+      <button mat-button *ngIf="loggedIn()" routerLink="{{lang}}/lessons/create-lesson">{{ 'Nav.CreateExercises' | translate }}</button>
       <mat-form-field>
         <mat-select (selectionChange)="selectChange($event)" [(value)]="selected">
           <mat-option 
@@ -54,5 +54,5 @@
       <input class="form-control mr-sm-2" type="password" placeholder="Password" formControlName="password">
       <button class="btn btn-info my-2 my-sm-0 mr-2" type="submit">{{ 'Nav.Login' | translate }}</button>
     </form>
-    <button *ngIf="!loggedIn()" [routerLink]="['/auth/register']" class="btn btn-primary my-2 my-sm-0">{{ 'Nav.Register' | translate }}</button>
+    <button *ngIf="!loggedIn()" routerLink="{{lang}}/auth/register" class="btn btn-primary my-2 my-sm-0">{{ 'Nav.Register' | translate }}</button>
 </nav>

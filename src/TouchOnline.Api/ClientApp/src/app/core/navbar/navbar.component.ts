@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { AuthService } from 'src/app/pages/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LessonService } from 'src/app/pages/lessons/lesson.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -10,7 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterContentChecked {
+  lang: string;
   user: any = {};
   loginForm: FormGroup;
   nameDisplay: string;
@@ -23,16 +24,19 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     public translate: TranslateService
   ) { }
+  ngAfterContentChecked(): void {
+    this.selected = this.translate.currentLang;
+    this.lang = this.translate.currentLang;
+  }
+  
   selected;
   ngOnInit() {
    this.isAdminRefresh();
     this.createLoginForm();
     this.nameDisplay = localStorage.getItem('name');
-    this.selected = this.translate.currentLang;
   }
 
   selectChange(e){
-    console.log(e)
      this.translate.use(e.value)
   }
 
@@ -65,7 +69,7 @@ export class NavbarComponent implements OnInit {
       ['basics', 'intermediates', 'advanceds', 'myText']
     .forEach(list => this.lessonService.getLessons(0, 0).subscribe(_ => _))
       this.router.navigate([''], {skipLocationChange: true}).then(
-        () => this.router.navigate(['/lessons/beginner'])
+        () => this.router.navigate([this.lang + '/lessons/beginner'])
       );
     }
   );
@@ -82,7 +86,7 @@ logout() {
   this.authService.decodedToken = null;
   this.authService.currentUser = null;
 
-  this.router.navigate(['']);
+  // this.router.navigate([this.lang]);
   location.reload();
   this.isAdminRefresh();
 }
