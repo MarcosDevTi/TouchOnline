@@ -56,8 +56,8 @@ const routes: Routes = [
   { path: ':lang/auth/send-message', component: SendMessageComponent },
   { path: ':lang/auth/send-message-success', component: SendMessageSuccessComponent },
 
-  { path: 'management', component: KeyboardManagementComponent },
-  { path: 'management/:id/edit', component: EditKeyboardComponent },
+  { path: 'management/keyboard', component: KeyboardManagementComponent },
+  { path: 'management/keyboard/:id/edit', component: EditKeyboardComponent },
   { path: 'management/register-management-list', component: RegisterLocalListComponent },
   { path: 'management/tracking', component: TrackingsComponent },
   { path: 'management/users', component: UserListComponent },

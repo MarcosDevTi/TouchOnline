@@ -18,10 +18,25 @@ export class LessonService {
     private http: HttpClient
   ) { }
 
-  getLessons(level: number, language: number): Observable<LessonItem[]> {
-    if (level == 4){
-      language = 0;
+  getLangEnumCode(lang: string): number {
+    switch (lang) {
+      case 'pt':
+        return 0;
+      case 'en':
+        return 1;
+      case 'es':
+        return 2;
+      case 'fr':
+        return 3
+      default:
+        return 1;
     }
+  }
+
+  getLessons(level: number, language: string): Observable<LessonItem[]> {
+    // if (level == 4){
+    //   language = 0;
+    // }
     const keyStorage = 'level_' + level + '_language_' + language;
     
     const url = this.lessonApi + `GetLessonTexts?level=${level}&Language=${language}&UserId=${localStorage.getItem('userId')}`;

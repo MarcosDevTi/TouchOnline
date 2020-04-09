@@ -42,6 +42,8 @@ export class ApplicationComponent implements OnInit {
   kbId: string;
   f = false;
   lang: string;
+  levelQueryString: string;
+  langQueryString: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,6 +66,8 @@ export class ApplicationComponent implements OnInit {
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
+    this.levelQueryString = this.route.snapshot.paramMap.get('level');
+    this.langQueryString = this.route.snapshot.paramMap.get('lang');
 
     const less = this.obtenirLessonLocal(this.idExerc)
     console.log('lesson app', less)
@@ -111,31 +115,12 @@ export class ApplicationComponent implements OnInit {
   }
 
   obtenirLessonLocal(idLesson) {
-    let lessonsLocal;
-    if (this.idExerc[0] == '1') {
-      lessonsLocal = this.cacheService.beginers;
-    }
-    if (this.idExerc[0] == '2') {
-      lessonsLocal = localStorage.getItem('level_1_language_0');
-    }
-    if (this.idExerc[0] == '3') {
-      lessonsLocal = localStorage.getItem('level_2_language_0');
-    }
-    if (this.idExerc[0] == '4') {
-      lessonsLocal = localStorage.getItem('level_3_language_0');
-    }
-    if (this.idExerc[0] == '5') {
-      lessonsLocal = localStorage.getItem('level_4_language_0');
-    }
-
-    if (lessonsLocal == undefined || lessonsLocal === null) {
-      return null;
-    } else {
-      if (this.idExerc[0] != '1') {
-        lessonsLocal = JSON.parse(lessonsLocal);
-      }
-      return lessonsLocal.filter(_ => _.idLesson == idLesson)[0];
-    }
+    let lessonsLocal = localStorage.getItem(`level_${this.levelQueryString}_language_${this.langQueryString}`);
+     if(this.levelQueryString != '0') {
+      return JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0];
+     } else {
+      return this.cacheService.beginers.filter(_ => _.idLesson == +this.idExerc)[0];
+     }   
   }
 
   getCategory(): string {

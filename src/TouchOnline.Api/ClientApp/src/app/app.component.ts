@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
   subscription: Subscription;
 
   ngOnInit(): void {
-    console.log('app local storage',localStorage.getItem('kb'))
     this.localServiceService.startApp();
     
     const source = interval(20000);

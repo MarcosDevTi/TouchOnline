@@ -17,25 +17,25 @@ export class BeginnerListComponent implements OnInit {
   lessons: LessonItem[] = [];
   linkApp: string;
   constructor(
-    public cacheService: CacheService, 
+    public cacheService: CacheService,
     protected lessonService: LessonService,
     private trackingService: TrackingService,
     private route: ActivatedRoute,
     public translate: TranslateService,
-    private router: Router){
-    
+    private router: Router) {
+
   }
-  ngOnInit(){
+  ngOnInit() {
     this.initLanguage();
 
     this.trackingService.setvisitedPages('list-0');
     console.log('cache', this.cacheService.beginers);
-    if(!localStorage.getItem('userId')){
+    if (!localStorage.getItem('userId')) {
       this.read();
     } else {
       this.readLogged();
     }
-    
+
   }
 
   initLanguage() {
@@ -49,66 +49,68 @@ export class BeginnerListComponent implements OnInit {
       this.linkApp = '/' + langLocal + `/app`;
     } else {
       this.route.params.subscribe(value => {
-          if (value['lang'] === undefined) {
-              if (!this.translate.getLangs().includes(lang)) {
-                lang = 'en';
-              }
-              this.router.navigate(['/' + lang + '/lessons/beginner']);
-          } else {
-            lang = value['lang'];
+        if (value['lang'] === undefined) {
+          if (!this.translate.getLangs().includes(lang)) {
+            lang = 'en';
           }
-          this.translate.use(lang)
-          this.linkApp = '/' + lang + `/app`;
+          this.router.navigate(['/' + lang + '/lessons/beginner']);
+        } else {
+          lang = value['lang'];
+        }
+        this.translate.use(lang)
+        this.linkApp = '/' + lang + `/app`;
       });
       localStorage.setItem('lang', lang);
     }
-        
+
   }
 
-  readLogged(){
-    
+  readLogged() {
+
     this.lessons = this.cacheService.beginers;
     this.lessonService.getResults().subscribe((rs: LessonItem[]) => {
-     if(rs){
-      rs.forEach(r => {
-        const lessonIndex = this.lessons.findIndex(_ => _.idLesson == r.idLesson);
-        if (this.lessons[lessonIndex]){
-          this.lessons[lessonIndex].precision = this.calcPercent(r.errors, this.lessons[lessonIndex].text);
-          this.lessons[lessonIndex].ppm = r.ppm;
-          this.lessons[lessonIndex].stars = r.stars;
-          this.lessons[lessonIndex].time = r.time;
-        }
-        
-       })
-     }
+      if (rs) {
+        rs.forEach(r => {
+          const lessonIndex = this.lessons.findIndex(_ => _.idLesson == r.idLesson);
+          if (this.lessons[lessonIndex]) {
+            this.lessons[lessonIndex].precision = this.calcPercent(r.errors, this.lessons[lessonIndex].text);
+            this.lessons[lessonIndex].ppm = r.ppm;
+            this.lessons[lessonIndex].stars = r.stars;
+            this.lessons[lessonIndex].time = r.time;
+          }
+
+        })
+      }
     });
   }
 
-  calcPercent(errors: number, text: string): number{
+  calcPercent(errors: number, text: string): number {
+    if (!errors)
+      return 100;
     return 100 - (errors * 100) / text.length;
   }
 
-  read(): void { 
-    
+  read(): void {
+
     const localResult = localStorage.getItem('results');
-    console.log('localResult', localResult)
-    if(localResult){
+    if (localResult) {
       this.lessons = [];
       const results = JSON.parse(localResult) as LessonItem[];
-      
+
       this.cacheService.beginers.forEach(cache => {
         const sameResult = results.filter(_ => _.idLesson === cache.idLesson);
-        if(sameResult.length > 0){
-           cache.precision = sameResult[0].precision;
+        
+        if (sameResult.length > 0) {
+          cache.precision = this.calcPercent(sameResult[0].errors, cache.text);
           cache.ppm = sameResult[0].ppm;
           cache.stars = sameResult[0].stars;
           cache.time = sameResult[0].time;
         }
         this.lessons.push(cache);
-      }) 
+      })
     } else {
       this.cacheService.beginers
     }
-    
-    }
+
+  }
 }

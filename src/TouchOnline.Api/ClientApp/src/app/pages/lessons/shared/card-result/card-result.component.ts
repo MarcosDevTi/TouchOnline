@@ -12,6 +12,7 @@ export class CardResultComponent implements OnInit {
   constructor(public translate: TranslateService) { }
 
   ngOnInit() {
+    
   }
 
 }
