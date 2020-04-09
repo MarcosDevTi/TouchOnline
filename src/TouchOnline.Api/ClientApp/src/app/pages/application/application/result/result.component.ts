@@ -15,29 +15,29 @@ export class ResultComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: ResultDto,
     private trackingService: TrackingService,
     public translate: TranslateService
-    ) {}
+  ) { }
   @Input() resultado: any;
 
-    stars: string[];
-ok = 'star';
-notOk = 'star_border';
+  stars: string[];
+  ok = 'star';
+  notOk = 'star_border';
 
   scores = [
-    { num: 0, values: [this.notOk, this.notOk, this.notOk, this.notOk, this.notOk]},
-    { num: 1, values: [this.ok, this.notOk, this.notOk, this.notOk, this.notOk]},
-    { num: 2, values: [this.ok, this.ok, this.notOk, this.notOk, this.notOk]},
-    { num: 3, values: [this.ok, this.ok, this.ok, this.notOk, this.notOk]},
-    { num: 4, values: [this.ok, this.ok, this.ok, this.ok, this.notOk]},
-    { num: 5, values: [this.ok, this.ok, this.ok, this.ok, this.ok]},
+    { num: 0, values: [this.notOk, this.notOk, this.notOk, this.notOk, this.notOk] },
+    { num: 1, values: [this.ok, this.notOk, this.notOk, this.notOk, this.notOk] },
+    { num: 2, values: [this.ok, this.ok, this.notOk, this.notOk, this.notOk] },
+    { num: 3, values: [this.ok, this.ok, this.ok, this.notOk, this.notOk] },
+    { num: 4, values: [this.ok, this.ok, this.ok, this.ok, this.notOk] },
+    { num: 5, values: [this.ok, this.ok, this.ok, this.ok, this.ok] },
   ];
 
-    ngOnInit() {
-      this.trackingService.setvisitedPages('result');
-      this.stars = this.scores[this.data.stars].values;
-    }
+  ngOnInit() {
+    this.trackingService.setvisitedPages('result');
+    this.stars = this.scores[this.data.stars].values;
+  }
 
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 }

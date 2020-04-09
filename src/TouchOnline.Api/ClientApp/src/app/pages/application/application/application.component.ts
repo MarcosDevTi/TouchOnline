@@ -64,54 +64,74 @@ export class ApplicationComponent implements OnInit {
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
-    
-    const less = this.obtenirLessonLocal(this.idExerc)
 
-     this.onlyTextCompleteLesson(this.idExerc);
-       this.createLesson(less.text);
-       this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
-       this.name = less.name;
+    const less = this.obtenirLessonLocal(this.idExerc)
+    console.log('lesson app', less)
+
+    this.onlyTextCompleteLesson(this.idExerc);
+    this.createLesson(less.text);
+    this.updateTextDisplay(this.actualPage, this.teclaAtual.index);
+    this.name = less.name;
 
     this.category = this.getCategory();
 
-    
+
   }
 
   initLanguage() {
-    
+
     this.lang = this.translate.currentLang;
-        this.route.params.subscribe(value => {
-          console.log('lang', value['lang'])
-            if (value['lang'] === undefined) {
-                const langBrowser = navigator.language.substring(0, 2);
-                this.router.navigate([langBrowser + '/app/' + value['id']]);
-            }
-            this.translate.use(value['lang'])
-        });
+    this.route.params.subscribe(value => {
+      console.log('lang', value['lang'])
+      if (value['lang'] === undefined) {
+        const langBrowser = navigator.language.substring(0, 2);
+        this.router.navigate([langBrowser + '/app/' + value['id']]);
+      }
+      this.translate.use(value['lang'])
+    });
   }
 
-  obtenirLessonLocal(idLesson){
+  getLessonLocal() {
+    [1]
+  }
+
+  getLang(lang: string) {
+    switch (lang) {
+      case 'pt':
+        return 0;
+      case 'en':
+        return 1;
+      case 'es':
+        return 2;
+      case 'fr':
+        return 3;
+      default:
+        return 1
+    }
+  }
+
+  obtenirLessonLocal(idLesson) {
     let lessonsLocal;
-    if(this.idExerc[0] == '1') {
+    if (this.idExerc[0] == '1') {
       lessonsLocal = this.cacheService.beginers;
     }
-    if(this.idExerc[0] == '2') {
+    if (this.idExerc[0] == '2') {
       lessonsLocal = localStorage.getItem('level_1_language_0');
     }
-    if(this.idExerc[0] == '3') {
+    if (this.idExerc[0] == '3') {
       lessonsLocal = localStorage.getItem('level_2_language_0');
     }
-    if(this.idExerc[0] == '4') {
+    if (this.idExerc[0] == '4') {
       lessonsLocal = localStorage.getItem('level_3_language_0');
     }
-    if(this.idExerc[0] == '5') {
+    if (this.idExerc[0] == '5') {
       lessonsLocal = localStorage.getItem('level_4_language_0');
     }
-    
+
     if (lessonsLocal == undefined || lessonsLocal === null) {
       return null;
     } else {
-      if(this.idExerc[0] != '1'){
+      if (this.idExerc[0] != '1') {
         lessonsLocal = JSON.parse(lessonsLocal);
       }
       return lessonsLocal.filter(_ => _.idLesson == idLesson)[0];
@@ -145,18 +165,18 @@ export class ApplicationComponent implements OnInit {
         localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners))
       }
       this.beginnerLessonsService.buildLessonsBeginners(_.keycodesBeginners);
-      
+
       this.kbId = kbId;
       const less = this.obtenirLessonLocal(this.idExerc)
       this.textDisplay = [];
-       this.createLesson(less.text);
-      
+      this.createLesson(less.text);
+
       this.fraseExibicao = this.textDisplay[0].keys;
 
       this.ngOnInit()
     });
 
-    
+
   }
 
   modificarTexto(txt) {
@@ -210,25 +230,25 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
-  
+
 
   acertouLetra() {
     this.fraseExibicao = this.textDisplay[0].keys;
   }
 
   onlyTextCompleteLesson(text: string) {
-  this.onlyTextLesson = text.replace('¶', ' ');
+    this.onlyTextLesson = text.replace('¶', ' ');
   }
 
   calcularLetrasPorMim(): void {
-  const min = this.timeLeft / 60;
-  this.ppm = (this.countAllKeys / min).toString().split('.')[0];
+    const min = this.timeLeft / 60;
+    this.ppm = (this.countAllKeys / min).toString().split('.')[0];
   }
 
   startTimer() {
     this.interval = setInterval(() => {
-        this.timeLeft++;
-        this.calcularLetrasPorMim();
+      this.timeLeft++;
+      this.calcularLetrasPorMim();
     }, 1000);
   }
 
@@ -238,21 +258,21 @@ export class ApplicationComponent implements OnInit {
 
   textoMaior(): boolean {
     const any = this.idExerc != undefined && this.idExerc != null && this.idExerc.length > 0;
-    if(any) {
+    if (any) {
       return this.idExerc[0] === '1' || this.idExerc[0] === '2';
     }
   }
 
   getAllText(): Key[] {
     const lista: Key[] = [];
-    this.textDisplay.forEach( tx =>
+    this.textDisplay.forEach(tx =>
       tx.keys.forEach(tcl => lista.push(tcl))
     );
     return lista;
   }
 
   atualizarErrosChart() {
-    const letras =  this.getAllText().filter(f => f.acertou !== undefined).map(x => x.letra);
+    const letras = this.getAllText().filter(f => f.acertou !== undefined).map(x => x.letra);
     const dist = new Set(letras);
     this.teclasComErros = [];
     dist.forEach(d => this.teclasComErros.push(new ErroChart(d, letras.filter(x => x === d).length)));
@@ -260,51 +280,51 @@ export class ApplicationComponent implements OnInit {
     this.LineChart = new Chart('lineChart', {
       type: 'bar',
       data: {
-          labels: this.teclasComErros.map(l => l.tecla),
-          datasets: [{
-              label: 'Erros',
-              data: this.teclasComErros.map(e => e.numOcorrencias),
-              backgroundColor: this.teclasComErros.map(x => {
-                switch (x.numOcorrencias) {
-                  case (1):
-                  return '#ffcccc';
-                  case (2):
-                  return '#ffb3b3';
-                  case (3):
-                  return '#ff9999';
-                  case (4):
-                  return '#ff8080';
-                  default:
-                  return '#ff4d4d';
-                }
-              }),
-              borderColor: this.teclasComErros.map(x => {
-                switch (x.numOcorrencias) {
-                  case (1):
-                  return '#ff4d4d';
-                  case (2):
-                  return '#ff3333';
-                  case (2):
-                  return '#ff1a1a';
-                  case (2):
-                  return '#ff0000';
-                  default:
-                  return '#cc0000';
-                }
-              }),
-              borderWidth: 1
-          }]
+        labels: this.teclasComErros.map(l => l.tecla),
+        datasets: [{
+          label: 'Erros',
+          data: this.teclasComErros.map(e => e.numOcorrencias),
+          backgroundColor: this.teclasComErros.map(x => {
+            switch (x.numOcorrencias) {
+              case (1):
+                return '#ffcccc';
+              case (2):
+                return '#ffb3b3';
+              case (3):
+                return '#ff9999';
+              case (4):
+                return '#ff8080';
+              default:
+                return '#ff4d4d';
+            }
+          }),
+          borderColor: this.teclasComErros.map(x => {
+            switch (x.numOcorrencias) {
+              case (1):
+                return '#ff4d4d';
+              case (2):
+                return '#ff3333';
+              case (2):
+                return '#ff1a1a';
+              case (2):
+                return '#ff0000';
+              default:
+                return '#cc0000';
+            }
+          }),
+          borderWidth: 1
+        }]
       },
       options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          },
-          animation: {
-            duration: 100
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        animation: {
+          duration: 100
         },
         events: []
       }
@@ -332,23 +352,23 @@ export class ApplicationComponent implements OnInit {
 
 
     dialogRef.afterClosed().subscribe(result => {
-     this.router.navigate([this.getRouteRedirect(this.idExerc)]);
+      this.router.navigate([this.getRouteRedirect(this.idExerc)]);
     });
   }
 
-  getRouteRedirect(categ: string): string {    
+  getRouteRedirect(categ: string): string {
     const categEnter = categ[0];
     switch (categEnter) {
       case '1':
-        return 'lessons/beginner';
+        return this.lang + '/lessons/beginner';
       case '2':
-        return 'lessons/basic';
+        return this.lang + '/lessons/basic';
       case '3':
-        return 'lessons/intermediate';
+        return this.lang + '/lessons/intermediate';
       case '4':
-        return 'lessons/advanced';
-        default:
-          return 'lessons/my-text'
+        return this.lang + '/lessons/advanced';
+      default:
+        return this.lang + '/lessons/my-text'
     }
   }
 

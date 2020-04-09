@@ -49,34 +49,35 @@ export abstract class ListComponent implements OnInit {
   }
 
   initLanguage() {
-    this.lang = this.translate.currentLang;
-        this.route.params.subscribe(value => {
-            if (value['lang'] === undefined) {
-                const langBrowser = navigator.language.substring(0, 2);
-                this.router.navigate(['/' + langBrowser + '/lessons/' + this.getlevel()]);
-            }
-            this.translate.use(value['lang'])
-        });
+    let lang = navigator.language.substring(0, 2);
 
+    const langLocal = localStorage.getItem('lang');
+    if (langLocal) {
+      this.lang = langLocal;
+      this.router.navigate(['/' + langLocal + '/lessons/' + this.getlevel()]);
+      this.translate.use(langLocal)
+      this.linkApp = '/' + langLocal + `/app`;
+    } else {
+      this.route.params.subscribe(value => {
+        if (value['lang'] === undefined) {
+          if (!this.translate.getLangs().includes(lang)) {
+            lang = 'en';
+          }
+          this.router.navigate(['/' + lang + '/lessons/' + this.getlevel()]);
+        } else {
+          lang = value['lang'];
+        }
+        this.translate.use(lang)
+        this.linkApp = '/' + lang + `/app`;
+        this.lang = lang;
+        localStorage.setItem('lang', lang);
+      });
+    }
 
-        this.route.params.subscribe(value => {
-          let lang = navigator.language.substring(0, 2);
-            if (value['lang'] === undefined) {
-                if (!this.translate.getLangs().includes(lang)) {
-                  lang = 'en';
-                }
-                this.router.navigate(['/' + lang + '/lessons/' + this.getlevel()]);
-            } else {
-              lang = value['lang'];
-            }
-            this.translate.use(lang)
-            this.linkApp = '/' + lang + `/app`;
-            this.lang = lang;
-        });
   }
 
-  getlevel(){
-    switch(this.level) {
+  getlevel() {
+    switch (this.level) {
       case 0:
         return "beginner";
       case 1:
@@ -94,10 +95,24 @@ export abstract class ListComponent implements OnInit {
 
   abstract init(): void;
 
+  getLangEnumCode(): number {
+    switch (this.lang) {
+      case 'pt':
+        return 0;
+      case 'en':
+        return 1;
+      case 'es':
+        return 2;
+      case 'fr':
+        return 3
+      default:
+        return 1;
+    }
+  }
+
   readBasics(): void {
-    this.lessonService.getLessons(this.level, 0).subscribe((lessons: LessonItem[]) => {
+    this.lessonService.getLessons(this.level, this.getLangEnumCode()).subscribe((lessons: LessonItem[]) => {
       this.lessonService.getResults().subscribe(rs => {
-        console.log('rs', rs)
         if (rs && lessons) {
           rs.forEach(r => {
             const index = lessons.findIndex(l => l.idLesson === r.idLesson);
@@ -115,7 +130,7 @@ export abstract class ListComponent implements OnInit {
       error => console.log(error));
   }
 
-  calcPercent(errors: number, text: string): number{
+  calcPercent(errors: number, text: string): number {
     return 100 - (errors * 100) / text.length;
   }
 }

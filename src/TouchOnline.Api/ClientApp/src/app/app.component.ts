@@ -8,7 +8,7 @@ import { KeyServiceService } from './pages/application/application/keyboard/key.
 import { BeginnerLessonsService } from './pages/lessons/beginner-list/shared/beginner-lessons.service';
 import { LocalServiceService } from './shared/local-service.service';
 import { CacheService } from './shared/cache.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -24,17 +24,18 @@ export class AppComponent implements OnInit {
     private visitorService: VisitorService,
     public translate: TranslateService,
     private localServiceService: LocalServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     translate.addLangs(['en', 'fr', 'pt']);
-    
-    
+
     // const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|fr|pt/) ? browserLang : 'en');
   }
   subscription: Subscription;
 
   ngOnInit(): void {
+    console.log('app local storage',localStorage.getItem('kb'))
     this.localServiceService.startApp();
     
     const source = interval(20000);
@@ -68,5 +69,9 @@ export class AppComponent implements OnInit {
 
   containsLocal(key: string): boolean {
     return !!localStorage.getItem(key);
+  }
+
+  changeLanguage(lang){
+    this.router.navigate['']
   }
 }

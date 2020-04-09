@@ -1,9 +1,11 @@
-import { Component, OnInit, AfterViewInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentChecked, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/pages/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RoutesRecognized, NavigationEnd, NavigationStart } from '@angular/router';
 import { LessonService } from 'src/app/pages/lessons/lesson.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, AfterContentChecked {
+  @Output() changeLanguage = new EventEmitter<string>();
   lang: string;
   user: any = {};
   loginForm: FormGroup;
@@ -22,7 +25,8 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
     private lessonService: LessonService,
     private formBuilder: FormBuilder,
     private router: Router,
-    public translate: TranslateService
+    private route: ActivatedRoute,
+    public translate: TranslateService,
   ) { }
   ngAfterContentChecked(): void {
     this.selected = this.translate.currentLang;
@@ -37,7 +41,12 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
   }
 
   selectChange(e){
-     this.translate.use(e.value)
+    localStorage.setItem('lang', e.value);
+    this.translate.use(e.value);
+    location.reload();
+    //const url: string = this.route.root._routerState.snapshot.url;
+    
+    //e.value + url.substring(3, url.length)
   }
 
   isAdminRefresh() {

@@ -3,7 +3,7 @@ export class LessonItem {
     name: string;
     lessonText: string;
     text: string;
-    level: string;
+    level: number;
     initialized: boolean;
     precision: number;
     errors: number;

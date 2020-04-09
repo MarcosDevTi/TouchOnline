@@ -120,7 +120,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSlideToggleModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

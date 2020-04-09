@@ -12,23 +12,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   lang: string;
   constructor(
-    private trackingService: TrackingService, 
+    private trackingService: TrackingService,
     public translate: TranslateService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
-    
-    this.lang = this.translate.currentLang;
-    this.route.params.subscribe(value => {
-      if (value['lang'] === undefined){
-        const langBrowser = navigator.language.substring(0, 2);
-        this.router.navigate(['/' + langBrowser]);
-      }
-      this.translate.use(value['lang'])
-    });
-    
+    const langLocal = localStorage.getItem('lang');
+    if (langLocal) {
+      this.router.navigate(['/' + langLocal]);
+    }
+    else {
+      this.lang = this.translate.currentLang;
+      this.route.params.subscribe(value => {
+        if (value['lang'] === undefined) {
+          const langBrowser = navigator.language.substring(0, 2);
+          this.router.navigate(['/' + langBrowser]);
+        }
+        this.translate.use(value['lang'])
+      });
+    }
+
     this.trackingService.setvisitedPages('home');
   }
 

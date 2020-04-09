@@ -42,6 +42,7 @@ const routes: Routes = [
 
   { path: ':lang', component: HomeComponent },
   { path: ':lang/app/:id', component: ApplicationComponent },
+  { path: ':lang/app/:id/:level', component: ApplicationComponent },
   { path: ':lang/lessons/beginner', component: BeginnerListComponent },
   { path: ':lang/:lang/lessons/beginner', component: BeginnerListComponent },
   { path: ':lang/lessons/basic', component: BasicListComponent },

@@ -39,19 +39,30 @@ export class BeginnerListComponent implements OnInit {
   }
 
   initLanguage() {
-        this.route.params.subscribe(value => {
-          let lang = navigator.language.substring(0, 2);
-            if (value['lang'] === undefined) {
-                if (!this.translate.getLangs().includes(lang)) {
-                  lang = 'en';
-                }
-                this.router.navigate(['/' + lang + '/lessons/beginner']);
-            } else {
-              lang = value['lang'];
-            }
-            this.translate.use(lang)
-            this.linkApp = '/' + lang + `/app`;
-        });
+    let lang = navigator.language.substring(0, 2);
+
+    const langLocal = localStorage.getItem('lang');
+
+    if (langLocal) {
+      this.router.navigate(['/' + langLocal + '/lessons/beginner']);
+      this.translate.use(langLocal)
+      this.linkApp = '/' + langLocal + `/app`;
+    } else {
+      this.route.params.subscribe(value => {
+          if (value['lang'] === undefined) {
+              if (!this.translate.getLangs().includes(lang)) {
+                lang = 'en';
+              }
+              this.router.navigate(['/' + lang + '/lessons/beginner']);
+          } else {
+            lang = value['lang'];
+          }
+          this.translate.use(lang)
+          this.linkApp = '/' + lang + `/app`;
+      });
+      localStorage.setItem('lang', lang);
+    }
+        
   }
 
   readLogged(){
