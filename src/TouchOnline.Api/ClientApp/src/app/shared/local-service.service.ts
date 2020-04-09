@@ -27,7 +27,7 @@ export class LocalServiceService {
         console.log('_', _)
           localStorage.clear();
           localStorage.setItem('bkId', _.id);
-          localStorage.setItem('version', 'v3');
+          localStorage.setItem('version', 'v2');
           localStorage.setItem('kb', JSON.stringify(_.data));
           localStorage.setItem('keyCodes', JSON.stringify(_.codeKeys));
           localStorage.setItem('beginnersCodes', JSON.stringify(_.keycodesBeginners));
@@ -40,7 +40,7 @@ export class LocalServiceService {
 
   setLocalDefaults() {
     
-    if(localStorage.getItem('version') != 'v3'){
+    if(localStorage.getItem('version') != 'v2'){
       
       this.visitorService.getIp().subscribe(x => {
         if (x.ip) {
