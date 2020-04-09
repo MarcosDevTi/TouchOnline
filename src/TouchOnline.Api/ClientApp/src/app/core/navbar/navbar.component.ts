@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
   }
 
   login() {
-    this.lessonService.getLessons(0, 0).subscribe(_ => _)
+    this.lessonService.getLessons(0, 'en').subscribe(_ => _)
     this.user = Object.assign({}, this.loginForm.value);
     
     
