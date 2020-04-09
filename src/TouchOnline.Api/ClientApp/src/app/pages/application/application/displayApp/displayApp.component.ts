@@ -2,10 +2,8 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ApplicationService } from '../../application.service';
 import { KeyServiceService } from '../keyboard/key.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BeginnerLessonsService } from 'src/app/pages/lessons/beginner-list/shared/beginner-lessons.service';
 
 @Component({
   selector: 'app-displayApp',

@@ -92,7 +92,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   getLessonLocal() {
-    [1]
+    
   }
 
   getLang(lang: string) {

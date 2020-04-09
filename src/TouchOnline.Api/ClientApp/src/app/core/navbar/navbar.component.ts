@@ -44,9 +44,6 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
     localStorage.setItem('lang', e.value);
     this.translate.use(e.value);
     location.reload();
-    //const url: string = this.route.root._routerState.snapshot.url;
-    
-    //e.value + url.substring(3, url.length)
   }
 
   isAdminRefresh() {

@@ -112,6 +112,7 @@ export abstract class ListComponent implements OnInit {
 
   readBasics(): void {
     this.lessonService.getLessons(this.level, this.getLangEnumCode()).subscribe((lessons: LessonItem[]) => {
+      
       this.lessonService.getResults().subscribe(rs => {
         if (rs && lessons) {
           rs.forEach(r => {

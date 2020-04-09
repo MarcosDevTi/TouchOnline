@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const langLocal = localStorage.getItem('lang');
     if (langLocal) {
+      this.translate.use(langLocal)
       this.router.navigate(['/' + langLocal]);
     }
     else {
