@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Tracking;
 
@@ -23,6 +23,13 @@ namespace TouchOnline.Api.Controllers
 
         [HttpGet]
         public IActionResult GetTrackings()
+        {
+            var result = _processor.Get(new GetTrackings());
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public IActionResult getVisitors(DateTime date)
         {
             var result = _processor.Get(new GetTrackings());
             return Ok(result);

@@ -52,6 +52,7 @@ import { LessonListComponent } from './pages/management/lesson-text/lesson-list/
 import { CreateLessonTextComponent } from './pages/management/lesson-text/create-lesson-text/create-lesson-text.component';
 import { ResultListComponent } from './pages/management/result-list/result-list.component';
 import { EditResultManagementComponent } from './pages/management/result-list/edit-result-management/edit-result-management.component';
+import { VisitorsPerDayComponent } from './pages/management/trackings/visitors-per-day/visitors-per-day.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -99,6 +100,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ResultListComponent,
     EditResultManagementComponent,
     NavbarComponent,
+    VisitorsPerDayComponent,
   ],
   imports: [
     AppRoutingModule,

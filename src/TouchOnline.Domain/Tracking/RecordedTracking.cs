@@ -18,8 +18,10 @@ namespace TouchOnline.Domain.UserTracking
         public string LanguageKeyboard { get; set; }
         public string LanguageSystem { get; set; }
         public string LanguageBrowser { get; set; }
+        public User User { get; set; }
         public Guid? UserId { get; set; }
         public string Ip { get; set; }
+        public Keyboard Keyborad { get; set; }
         public Guid? KeyboradId { get; set; }
     }
 }

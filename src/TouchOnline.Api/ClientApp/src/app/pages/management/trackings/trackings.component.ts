@@ -4,6 +4,7 @@ import { TrackingItem } from './shared/trackingItem';
 import { VisitorService } from 'src/app/shared/visitor.service';
 import { MatDialog } from '@angular/material';
 import { TrackingDetailsComponent } from './tracking-details/tracking-details.component';
+import { Visitor } from './shared/visitor';
 
 @Component({
   selector: 'app-trackings',
@@ -11,8 +12,9 @@ import { TrackingDetailsComponent } from './tracking-details/tracking-details.co
   styleUrls: ['./trackings.component.css']
 })
 export class TrackingsComponent implements OnInit {
-  trackingItems: any[] = [];
-  displayedColumns: string[] = ['ip', 'userId', 'countResult', 'listPages', 'appPages', 'endDate', 'startDate', 'actions'];
+  trackingItems: Visitor[] = [];
+  displayedColumns: string[] = 
+  ['email', 'city', 'country', 'region', 'languageSystem', 'languageBrowser', 'keyboardName', 'pagesCount', 'resultCount'];
 
   constructor(
     private trackingService: TrackingService,
@@ -21,51 +23,9 @@ export class TrackingsComponent implements OnInit {
 
   ngOnInit() {
     this.trackingService.getTrackings().subscribe(trackings => {
+      console.log('kkk', trackings)
       this.trackingItems = trackings
     } )
-  }
-
-  onlyWithResults() {
-    this.trackingService.getTrackings().subscribe(trackings => {
-      this.trackingItems = trackings.filter(_ => this.containsResult(_.visitedPages) !== 0)
-    } )
-  }
-
-  allList() {
-    this.trackingService.getTrackings().subscribe(trackings => {
-      this.trackingItems = trackings
-    } )
-  }
-
-  clear() {
-    this.trackingItems = [];
-  }
-
-  containsResult(txt: string) {
-    const txtArr = txt.split('"');
-    return txtArr.filter(_ => _ === 'result').length;
-  }
-
-  containsListPages(txt: string) {
-    const txtArr = txt.split('"');
-    return txtArr.filter(_ => _.includes('list')).length;
-  }
-
-  containsApp(txt: string) {
-    const txtArr = txt.split('"');
-    return txtArr.filter(_ => _ === 'app').length;
-  }
-
-  openDialog(trackingItem): void { 
-    console.log(trackingItem);
-    const dialogRef = this.dialog.open(TrackingDetailsComponent, {
-      data: this.trackingItems.filter(_ => _.ip === trackingItem.ip)[0]
-    });
-
-
-    dialogRef.afterClosed().subscribe(result => {
-     
-    });
   }
 
 }
