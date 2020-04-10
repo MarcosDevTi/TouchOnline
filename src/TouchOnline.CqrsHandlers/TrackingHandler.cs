@@ -42,7 +42,7 @@ namespace TouchOnline.CqrsHandlers
 
             var result = _context.GetRecordeds
                 .Include(_ => _.User).Include(_ => _.Keyborad)
-                .Where(_ => _.CreateDate > DateTime.Now.Date && _.VisitedPages.Contains("result"))
+                .Where(_ => _.CreateDate > DateTime.Now.Date)
                 .ToList()
             .GroupBy(_ => _.Ip)
             .Select(_ => new Visitor
@@ -59,6 +59,7 @@ namespace TouchOnline.CqrsHandlers
                 DateCreateUser = _.FirstOrDefault(e => e.User != null)?.User?.InscriptionDate,
                 FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                 LastLessonDate = _.Select(_ => _.CreateDate).Max(),
+                CountResultsForUser = _.FirstOrDefault(e => e.User != null)?.User.RecordedTrackings.Count
             });
 
             return result;

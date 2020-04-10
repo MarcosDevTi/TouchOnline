@@ -16,5 +16,6 @@ namespace TouchOnline.CqrsClient.Tracking
         public DateTime? DateCreateUser { get; set; }
         public DateTime? FirstLessonDate { get; set; }
         public DateTime? LastLessonDate { get; set; }
+        public int? CountResultsForUser { get; set; }
     }
 }

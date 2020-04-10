@@ -11,4 +11,5 @@ export class Visitor {
     dateCreateUser: Date;
     firstLessonDate: Date;
     lastLessonDate: Date;
+    countResultsForUser: number;
 }

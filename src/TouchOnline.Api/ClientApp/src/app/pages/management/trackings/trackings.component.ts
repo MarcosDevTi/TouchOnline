@@ -18,7 +18,7 @@ export class TrackingsComponent implements OnInit {
   trackingItems: Visitor[] = [];
   displayedColumns: string[] = 
   ['email', 'city', 'country', 'region', 'languageSystem', 'languageBrowser', 'keyboardName', 
-  'pagesCount', 'resultCount', 'dateCreateUser', 'firstLessonDate', 'lastLessonDate'];
+  'pagesCount', 'resultCount', 'dateCreateUser', 'firstLessonDate', 'lastLessonDate', 'countResultsForUser'];
 
   constructor(
     private trackingService: TrackingService,

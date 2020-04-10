@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using TouchOnline.Domain.UserTracking;
 
 namespace TouchOnline.Domain
 {
@@ -21,6 +23,8 @@ namespace TouchOnline.Domain
         public string LanguageKeyboard { get; set; }
         public string LanguageSystem { get; set; }
         public string LanguageLessons { get; set; }
+
+        public ICollection<RecordedTracking> RecordedTrackings { get; set; }
         public void RegisterPasseword(byte[] passwordSalt, byte[] passwordHash)
         {
             PasswordHash = passwordHash;
