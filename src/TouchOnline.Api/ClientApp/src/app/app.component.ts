@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
     private visitorService: VisitorService,
     public translate: TranslateService,
     private localServiceService: LocalServiceService,
-    private route: ActivatedRoute,
     private router: Router
   ) {
     translate.addLangs(['en', 'fr', 'pt']);

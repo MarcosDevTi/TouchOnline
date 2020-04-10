@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { PageVisited } from './pageVisited';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { UserInformations } from 'src/app/shared/user-informations';
 
 @Injectable({
   providedIn: 'root'
@@ -50,11 +51,21 @@ export class TrackingService {
 
   sendTrackingResult() {
     const idStorage = localStorage.getItem('userId');
+    const userInfo: UserInformations = JSON.parse(localStorage.getItem('userInfo'));
+    const keyboardId = localStorage.getItem('bkId');
+    const lang = localStorage.getItem('lang');
+
     const recTracking = new RecordedTracking();
     recTracking.visitedPages = JSON.stringify(this.visitedList);
     recTracking.startDate = this.startDate;
     recTracking.endDate = this.getUtc();
     recTracking.userId = idStorage === 'undefined' ? null : idStorage;
+    recTracking.country = userInfo.country;
+    recTracking.region = userInfo.region;
+    recTracking.city = userInfo.city;
+    recTracking.languageSystem = lang;
+    recTracking.languageBrowser = navigator.language;
+    recTracking.keyboradId = keyboardId;
     this.visitorService.getIp().subscribe(_ => {
       recTracking.ip = _.ip;
       this.saveResult(recTracking);
@@ -64,6 +75,7 @@ export class TrackingService {
   }
 
   saveResult(recordedTracking: RecordedTracking) {
+    console.log('obj sended to save', recordedTracking);
     this.http.post(this.baseUrl + 'SaveTracking', recordedTracking).pipe(
       catchError(this.handleError),
       map(_ => _)

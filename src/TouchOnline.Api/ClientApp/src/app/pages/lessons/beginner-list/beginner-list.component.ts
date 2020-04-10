@@ -27,9 +27,7 @@ export class BeginnerListComponent implements OnInit {
   }
   ngOnInit() {
     this.initLanguage();
-
     this.trackingService.setvisitedPages('list-0');
-    console.log('cache', this.cacheService.beginers);
     if (!localStorage.getItem('userId')) {
       this.read();
     } else {

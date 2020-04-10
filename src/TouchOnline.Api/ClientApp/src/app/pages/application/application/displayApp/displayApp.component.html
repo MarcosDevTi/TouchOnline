@@ -11,7 +11,7 @@
   </div>
 
   <div class="level">
-    <h4 class="d-flex justify-content-center">{{category}} {{name}}</h4>
+    <h4 class="d-flex justify-content-center">{{'Exercises.' + category | translate}} {{name}}</h4>
     <mat-form-field class="center keyboard" >
       <mat-label>{{ 'App.Keyboard' | translate }}</mat-label>
       <mat-select (selectionChange)="selectKeyboard($event.value)" [(value)]="selected">

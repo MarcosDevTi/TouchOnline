@@ -6,6 +6,7 @@ import { LessonService } from 'src/app/pages/lessons/lesson.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { ShowSelectLanguageService } from 'src/app/shared/show-select-language.service';
 
 @Component({
   selector: 'app-navbar',
@@ -27,6 +28,7 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
     private router: Router,
     private route: ActivatedRoute,
     public translate: TranslateService,
+    public showSelectLanguageService: ShowSelectLanguageService
   ) { }
   ngAfterContentChecked(): void {
     this.selected = this.translate.currentLang;

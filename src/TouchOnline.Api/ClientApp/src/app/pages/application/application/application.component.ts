@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { LessonService } from '../../lessons/lesson.service';
@@ -14,13 +14,14 @@ import { BeginnerLessonsService } from '../../lessons/beginner-list/shared/begin
 import { ApplicationService } from '../application.service';
 import { CacheService } from 'src/app/shared/cache.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ShowSelectLanguageService } from 'src/app/shared/show-select-language.service';
 
 @Component({
   selector: 'app-application',
   templateUrl: './application.component.html',
   styleUrls: ['./application.component.css']
 })
-export class ApplicationComponent implements OnInit {
+export class ApplicationComponent implements OnInit, OnDestroy {
   baseUrl = environment.apiUrl;
   fraseExibicao: Key[];
   teclaAtual: Key = new Key('a', 0);
@@ -54,15 +55,16 @@ export class ApplicationComponent implements OnInit {
     private beginnerLessonsService: BeginnerLessonsService,
     private applicationService: ApplicationService,
     private cacheService: CacheService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public showSelectLanguageService :ShowSelectLanguageService
   ) { }
+  ngOnDestroy(): void {
+    this.showSelectLanguageService.showSelectLanguage = true;
+  }
 
   ngOnInit() {
+    this.showSelectLanguageService.showSelectLanguage = false;
     this.initLanguage();
-    // this.route.params.subscribe(value => {
-    //   this.translate.use(value['lang'])
-    //   this.lang = value['lang'];
-    // });
     this.f = true;
     this.trackingService.setvisitedPages('app');
     this.idExerc = this.route.snapshot.paramMap.get('id');
@@ -70,7 +72,6 @@ export class ApplicationComponent implements OnInit {
     this.langQueryString = this.route.snapshot.paramMap.get('lang');
 
     const less = this.obtenirLessonLocal(this.idExerc)
-    console.log('lesson app', less)
 
     this.onlyTextCompleteLesson(this.idExerc);
     this.createLesson(less.text);
@@ -83,10 +84,8 @@ export class ApplicationComponent implements OnInit {
   }
 
   initLanguage() {
-
     this.lang = this.translate.currentLang;
     this.route.params.subscribe(value => {
-      console.log('lang', value['lang'])
       if (value['lang'] === undefined) {
         const langBrowser = navigator.language.substring(0, 2);
         this.router.navigate([langBrowser + '/app/' + value['id']]);
@@ -96,7 +95,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   getLessonLocal() {
-    
+
   }
 
   getLang(lang: string) {
@@ -116,26 +115,26 @@ export class ApplicationComponent implements OnInit {
 
   obtenirLessonLocal(idLesson) {
     let lessonsLocal = localStorage.getItem(`level_${this.levelQueryString}_language_${this.langQueryString}`);
-     if(this.levelQueryString != '0') {
+    if (this.levelQueryString != '0') {
       return JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0];
-     } else {
+    } else {
       return this.cacheService.beginers.filter(_ => _.idLesson == +this.idExerc)[0];
-     }   
+    }
   }
 
   getCategory(): string {
-    switch (this.idExerc[0]) {
+    switch (this.route.snapshot.paramMap.get('level')) {
+      case '0': {
+        return 'Beginner';
+      }
       case '1': {
-        return 'Iniciante';
+        return 'Basic';
       }
       case '2': {
-        return 'Básico';
+        return 'Intermediate';
       }
       case '3': {
-        return 'Intermediário';
-      }
-      case '4': {
-        return 'Avançado';
+        return 'Advanced';
       }
     }
   }

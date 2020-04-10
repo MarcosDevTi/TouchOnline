@@ -14,3 +14,17 @@
     padding-right: 30px;
     font-weight: 500;
 }
+
+.auth {
+    display: flex;
+    margin-left: auto;
+}
+
+.menu-left {
+    display: flex;
+    margin-right: auto;
+}
+
+.navbar-brand{
+    margin-top: 12px;
+}

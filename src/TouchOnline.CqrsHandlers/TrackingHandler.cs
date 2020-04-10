@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
@@ -21,7 +22,15 @@ namespace TouchOnline.CqrsHandlers
                 StartDate = command.StartDate,
                 EndDate = command.EndDate,
                 UserId = command.UserId,
-                Ip = command.Ip
+                Ip = command.Ip,
+                City = command.City,
+                Country = command.Country,
+                Region = command.Region,
+                CreateDate = DateTime.Now,
+                KeyboradId = command.KeyboradId,
+                LanguageBrowser = command.LanguageBrowser,
+                LanguageKeyboard = command.LanguageKeyboard,
+                LanguageSystem = command.LanguageSystem
             };
             _context.Add(recordedTracking);
             _context.SaveChanges();
