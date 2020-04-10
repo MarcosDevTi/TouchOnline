@@ -8,3 +8,10 @@ table {
     justify-content: space-between;
     margin: 20px;
   }
+
+  .head {
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-between;
+  }

@@ -8,4 +8,7 @@ export class Visitor {
     keyboardName: string;
     pagesCount: number;
     resultCount: number;
+    dateCreateUser: Date;
+    firstLessonDate: Date;
+    lastLessonDate: Date;
 }

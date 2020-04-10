@@ -39,9 +39,14 @@ namespace TouchOnline.CqrsHandlers
 
         public IEnumerable<Visitor> Handle(GetTrackings query)
         {
+            var teste = _context.GetRecordeds
+                .Include(_ => _.User).Include(_ => _.Keyborad).Where(_ => _.Keyborad != null)
+                .Where(_ => _.CreateDate > DateTime.Now.Date && _.VisitedPages.Contains("result"))
+                .ToList();
+
             var result = _context.GetRecordeds
                 .Include(_ => _.User).Include(_ => _.Keyborad).Where(_ => _.Keyborad != null)
-                .Where(_ => _.CreateDate > DateTime.Now.Date)
+                .Where(_ => _.CreateDate > DateTime.Now.Date && _.VisitedPages.Contains("result"))
                 .ToList()
             .GroupBy(_ => _.Ip)
             .Select(_ => new Visitor
@@ -54,7 +59,10 @@ namespace TouchOnline.CqrsHandlers
                 LanguageBrowser = _.FirstOrDefault()?.LanguageBrowser,
                 LanguageSystem = _.FirstOrDefault()?.LanguageSystem,
                 PagesCount = _.Count(),
-                ResultCount = _.Count(_ => _.VisitedPages.Contains("result"))
+                ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
+                DateCreateUser = _.FirstOrDefault(e => e.User != null)?.User?.InscriptionDate,
+                FirstLessonDate = _.Min(_ => _.CreateDate),
+                LastLessonDate = _.Max(_ => _.CreateDate)
             });
 
             return result;

@@ -1,4 +1,6 @@
-﻿namespace TouchOnline.CqrsClient.Tracking
+﻿using System;
+
+namespace TouchOnline.CqrsClient.Tracking
 {
     public class Visitor
     {
@@ -11,5 +13,8 @@
         public string KeyboardName { get; set; }
         public int PagesCount { get; set; }
         public int ResultCount { get; set; }
+        public DateTime? DateCreateUser { get; set; }
+        public DateTime? FirstLessonDate { get; set; }
+        public DateTime? LastLessonDate { get; set; }
     }
 }

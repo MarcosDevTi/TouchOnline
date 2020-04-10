@@ -11,7 +11,7 @@ namespace TouchOnline.Domain.UserTracking
         public string VisitedPages { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public DateTime? CreateDate { get; set; } = DateTime.Now;
+        public DateTime? CreateDate { get; set; }
         public string Country { get; set; }
         public string Region { get; set; }
         public string City { get; set; }
