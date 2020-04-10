@@ -62,7 +62,7 @@ namespace TouchOnline.CqrsHandlers
                 ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
                 DateCreateUser = _.FirstOrDefault(e => e.User != null)?.User?.InscriptionDate,
                 FirstLessonDate = _.Min(_ => _.CreateDate),
-                LastLessonDate = _.Max(_ => _.CreateDate)
+                LastLessonDate = _.Max(_ => _.CreateDate),
             });
 
             return result;
