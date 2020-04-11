@@ -2,10 +2,10 @@
     "Nav":{
         "Home":"Accueil",
         "Managements": "Gestions",
-        "Exercises": "Exercices",
+        "Exercises": "Leçons",
         "Login": "Login",
         "Register": "Registrer",
-        "CreateExercises": "Créer des exercices",
+        "CreateExercises": "Créer des leçons",
         "Welcome": "Bienvenu",
         "Logout": "Se déconnecter"
     },
@@ -16,14 +16,14 @@
     },
     "Exercises":{
         "Beginner": "Débutante",
-        "Basic": "De base",
+        "Basic": "Basique ",
         "Intermediate": "Intermédiaire",
         "Advanced": "Avancé",
         "MyTexts": "Mes textes"
     },
     "Seo": {
         "Title": "Leçons",
-        "Text": "Le test de dactylographie en ligne gratuit offre à l'étudiant \"numériseur\" la possibilité d'apprendre à taper plus rapidement, avec 10 doigts uniformément",
+        "Text": "Le cours de dactylo gratuit en ligne, offre à l'étudiant la possibilité d'améliorer sa vitesse et sa précision, avec 10 doigts uniformément",
         "DeveloperMessage": "Envoyer un message au développeur"
     },
     "CreateLesson": {
@@ -63,11 +63,11 @@
         "Great":"Excellent",
         "YourTypingIsExcellent": "Votre frappe est excellente, si c'est trop facile, essayez un niveau supérieur",
         "Regular":"Régulier",
-        "YourTypingIsRegular": "Votre saisie est régulière, recommencez l'exercice. Répétez autant de fois que nécessaire.",
+        "YourTypingIsRegular": "Votre saisie est régulière, recommencez la leçon. Répétez autant de fois que nécessaire.",
         "Reasonable":"Raisonnable",
         "YourTypingIsOk":"Votre saisie est correcte, mais il reste encore beaucoup à améliorer",
         "Bad":"Mauvais",
-        "YourTypingIsReallyBad":"Votre frappe est très mauvaise, répétez l'exercice autant de fois que nécessaire.",
+        "YourTypingIsReallyBad":"Votre frappe est très mauvaise, répétez la leçon autant de fois que nécessaire.",
         "Speed": "Vitesse:",
         "Tempo": "Tempo:",
         "TotalErrors": "Total erreurs:",
@@ -76,7 +76,7 @@
         "Intensification":"Intensification",
         "ItAimsToReinforceTheKeysWithGreaterIncidences":"il vise à renforcer les touches avec une plus grande incidence d'erreurs laissant de plus en plus stable et précis votre frappe.",
         "TheTouchOnlineCom": "Le TouchOnLine.Com",
-        "ClassificationIsTheOverallSummary":"La classification est le résumé global des performances basé sur la vitesse de frappe et la précision. Chaque exercice a ses propres critères d'évaluation et est mesuré en fonction de son niveau de complexité.",
+        "ClassificationIsTheOverallSummary":"La classification est le résumé global des performances basé sur la vitesse de frappe et la précision. Chaque leçon a ses propres critères d'évaluation et est mesuré en fonction de son niveau de complexité.",
         "RegisterToShareOnlyExercises": "Inscrivez-vous pour enregistrer vos séances d'entraînement.",
         "Classification":"Classification",
         "Continue":"Continuez"
@@ -90,7 +90,7 @@
         "IniciarAgoraMesmo":"Commencer dès maintenant ",
         "CursoDeDigitacaoOnLineGratis": "Cours de dactylographie en ligne gratuit",
         "BeginnerTextIntro": "Débutant",
-        "BasicTextIntro": "De base",
+        "BasicTextIntro": "Basique ",
         "IntermediateTextIntro": "Intermédiaire",
         "AdvancedTextIntro": "Avancé",
         "Intensification": "Intensification",
@@ -115,7 +115,7 @@
         "TheResultsAreBasedOnSeveralCriteriaThatVerifies":"Les résultats sont basés sur plusieurs critères qui contrôle la vitesse et la précision de mieux performace il est essentiel d'utiliser les doigts corrects pour chaque touche.",
         "Typewithlessons":"Tapez avec le leçon",
         "InEnglish":"En Anglais",
-        "WhenChangingTheLanguageOfTheSystem":"Lors du changement de la langue du système, la structure est modifiée automatiquement des exercices avec des textes écrits dans la langue sélectionnée.",
+        "WhenChangingTheLanguageOfTheSystem":"Lors du changement de la langue du système, la structure est modifiée automatiquement des leçons avec des textes écrits dans la langue sélectionnée.",
         "TheKeyboardInitiallySelectedCanBeModified":"Le clavier sélectionné peut être modifié d'abord par le numériseur si vous utilisez un autre modèle de clavier, même si la langue esconlhida n'est pas la même chose."
     }
   }
