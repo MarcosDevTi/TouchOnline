@@ -65,6 +65,7 @@ const routes: Routes = [
   { path: 'management/counts', component: CountsComponent },
   { path: 'management/lessons', component: LessonListComponent },
   { path: 'management/lessons/create', component: CreateLessonTextComponent },
+  { path: 'management/lessons/:id/edit', component: CreateLessonTextComponent },
   { path: 'management/result-management', component: ResultListComponent },
 
 ];

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using TouchOnline.Api.ViewModels;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.LessonText;
 
@@ -22,6 +23,13 @@ namespace TouchOnline.Api.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public IActionResult UpdateLesson([FromBody]UpdateLessonText updateLessonText)
+        {
+            _processor.Send(updateLessonText);
+            return Ok();
+        }
+
         public IActionResult GetLessonTexts(GetLessonTexts getLessonTexts)
         {
             var result = _processor.Get(getLessonTexts);
@@ -32,7 +40,9 @@ namespace TouchOnline.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetLessonTextById(Guid id)
         {
-            return Ok(_processor.Get(new GetLessonTextById(id)));
+            var result = _processor.Get(new GetLessonTextById(id));
+
+            return Ok(new EditLessonViewModel(result));
         }
 
         [HttpDelete("{id}")]

@@ -11,6 +11,7 @@ namespace TouchOnline.CqrsHandlers
 {
     public class LessonTextHandler :
         ICommandHandler<CreateLessonText>,
+        ICommandHandler<UpdateLessonText>,
         ICommandHandler<DeleteLessonText>,
         IQueryHandler<GetLessonTextById, LessonText>,
         IQueryHandler<GetLessonTexts, IEnumerable<LessonText>>
@@ -30,6 +31,19 @@ namespace TouchOnline.CqrsHandlers
                 Order = command.Order,
                 IdLesson = GetLastIdLesson(command.Level)
             });
+            _context.SaveChanges();
+        }
+
+        public void Handle(UpdateLessonText command)
+        {
+            var lessonTracked = _context.LessonTexts.Find(command.Id);
+            lessonTracked.Name = command.Name;
+            lessonTracked.Text = command.Text;
+            lessonTracked.Language = command.Language;
+            lessonTracked.Level = command.Level;
+            lessonTracked.Order = command.Order;
+            lessonTracked.IdLesson = GetLastIdLesson(command.Level);
+
             _context.SaveChanges();
         }
 
@@ -82,5 +96,7 @@ namespace TouchOnline.CqrsHandlers
             _context.Remove(lesson);
             _context.SaveChanges();
         }
+
+
     }
 }

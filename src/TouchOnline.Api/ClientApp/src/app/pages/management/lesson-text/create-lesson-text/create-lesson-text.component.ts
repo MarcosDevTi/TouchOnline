@@ -12,6 +12,7 @@ import { LessonText } from '../shared/lesson-text';
 export class CreateLessonTextComponent implements OnInit {
   classTextInput = 'text-area-input';
   basicSize = true;
+  editMode = false;
   createTextForm: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -21,6 +22,9 @@ export class CreateLessonTextComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    var idQueryString = this.route.snapshot.params.id;
+
+    console.log('idQueryString', idQueryString)
     this.buildCreateTextForm();
     this.level.valueChanges.subscribe(_ => {
       if(_ === '1'){
@@ -29,6 +33,12 @@ export class CreateLessonTextComponent implements OnInit {
         this.basicSize = false;
       }
     })
+
+    if(idQueryString){
+      this.editMode = true;
+      this.lessonTextService.getLessonTextById(idQueryString).subscribe(_ => 
+        this.createTextForm.patchValue(_));
+    }
   }
 
   buildCreateTextForm() {
@@ -55,12 +65,22 @@ export class CreateLessonTextComponent implements OnInit {
 
 
   save() {
-    console.log('create lesson', LessonText.fromJson(this.createTextForm.value))
-    this.lessonTextService.createLesson(LessonText.fromJson(this.createTextForm.value)).subscribe(
+    if(this.editMode){
+      let lessonForUpdate = LessonText.fromJson(this.createTextForm.value);
+      lessonForUpdate.id = this.route.snapshot.params.id;
+      this.lessonTextService.updateLesson(lessonForUpdate).subscribe(
         s => this.actionForSuccess(JSON.stringify(s)),
         e => this.actionForError(e),
         () => this.router.navigate(['/management/lessons'])
       )
+    } else {
+       this.lessonTextService.createLesson(LessonText.fromJson(this.createTextForm.value)).subscribe(
+        s => this.actionForSuccess(JSON.stringify(s)),
+        e => this.actionForError(e),
+        () => this.router.navigate(['/management/lessons'])
+      )
+    }
+   
   }
 
   private actionForError(err) {

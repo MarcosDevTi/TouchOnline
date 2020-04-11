@@ -24,4 +24,12 @@ export class LessonTextService {
   delete(id: string){
     return this.http.delete(this.lessonApi + 'DeleteLessonText/' + id);
   }
+
+  updateLesson(lessonText: LessonText): Observable<any> {
+    return this.http.put(this.lessonApi + 'UpdateLesson', lessonText);
+  }
+
+  getLessonTextById(id: string): Observable<any> {
+    return this.http.get(`${this.lessonApi}GetLessonTextById/${id}`)
+  }
 }
