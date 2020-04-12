@@ -39,10 +39,9 @@ namespace TouchOnline.CqrsHandlers
 
         public IEnumerable<Visitor> Handle(GetTrackings query)
         {
-
             var result = _context.GetRecordeds
                 .Include(_ => _.User).Include(_ => _.Keyborad)
-                .Where(_ => _.CreateDate > DateTime.Now.Date)
+                .Where(_ => _.CreateDate > query.InitialDate.Date && _.CreateDate < query.InitialDate.Date.AddDays(1))
                 .ToList()
             .GroupBy(_ => _.Ip)
             .Select(_ => new Visitor

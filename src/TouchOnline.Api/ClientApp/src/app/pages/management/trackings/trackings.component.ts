@@ -7,6 +7,7 @@ import { TrackingDetailsComponent } from './tracking-details/tracking-details.co
 import { Visitor } from './shared/visitor';
 import { ManagementService } from '../shared/management.service';
 import { Counts } from './../../../core/navbar/counts';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-trackings',
@@ -14,6 +15,7 @@ import { Counts } from './../../../core/navbar/counts';
   styleUrls: ['./trackings.component.css']
 })
 export class TrackingsComponent implements OnInit {
+  date = new FormControl(new Date());
   counts: Counts;
   trackingItems: Visitor[] = [];
   displayedColumns: string[] = 
@@ -27,10 +29,17 @@ export class TrackingsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.trackingService.getTrackings().subscribe(trackings => {
+    this.trackingService.getTrackings(new Date()).subscribe(trackings => {
       this.trackingItems = trackings
     } );
     this.managementService.GetCounts().subscribe(_ => this.counts = _)
+  }
+
+  changeDate(e){
+    console.log('e', e)
+    this.trackingService.getTrackings(e.value).subscribe(trackings => {
+      this.trackingItems = trackings
+    } );
   }
 
 }

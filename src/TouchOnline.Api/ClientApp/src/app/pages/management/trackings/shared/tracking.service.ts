@@ -15,13 +15,13 @@ export class TrackingService {
   apiTracking = environment.apiTracking;
   constructor(private http: HttpClient) { }
 
-  getTrackings(): Observable<Visitor[]> {
-    const url = this.apiTracking + 'GetTrackings';
+  getTrackings(date: Date): Observable<Visitor[]> {
+    const url = this.apiTracking + 'GetTrackings?date='+ date.toDateString();
     return this.http.get<any[]>(url);
   }
 
   getVisitors(date): Observable<Visitor[]> {
-    const url = this.apiTracking + 'getVisitors?day=' + date;
+    const url = this.apiTracking + 'getVisitors?day="' + date + '"';
     return this.http.get<any[]>(url);
   }
 }

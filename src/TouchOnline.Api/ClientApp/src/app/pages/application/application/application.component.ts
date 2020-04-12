@@ -90,6 +90,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
         const langBrowser = navigator.language.substring(0, 2);
         this.router.navigate([langBrowser + '/app/' + value['id']]);
       }
+      localStorage.setItem('lang', value['lang'])
       this.translate.use(value['lang'])
     });
   }

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import { MatButtonModule, MatTableModule, MatSelectModule, MatDialogModule, MatMenuModule, MatDividerModule, MatListModule, MatCardModule, MatChipsModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule } from '@angular/material';
+import { MatButtonModule, MatTableModule, MatSelectModule, MatDialogModule, MatMenuModule, MatDividerModule, MatListModule, 
+  MatCardModule, MatChipsModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, 
+  MatDatepickerModule, MatNativeDateModule
+} from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { AppComponent } from './app.component';
@@ -120,6 +123,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatFormFieldModule,
     MatTableModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

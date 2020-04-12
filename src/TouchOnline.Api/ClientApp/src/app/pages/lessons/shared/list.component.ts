@@ -72,6 +72,8 @@ export abstract class ListComponent implements OnInit {
         this.lang = lang;
         localStorage.setItem('lang', lang);
       });
+
+     
     }
 
   }

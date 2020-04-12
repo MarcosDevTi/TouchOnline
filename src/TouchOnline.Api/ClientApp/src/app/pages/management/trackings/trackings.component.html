@@ -1,4 +1,14 @@
+
 <div *ngIf="counts" class="alert alert-secondary head">
+    <span>
+        <mat-form-field style="margin-top: -17px;margin-bottom: -25px;">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" (dateChange)="changeDate($event)" [formControl]="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        
+    </span>
     <span>Users Count: {{counts?.usersCount}}</span> 
     <span>|</span>
     <span>Results Count: {{counts?.resultsCount}} </span>
@@ -9,6 +19,7 @@
     <span>|</span>
     <span>My Texts Count: {{counts?.myTextsCount}}</span> 
 </div>
+
 
 <table mat-table [dataSource]="trackingItems">
 
