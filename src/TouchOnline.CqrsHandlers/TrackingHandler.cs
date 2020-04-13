@@ -49,6 +49,13 @@ namespace TouchOnline.CqrsHandlers
             {
                 var first = _.FirstOrDefault();
                 var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
+
+                int? countTotalUser = null;
+                if (firstUserNotNull != null)
+                {
+                    countTotalUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id);
+                }
+
                 return new Visitor
                 {
                     Email = firstUserNotNull.Email,
@@ -63,7 +70,7 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id)
+                    CountResultsForUser = countTotalUser
                 };
             });
 
@@ -81,6 +88,13 @@ namespace TouchOnline.CqrsHandlers
             {
                 var first = _.FirstOrDefault();
                 var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
+                
+                int? countTotalUser = null;
+                if (firstUserNotNull != null)
+                {
+                    countTotalUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id);
+                }
+                
                 return new Visitor
                 {
                     Email = firstUserNotNull.Email,
@@ -95,7 +109,7 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id)
+                    CountResultsForUser = countTotalUser
                 };
             });
 
