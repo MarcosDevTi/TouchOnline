@@ -51,10 +51,10 @@ namespace TouchOnline.CqrsHandlers
                 var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
                 return new Visitor
                 {
-                    Email = firstUserNotNull.Email,
+                    Email = firstUserNotNull?.Email,
                     City = first?.City,
                     Country = first?.Country,
-                    Region = first.Region,
+                    Region = first?.Region,
                     KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
                     LanguageBrowser = first?.LanguageBrowser,
                     LanguageSystem = first?.LanguageSystem,
@@ -83,10 +83,10 @@ namespace TouchOnline.CqrsHandlers
                var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
                return new Visitor
                {
-                   Email = firstUserNotNull.Email,
+                   Email = firstUserNotNull?.Email,
                    City = first?.City,
                    Country = first?.Country,
-                   Region = first.Region,
+                   Region = first?.Region,
                    KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
                    LanguageBrowser = first?.LanguageBrowser,
                    LanguageSystem = first?.LanguageSystem,
