@@ -1,5 +1,18 @@
-.example-card {
-    margin: 20px;
-    
+
+  table {
+    width: 100%;
   }
-  
+
+  .buttons {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+
+  .head {
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-between;
+  }

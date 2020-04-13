@@ -1,13 +1,76 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Counts</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>Users Count: {{counts.usersCount}}</p>
-        <p>Results Count: {{counts.resultsCount}}</p>
-        <p>Results total sendeds Count: {{counts.resultsCountTotalSendeds}}</p>
-        <p>Sends Count: {{counts.sendsCount}}</p>
-        <p>My Texts Count: {{counts.myTextsCount}}</p>
-    </mat-card-content>
-  </mat-card>
+
+<div *ngIf="counts" class="alert alert-secondary head">
+  <span>Users Count: {{counts?.usersCount}}</span> 
+  <span>|</span>
+  <span>Results Count: {{counts?.resultsCount}} </span>
+  <span>|</span>
+  <span>Results total sendeds Count: {{counts?.resultsCountTotalSendeds}}</span> 
+  <span>|</span> 
+  <span>Sends Count: {{counts?.sendsCount}} </span>
+  <span>|</span>
+  <span>My Texts Count: {{counts?.myTextsCount}}</span> 
+</div>
+
+<h2>Last Minute Tracking</h2>
+<table mat-table [dataSource]="trackingItems">
+
+  <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef> City </th>
+      <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+  </ng-container>
+  <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="region">
+      <th mat-header-cell *matHeaderCellDef> Region </th>
+      <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="languageSystem">
+      <th mat-header-cell *matHeaderCellDef> Language System </th>
+      <td mat-cell *matCellDef="let element"> {{element.languageSystem}} </td>
+  </ng-container>
+  <ng-container matColumnDef="languageBrowser">
+      <th mat-header-cell *matHeaderCellDef> Language Browser </th>
+      <td mat-cell *matCellDef="let element"> {{element.languageBrowser}} </td>
+  </ng-container>
+  <ng-container matColumnDef="keyboardName">
+      <th mat-header-cell *matHeaderCellDef> Keyboard Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.keyboardName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="pagesCount">
+      <th mat-header-cell *matHeaderCellDef> Pages Count </th>
+      <td mat-cell *matCellDef="let element"> {{element.pagesCount}} </td>
+  </ng-container>
+  <ng-container matColumnDef="resultCount">
+      <th mat-header-cell *matHeaderCellDef> Result Count </th>
+      <td mat-cell *matCellDef="let element"> {{element.resultCount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateCreateUser">
+      <th mat-header-cell *matHeaderCellDef> Date Create User </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateCreateUser | date: 'yyyy/MM/dd HH:mm:ss'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="firstLessonDate">
+      <th mat-header-cell *matHeaderCellDef> First Lesson Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstLessonDate | date: 'HH:mm:ss'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="lastLessonDate">
+      <th mat-header-cell *matHeaderCellDef> Last Lesson Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastLessonDate | date: 'HH:mm:ss'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="countResultsForUser">
+      <th mat-header-cell *matHeaderCellDef> Count Results For User </th>
+      <td mat-cell *matCellDef="let element"> {{element.countResultsForUser }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

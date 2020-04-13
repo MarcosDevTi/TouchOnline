@@ -11,7 +11,8 @@ namespace TouchOnline.CqrsHandlers
 {
     public class TrackingHandler :
         ICommandHandler<SaveTracking>,
-        IQueryHandler<GetTrackings, IEnumerable<Visitor>>
+        IQueryHandler<GetTrackings, IEnumerable<Visitor>>,
+        IQueryHandler<GetTrackingsLastMinute, IEnumerable<Visitor>>
     {
         private readonly ToContext _context;
         public TrackingHandler(ToContext context) => _context = context;
@@ -37,6 +38,38 @@ namespace TouchOnline.CqrsHandlers
             _context.SaveChanges();
         }
 
+        public IEnumerable<Visitor> Handle(GetTrackingsLastMinute query)
+        {
+            var result = _context.GetRecordeds
+                .Include(_ => _.User).Include(_ => _.Keyborad)
+                .Where(_ => _.CreateDate > DateTime.Now.AddMinutes(-1))
+                .ToList()
+            .GroupBy(_ => _.Ip)
+            .Select(_ =>
+            {
+                var first = _.FirstOrDefault();
+                var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
+                return new Visitor
+                {
+                    Email = firstUserNotNull.Email,
+                    City = first?.City,
+                    Country = first?.Country,
+                    Region = first.Region,
+                    KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
+                    LanguageBrowser = first?.LanguageBrowser,
+                    LanguageSystem = first?.LanguageSystem,
+                    PagesCount = _.Count(),
+                    ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
+                    DateCreateUser = firstUserNotNull?.InscriptionDate,
+                    FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
+                    LastLessonDate = _.Select(_ => _.CreateDate).Max(),
+                    CountResultsForUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id)
+                };
+            });
+
+            return result;
+        }
+
         public IEnumerable<Visitor> Handle(GetTrackings query)
         {
             var result = _context.GetRecordeds
@@ -44,21 +77,26 @@ namespace TouchOnline.CqrsHandlers
                 .Where(_ => _.CreateDate > query.InitialDate.Date && _.CreateDate < query.InitialDate.Date.AddDays(1))
                 .ToList()
             .GroupBy(_ => _.Ip)
-            .Select(_ => new Visitor
+            .Select(_ =>
             {
-                Email = _.FirstOrDefault(e => e.User != null)?.User.Email,
-                City = _.FirstOrDefault()?.City,
-                Country = _.FirstOrDefault()?.Country,
-                Region = _.FirstOrDefault().Region,
-                KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
-                LanguageBrowser = _.FirstOrDefault()?.LanguageBrowser,
-                LanguageSystem = _.FirstOrDefault()?.LanguageSystem,
-                PagesCount = _.Count(),
-                ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
-                DateCreateUser = _.FirstOrDefault(e => e.User != null)?.User?.InscriptionDate,
-                FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
-                LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                CountResultsForUser = _.FirstOrDefault(e => e.User != null)?.User.RecordedTrackings.Count
+                var first = _.FirstOrDefault();
+                var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
+                return new Visitor
+                {
+                    Email = firstUserNotNull.Email,
+                    City = first?.City,
+                    Country = first?.Country,
+                    Region = first.Region,
+                    KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
+                    LanguageBrowser = first?.LanguageBrowser,
+                    LanguageSystem = first?.LanguageSystem,
+                    PagesCount = _.Count(),
+                    ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
+                    DateCreateUser = firstUserNotNull?.InscriptionDate,
+                    FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
+                    LastLessonDate = _.Select(_ => _.CreateDate).Max(),
+                    CountResultsForUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id)
+                };
             });
 
             return result;

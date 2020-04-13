@@ -20,6 +20,11 @@ export class TrackingService {
     return this.http.get<any[]>(url);
   }
 
+  getTrackingsLastMinute(): Observable<Visitor[]> {
+    const url = this.apiTracking + 'GetTrackingsLastMinute';
+    return this.http.get<any[]>(url);
+  }
+
   getVisitors(date): Observable<Visitor[]> {
     const url = this.apiTracking + 'getVisitors?day="' + date + '"';
     return this.http.get<any[]>(url);

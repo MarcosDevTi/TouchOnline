@@ -24,7 +24,14 @@ namespace TouchOnline.Api.Controllers
         [HttpGet]
         public IActionResult GetTrackings([FromQuery]DateTime date)
         {
-            var result = _processor.Get(new GetTrackings { InitialDate = date});
+            var result = _processor.Get(new GetTrackings { InitialDate = date });
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public IActionResult GetTrackingsLastMinute()
+        {
+            var result = _processor.Get(new GetTrackingsLastMinute());
             return Ok(result);
         }
 
