@@ -24,7 +24,13 @@
     "Seo": {
         "Title": "Leçons",
         "Text": "Le cours de dactylo gratuit en ligne, offre à l'étudiant la possibilité d'améliorer sa vitesse et sa précision, avec 10 doigts uniformément",
-        "DeveloperMessage": "Envoyer un message au développeur"
+        "DeveloperMessage": "Envoyer un message au développeur",
+        "HelpFreeMantenance": "Aidez à garder le cours gratuit",
+        "CurrencyType": "USD",
+        "InputImageDonate": "https://www.paypalobjects.com/fr_XC/i/btn/btn_donateCC_LG.gif",
+        "TitleInputDonate":"PayPal - The safer, easier way to pay online!",
+        "AltButtonDonate":"Donate with PayPal button",
+        "GifImageDonate": "https://www.paypal.com/fr_US/i/scr/pixel.gif"
     },
     "CreateLesson": {
         "Title": "Titre",

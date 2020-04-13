@@ -41,7 +41,8 @@ namespace TouchOnline.CqrsHandlers
         public IEnumerable<Visitor> Handle(GetTrackingsLastMinute query)
         {
             var result = _context.GetRecordeds
-                .Include(_ => _.User).Include(_ => _.Keyborad)
+                .Include(_ => _.Keyborad)
+                .Include(_ => _.User).ThenInclude(_ => _.RecordedTrackings)
                 .Where(_ => _.CreateDate > DateTime.Now.AddMinutes(-1))
                 .ToList()
             .GroupBy(_ => _.Ip)
@@ -53,7 +54,7 @@ namespace TouchOnline.CqrsHandlers
                 int? countTotalUser = null;
                 if (firstUserNotNull != null)
                 {
-                    countTotalUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id);
+                    countTotalUser = _context.GetRecordeds.Where(_ => _.UserId == firstUserNotNull.Id).Count();
                 }
 
                 return new Visitor
@@ -70,7 +71,7 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = countTotalUser
+                    CountResultsForUser = firstUserNotNull.RecordedTrackings.Count()
                 };
             });
 
@@ -80,7 +81,8 @@ namespace TouchOnline.CqrsHandlers
         public IEnumerable<Visitor> Handle(GetTrackings query)
         {
             var result = _context.GetRecordeds
-                .Include(_ => _.User).Include(_ => _.Keyborad)
+                .Include(_ => _.Keyborad)
+                .Include(_ => _.User).ThenInclude(_ => _.RecordedTrackings)
                 .Where(_ => _.CreateDate > query.InitialDate.Date && _.CreateDate < query.InitialDate.Date.AddDays(1))
                 .ToList()
             .GroupBy(_ => _.Ip)
@@ -88,13 +90,7 @@ namespace TouchOnline.CqrsHandlers
             {
                 var first = _.FirstOrDefault();
                 var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
-                
-                int? countTotalUser = null;
-                if (firstUserNotNull != null)
-                {
-                    countTotalUser = _context.GetRecordeds.Count(_ => _.UserId == firstUserNotNull.Id);
-                }
-                
+
                 return new Visitor
                 {
                     Email = firstUserNotNull.Email,
@@ -109,7 +105,7 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = countTotalUser
+                    CountResultsForUser = firstUserNotNull.RecordedTrackings.Count()
                 };
             });
 

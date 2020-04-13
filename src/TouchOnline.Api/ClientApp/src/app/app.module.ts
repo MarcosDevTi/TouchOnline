@@ -22,7 +22,7 @@ import { CreateLessonComponent } from './pages/lessons/create-lesson/create-less
 import { MyTextListComponent } from './pages/lessons/my-text-list/my-text-list.component';
 import { MyTextsComponent } from './pages/lessons/my-texts/my-texts.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LessonService } from './pages/lessons/lesson.service';
 import { ApplicationComponent } from './pages/application/application/application.component';
 import { DisplayAppComponent } from './pages/application/application/displayApp/displayApp.component';
@@ -109,6 +109,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     MatButtonModule,
     MatSelectModule,
     MatDialogModule,

@@ -24,7 +24,13 @@
     "Seo": {
         "Title": "Lessons",
         "Text": "The free online typing test gives the student, the possibility to learn to type faster, with 10 fingers evenly",
-        "DeveloperMessage": "Send message to Developer"
+        "DeveloperMessage": "Send message to Developer",
+        "HelpFreeMantenance": "Help keep the course free",
+        "CurrencyType": "USD",
+        "InputImageDonate": "https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif",
+        "TitleInputDonate":"PayPal - The safer, easier way to pay online!",
+        "AltButtonDonate":"Donate with PayPal button",
+        "GifImageDonate": "https://www.paypal.com/en_CA/i/scr/pixel.gif"
     },
     "CreateLesson": {
         "Title": "Title",
