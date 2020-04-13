@@ -29,6 +29,13 @@ namespace TouchOnline.Api.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetTrackingsToday()
+        {
+            var result = _processor.Get(new GetTrackings());
+            return Ok(result);
+        }
+
+        [HttpGet]
         public IActionResult GetTrackingsLastMinute()
         {
             var result = _processor.Get(new GetTrackingsLastMinute());
