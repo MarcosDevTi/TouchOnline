@@ -38,45 +38,6 @@ namespace TouchOnline.CqrsHandlers
             _context.SaveChanges();
         }
 
-        public IEnumerable<Visitor> Handle(GetTrackingsLastMinute query)
-        {
-            var result = _context.GetRecordeds
-                .Include(_ => _.User).Include(_ => _.Keyborad)
-                .Where(_ => _.CreateDate > DateTime.Now.AddMinutes(-1))
-                .ToList()
-            .GroupBy(_ => _.Ip)
-            .Select(_ =>
-            {
-                var first = _.FirstOrDefault();
-                var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
-
-                int? countTotalUser = null;
-                if (firstUserNotNull != null)
-                {
-                    countTotalUser = _context.GetRecordeds.Where(_ => _.UserId == firstUserNotNull.Id).Count();
-                }
-
-                return new Visitor
-                {
-                    Email = firstUserNotNull.Email,
-                    City = first?.City,
-                    Country = first?.Country,
-                    Region = first.Region,
-                    KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
-                    LanguageBrowser = first?.LanguageBrowser,
-                    LanguageSystem = first?.LanguageSystem,
-                    PagesCount = _.Count(),
-                    ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
-                    DateCreateUser = firstUserNotNull?.InscriptionDate,
-                    FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
-                    LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = countTotalUser
-                };
-            });
-
-            return result;
-        }
-
         public IEnumerable<Visitor> Handle(GetTrackings query)
         {
             var result = _context.GetRecordeds
@@ -88,7 +49,6 @@ namespace TouchOnline.CqrsHandlers
             {
                 var first = _.FirstOrDefault();
                 var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
-
                 return new Visitor
                 {
                     Email = firstUserNotNull.Email,
@@ -103,9 +63,41 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = firstUserNotNull.RecordedTrackings.Count()
+                    CountResultsForUser = firstUserNotNull.RecordedTrackings.Count
                 };
             });
+
+            return result;
+        }
+
+        public IEnumerable<Visitor> Handle(GetTrackingsLastMinute query)
+        {
+            var result = _context.GetRecordeds
+               .Include(_ => _.User).Include(_ => _.Keyborad)
+               .Where(_ => _.CreateDate > DateTime.Now.AddMinutes(-1))
+               .ToList()
+           .GroupBy(_ => _.Ip)
+           .Select(_ =>
+           {
+               var first = _.FirstOrDefault();
+               var firstUserNotNull = _.FirstOrDefault(e => e.User != null)?.User;
+               return new Visitor
+               {
+                   Email = firstUserNotNull.Email,
+                   City = first?.City,
+                   Country = first?.Country,
+                   Region = first.Region,
+                   KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
+                   LanguageBrowser = first?.LanguageBrowser,
+                   LanguageSystem = first?.LanguageSystem,
+                   PagesCount = _.Count(),
+                   ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
+                   DateCreateUser = firstUserNotNull?.InscriptionDate,
+                   FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
+                   LastLessonDate = _.Select(_ => _.CreateDate).Max(),
+                   CountResultsForUser = firstUserNotNull.RecordedTrackings.Count
+               };
+           });
 
             return result;
         }
@@ -119,5 +111,7 @@ namespace TouchOnline.CqrsHandlers
             }
             return result;
         }
+
+        
     }
 }
