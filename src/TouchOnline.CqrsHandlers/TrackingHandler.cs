@@ -63,7 +63,7 @@ namespace TouchOnline.CqrsHandlers
                     DateCreateUser = firstUserNotNull?.InscriptionDate,
                     FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                     LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                    CountResultsForUser = firstUserNotNull.RecordedTrackings.Count
+                    CountResultsForUser = firstUserNotNull?.RecordedTrackings?.Count
                 };
             });
 
@@ -95,7 +95,7 @@ namespace TouchOnline.CqrsHandlers
                    DateCreateUser = firstUserNotNull?.InscriptionDate,
                    FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                    LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                   CountResultsForUser = firstUserNotNull.RecordedTrackings.Count
+                   CountResultsForUser = firstUserNotNull?.RecordedTrackings?.Count
                };
            });
 
