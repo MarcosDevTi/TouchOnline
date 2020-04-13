@@ -42,7 +42,7 @@ namespace TouchOnline.CqrsHandlers
         {
             var result = _context.GetRecordeds
                 .Include(_ => _.User).Include(_ => _.Keyborad)
-                .Where(_ => _.CreateDate > query.InitialDate.Date && _.CreateDate < query.InitialDate.Date.AddDays(1))
+                .Where(_ => _.CreateDate > DateTime.Now.Date)
                 .ToList()
             .GroupBy(_ => _.Ip)
             .Select(_ =>
@@ -112,6 +112,6 @@ namespace TouchOnline.CqrsHandlers
             return result;
         }
 
-        
+
     }
 }

@@ -14,7 +14,7 @@ export class TrackingService {
 
   apiTracking = environment.apiTracking;
   constructor(private http: HttpClient) { }
-
+  
   getTrackings(date: Date): Observable<Visitor[]> {
     const url = this.apiTracking + 'GetTrackings?date='+ date.toDateString();
     return this.http.get<any[]>(url);
