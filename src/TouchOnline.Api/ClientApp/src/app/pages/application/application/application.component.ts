@@ -45,6 +45,9 @@ export class ApplicationComponent implements OnInit, OnDestroy {
   lang: string;
   levelQueryString: string;
   langQueryString: string;
+  textLocalLenght = 0;
+  indexProgress = -1;
+  percentProgress = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -79,8 +82,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     this.name = less.name;
 
     this.category = this.getCategory();
-
-
   }
 
   initLanguage() {
@@ -93,10 +94,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
       localStorage.setItem('lang', value['lang'])
       this.translate.use(value['lang'])
     });
-  }
-
-  getLessonLocal() {
-
   }
 
   getLang(lang: string) {
@@ -116,10 +113,17 @@ export class ApplicationComponent implements OnInit, OnDestroy {
 
   obtenirLessonLocal(idLesson) {
     let lessonsLocal = localStorage.getItem(`level_${this.levelQueryString}_language_${this.langQueryString}`);
+    console.log('lessonsLocal', lessonsLocal)
+    this.textLocalLenght = 0;
     if (this.levelQueryString != '0') {
-      return JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0];
+      const less = JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0]
+      this.textLocalLenght = less.text.length;
+      return less;
     } else {
-      return this.cacheService.beginers.filter(_ => _.idLesson == +this.idExerc)[0];
+      const less = this.cacheService.beginers.filter(_ => _.idLesson == +this.idExerc)[0]
+      this.textLocalLenght = less.text.length;
+      return less;
+      
     }
   }
 
@@ -186,7 +190,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
       this.actualPage++;
 
       if (this.actualPage === this.textDisplay.length) {
-
+        this.percentProgress = 100;
         this.openDialog();
         this.pauseTimer();
       } else {
@@ -206,6 +210,15 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     this.teclaAtual = this.fraseExibicao[indKey];
     this.teclaAtual.proximo = true;
     this.proximaTecla = this.teclaAtual.letra.charCodeAt(0).toString();
+    this.updateProgress();
+  }
+
+  
+  updateProgress(){
+    this.textLocalLenght;
+    this.indexProgress++;
+
+    this.percentProgress = (this.indexProgress / this.textLocalLenght) * 100;
   }
 
   createLesson(text: string) {

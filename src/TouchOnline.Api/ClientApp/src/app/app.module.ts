@@ -3,7 +3,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule, MatTableModule, MatSelectModule, MatDialogModule, MatMenuModule, MatDividerModule, MatListModule, 
   MatCardModule, MatChipsModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatSlideToggleModule, 
-  MatDatepickerModule, MatNativeDateModule
+  MatDatepickerModule, MatNativeDateModule, MatProgressBarModule
 } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
@@ -126,6 +126,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSlideToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressBarModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

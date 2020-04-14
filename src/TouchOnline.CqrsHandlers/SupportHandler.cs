@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
@@ -21,7 +22,8 @@ namespace TouchOnline.CqrsHandlers
                 UserId = command.UserId,
                 Email = command.Email,
                 Name = command.Name,
-                Text = command.Text
+                Text = command.Text,
+                CreatedDate = DateTime.Now
             });
             _context.SaveChanges();
         }
@@ -33,7 +35,8 @@ namespace TouchOnline.CqrsHandlers
                 UserId = _.UserId,
                 Email = _.Email,
                 Name = _.Name,
-                Text = _.Text
+                Text = _.Text,
+                CreatedDate = _.CreatedDate
             });
         }
     }

@@ -92,7 +92,12 @@ export class CreateLessonTextComponent implements OnInit {
   }
 
   private actionForSuccess(s) {
-    localStorage.setItem('myText', s);
+    console.log('success remove items')
+    localStorage.removeItem('level_4_language_0');
+    localStorage.removeItem('level_4_language_pt');
+    localStorage.removeItem('level_4_language_fr');
+    localStorage.removeItem('level_4_language_en');
+    
     console.log('Succesful');
   }
 }

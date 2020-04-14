@@ -59,7 +59,8 @@ export class CreateLessonComponent implements OnInit {
 
   private actionForSuccess(s) {
     localStorage.setItem('level_4_language_0', s);
-    console.log('myText saved', s);
-    console.log('Succesful');
+    localStorage.setItem('level_4_language_pt', s);
+    localStorage.setItem('level_4_language_fr', s);
+    localStorage.setItem('level_4_language_en', s);
   }
 }

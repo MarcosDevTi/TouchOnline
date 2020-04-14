@@ -1,9 +1,10 @@
 
-
 <app-displayApp (keyboardChange)="changeKeyboard($event)" [timeLeft]="timeLeft" [ppm]='ppm' [LineChart]="LineChart" [category]="category" [name]="name">
 </app-displayApp>
+<mat-progress-bar mode="determinate" value="{{percentProgress}}"></mat-progress-bar>
 
 <div class="row">
+ 
   <div class="col-1"></div>
   <div class="col-10 mt-1 border rounded-top" style="background-color: #fffdea;">
 
