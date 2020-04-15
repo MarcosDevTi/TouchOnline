@@ -1,14 +1,11 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { TrackingService } from './pages/tracking/shared/tracking.service';
 import { ApplicationService } from './pages/application/application.service';
 import { VisitorService } from './shared/visitor.service';
 import { TranslateService } from '@ngx-translate/core';
-import { KeyServiceService } from './pages/application/application/keyboard/key.service';
-import { BeginnerLessonsService } from './pages/lessons/beginner-list/shared/beginner-lessons.service';
 import { LocalServiceService } from './shared/local-service.service';
-import { CacheService } from './shared/cache.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({

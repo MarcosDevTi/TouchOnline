@@ -24,7 +24,7 @@ namespace TouchOnline.CqrsHandlers
         {
             var last = _context.MyTexts.Where(_ => _.UserId == command.UserId).MaxBy(_ => _.CodeLesson)?.FirstOrDefault();
 
-            int codeLesson = last?.CodeLesson == null || last?.CodeLesson == 0 ? 500 : last.CodeLesson + 1;
+            int codeLesson = last?.CodeLesson == null || last?.CodeLesson == 0 ? 501 : last.CodeLesson + 1;
 
             _context.Add(new MyText
             {

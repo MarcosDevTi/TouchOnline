@@ -1,11 +1,9 @@
-import { Component, OnInit, AfterViewInit, AfterContentChecked, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/pages/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, RoutesRecognized, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { LessonService } from 'src/app/pages/lessons/lesson.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 import { ShowSelectLanguageService } from 'src/app/shared/show-select-language.service';
 
 @Component({

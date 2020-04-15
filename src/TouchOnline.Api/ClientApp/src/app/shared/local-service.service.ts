@@ -3,7 +3,6 @@ import { VisitorService } from './visitor.service';
 import { UserInformations } from './user-informations';
 import { ApplicationService } from '../pages/application/application.service';
 import { BeginnerLessonsService } from '../pages/lessons/beginner-list/shared/beginner-lessons.service';
-import { CacheService } from './cache.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,7 @@ export class LocalServiceService {
   constructor(
     private visitorService: VisitorService,
     private applicationService: ApplicationService,
-    private beginnerLessonsService: BeginnerLessonsService,
-    private cacheService: CacheService) { }
+    private beginnerLessonsService: BeginnerLessonsService) { }
 
   startApp() {   
     this.setLocalDefaults();

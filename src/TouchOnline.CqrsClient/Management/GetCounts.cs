@@ -4,5 +4,6 @@ namespace TouchOnline.CqrsClient.Management
 {
     public class GetCounts : IQuery<Counts>
     {
+
     }
 }

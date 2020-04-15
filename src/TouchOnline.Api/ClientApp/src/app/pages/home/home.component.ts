@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 import { TranslateService } from '@ngx-translate/core';
-import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

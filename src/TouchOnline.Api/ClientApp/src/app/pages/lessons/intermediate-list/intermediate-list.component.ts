@@ -11,7 +11,5 @@ export class IntermediateListComponent extends ListComponent {
 
   constructor(protected injector: Injector) { super(injector, 2); }
 
-  init(): void {
-    
-  }
+  init(): void { }
 }

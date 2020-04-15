@@ -9,9 +9,9 @@ table {
     margin: 20px;
   }
 
-  .head {
-    padding-left: 50px;
-    padding-right: 50px;
-    display: flex;
-    justify-content: space-between;
+
+
+  .thCount {
+    font-size: 15px;
+    font-weight: 200;
   }

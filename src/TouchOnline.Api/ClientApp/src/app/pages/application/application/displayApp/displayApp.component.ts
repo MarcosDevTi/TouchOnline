@@ -4,7 +4,6 @@ import { ApplicationService } from '../../application.service';
 import { KeyServiceService } from '../keyboard/key.service';
 import { EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ShowSelectLanguageService } from 'src/app/shared/show-select-language.service';
 
 @Component({
   selector: 'app-displayApp',

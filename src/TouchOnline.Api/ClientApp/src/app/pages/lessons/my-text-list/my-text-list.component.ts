@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, AfterViewInit } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { ListComponent } from '../shared/list.component';
 
 @Component({
@@ -7,11 +7,8 @@ import { ListComponent } from '../shared/list.component';
   styleUrls: ['./my-text-list.component.css', './../shared/list.component.css']
 })
 export class MyTextListComponent extends ListComponent  {
-
   constructor(protected injector: Injector) { super(injector, 4); }
 
-  init(): void {
-    console.log("lessons", this.lessons)
-  }
+  init(): void {}
 
 }

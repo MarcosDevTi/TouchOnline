@@ -25,13 +25,14 @@ namespace TouchOnline.CqrsHandlers
         {
             if (query.Level == "myText")
             {
-                return _context.MyTexts.Where(_ => _.UserId == query.UserId).Select(_ => new LessonPresentationItem
+                var result = _context.MyTexts.Where(_ => _.UserId == query.UserId).Select(_ => new LessonPresentationItem
                 {
                     IdLesson = _.CodeLesson,
                     Name = _.Name,
                     Text = _.Text,
                     Level = query.Level
                 }).ToList();
+                return result;
             }
 
             return _context.LessonTexts.Where(_ => _.Level == GetLevel(query.Level) && _.Language == Language.Pt).Select(_ => new LessonPresentationItem
@@ -98,7 +99,6 @@ namespace TouchOnline.CqrsHandlers
             return results.Select(x => new Results
             {
                 IdLesson = x.IdLesson,
-                //Precision = CalcPercent(x.Errors, GetLessonPresentationLength(x.IdLesson, query.IdUser)),
                 Errors = x.Errors,
                 Ppm = x.Ppm,
                 Stars = x.Stars,

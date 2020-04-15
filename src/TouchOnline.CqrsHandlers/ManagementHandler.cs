@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using TouchOnline.CqrsClient.Contracts;
 using TouchOnline.CqrsClient.Management;
@@ -8,7 +9,8 @@ namespace TouchOnline.CqrsHandlers
 {
     public class ManagementHandler :
         IQueryHandler<GetUsers, IEnumerable<UserViewModelManagement>>,
-        IQueryHandler<GetCounts, Counts>
+        IQueryHandler<GetCounts, Counts>,
+        IQueryHandler<GetCountsDay, GeneralDay>
     {
         private readonly ToContext _context;
         public ManagementHandler(ToContext context) => _context = context;
@@ -34,6 +36,27 @@ namespace TouchOnline.CqrsHandlers
                 ResultsCount = _context.Results.Count(),
                 SendsCount = _context.GetRecordeds.Count(),
                 ResultsCountTotalSendeds = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("result"))
+            };
+        }
+
+        public GeneralDay Handle(GetCountsDay query)
+        {
+            return new GeneralDay
+            {
+                UsersCount = _context.Users.Count(),
+                MyTextsCount = _context.MyTexts.Count(),
+                ResultsCount = _context.Results.Count(),
+                SendsCount = _context.GetRecordeds.Count(),
+                ResultsCountTotalSendeds = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("result")),
+                NewUsersDayCount = _context.Users.Count(_ =>
+                   _.InscriptionDate >= query.DateStart.Date && _.InscriptionDate < query.DateStart.Date.Date.AddDays(1)),
+                OldUsersDayCount = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null).Count(_ =>
+                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.Date.AddDays(1)),
+                TotalWithAppSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("app")),
+                TotalWithListSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("list")),
+                UsersDayCount = _context.GetRecordeds.Where(_ =>
+                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.Date.AddDays(1))
+                    .Select(_ => _.Ip).Distinct().Count()
             };
         }
     }

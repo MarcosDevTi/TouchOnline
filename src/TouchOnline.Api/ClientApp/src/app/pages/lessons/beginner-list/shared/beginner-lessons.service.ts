@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { stringify } from 'querystring';
 import { ListBeginners } from './list-beginners';
-import { IfStmt } from '@angular/compiler';
-import { CacheService } from 'src/app/shared/cache.service';
+import { CacheService } from './../../../../shared/cache.service';
 import { LessonItem } from '../../models/lesson-item.model';
 
 @Injectable({
@@ -46,10 +44,6 @@ export class BeginnerLessonsService {
     let result = '';
     indexes.forEach(_ => result += localCode[_ + 1])
     return result;
-  }
-
-  GetLessons() {
-    const codesLocal = localStorage.getItem('beginnersCodes');
   }
 
   getLessonBeginners(id): any {

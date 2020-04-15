@@ -32,10 +32,6 @@ export abstract class ListComponent implements OnInit {
   ngOnInit(): void {
     this.init();
     this.initLanguage();
-    // this.route.params.subscribe(value => {
-    //   this.translate.use(value['lang'])
-    //   this.linkApp = '/' + value['lang'] + `/app`;
-    // });
     this.trackingService.setvisitedPages('list-' + this.level);
 
     const source = interval(100);

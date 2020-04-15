@@ -1,6 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
-import { ListComponent } from '../shared/list.component';
-import { BeginnerLessonsService } from './shared/beginner-lessons.service';
+import { Component, OnInit } from '@angular/core';
 import { CacheService } from 'src/app/shared/cache.service';
 import { LessonService } from '../lesson.service';
 import { LessonItem } from '../models/lesson-item.model';
@@ -33,7 +31,6 @@ export class BeginnerListComponent implements OnInit {
     } else {
       this.readLogged();
     }
-
   }
 
   initLanguage() {

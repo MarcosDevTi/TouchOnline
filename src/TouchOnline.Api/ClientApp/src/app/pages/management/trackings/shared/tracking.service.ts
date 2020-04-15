@@ -6,6 +6,7 @@ import { Tracking } from './tracking';
 import { TrackingItem } from './trackingItem';
 import { RecordedTracking } from 'src/app/pages/tracking/shared/recorded-tracking';
 import { Visitor } from './visitor';
+import { VisitorDay } from './visitor-day';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class TrackingService {
   getTrackingsLastMinute(): Observable<Visitor[]> {
     const url = this.apiTracking + 'GetTrackingsLastMinute';
     return this.http.get<any[]>(url);
+  }
+
+  getCountsDay(date: Date): Observable<VisitorDay> {
+    const url = this.apiTracking + 'GetCountsDay?date=' + date.toDateString();
+    return this.http.get<VisitorDay>(url);
   }
 
   getVisitors(date): Observable<Visitor[]> {

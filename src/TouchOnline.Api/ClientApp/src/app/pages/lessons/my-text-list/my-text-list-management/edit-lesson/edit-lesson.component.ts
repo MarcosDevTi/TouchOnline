@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { TextToolService } from 'src/app/shared/text-tool.service';
+import { TextToolService } from '../../../../../shared/text-tool.service';
 import { LessonService } from '../../../lesson.service';
 import { MyTextService } from '../../../my-text.service';
 
@@ -19,8 +18,7 @@ export class EditLessonComponent implements OnInit {
     private myTextService: MyTextService,
     private router: Router,
     protected route: ActivatedRoute,
-    private textToolService: TextToolService,
-    private lessonService: LessonService
+    private textToolService: TextToolService
     ) { }
 
   ngOnInit() {

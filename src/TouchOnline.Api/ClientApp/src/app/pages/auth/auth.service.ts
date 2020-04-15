@@ -4,8 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-import { NavbarComponent } from 'src/app/core/navbar/navbar.component';
+import { Observable } from 'rxjs';
 import { LessonService } from '../lessons/lesson.service';
 
 
