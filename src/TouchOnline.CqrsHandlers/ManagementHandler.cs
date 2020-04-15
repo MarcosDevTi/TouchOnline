@@ -52,7 +52,7 @@ namespace TouchOnline.CqrsHandlers
                    _.InscriptionDate >= query.DateStart.Date && _.InscriptionDate < query.DateStart.Date.Date.AddDays(1))
                     .Select(_ => _.Id).Distinct().Count(),
                 OldUsersDayCount = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null).Where(_ =>
-                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.Date.AddDays(1)).Select(_ => _.Ip).Distinct().Count(),
+                     _.CreateDate < query.DateStart.Date).Select(_ => _.Ip).Distinct().Count(),
                 TotalWithAppSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("app")),
                 TotalWithListSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("list")),
                 UsersDayCount = _context.GetRecordeds.Where(_ =>
