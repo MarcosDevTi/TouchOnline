@@ -48,10 +48,11 @@ namespace TouchOnline.CqrsHandlers
                 ResultsCount = _context.Results.Count(),
                 SendsCount = _context.GetRecordeds.Count(),
                 ResultsCountTotalSendeds = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("result")),
-                NewUsersDayCount = _context.Users.Count(_ =>
-                   _.InscriptionDate >= query.DateStart.Date && _.InscriptionDate < query.DateStart.Date.Date.AddDays(1)),
-                OldUsersDayCount = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null).Count(_ =>
-                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.Date.AddDays(1)),
+                NewUsersDayCount = _context.Users.Where(_ =>
+                   _.InscriptionDate >= query.DateStart.Date && _.InscriptionDate < query.DateStart.Date.Date.AddDays(1))
+                    .Select(_ => _.Id).Distinct().Count(),
+                OldUsersDayCount = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null).Where(_ =>
+                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.Date.AddDays(1)).Select(_ => _.Ip).Distinct().Count(),
                 TotalWithAppSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("app")),
                 TotalWithListSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("list")),
                 UsersDayCount = _context.GetRecordeds.Where(_ =>
