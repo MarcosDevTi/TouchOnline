@@ -41,6 +41,10 @@ namespace TouchOnline.CqrsHandlers
 
         public GeneralDay Handle(GetCountsDay query)
         {
+            var teste = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null)
+                .Where(_ =>
+                    _.CreateDate >= query.DateStart.Date && _.CreateDate < query.DateStart.Date.AddDays(1) && _.User.InscriptionDate < query.DateStart.Date)
+                .Select(_ => _.UserId).Distinct().Count();
             return new GeneralDay
             {
                 UsersCount = _context.Users.Count(),
@@ -51,8 +55,7 @@ namespace TouchOnline.CqrsHandlers
                 NewUsersDayCount = _context.Users.Where(_ =>
                    _.InscriptionDate >= query.DateStart.Date && _.InscriptionDate < query.DateStart.Date.Date.AddDays(1))
                     .Select(_ => _.Id).Distinct().Count(),
-                OldUsersDayCount = _context.GetRecordeds.Include(_ => _.User).Where(_ => _.User != null).Where(_ =>
-                     _.CreateDate < query.DateStart.Date).Select(_ => _.Ip).Distinct().Count(),
+                OldUsersDayCount = teste,
                 TotalWithAppSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("app")),
                 TotalWithListSended = _context.GetRecordeds.Count(_ => _.VisitedPages.Contains("list")),
                 UsersDayCount = _context.GetRecordeds.Where(_ =>
