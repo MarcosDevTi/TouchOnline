@@ -13,32 +13,35 @@
       data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
   </mat-card-actions>
 </mat-card>
+
+<mat-card *ngIf="showPub" class="mt-4">
+  <!-- <p>{{'Seo.HelpFreeMantenance' | translate}}</p>
+
+ 
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=marcos.ti.sistemas%40gmail.com&currency_code={{'Seo.CurrencyType' | translate}}&source=url">
+<img src="{{'Seo.InputImageDonate' | translate}}" alt="{{ 'Seo.AltButtonDonate' | translate }}">
+</a> -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- res-list-right -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5510359594961626"
+     data-ad-slot="4274929654"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- <img src="./../../../../../assets/images-pub-debug/pubQuadrado.PNG" style="width: 100%;" /> -->
+ 
+
+</mat-card>
+
+
 <br>
 <button mat-raised-button routerLink="/{{lang}}/auth/send-message">
   <i class="material-icons">message</i> {{ 'Seo.DeveloperMessage' | translate }}
 </button>
 
-<mat-card class="mt-4">
-  <p>{{'Seo.HelpFreeMantenance' | translate}}</p>
-
-  <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="marcos.ti.sistemas@gmail.com" />
-    <input type="hidden" name="currency_code" value="USD" />
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-    <img alt="" border="0" src="https://www.paypal.com/en_CA/i/scr/pixel.gif" width="1" height="1" />
-    </form> -->
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=marcos.ti.sistemas%40gmail.com&currency_code={{'Seo.CurrencyType' | translate}}&source=url">
-<img src="{{'Seo.InputImageDonate' | translate}}" alt="{{ 'Seo.AltButtonDonate' | translate }}">
-</a>
-
-  <!-- <form action="https://www.paypal.com/cgi-bin/webscr" data-href="" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_donations" />
-    <input type="hidden" name="business" value="marcos.ti.sistemas@gmail.com" />
-    <input type="hidden" name="currency_code" value="{{'Seo.CurrencyType' | translate}}" />
-    <input type="image" src="{{'Seo.InputImageDonate' | translate}}" border="0" name="submit"
-      title="{{ 'Seo.TitleInputDonate' | translate }}" alt="{{ 'Seo.AltButtonDonate' | translate }}" />
-    <img alt="" border="0" src="{{ 'Seo.GifImageDonate' | translate }}" width="1" height="1" />
-  </form> -->
-
-</mat-card>
