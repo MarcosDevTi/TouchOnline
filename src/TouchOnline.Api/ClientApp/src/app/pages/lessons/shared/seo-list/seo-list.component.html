@@ -22,21 +22,22 @@
 <img src="{{'Seo.InputImageDonate' | translate}}" alt="{{ 'Seo.AltButtonDonate' | translate }}">
 </a> -->
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- res-list-right -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5510359594961626"
-     data-ad-slot="4274929654"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<div *ngIf="!isAdmin">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- res-list-right -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5510359594961626"
+       data-ad-slot="4274929654"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
 
-<!-- <img src="./../../../../../assets/images-pub-debug/pubQuadrado.PNG" style="width: 100%;" /> -->
+<img *ngIf="isAdmin" src="./../../../../../assets/images-pub-debug/pubQuadrado.PNG" style="width: 100%;" />
  
-
 </mat-card>
 
 

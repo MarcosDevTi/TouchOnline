@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Component({
   selector: 'app-seo-list',
@@ -9,11 +10,19 @@ import { TranslateService } from '@ngx-translate/core';
 export class SeoListComponent implements OnInit {
 lang: string;
 showPub: boolean;
-  constructor(public translate: TranslateService) { }
+isAdmin: boolean;
+  constructor(public translate: TranslateService, public authService: AuthService) { }
 
   ngOnInit() {
     this.lang = this.translate.currentLang;
     this.setPub();
+    this.isAdminRefresh();
+  }
+
+  isAdminRefresh() {
+    this.authService.isAdmin(localStorage.getItem('userId')).subscribe(_ => {
+      this.isAdmin = _;
+    });
   }
 
 
