@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 import { TrackingService } from 'src/app/pages/tracking/shared/tracking.service';
 import { TextToolService } from 'src/app/shared/text-tool.service';
@@ -16,6 +16,7 @@ import { LessonService } from '../../lessons/lesson.service';
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   user: User;
+  lang: string;
 
   registerForm: FormGroup;
   constructor(
@@ -25,10 +26,12 @@ export class RegisterComponent implements OnInit {
     private trackingService: TrackingService,
     private textToolService: TextToolService,
     public translate: TranslateService,
-    private lessonService: LessonService
+    private lessonService: LessonService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.initLanguage();
     // tslint:disable-next-line:max-line-length
     const txtIn = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It w as popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
 
@@ -36,6 +39,34 @@ export class RegisterComponent implements OnInit {
     console.log(txt);
     this.trackingService.setvisitedPages('register');
     this.createRegisterForm();
+  }
+
+  initLanguage() {
+    let lang = navigator.language.substring(0, 2);
+
+    const langLocal = localStorage.getItem('lang');
+    if (langLocal) {
+      this.lang = langLocal;
+      this.router.navigate(['/' + langLocal + '/auth/register']);
+      this.translate.use(langLocal)
+    } else {
+      this.route.params.subscribe(value => {
+        if (value['lang'] === undefined) {
+          if (!this.translate.getLangs().includes(lang)) {
+            lang = 'en';
+          }
+          this.router.navigate(['/' + lang + '/auth/register']);
+        } else {
+          lang = value['lang'];
+        }
+        this.translate.use(lang)
+        this.lang = lang;
+        localStorage.setItem('lang', lang);
+      });
+
+     
+    }
+
   }
 
   createRegisterForm() {
