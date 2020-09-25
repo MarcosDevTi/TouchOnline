@@ -2,7 +2,10 @@
   <div class="menuNiveis">
       <app-left-menu></app-left-menu>
     </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<div class="lista">
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- horiz_pub_general -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -14,7 +17,6 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
   
-<div class="lista">
   <mat-selection-list #shoes>
     <div *ngFor="let lesson of (lessons.length > 0 ? lessons : this.cacheService.beginers)">
       <a [routerLink]="[linkApp, lesson.idLesson, 0]">
