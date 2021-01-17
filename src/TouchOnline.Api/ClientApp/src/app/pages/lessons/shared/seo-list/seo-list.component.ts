@@ -18,6 +18,12 @@ isAdmin: boolean;
     this.setPub();
     this.isAdminRefresh();
   }
+  
+  ngAfterViewInit() {
+    (window['adsbygoogle'] = window['adsbygoogle'] || []).push({
+                    overlays: {bottom: true}
+                });
+  }
 
   isAdminRefresh() {
     this.authService.isAdmin(localStorage.getItem('userId')).subscribe(_ => {
