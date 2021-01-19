@@ -32,7 +32,8 @@ namespace TouchOnline.CqrsHandlers
                 KeyboradId = command.KeyboradId,
                 LanguageBrowser = command.LanguageBrowser,
                 LanguageKeyboard = command.LanguageKeyboard,
-                LanguageSystem = command.LanguageSystem
+                LanguageSystem = command.LanguageSystem,
+                UrlSite = command.UrlSite
             };
             _context.Add(recordedTracking);
             _context.SaveChanges();

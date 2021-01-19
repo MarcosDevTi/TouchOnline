@@ -23,5 +23,6 @@ namespace TouchOnline.Domain.UserTracking
         public string Ip { get; set; }
         public Keyboard Keyborad { get; set; }
         public Guid? KeyboradId { get; set; }
+        public string UrlSite {get;set;}
     }
 }

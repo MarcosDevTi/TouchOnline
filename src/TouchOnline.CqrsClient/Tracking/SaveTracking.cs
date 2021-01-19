@@ -17,5 +17,6 @@ namespace TouchOnline.CqrsClient.Tracking
         public Guid? UserId { get; set; }
         public string Ip { get; set; }
         public Guid? KeyboradId { get; set; }
+        public string UrlSite {get;set;}
     }
 }
