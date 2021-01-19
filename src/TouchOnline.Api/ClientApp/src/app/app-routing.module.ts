@@ -23,6 +23,7 @@ import { CountsComponent } from './pages/management/counts/counts.component';
 import { LessonListComponent } from './pages/management/lesson-text/lesson-list/lesson-list.component';
 import { CreateLessonTextComponent } from './pages/management/lesson-text/create-lesson-text/create-lesson-text.component';
 import { ResultListComponent } from './pages/management/result-list/result-list.component';
+import { TesterComponent } from './pages/management/trackings/tester/tester.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -67,7 +68,7 @@ const routes: Routes = [
   { path: 'management/lessons/create', component: CreateLessonTextComponent },
   { path: 'management/lessons/:id/edit', component: CreateLessonTextComponent },
   { path: 'management/result-management', component: ResultListComponent },
-
+  { path: 'management/tester', component: TesterComponent}
 ];
 
 @NgModule({

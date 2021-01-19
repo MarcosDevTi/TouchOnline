@@ -85,6 +85,10 @@ export class TrackingService {
     });
   }
 
+  tester() {
+    return this.http.get(this.baseUrl + 'Tester').subscribe(_ => _);
+  }
+
   private handleError(error: any): Observable<any> {
     return throwError(error);
   }

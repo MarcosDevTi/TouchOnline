@@ -60,5 +60,12 @@ namespace TouchOnline.Api.Controllers
             return Ok(result);
 
         }
+
+        [HttpGet]
+        public IActionResult Tester()
+        {
+            return Ok();
+
+        }
     }
 }

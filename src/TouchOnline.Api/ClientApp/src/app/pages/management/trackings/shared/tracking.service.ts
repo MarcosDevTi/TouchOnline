@@ -35,4 +35,9 @@ export class TrackingService {
     const url = this.apiTracking + 'getVisitors?day="' + date + '"';
     return this.http.get<any[]>(url);
   }
+
+  getTester(): Observable<any> {
+    const url = this.apiTracking + 'tester';
+    return this.http.get<any>(url);
+  }
 }
