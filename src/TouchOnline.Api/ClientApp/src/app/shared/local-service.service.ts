@@ -22,7 +22,6 @@ export class LocalServiceService {
     
     this.applicationService.getKeyboardWithLanguageCode(navigator.language).subscribe(_ =>{
       if(_){
-        console.log('_', _)
           localStorage.clear();
           localStorage.setItem('bkId', _.id);
           localStorage.setItem('version', 'v3');
@@ -64,7 +63,6 @@ export class LocalServiceService {
         }
       })
     } else {
-      console.log('beginnersCodes', localStorage.getItem('beginnersCodes'))
       this.beginnerLessonsService.buildLessonsBeginners(JSON.parse(localStorage.getItem('beginnersCodes')));
     }
   }
@@ -74,7 +72,6 @@ export class LocalServiceService {
       
     }
   }
-
 
   containsLocal(key: string): boolean {
     return !!localStorage.getItem(key);

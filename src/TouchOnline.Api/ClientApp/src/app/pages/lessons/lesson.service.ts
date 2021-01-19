@@ -102,12 +102,10 @@ export class LessonService {
   }
 
   private handleError(error: any): Observable<any> {
-    console.log('Request Error => ', error);
     return throwError(error);
   }
 
   gravarResultado(resultado: any): Observable<ResultDto> {
-    console.log('result for save', resultado);
     if (resultado.userId !== 'undefined' && resultado.userId !== null) {
       return this.http.post(this.baseUrl + '/SetResult', resultado).pipe(
         catchError(this.handleError),
@@ -194,7 +192,7 @@ export class LessonService {
 
     this.gravarResultado(result).subscribe(
       () => console.log('deu certo'),
-      error => console.log('deu merda')
+      error => console.log('deu erro', error)
     );
     return result;
   }

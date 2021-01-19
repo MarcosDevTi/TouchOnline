@@ -70,16 +70,18 @@ export class TrackingService {
       recTracking.ip = _.ip;
       this.saveResult(recTracking);
     });
-
     this.reinitializerVisitedPages();
   }
 
   saveResult(recordedTracking: RecordedTracking) {
-    console.log('obj sended to save', recordedTracking);
     this.http.post(this.baseUrl + 'SaveTracking', recordedTracking).pipe(
       catchError(this.handleError),
       map(_ => _)
-    ).subscribe(_ => console.log('saved', _));
+    ).subscribe(_ => {
+      if(_){
+        console.log('saved', '')
+      }
+    });
   }
 
   private handleError(error: any): Observable<any> {

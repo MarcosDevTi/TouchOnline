@@ -113,7 +113,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
 
   obtenirLessonLocal(idLesson) {
     let lessonsLocal = localStorage.getItem(`level_${this.levelQueryString}_language_${this.langQueryString}`);
-    console.log('lessonsLocal', lessonsLocal)
     this.textLocalLenght = 0;
     if (this.levelQueryString != '0') {
       const less = JSON.parse(lessonsLocal).filter(_ => _.idLesson == idLesson)[0]
@@ -145,7 +144,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
   }
 
   changeKeyboard(kbId) {
-    console.log(kbId);
     this.applicationService.getKeyboard(kbId).subscribe(_ => {
       if (_) {
         localStorage.setItem('bkId', kbId);

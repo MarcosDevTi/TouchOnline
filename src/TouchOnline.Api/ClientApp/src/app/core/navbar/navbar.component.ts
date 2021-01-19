@@ -47,10 +47,13 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
   }
 
   isAdminRefresh() {
-    this.authService.isAdmin(localStorage.getItem('userId')).subscribe(_ => {
-      this.isAdmin = _;
-      this.authService.isAdminStatic = _;
-    });
+    const userId = localStorage.getItem('userId');
+    if(userId){
+      this.authService.isAdmin(userId).subscribe(_ => {
+        this.isAdmin = _;
+        this.authService.isAdminStatic = _;
+      });
+    }
   }
 
   createLoginForm() {

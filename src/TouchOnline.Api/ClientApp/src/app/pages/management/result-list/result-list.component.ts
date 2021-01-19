@@ -12,7 +12,6 @@ export class ResultListComponent implements OnInit {
   constructor(private resultManagementService: ResultManagementService) { }
   results: ResultManagement[] = [];
   ngOnInit(): void {
-    console.log('kjksdjfsk')
     this.resultManagementService.getAllResults().subscribe(_ => this.results = _);
   }
 

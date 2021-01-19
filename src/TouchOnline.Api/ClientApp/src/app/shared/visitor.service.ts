@@ -15,7 +15,7 @@ getLocation() {
     return this.http.get(
       `http://ip-api.com/json/${res.ip}?fields=status,message,continent,continentCode,country,countryCode,region,` +
       'regionName,city,district,zip,lat,lon,timezone,isp,org,as,asname,reverse,mobile,proxy,hosting,query').subscribe((ress: any) => {
-        console.log(ress)
+        
     });
   });
 }

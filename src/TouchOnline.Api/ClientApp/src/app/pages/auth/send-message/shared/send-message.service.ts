@@ -12,7 +12,6 @@ export class SendMessageService {
   constructor(private http: HttpClient) { }
 
   sendMessage(message: MessageForSend): Observable<any> {
-    console.log('message in service http', message);
     return this.http.post(this.urlBase + 'SendMessage', message);
   }
 
