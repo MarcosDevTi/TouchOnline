@@ -30,11 +30,11 @@ export class LeftMenuComponent implements OnInit {
     }
   }
   
-   ngAfterViewInit() {
-    (window['adsbygoogle'] = window['adsbygoogle'] || []).push({
-                    overlays: {bottom: true}
-                });
-  }
+  //  ngAfterViewInit() {
+  //   (window['adsbygoogle'] = window['adsbygoogle'] || []).push({
+  //                   overlays: {bottom: true}
+  //               });
+  // }
 
   loggedIn() {
     return this.authService.loggedIn();

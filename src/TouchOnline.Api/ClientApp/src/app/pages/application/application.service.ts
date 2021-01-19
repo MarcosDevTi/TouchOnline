@@ -25,7 +25,7 @@ export class ApplicationService {
   }
 
   private handleError(error: any): Observable<any> {
-    console.log('Erro na reguisição => ', error);
+    console.log('Erro na requisição => ', error);
     return throwError(error);
   }
 
