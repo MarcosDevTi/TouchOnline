@@ -55,6 +55,7 @@ namespace TouchOnline.CqrsHandlers
                 KeyboardName = _.FirstOrDefault(_ => _.Keyborad != null)?.Keyborad?.Name,
                 LanguageBrowser = _.FirstOrDefault()?.LanguageBrowser,
                 LanguageSystem = _.FirstOrDefault()?.LanguageSystem,
+                UrlSite = _.LastOrDefault()?.UrlSite,
                 PagesCount = _.Count(),
                 ResultCount = _.Count(_ => _.VisitedPages.Contains("result")),
                 DateCreateUser = _.FirstOrDefault(e => e.User != null)?.User?.InscriptionDate,
@@ -94,7 +95,8 @@ namespace TouchOnline.CqrsHandlers
                 DateCreateUser = _?.LastOrDefault(e => e.User != null)?.User?.InscriptionDate,
                 FirstLessonDate = _.Select(_ => _.CreateDate).Min(),
                 LastLessonDate = _.Select(_ => _.CreateDate).Max(),
-                CountResultsForUser = GetTrackingsByUser(_.FirstOrDefault(e => e.User != null)?.User?.Id)
+                CountResultsForUser = GetTrackingsByUser(_.FirstOrDefault(e => e.User != null)?.User?.Id),
+                UrlSite = _.FirstOrDefault().UrlSite
             });
 
             return result;

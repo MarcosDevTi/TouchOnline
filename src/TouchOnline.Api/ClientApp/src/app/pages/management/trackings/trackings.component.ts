@@ -22,7 +22,7 @@ export class TrackingsComponent implements OnInit {
   visitorDay: VisitorDay;
   displayedColumns: string[] = 
   ['email', 'city', 'country', 'region', 'languageSystem', 'languageBrowser', 'keyboardName', 
-  'pagesCount', 'resultCount', 'dateCreateUser', 'firstLessonDate', 'lastLessonDate', 'countResultsForUser'];
+      'pagesCount', 'resultCount', 'dateCreateUser', 'firstLessonDate', 'lastLessonDate', 'countResultsForUser', 'urlSite'];
 
   constructor(
     private trackingService: TrackingService,
@@ -32,6 +32,7 @@ export class TrackingsComponent implements OnInit {
 
   ngOnInit() {
     this.trackingService.getTrackings(new Date()).subscribe(trackings => {
+      console.log('trackings', trackings);
       this.trackingItems = trackings
     } );
     this.trackingService.getCountsDay(new Date()).subscribe(visitorDay => {
