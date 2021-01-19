@@ -66,6 +66,7 @@ export class TrackingService {
     recTracking.languageSystem = lang;
     recTracking.languageBrowser = navigator.language;
     recTracking.keyboradId = keyboardId;
+    recTracking.urlSite = window.location.host;
     this.visitorService.getIp().subscribe(_ => {
       recTracking.ip = _.ip;
       this.saveResult(recTracking);

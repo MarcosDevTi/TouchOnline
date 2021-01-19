@@ -9,5 +9,6 @@ export class RecordedTracking {
     languageBrowser: string;
     userId: string;
     ip: string;
-    keyboradId: string;
+  keyboradId: string;
+  urlSite: string;
 }
