@@ -19,11 +19,11 @@ isAdmin: boolean;
     this.isAdminRefresh();
   }
   
-  // ngAfterViewInit() {
-  //   (window['adsbygoogle'] = window['adsbygoogle'] || []).push({
-  //                   overlays: {bottom: true}
-  //               });
-  // }
+  ngAfterViewInit() {
+    (window['adsbygoogle'] = window['adsbygoogle'] || []).push({
+                    overlays: {bottom: true}
+                });
+  }
 
   isAdminRefresh() {
     this.authService.isAdmin(localStorage.getItem('userId')).subscribe(_ => {
