@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {}
+    "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {}
   },
   "projects": {
-    "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
+    "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
+        "projectUniqueName": "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
         "projectName": "TouchOnline.CqrsClient",
-        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
+        "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\obj\\",
+        "outputPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\ministere\\packages-ministere": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
-                "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj"
+              "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
+                "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj"
               }
             }
           }
@@ -62,14 +63,14 @@
         }
       }
     },
-    "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
+    "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
+        "projectUniqueName": "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
         "projectName": "TouchOnline.Domain",
-        "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
+        "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\TouchOnline.Domain.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Domain\\obj\\",
+        "outputPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -80,6 +81,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\ministere\\packages-ministere": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

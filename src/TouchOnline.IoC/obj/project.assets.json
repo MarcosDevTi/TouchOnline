@@ -5521,11 +5521,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
+      "projectUniqueName": "C:\\dev\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
       "projectName": "TouchOnline.IoC",
-      "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
+      "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.IoC\\TouchOnline.IoC.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.IoC\\obj\\",
+      "outputPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.IoC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5536,20 +5536,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\ministere\\packages-ministere": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
+            "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj": {
+              "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsClient\\TouchOnline.CqrsClient.csproj"
             },
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj"
+            "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj": {
+              "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.CqrsHandlers\\TouchOnline.CqrsHandlers.csproj"
             },
-            "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
-              "projectPath": "C:\\projects\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
+            "C:\\dev\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj": {
+              "projectPath": "C:\\dev\\TouchOnline\\src\\TouchOnline.Data\\TouchOnline.Data.csproj"
             }
           }
         }

@@ -23,3 +23,12 @@ C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnli
 C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.dll
 C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
 C:\projects\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.csproj.CoreCompileInputs.cache
+C:\dev\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.deps.json
+C:\dev\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\dev\TouchOnline\src\TouchOnline.Domain\bin\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.csprojAssemblyReference.cache
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.AssemblyInfoInputs.cache
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.AssemblyInfo.cs
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.csproj.CoreCompileInputs.cache
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\dev\TouchOnline\src\TouchOnline.Domain\obj\Debug\netcoreapp3.1\TouchOnline.Domain.pdb

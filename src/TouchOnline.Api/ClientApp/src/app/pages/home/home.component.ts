@@ -24,13 +24,16 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/' + langLocal]);
     }
     else {
-      this.lang = this.translate.currentLang;
       this.route.params.subscribe(value => {
+        console.log(value['lang']);
         if (value['lang'] === undefined) {
-          const langBrowser = navigator.language.substring(0, 2);
-          this.router.navigate(['/' + langBrowser]);
+         // const langBrowser = navigator.language.substring(0, 2);
+          this.router.navigate(['/']);
+          this.translate.use('en');
+        } else {
+          this.translate.use(value['lang']);
         }
-        this.translate.use(value['lang'])
+        
       });
     }
 
