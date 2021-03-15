@@ -44,3 +44,15 @@ C:\dev\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnlin
 C:\dev\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CopyComplete
 C:\dev\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.dll
 C:\dev\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\bin\Debug\netcoreapp3.1\TouchOnline.CqrsClient.deps.json
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\bin\Debug\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\bin\Debug\netcoreapp3.1\TouchOnline.CqrsClient.pdb
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\bin\Debug\netcoreapp3.1\TouchOnline.Domain.dll
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\bin\Debug\netcoreapp3.1\TouchOnline.Domain.pdb
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csprojAssemblyReference.cache
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.AssemblyInfoInputs.cache
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.AssemblyInfo.cs
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CoreCompileInputs.cache
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.csproj.CopyComplete
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.dll
+C:\dev\EnqueteLivre\TouchOnline\src\TouchOnline.CqrsClient\obj\Debug\netcoreapp3.1\TouchOnline.CqrsClient.pdb
